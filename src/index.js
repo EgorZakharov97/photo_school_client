@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './styles';
+import './scripts';
+import IndexController from "./controllers/IndexController";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IndexController/>
   </React.StrictMode>,
   document.getElementById('root')
 );
