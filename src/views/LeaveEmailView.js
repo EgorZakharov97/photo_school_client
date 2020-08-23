@@ -71,11 +71,11 @@ class LeaveEmailView extends React.Component {
                 </div>
                 <div className="af-class-login-form">
                   <div className="w-form">
-                    <form>{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
-                    {map(proxies['success'], props => <div style={{display: 'block'}} {...{...props, className: `w-form-done ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                    <form method="get" data-name>{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
+                    {map(proxies['success'], props => <div {...{...props, className: `w-form-done ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <div>Thank you! Your submission has been received!</div>
                     </React.Fragment>}</div>)}
-                    {map(proxies['error'], props => <div style={{display: 'block'}} {...{...props, className: `w-form-fail ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                    {map(proxies['error'], props => <div {...{...props, className: `w-form-fail ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <div>Oops! Something went wrong while submitting the form.</div>
                     </React.Fragment>}</div>)}
                   </div>
