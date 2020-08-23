@@ -69,7 +69,7 @@ class LeaveEmailView extends React.Component {
                 </div>
                 <div className="af-class-login-form">
                   <div className="w-form">
-                    <form id="reset" name="wf-form-new-password" data-name="new-password" action="/auth/local/reset/###" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
+                    <form>{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
                     <div className="w-form-done">
                       <div>Thank you! Your submission has been received!</div>
                     </div>
