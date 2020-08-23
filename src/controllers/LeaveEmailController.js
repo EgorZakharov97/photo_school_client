@@ -13,8 +13,6 @@ export default class LeaveEmailForm extends React.Component {
     }
 
     render() {
-        console.log('Props for LeaveEmailController: ')
-        console.log(this.props)
         return (
             <LeaveEmailFormView>
                 <email onChange={this.setEmail} />

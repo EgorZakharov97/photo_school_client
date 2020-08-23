@@ -1,17 +1,20 @@
 import React from 'react';
 import IndexView from '../views/IndexView';
 import axios from 'axios';
-import CourseHomeConteroller from './CourseHomeController';
+import CourseHomeController from './CourseHomeController';
 
 export default class IndexController extends React.Component {
 
     constructor(props){
-        console.log('Props for IndexController: ')
-        console.log(props)
         super(props)
         this.state = {
             courses: []
         }
+    }
+
+    componentWilMount() {
+        axios.get('http://localhost:9000/courses')
+            .then(res => this.updateCourses(res.data))
     }
 
     componentDidMount() {
@@ -21,16 +24,15 @@ export default class IndexController extends React.Component {
         var doc = document.getElementsByTagName("html")[0]
         doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID)
         doc.setAttribute('data-wf-site', WEBFLOW_SITE_ID)
-
-        // axios.get('http://localhost:9000/courses')
-        //     .then(courses => this.updateCourses(courses))
     };
 
     render() {
         return (
             <IndexView>
-                <course-home><CourseHomeConteroller name="Test name"/></course-home>
-                <leave-email></leave-email>
+                {this.state.courses.map(course => {
+                    return <course-home><CourseHomeController {...course} /></course-home>
+                })}
+                <leave-email/>
             </IndexView>
         )
     }

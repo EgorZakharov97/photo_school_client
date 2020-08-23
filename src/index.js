@@ -19,7 +19,7 @@ Promise.all([
 ]).then(() => {
   ReactDOM.render(
     <React.StrictMode>
-    <IndexController test="test" />
+    <IndexController/>
   </React.StrictMode>,
   document.getElementById('root'));
 });

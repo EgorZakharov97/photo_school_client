@@ -3,8 +3,6 @@ import CourseHomeView from '../views/CourseHomeView';
 
 export default class CourseHomeController extends React.Component {
     render() {
-        console.log('Props for CourseHomeController: ')
-        console.log(this.props)
         return (
             <CourseHomeView>
                 <name>{this.props.name}</name>
