@@ -15,7 +15,8 @@ export default class IndexController extends React.Component {
     render() {
         return (
             <IndexView>
-                <CourseHomeController name="Text course" start-date="20 Sept" description="description" will-learn="Will learn" timeline="timeline" duration="1day" price="$30" deadline="21 Sept" places="4" />
+                {/* <CourseHomeController name="Text course" start-date="20 Sept" description="description" will-learn="Will learn" timeline="timeline" duration="1day" price="$30" deadline="21 Sept" places="4" /> */}
+                <leave-email />
             </IndexView>
         )
     }
