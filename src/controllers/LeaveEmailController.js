@@ -1,5 +1,6 @@
 import React from 'react';
 import LeaveEmailFormView from '../views/LeaveEmailView';
+import axios from 'axios';
 
 export default class LeaveEmailForm extends React.Component {
     render() {
@@ -18,7 +19,11 @@ export default class LeaveEmailForm extends React.Component {
     }
 
     submit = () => {
-        console.log("")
-        // fetch('http://localhost/leave-email')
+        let req = {
+            email: this.state.email
+        }
+        axios.post('http://localhost:9000/leave-email', req)
+            .then(res => console.log(res))
+            .catch(e => console.log(e))
     }
 }
