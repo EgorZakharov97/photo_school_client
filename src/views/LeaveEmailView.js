@@ -48,6 +48,8 @@ class LeaveEmailView extends React.Component {
     const proxies = Controller !== LeaveEmailView ? transformProxies(this.props.children) : {
       'email': [],
       'submit': [],
+      'success': [],
+      'error': [],
     }
 
     return (
@@ -70,12 +72,12 @@ class LeaveEmailView extends React.Component {
                 <div className="af-class-login-form">
                   <div className="w-form">
                     <form>{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
-                    <div className="w-form-done">
+                    {map(proxies['success'], props => <div style={{display: 'block'}} {...{...props, className: `w-form-done ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <div>Thank you! Your submission has been received!</div>
-                    </div>
-                    <div className="w-form-fail">
+                    </React.Fragment>}</div>)}
+                    {map(proxies['error'], props => <div style={{display: 'block'}} {...{...props, className: `w-form-fail ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <div>Oops! Something went wrong while submitting the form.</div>
-                    </div>
+                    </React.Fragment>}</div>)}
                   </div>
                 </div>
               </div>
