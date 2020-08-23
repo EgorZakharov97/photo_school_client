@@ -50,6 +50,7 @@ class IndexView extends React.Component {
   render() {
     const proxies = Controller !== IndexView ? transformProxies(this.props.children) : {
       'course-home': [],
+      'course-home': [],
       'leave-email': [],
     }
 
@@ -265,7 +266,7 @@ class IndexView extends React.Component {
               </div>
               <div className="af-class-container-7 w-container">
                 {map(proxies['course-home'], props => <div {...{...props, className: `af-class-dropdown-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                  <CourseHomeView.Controller />
+                  <CourseHomeView.Controller-af-sock-course-home />
                 </React.Fragment>}</div>)}
               </div>
             </div>
