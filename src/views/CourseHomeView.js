@@ -49,9 +49,6 @@ class CourseHomeView extends React.Component {
       'name': [],
       'start-date': [],
       'description': [],
-      'description': [],
-      'timeline': [],
-      'will-learn': [],
       'will-learn': [],
       'timeline': [],
       'duration': [],
@@ -77,7 +74,7 @@ class CourseHomeView extends React.Component {
             <div style={{height: '0PX', display: 'block'}} className="af-class-dropdown-content">
               <div className="af-class-cladd-desc-wrapper">
                 <div className="w-layout-grid af-class-grid_course_home">
-                  {map(proxies['description'], props => <div id="w-node-037fa139d58d-fbba94a3" {...{...props, className: `af-class-course-card ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  <div id="w-node-037fa139d58d-fbba94a3" className="af-class-course-card">
                     {map(proxies['description'], props => <div {...{...props, className: `af-class-rich-text-block-7 w-richtext ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <h2>What’s a Rich Text element?</h2>
                       <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
@@ -86,8 +83,8 @@ class CourseHomeView extends React.Component {
                       <h4>How to customize formatting for each rich text</h4>
                       <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
                     </React.Fragment>}</div>)}
-                  </React.Fragment>)}</div>)}
-                  {map(proxies['timeline'], props => <div id="w-node-037fa139d59b-fbba94a3" {...{...props, className: `af-class-course-card ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  </div>
+                  <div id="w-node-037fa139d59b-fbba94a3" className="af-class-course-card">
                     {map(proxies['will-learn'], props => <div {...{...props, className: `af-class-rich-text-block-7 w-richtext ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <h2>What’s a Rich Text element?</h2>
                       <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
@@ -101,17 +98,17 @@ class CourseHomeView extends React.Component {
                       <h4>How to customize formatting for each rich text</h4>
                       <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
                     </React.Fragment>}</div>)}
-                  </div-af-sock-timeline>
-                  <div-af-sock-will-learn id="w-node-037fa139d5b0-fbba94a3" className="af-class-course-card">
-                    <div-af-sock-timeline className="af-class-rich-text-block-7 w-richtext">
+                  </div>
+                  <div id="w-node-037fa139d5b0-fbba94a3" className="af-class-course-card">
+                    {map(proxies['timeline'], props => <div {...{...props, className: `af-class-rich-text-block-7 w-richtext ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <h2>What’s a Rich Text element?</h2>
                       <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
                       <h4>Static and dynamic content editing</h4>
                       <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
                       <h4>How to customize formatting for each rich text</h4>
                       <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                    </React.Fragment>)}</div>)}
-                  </div-af-sock-will-learn>
+                    </React.Fragment>}</div>)}
+                  </div>
                   <div id="w-node-9ac068139c83-fbba94a3" className="af-class-course-card af-class-dates">
                     <div className="af-class-dateblock">
                       <div className="af-class-date-phrase">Duration</div>
