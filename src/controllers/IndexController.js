@@ -28,7 +28,7 @@ export default class IndexController extends React.Component {
     render() {
         return (
             <IndexView>
-                <course-home name="name"><CourseHomeController name="test" /></course-home>
+                <course-home name="name"></course-home>
                 <leave-email/>
             </IndexView>
         )
