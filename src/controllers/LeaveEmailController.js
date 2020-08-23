@@ -3,11 +3,24 @@ import LeaveEmailFormView from '../views/LeaveEmailView';
 import axios from 'axios';
 
 export default class LeaveEmailForm extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            success: false,
+            failure: false
+        }
+    }
+
     render() {
+        console.log('Props for LeaveEmailController: ')
+        console.log(this.props)
         return (
             <LeaveEmailFormView>
                 <email onChange={this.setEmail} />
                 <submit onClick={this.submit} />
+                {this.state.success && <success />}
+                {this.state.failure && this.state.wasSent && <error />}
             </LeaveEmailFormView>
         )
     }
@@ -23,7 +36,15 @@ export default class LeaveEmailForm extends React.Component {
             email: this.state.email
         }
         axios.post('http://localhost:9000/leave-email', req)
-            .then(res => console.log(res))
-            .catch(e => console.log(e))
+            .then(res => this.success())
+            .catch(e => this.failure())
+    }
+
+    success() {
+        this.setState({success: true, failure: false})
+    }
+
+    failure() {
+        this.setState({success: false, failure: true})
     }
 }

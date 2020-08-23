@@ -2,16 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import './styles';
-import './scripts';
+import loadingScripts from './scripts'
+import loadingSyles from './styles'
 import IndexController from "./controllers/IndexController";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <IndexController/>
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <IndexController/>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+Promise.all([
+  loadingSyles,
+  loadingScripts,
+]).then(() => {
+  ReactDOM.render(
+    <React.StrictMode>
+    <IndexController test="test" />
   </React.StrictMode>,
-  document.getElementById('root')
-);
+  document.getElementById('root'));
+});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

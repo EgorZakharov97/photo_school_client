@@ -1,11 +1,17 @@
 import React from 'react';
 import IndexView from '../views/IndexView';
-import CourseHomeController from './CourseHomeController';
+import axios from 'axios';
+import CourseHomeConteroller from './CourseHomeController';
 
 export default class IndexController extends React.Component {
 
     constructor(props){
+        console.log('Props for IndexController: ')
+        console.log(props)
         super(props)
+        this.state = {
+            courses: []
+        }
     }
 
     componentDidMount() {
@@ -15,14 +21,21 @@ export default class IndexController extends React.Component {
         var doc = document.getElementsByTagName("html")[0]
         doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID)
         doc.setAttribute('data-wf-site', WEBFLOW_SITE_ID)
+
+        // axios.get('http://localhost:9000/courses')
+        //     .then(courses => this.updateCourses(courses))
     };
 
     render() {
         return (
             <IndexView>
-                {/* <CourseHomeController name="Text course" start-date="20 Sept" description="description" will-learn="Will learn" timeline="timeline" duration="1day" price="$30" deadline="21 Sept" places="4" /> */}
-                <leave-email {...this.props} />
+                <course-home><CourseHomeConteroller name="Test name"/></course-home>
+                <leave-email></leave-email>
             </IndexView>
         )
+    }
+
+    updateCourses(courses){
+        this.setState({courses: courses})
     }
 }
