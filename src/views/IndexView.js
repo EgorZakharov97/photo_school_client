@@ -264,9 +264,9 @@ class IndexView extends React.Component {
                 <h2 className="af-class-heading-on-black af-class-modified">Classes <span className="af-class-text-span-2">Calendar</span></h2>
               </div>
               <div className="af-class-container-7 w-container">
-                <div className="af-class-dropdown-wrapper">
-                  <CourseHomeView.Controller-af-sock-course-home />
-                </div>
+                {map(proxies['course-home'], props => <div {...{...props, className: `af-class-dropdown-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                  <CourseHomeView.Controller />
+                </React.Fragment>}</div>)}
               </div>
             </div>
             <div id="contact" className="af-class-section-ask">
