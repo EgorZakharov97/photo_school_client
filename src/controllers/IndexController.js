@@ -3,14 +3,21 @@ import IndexView from '../views/IndexView';
 import axios from 'axios';
 import CourseHomeController from './CourseHomeController';
 import shortid from 'shortid';
+import BuyFormController from './BuyFormController';
 
 export default class IndexController extends React.Component {
 
     constructor(props){
         super(props)
         this.state = {
-            courses: []
+            courses: [],
+            registerForm: {
+                show: false,
+                course: {}
+            }
         }
+        this.invokeForm = this.invokeForm.bind(this);
+        this.closeBuyForm = this.closeBuyForm.bind(this);
     }
 
     componentDidMount() {
@@ -28,13 +35,39 @@ export default class IndexController extends React.Component {
     render() {
         return (
             <IndexView>
-                <course-home name="name"></course-home>
+                {this.state.courses.map(course => {
+                    return (
+                        <course-home key={shortid.generate()}>
+                            <CourseHomeController invokeForm={this.invokeForm.bind(this)} key={shortid.generate()} {...course}/>
+                        </course-home>
+                    )
+                })}
                 <leave-email/>
+                {this.state.registerForm.show ? <BuyFormController closeForm={this.closeForm} /> : false}
             </IndexView>
         )
     }
 
     updateCourses(courses){
         this.setState({courses: courses})
+    }
+
+    invokeForm(course){
+        console.log(this.state)
+        this.setState(state => {
+            return state.registerForm = {
+                show: true,
+                course: course
+            }
+        })
+    }
+
+    closeBuyForm(){
+        this.setState(state => {
+            return state.registerForm = {
+                show: false,
+                course: {}
+            }
+        })
     }
 }
