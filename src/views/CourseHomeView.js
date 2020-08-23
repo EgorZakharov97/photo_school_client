@@ -46,6 +46,7 @@ class CourseHomeView extends React.Component {
 
   render() {
     const proxies = Controller !== CourseHomeView ? transformProxies(this.props.children) : {
+      'background': [],
       'name': [],
       'start-date': [],
       'description': [],
@@ -67,10 +68,10 @@ class CourseHomeView extends React.Component {
         ` }} />
         <span className="af-view">
           <div className="af-class-dropdown">
-            <div data-w-id="d2c59415-2b8b-dce1-55d6-037fa139d585" className="af-class-dropdown-trigger">
+            {map(proxies['background'], props => <div data-w-id="d2c59415-2b8b-dce1-55d6-037fa139d585" {...{...props, className: `af-class-dropdown-trigger ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
               {map(proxies['name'], props => <div {...{...props, className: `af-class-text-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course Name</React.Fragment>}</div>)}
               {map(proxies['start-date'], props => <div {...{...props, className: `af-class-date ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Aug 20</React.Fragment>}</div>)}
-            </div>
+            </React.Fragment>)}</div>)}
             <div style={{height: '0PX', display: 'block'}} className="af-class-dropdown-content">
               <div className="af-class-cladd-desc-wrapper">
                 <div className="w-layout-grid af-class-grid_course_home">
