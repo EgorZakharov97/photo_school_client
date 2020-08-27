@@ -7,7 +7,7 @@ const scripts = [
   },
   {
     type: 'code',
-    body: 'WebFont.load({google:{families:["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Changa One:400,400italic","Droid Sans:400,700","Droid Serif:400,400italic,700,700italic","Oswald:200,300,400,500,600,700","Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Vollkorn:400,400italic,700,700italic","Great Vibes:400"]}});',
+    body: 'WebFont.load({google:{families:["Varela:400","Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Changa One:400,400italic","Droid Sans:400,700","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Droid Serif:400,400italic,700,700italic","Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Oswald:200,300,400,500,600,700","Great Vibes:400"]}});',
   },
   {
     type: 'code',

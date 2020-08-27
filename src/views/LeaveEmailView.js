@@ -46,8 +46,6 @@ class LeaveEmailView extends React.Component {
 
   render() {
     const proxies = Controller !== LeaveEmailView ? transformProxies(this.props.children) : {
-      'email': [],
-      'submit': [],
       'success': [],
       'error': [],
     }
@@ -62,16 +60,16 @@ class LeaveEmailView extends React.Component {
         <span className="af-view">
           <div className="af-class-login-wrapper">
             <div data-w-id="fcd33254-ba14-2e3a-ab7c-a35cd106839d" className="af-class-close">X</div>
-            <div className="af-class-login-content">
-              <div className="af-class-login-body">
-                <div className="af-class-login-nav"><img src="images/Webp.net-resizeimage-8.png" width={100} alt className="af-class-image-2" /></div>
+            <div className="af-class-window-contetn">
+              <div className="af-class-window-body">
+                <div className="af-class-window-nav"><img src="images/Webp.net-resizeimage-8.png" width={100} alt className="af-class-image-2" /></div>
                 <div className="af-class-login-heading">
                   <h2 className="af-class-heading-9 af-class-we">Leave us an Email</h2>
                   <div className="af-class-text-block-18">We will let you know when we launch online courses</div>
                 </div>
                 <div className="af-class-login-form">
                   <div className="w-form">
-                    <form method="get" data-name>{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
+                    <form method="get" data-name id="email-form"><input type="email" className="af-class-login-input w-input" maxLength={256} name="email" data-name="email" placeholder="Email" id="email" required /><input type="submit" defaultValue="Submit" data-wait="Please wait..." desc="submit" className="af-class-login-submit w-button" /></form>
                     {map(proxies['success'], props => <div {...{...props, className: `w-form-done ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <div>Thank you! Your submission has been received!</div>
                     </React.Fragment>}</div>)}
