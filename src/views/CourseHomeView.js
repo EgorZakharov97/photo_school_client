@@ -67,7 +67,7 @@ class CourseHomeView extends React.Component {
         ` }} />
         <span className="af-view">
           <div id="course-home" className="af-class-dropdown">
-            <div desc="background" className="af-class-dropdown-trigger">
+            <div desc="background" data-w-id="0a377e56-3c15-37a3-eeef-812743f3e715" className="af-class-dropdown-trigger">
               {map(proxies['name'], props => <div {...{...props, className: `af-class-text-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course Name</React.Fragment>}</div>)}
               {map(proxies['start-date'], props => <div {...{...props, className: `af-class-date ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Aug 20</React.Fragment>}</div>)}
             </div>
