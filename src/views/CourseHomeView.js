@@ -46,8 +46,8 @@ class CourseHomeView extends React.Component {
 
   render() {
     const proxies = Controller !== CourseHomeView ? transformProxies(this.props.children) : {
-      'course-name': [],
-      'course-date': [],
+      'name': [],
+      'start-date': [],
       'description': [],
       'will-learn': [],
       'timeline': [],
@@ -68,8 +68,8 @@ class CourseHomeView extends React.Component {
         <span className="af-view">
           <div id="course-home" className="af-class-dropdown">
             <div desc="background" className="af-class-dropdown-trigger">
-              {map(proxies['course-name'], props => <div {...{...props, className: `af-class-text-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course Name</React.Fragment>}</div>)}
-              {map(proxies['course-date'], props => <div {...{...props, className: `af-class-date ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Aug 20</React.Fragment>}</div>)}
+              {map(proxies['name'], props => <div {...{...props, className: `af-class-text-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course Name</React.Fragment>}</div>)}
+              {map(proxies['start-date'], props => <div {...{...props, className: `af-class-date ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Aug 20</React.Fragment>}</div>)}
             </div>
             <div className="af-class-dropdown-content">
               <div className="af-class-cladd-desc-wrapper">
