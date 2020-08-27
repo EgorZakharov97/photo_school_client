@@ -3,7 +3,7 @@ import IndexView from '../views/IndexView';
 import axios from 'axios';
 import CourseHomeController from './CourseHomeController';
 import shortid from 'shortid';
-import BuyFormController from './BuyFormController';
+// import BuyFormController from './BuyFormController';
 
 export default class IndexController extends React.Component {
 

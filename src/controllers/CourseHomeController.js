@@ -1,6 +1,6 @@
 import React from 'react';
 import CourseHomeView from '../views/CourseHomeView';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 export default class CourseHomeController extends React.Component {
 
@@ -23,13 +23,14 @@ export default class CourseHomeController extends React.Component {
     }
 
     render() {
-        let style = {
-            backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(${this.state.course.image})`,
-            backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${this.state.course.image})`
-        }
         return (
             <CourseHomeView>
-                <background style={style}/>
+                <background style={
+                    {
+                        // backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(${this.state.course.image})`,
+                        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${this.state.course.image})`
+                    }
+                }/>
                 <name>{this.props.name}</name>
                 <start-date>{this.state.startDate}</start-date>
                 <description><div>{ReactHtmlParser(this.props.richText.description)}</div></description>
