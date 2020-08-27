@@ -42,7 +42,7 @@ export default class IndexController extends React.Component {
                         </course-home>
                     )
                 })}
-                <leave-email/>
+                {/* <leave-email/> */}
                 {/* {this.state.registerForm.show ? <BuyFormController closeForm={this.closeForm} /> : false} */}
             </IndexView>
         )

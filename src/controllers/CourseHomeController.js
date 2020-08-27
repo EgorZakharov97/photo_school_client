@@ -29,10 +29,9 @@ export default class CourseHomeController extends React.Component {
         }
         return (
             <CourseHomeView>
-                <background style={style}>
-                    <name>{this.props.name}</name>
-                    <start-date>{this.state.startDate}</start-date>
-                </background>
+                <background style={style}/>
+                <name>{this.props.name}</name>
+                <start-date>{this.state.startDate}</start-date>
                 <description><div>{ReactHtmlParser(this.props.richText.description)}</div></description>
                 <will-learn><div>{ReactHtmlParser(this.props.richText.willLearn)}</div></will-learn>
                 <timeline><div>{ReactHtmlParser(this.props.richText.timeline)}</div></timeline>
