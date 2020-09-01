@@ -48,7 +48,6 @@ class AdminView extends React.Component {
 
   render() {
     const proxies = Controller !== AdminView ? transformProxies(this.props.children) : {
-      'workshops': [],
       'admin-workshops': [],
     }
 
@@ -112,7 +111,7 @@ class AdminView extends React.Component {
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
                     <div data-w-tab="Workshops" className="w-tab-pane w--tab-active">
-                      {map(proxies['workshops'], props => <div {...{...props, className: `af-class-tab-wrapper ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                      <div className="af-class-tab-wrapper">
                         <h3 className="af-class-section-heading af-class-left"><span className="af-class-text-span-10">Work</span>shops</h3>
                         {map(proxies['admin-workshops'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                           <AdminWorkshopsView.Controller />
@@ -123,7 +122,7 @@ class AdminView extends React.Component {
                             <div>Oops! Something went wrong while submitting the form.</div>
                           </div>
                         </React.Fragment>}</div>)}
-                      </React.Fragment>)}</div>)}
+                      </div>
                     </div>
                     <div data-w-tab="New Course" className="af-class-tab-pane-courses w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">New </span>course</h3>
