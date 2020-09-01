@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import * as serviceWorker from './serviceWorker'
 import loadingScripts from './scripts'
 import loadingSyles from './styles'
-import Workshops from "./controllers/Workshops.comtroller";
+
+// import WorkshopsController from "./controllers/WorkshopsController"
+import AdminController from "./controllers/AdminController"
+
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -18,7 +21,7 @@ Promise.all([
   loadingScripts,
 ]).then(() => {
   ReactDOM.render(
-    <Workshops/>,
+    <AdminController/>,
   document.getElementById('root'));
 });
 
