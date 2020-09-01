@@ -1,12 +1,12 @@
 import React from 'react';
-import AdminWorkshopFormView from '../views/Work';
+import AdminWorkshopView from '../views/AdminWorkshopsView';
 
-export default class AdminWorkshop extends React.Component {
+export default class AdminWorkshopsController extends React.Component {
 
 
     render() {
         return (
-            <AdminWorkshopFormView>
+            <AdminWorkshopView>
                 <selector></selector>
                 <name></name>
                 <starts></starts>
@@ -19,7 +19,7 @@ export default class AdminWorkshop extends React.Component {
                 <description></description>
                 <timeline></timeline>
                 <willLearn></willLearn>
-            </AdminWorkshopFormView>
+            </AdminWorkshopView>
         )
     }
 }

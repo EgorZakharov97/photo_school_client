@@ -1,6 +1,6 @@
 import React from 'react'
 import AdminView from '../views/AdminView'
-import AdminWorkshop from './AdminWorkshopFormController'
+import AdminWorkshopsController from './AdminWorkshopsController'
 
 export default class AdminController extends React.Component {
 
@@ -17,7 +17,7 @@ export default class AdminController extends React.Component {
     render() {
         return(
             <AdminView>
-                <workshops><AdminWorkshop/></workshops>
+                <adminWorkshops><AdminWorkshopsController/></adminWorkshops>
             </AdminView>
         )
     }
