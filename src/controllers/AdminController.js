@@ -1,7 +1,6 @@
 import React from 'react'
 import AdminView from '../views/AdminView'
 import AdminWorkshopsController from './AdminWorkshopsController'
-import postscribe from 'postscribe'
 
 export default class AdminController extends React.Component {
 

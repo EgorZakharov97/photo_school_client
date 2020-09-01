@@ -68,11 +68,6 @@ class AdminWorkshopsView extends React.Component {
           @import url(/css/normalize.css);
           @import url(/css/webflow.css);
           @import url(/css/photolite-academy.webflow.css);
-
-
-          	.ql-editor {
-            	min-height: 300px;
-            }
         ` }} />
         <span className="af-view">
           <form id="wf-form-courseForm" name="wf-form-courseForm" data-name="courseForm" method="post" className="af-class-form-5"><label htmlFor="workshopName">Select workshop</label>{map(proxies['selector'], props => <select id="workshopName" name="workshopName" data-name="workshopName" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name">Workshop Name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="Name" placeholder="Workshop Name" id="name" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="starts">Date the workshop starts</label>

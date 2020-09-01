@@ -60,28 +60,30 @@ export default class AdminWorkshopsController extends React.Component {
     }
 
     setDescription(val) {
+        console.log(val)
         this.setState(state => {
             state.workshop.description = val;
         })
     }
 
     setTimeline(val) {
+        console.log(val)
         this.setState(state => {
             state.workshop.Timeline = val;
         })
     }
 
     setWillLearn(val) {
+        console.log(val)
         this.setState(state => {
             state.workshop.willLearn = val;
         })
     }
 
-    submitForm(e){
-        e.preventDefault();
+    submitForm(){
         fetch('/api/v1/admin/workshop', {
             method: 'post',
-            body: JSON.stringify(this.state)
+            body: JSON.stringify(this.state.workshop)
         })
         .then(res => {
             return res.json()
@@ -124,7 +126,7 @@ export default class AdminWorkshopsController extends React.Component {
     setName(e) {
         let name = e.target.value
         this.setState(state => {
-            state.workshop.duration = name
+            state.workshop.name = name
         })
     }
 
