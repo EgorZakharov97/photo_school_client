@@ -46,7 +46,13 @@ class WorkshopView extends React.Component {
 
   render() {
     const proxies = Controller !== WorkshopView ? transformProxies(this.props.children) : {
-
+      'name': [],
+      'starts': [],
+      'duration': [],
+      'price': [],
+      'discount': [],
+      'deadline': [],
+      'places': [],
     }
 
     return (
@@ -59,8 +65,8 @@ class WorkshopView extends React.Component {
         <span className="af-view">
           <div id="course-home" className="af-class-dropdown">
             <div className="af-class-dropdown-trigger">
-              <div className="af-class-text-block">Course Name</div>
-              <div className="af-class-date">Aug 20</div>
+              {map(proxies['name'], props => <div {...{...props, className: `af-class-text-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course Name</React.Fragment>}</div>)}
+              {map(proxies['starts'], props => <div {...{...props, className: `af-class-date ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Aug 20</React.Fragment>}</div>)}
             </div>
             <div className="af-class-dropdown-content">
               <div className="af-class-cladd-desc-wrapper">
@@ -103,23 +109,23 @@ class WorkshopView extends React.Component {
                   <div id="w-node-85e00b1796c3-067bab8e" className="af-class-course-card af-class-dates">
                     <div className="af-class-dateblock">
                       <div className="af-class-date-phrase">Duration</div>
-                      <div className="af-class-date-duration af-class-red">NAN</div>
+                      {map(proxies['duration'], props => <div {...{...props, className: `af-class-date-duration af-class-red ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>NAN</React.Fragment>}</div>)}
                     </div>
                     <div className="af-class-dateblock">
                       <div className="af-class-date-phrase">Price</div>
-                      <div className="af-class-date-duration af-class-red">NAN</div>
+                      {map(proxies['price'], props => <div {...{...props, className: `af-class-date-duration af-class-red ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>NAN</React.Fragment>}</div>)}
                     </div>
                     <div className="af-class-dateblock">
                       <div className="af-class-date-phrase">Discount</div>
-                      <div className="af-class-date-duration af-class-red">NAN</div>
+                      {map(proxies['discount'], props => <div {...{...props, className: `af-class-date-duration af-class-red ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>NAN</React.Fragment>}</div>)}
                     </div>
                     <div className="af-class-dateblock">
                       <div className="af-class-date-phrase">Registration deadline</div>
-                      <div className="af-class-date-duration">NAN</div>
+                      {map(proxies['deadline'], props => <div {...{...props, className: `af-class-date-duration ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>NAN</React.Fragment>}</div>)}
                     </div>
                     <div className="af-class-dateblock">
                       <div className="af-class-date-phrase">Places left</div>
-                      <div className="af-class-date-duration">NAN</div>
+                      {map(proxies['places'], props => <div {...{...props, className: `af-class-date-duration ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>NAN</React.Fragment>}</div>)}
                     </div>
                   </div><a desc="register" id="w-node-85e00b1796d8-067bab8e" href="#" className="af-class-cors-register-now-2 af-class-courses">Register now</a></div>
               </div>
