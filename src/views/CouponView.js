@@ -62,11 +62,6 @@ class CouponView extends React.Component {
           @import url(/css/normalize.css);
           @import url(/css/webflow.css);
           @import url(/css/photolite-academy.webflow.css);
-
-
-          	.ql-editor {
-            	min-height: 300px;
-            }
         ` }} />
         <span className="af-view">
           <div id="coupon" className="af-class-coupon">

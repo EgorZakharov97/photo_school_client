@@ -64,11 +64,6 @@ class AdminCouponsView extends React.Component {
           @import url(/css/normalize.css);
           @import url(/css/webflow.css);
           @import url(/css/photolite-academy.webflow.css);
-
-
-          	.ql-editor {
-            	min-height: 300px;
-            }
         ` }} />
         <span className="af-view">
           <form id="email-form-3" name="email-form-3" data-name="Email Form 3"><label htmlFor="name-6">Name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder id="name-6" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="discount">Discpont Percentage</label>{map(proxies['discount'], props => <input type="number" maxLength={256} name="discount" data-name="discount" placeholder id="discount" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="code">Code</label>{map(proxies['code'], props => <input type="text" maxLength={256} name="code" data-name="code" placeholder id="code" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="product">Product</label>{map(proxies['product'], props => <select id="product" name="product" data-name="product" required {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value>Select one...</option><option value="workshop">Workshops</option><option value="course">Courses</option></React.Fragment>}</select>)}<label className="w-checkbox">{map(proxies['ifexpires'], props => <input type="checkbox" id="shouldExpire" name="shouldExpire" data-name="shouldExpire" data-w-id="f4baec93-a8cf-c68d-339e-1efeaa7dd39d" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="shouldExpire" className="af-class-checkbox-label w-form-label">Expires?</span></label>

@@ -13,10 +13,6 @@ const styles = [
     type: 'href',
     body: '/css/photolite-academy.webflow.css',
   },
-  {
-    type: 'sheet',
-    body: '.af-view .af-class-ql-editor{min-height:300px}',
-  },
 ]
 
 const loadingStyles = styles.map((style) => {

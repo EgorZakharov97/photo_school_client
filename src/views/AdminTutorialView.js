@@ -60,11 +60,6 @@ class AdminTutorialView extends React.Component {
           @import url(/css/normalize.css);
           @import url(/css/webflow.css);
           @import url(/css/photolite-academy.webflow.css);
-
-
-          	.ql-editor {
-            	min-height: 300px;
-            }
         ` }} />
         <span className="af-view">
           <form id="email-form" name="email-form" data-name="Email Form"><label htmlFor="tutorial">Title</label>{map(proxies['selector'], props => <select id="tutorial" name="tutorial" data-name="tutorial" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="title-2">Title</label>{map(proxies['title'], props => <input type="text" maxLength={256} name="title" data-name="Title" placeholder="Title" id="title" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-2">Short description</label>{map(proxies['description'], props => <input type="text" maxLength={256} name="description-2" data-name="Description 2" placeholder="Description" id="description-2" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="link">Video Link</label>{map(proxies['link'], props => <input type="text" maxLength={256} name="link" data-name="link" placeholder="Link" id="link" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="embed-2">Choose Preview Image</label>
