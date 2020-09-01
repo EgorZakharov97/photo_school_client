@@ -55,6 +55,9 @@ class AdminWorkshopsView extends React.Component {
       'price': [],
       'seats': [],
       'file': [],
+      'desctiption': [],
+      'will-learn': [],
+      'timeline': [],
       'submit': [],
     }
 
@@ -71,9 +74,9 @@ class AdminWorkshopsView extends React.Component {
             {map(proxies['ends'], props => <div {...{...props, className: `af-class-html-embed-5 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="date" name="ends" placeholder="Date ends" required /></React.Fragment>}</div>)}<label htmlFor="registrationDeadline-3">Registration Deadline</label>
             {map(proxies['deadline'], props => <div {...{...props, className: `af-class-html-embed-4 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="date" name="deadline" placeholder="Registration deadline" required /></React.Fragment>}</div>)}<label htmlFor="duration">Duration</label>{map(proxies['duration'], props => <input type="number" maxLength={256} name="duration" data-name="duration" placeholder="Duration in hrs" id="duration" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="price-2">Price</label>{map(proxies['price'], props => <input type="text" maxLength={256} name="price" data-name="price" placeholder="Price" id="price-2" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label>Number of seats</label>{map(proxies['seats'], props => <input type="number" maxLength={256} name="numPlaces" data-name="Num Places" placeholder="Number of places" id="numPlaces" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label>Workshop preview image</label>
             {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="image" placeholder="Choose Image" /></React.Fragment>}</div>)}<label>Course Description</label>
-            <div id="wk-description" /><label>You will learn</label>
-            <div id="wk-will-learn" /><label>Course timeline</label>
-            <div id="wk-timeline" />{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
+            {map(proxies['desctiption'], props => <div id="wk-description" {...props}>{props.children}</div>)}<label>You will learn</label>
+            {map(proxies['will-learn'], props => <div id="wk-will-learn" {...props}>{props.children}</div>)}<label>Course timeline</label>
+            {map(proxies['timeline'], props => <div id="wk-timeline" {...props}>{props.children}</div>)}{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
         </span>
       </span>
     )
