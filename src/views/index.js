@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-export { default as FormBuyView } from './FormBuyView'
+export { default as WorkshopView } from './WorkshopView'
 export { default as WorkshopsView } from './WorkshopsView'
 
 /* eslint-enable */

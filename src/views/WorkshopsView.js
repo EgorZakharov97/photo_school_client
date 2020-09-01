@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import FormBuyView from './FormBuyView'
+import WorkshopView from './WorkshopView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -49,7 +49,7 @@ class WorkshopsView extends React.Component {
 
   render() {
     const proxies = Controller !== WorkshopsView ? transformProxies(this.props.children) : {
-
+      'workshop': [],
     }
 
     return (
@@ -136,76 +136,9 @@ class WorkshopsView extends React.Component {
                 <h2 className="af-class-heading-on-black">Classes <span className="af-class-text-span-2">Calendar</span></h2>
               </div>
               <div id="courses-container" className="af-class-container-7 w-container">
-                <div>
-                  <div id="course-home" className="af-class-dropdown">
-                    <div className="af-class-dropdown-trigger">
-                      <div className="af-class-text-block">Course Name</div>
-                      <div className="af-class-date">Aug 20</div>
-                    </div>
-                    <div className="af-class-dropdown-content">
-                      <div className="af-class-cladd-desc-wrapper">
-                        <div className="w-layout-grid af-class-grid_course_home">
-                          <div id="w-node-85e00b179692-067bab8e" className="af-class-course-card">
-                            <div className="af-class-rich-text-block-7 w-richtext">
-                              <h2>What’s a Rich Text element?</h2>
-                              <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
-                              <h4>Static and dynamic content editing</h4>
-                              <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
-                              <h4>How to customize formatting for each rich text</h4>
-                              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                            </div>
-                          </div>
-                          <div id="w-node-85e00b1796a0-067bab8e" className="af-class-course-card">
-                            <div className="af-class-rich-text-block-7 w-richtext">
-                              <h2>What’s a Rich Text element?</h2>
-                              <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
-                              <h4>Static and dynamic content editing</h4>
-                              <ul role="list">
-                                <li>A rich text element can be used with static or dynamic content.</li>
-                                <li>A rich text element can be used with static or dynamic content.</li>
-                                <li>A rich text element can be used with static or dynamic content.</li>
-                                <li>A rich text element can be used with static or dynamic content.</li>
-                              </ul>
-                              <h4>How to customize formatting for each rich text</h4>
-                              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                            </div>
-                          </div>
-                          <div id="w-node-85e00b1796b5-067bab8e" className="af-class-course-card">
-                            <div className="af-class-rich-text-block-7 w-richtext">
-                              <h2>What’s a Rich Text element?</h2>
-                              <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
-                              <h4>Static and dynamic content editing</h4>
-                              <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
-                              <h4>How to customize formatting for each rich text</h4>
-                              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                            </div>
-                          </div>
-                          <div id="w-node-85e00b1796c3-067bab8e" className="af-class-course-card af-class-dates">
-                            <div className="af-class-dateblock">
-                              <div className="af-class-date-phrase">Duration</div>
-                              <div className="af-class-date-duration af-class-red">NAN</div>
-                            </div>
-                            <div className="af-class-dateblock">
-                              <div className="af-class-date-phrase">Price</div>
-                              <div className="af-class-date-duration af-class-red">NAN</div>
-                            </div>
-                            <div className="af-class-dateblock">
-                              <div className="af-class-date-phrase">Discount</div>
-                              <div className="af-class-date-duration af-class-red">NAN</div>
-                            </div>
-                            <div className="af-class-dateblock">
-                              <div className="af-class-date-phrase">Registration deadline</div>
-                              <div className="af-class-date-duration">NAN</div>
-                            </div>
-                            <div className="af-class-dateblock">
-                              <div className="af-class-date-phrase">Places left</div>
-                              <div className="af-class-date-duration">NAN</div>
-                            </div>
-                          </div><a desc="register" id="w-node-85e00b1796d8-067bab8e" href="#" className="af-class-cors-register-now-2 af-class-courses">Register now</a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {map(proxies['workshop'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                  <WorkshopView.Controller />
+                </React.Fragment>}</div>)}
               </div>
             </div>
             <div id="courses" className="af-class-section-courses">
@@ -240,7 +173,44 @@ class WorkshopsView extends React.Component {
               </div>
             </div>
             <div id="section-buy" className="af-class-section-buy">
-              <FormBuyView.Controller />
+              <div className="af-class-payment-container w-container">
+                <div className="af-class-payment-block">
+                  <div className="af-class-close-btn">
+                    <div className="af-class-text-block-19">X</div>
+                  </div>
+                  <div className="af-class-course-buy-pic" />
+                  <div className="af-class-but-description">Wokshop + 1 month of portal access</div>
+                  <h1 className="af-class-buy-course-name">Workshop name</h1>
+                  <div className="af-class-but-description af-class-low">Aug 14</div>
+                  <div className="af-class-dateblock af-class-checkout">
+                    <div className="af-class-date-phrase">Final Price</div>
+                    <div desc="price" className="af-class-date-duration">$200</div>
+                  </div>
+                  <div className="af-class-buy-email">
+                    <div className="af-class-buy-hint">You are logged in as:</div>
+                    <div desc="email" className="af-class-buy-user-email">skymailsenter@gmail.com</div>
+                  </div>
+                  <div className="af-class-form-block-3 w-form">
+                    <form id="email-form" name="email-form" data-name="Email Form"><label htmlFor="name" className="af-class-field-label-6">Email</label><input type="text" className="w-input" maxLength={256} name="name" data-name="Name" placeholder id="name" /><label htmlFor="email" className="af-class-field-label-6">Password</label><input type="email" className="af-class-text-field-4 w-input" maxLength={256} name="email-2" data-name="Email 2" placeholder="Create new if not registered" id="email-2" required /></form>
+                    <div className="w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div className="w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                  </div>
+                  <div id="spn-success" className="w-form">
+                    <form id="email-form-2" name="email-form-2" data-name="Email Form 2" className="af-class-form-4"><label htmlFor="email" className="af-class-field-label-6">Coupon</label>
+                      <div className="af-class-div-block-17"><input type="text" className="af-class-text-field-5 w-input" maxLength={256} name="coupon" data-name="Coupon" desc="apply-cpn" required /><input type="submit" defaultValue="Apply" data-wait="Please wait..." desc="apply-cpn" className="af-class-submit-button-4 w-button" /></div>
+                    </form>
+                    <div className="w-form-done">
+                      <div>Your coupon has been applied</div>
+                    </div>
+                    <div className="w-form-fail">
+                      <div id="cpn-error">Sorry, this is not a valid coupon.</div>
+                    </div>
+                  </div><a href="#" className="af-class-buy-buy">Proceed to Checkout</a></div>
+              </div>
             </div>
             {/* [if lte IE 9]><![endif] */}
           </div>
