@@ -46,10 +46,10 @@ export default class AdminWorkshopsController extends React.Component {
                 <seats value={this.state.workshop.seats} onChange={this.setSeats.bind(this)} />
                 { this.state.displayFile && <file/> }
                 <description>
-                    <ReactQuill theme="snow" value={this.state.workshop.description} onChange={this.setDescription.bind(this)}/>
+                    {/* <ReactQuill theme="snow" value={this.state.workshop.description} onChange={this.setDescription.bind(this)}/> */}
                 </description>
                 <timeline>
-                    <ReactQuill theme="snow" value={this.state.workshop.timeline} onChange={this.setTimeline.bind(this)}/>
+                    {/* <ReactQuill theme="snow" value={this.state.workshop.timeline} onChange={this.setTimeline.bind(this)}/> */}
                 </timeline>
                 <will-learn>
                     <ReactQuill theme="snow" value={this.state.workshop.willLearn} onChange={this.setWillLearn.bind(this)}/>
@@ -61,9 +61,9 @@ export default class AdminWorkshopsController extends React.Component {
 
     setDescription(val) {
         console.log(val)
-        this.setState(state => {
-            state.workshop.description = val;
-        })
+        // this.setState(state => {
+        //     state.workshop.description = val;
+        // })
     }
 
     setTimeline(val) {
