@@ -73,6 +73,7 @@ class AdminWorkshopsView extends React.Component {
             <div id="wk-description" /><label>You will learn</label>
             <div id="wk-will-learn" /><label>Course timeline</label>
             <div id="wk-timeline" /><input type="submit" defaultValue="Create" data-wait="Please wait..." id="submit" desc="create" className="af-class-button af-class-red w-button" /></form>
+            <div id="script"></div> 
         </span>
       </span>
     )
