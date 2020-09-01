@@ -4851,6 +4851,18 @@
   background-repeat: no-repeat;
 }
 
+.af-view .af-class-html-embed-4 {
+  margin-bottom: 10px;
+}
+
+.af-view .af-class-html-embed-5 {
+  margin-bottom: 10px;
+}
+
+.af-view .af-class-html-embed-6 {
+  margin-bottom: 10px;
+}
+
 @media screen and (min-width: 1280px) {
   .af-view .af-class-section-welcome {
     min-height: 80vh;
