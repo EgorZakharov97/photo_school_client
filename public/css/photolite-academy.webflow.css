@@ -2677,6 +2677,8 @@
 }
 
 .af-view .af-class-tab-button {
+  position: relative;
+  z-index: 1;
   display: block;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -3503,6 +3505,7 @@
 }
 
 .af-view .af-class-nav-menu-2 {
+  z-index: 1;
   width: 100%;
 }
 
