@@ -3575,6 +3575,8 @@
 
 .af-view .af-class-subscription-welcome.af-class-nah {
   position: static;
+  padding-top: 10px;
+  background-color: #e4e4e4;
 }
 
 .af-view .af-class-wow-phrases {
@@ -3601,12 +3603,15 @@
 }
 
 .af-view .af-class-grid-8 {
-  margin-right: 20px;
-  margin-left: 20px;
-  grid-template-areas: "Community Exercise" "Workshops Workshops";
-  -ms-grid-columns: 1fr 1fr;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-bottom: 10px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-areas: "Weekly-Lessons Challenges" "Community Workshops";
+  -ms-grid-columns: 1fr 10px 1fr;
   grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: auto auto;
+  -ms-grid-rows: auto 10px auto;
   grid-template-rows: auto auto;
 }
 
@@ -3615,7 +3620,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 450px;
+  width: 100%;
   height: 450px;
   padding: 20px;
   -webkit-box-orient: vertical;
@@ -3631,6 +3636,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  background-color: #fff;
 }
 
 .af-view .af-class-text-span-32 {
@@ -3945,7 +3951,8 @@
 
 .af-view .af-class-sub-heading.af-class-small {
   padding-bottom: 40px;
-  font-size: 32px;
+  color: #fff;
+  font-size: 42px;
   line-height: 32px;
   text-align: left;
 }
@@ -4043,7 +4050,7 @@
 
 .af-view .af-class-section-work-studetns {
   display: block;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .af-view .af-class-grid-11 {
@@ -4864,6 +4871,34 @@
 
 .af-view .af-class-html-embed-6 {
   margin-bottom: 10px;
+}
+
+.af-view .af-class-div-block-38 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.af-view .af-class-text-block-24 {
+  margin-left: 20px;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.af-view .af-class-paragraph-4 {
+  padding-right: 40px;
+  color: #fff;
+  font-size: 18px;
 }
 
 @media screen and (min-width: 1280px) {
@@ -6323,7 +6358,7 @@
 }
 
 .af-view #w-node-59e5d36c871a-fbba94a3 {
-  -ms-grid-row: 1;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-row-align: center;
   align-self: center;
@@ -6334,14 +6369,32 @@
 
 .af-view #w-node-1a7a37f29d37-fbba94a3 {
   -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: Exercise;
+  -ms-grid-column: 3;
+  grid-area: Challenges;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -ms-grid-column-align: center;
+  justify-self: center;
+}
+
+.af-view #w-node-3aaf28746a2f-fbba94a3 {
+  -ms-grid-column: 1;
+  grid-column-start: 1;
+  -ms-grid-row: 1;
+  grid-row-start: 1;
+  -ms-grid-column-span: 1;
+  grid-column-end: 2;
+  -ms-grid-row-span: 1;
+  grid-row-end: 2;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -ms-grid-column-align: center;
+  justify-self: center;
 }
 
 .af-view #w-node-4ab3a8b17650-fbba94a3 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
   -ms-grid-column-align: center;
   justify-self: center;
   grid-area: Workshops;
@@ -6910,6 +6963,18 @@
   .af-view #w-node-1a7a37f29d37-fbba94a3 {
     -ms-grid-column-align: center;
     justify-self: center;
+  }
+  .af-view #w-node-3aaf28746a2f-fbba94a3 {
+    -ms-grid-column-align: center;
+    justify-self: center;
+    -ms-grid-column: 1;
+    grid-column-start: 1;
+    -ms-grid-row: 1;
+    grid-row-start: 1;
+    -ms-grid-column-span: 0;
+    grid-column-end: 1;
+    -ms-grid-row-span: 0;
+    grid-row-end: 1;
   }
   .af-view #w-node-12470eb5d3dc-b916cca1 {
     -ms-grid-row: 13;

@@ -3,11 +3,18 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import AdminWorkshopsView from './AdminWorkshopsView'
+import AdminTutorialView from './AdminTutorialView'
+import AdminMaterialView from './AdminMaterialView'
+import AdminPresetsView from './AdminPresetsView'
+import AdminCouponsView from './AdminCouponsView'
+import CouponsContainerView from './CouponsContainerView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
   fetch("js/webflow.js").then(body => body.text()),
-  Promise.resolve("$(\".tab-button\").click(function(t){t.preventDefault(),$(\".tab-button\").removeClass(\"tab-button-active\"),$(\".w-tab-link:contains(\"+t.target.innerText+\")\").click(),$(t.target).addClass(\"tab-button-active\")}),$(\".af-class-tab-button\").click(function(t){t.preventDefault(),$(\".tab-button\").removeClass(\"tab-button-active\"),$(\".w-tab-link:contains(\"+t.target.innerText+\")\").click(),$(t.target).addClass(\"tab-button-active\")});"),
+  Promise.resolve("$(\".tab-button\").click(function(t){t.preventDefault(),$(\".tab-button\").removeClass(\"tab-button-active\"),$(\".w-tab-link:contains(\"+t.target.innerText+\")\").click(),$(t.target).addClass(\"tab-button-active\")}),$(\".af-class-tab-button\").click(function(t){t.preventDefault(),$(\".af-class-tab-button\").removeClass(\"af-class-tab-button-active\"),$(\".w-tab-link:contains(\"+t.target.innerText+\")\").click(),$(t.target).addClass(\"af-class-tab-button-active\")});"),
+  fetch("https://cdn.quilljs.com/1.3.6/quill.js").then(body => body.text()),
+  Promise.resolve("var description=new Quill(\"#wk-description\",{theme:\"snow\"}),willLearn=new Quill(\"#wk-willLearn\",{theme:\"snow\"}),timeline=new Quill(\"#wk-timeline\",{theme:\"snow\"});"),
 ]
 
 let Controller
@@ -50,6 +57,11 @@ class AdminView extends React.Component {
   render() {
     const proxies = Controller !== AdminView ? transformProxies(this.props.children) : {
       'admin-workshops': [],
+      'admin-tutorial': [],
+      'admin-material': [],
+      'admin-presets': [],
+      'admin-coupons': [],
+      'coupons-container': [],
     }
 
     return (
@@ -58,6 +70,11 @@ class AdminView extends React.Component {
           @import url(/css/normalize.css);
           @import url(/css/webflow.css);
           @import url(/css/photolite-academy.webflow.css);
+
+
+          	.ql-editor {
+            	min-height: 300px;
+            }
         ` }} />
         <span className="af-view">
           <div>
@@ -80,7 +97,7 @@ class AdminView extends React.Component {
                   </div>
                   <nav role="navigation" className="af-class-nav-menu-2 w-nav-menu">
                     <h1 className="af-class-member-name-heading">Egor Zakharov</h1>
-                    <div className="af-class-portal-tab-links"><a href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a href="#" className="af-class-tab-button w-button">New Tutorial</a><a href="#" className="af-class-tab-button w-button">New Course</a><a href="#" className="af-class-tab-button w-button">New Material</a><a href="#" className="af-class-tab-button w-button">New Preset</a><a href="#" className="af-class-tab-button w-button">New Challenge</a><a href="#" className="af-class-tab-button w-button">Coupons</a><a href="#" className="af-class-tab-button w-button">Emails</a></div>
+                    <div className="af-class-portal-tab-links"><a href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a href="#" className="af-class-tab-button w-button">Tutorials</a><a href="#" className="af-class-tab-button w-button">Courses</a><a href="#" className="af-class-tab-button w-button">Materials</a><a href="#" className="af-class-tab-button w-button">Presets</a><a href="#" className="af-class-tab-button w-button">Challenges</a><a href="#" className="af-class-tab-button w-button">Coupons</a><a href="#" className="af-class-tab-button w-button">Emails</a></div>
                   </nav>
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
@@ -88,20 +105,20 @@ class AdminView extends React.Component {
                     <a data-w-tab="Workshops" className="w-inline-block w-tab-link w--current">
                       <div>Workshops</div>
                     </a>
-                    <a data-w-tab="New Course" className="w-inline-block w-tab-link">
-                      <div>New Course</div>
+                    <a data-w-tab="Courses" className="w-inline-block w-tab-link">
+                      <div>Courses</div>
                     </a>
-                    <a data-w-tab="New tutorial" className="w-inline-block w-tab-link">
-                      <div>New Tutorial</div>
+                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
+                      <div>Tutorials</div>
                     </a>
-                    <a data-w-tab="New Material" className="w-inline-block w-tab-link">
-                      <div>New Material</div>
+                    <a data-w-tab="Materials" className="w-inline-block w-tab-link">
+                      <div>Materials</div>
                     </a>
-                    <a data-w-tab="New Preset" className="w-inline-block w-tab-link">
-                      <div>New Preset</div>
+                    <a data-w-tab="Presets" className="w-inline-block w-tab-link">
+                      <div>Presets</div>
                     </a>
-                    <a data-w-tab="New Challenge" className="w-inline-block w-tab-link">
-                      <div>New Challenge</div>
+                    <a data-w-tab="Challenges" className="w-inline-block w-tab-link">
+                      <div>Challenges</div>
                     </a>
                     <a data-w-tab="Coupons" className="w-inline-block w-tab-link">
                       <div>Coupons</div>
@@ -125,8 +142,8 @@ class AdminView extends React.Component {
                         </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="New Course" className="af-class-tab-pane-courses w-tab-pane">
-                      <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">New </span>course</h3>
+                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
+                      <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Cou</span>rses</h3>
                       <div className="af-class-create-course-wrapper">
                         <div className="w-form">
                           <form id="email-form-2" name="email-form-2" data-name="Email Form 2" className="af-class-form-8"><label htmlFor="name-4">Name</label><input type="text" className="w-input" maxLength={256} name="name-4" data-name="Name 4" placeholder id="name-4" /><label htmlFor="email">Email Address</label><input type="email" className="w-input" maxLength={256} name="email" data-name="Email" placeholder id="email" required /><label className="w-checkbox"><input type="checkbox" id="public" name="public" data-name="public" className="w-checkbox-input" /><span htmlFor="public" className="w-form-label">Public</span></label><input type="submit" defaultValue="Create" data-wait="Please wait..." className="af-class-button af-class-red w-button" /></form>
@@ -139,70 +156,53 @@ class AdminView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="New tutorial" className="w-tab-pane">
+                    <div data-w-tab="Tutorials" className="w-tab-pane">
                       <div className="af-class-tab-wrapper">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">New </span>tutorial</h3>
-                        <div className="af-class-form-block-4 w-form">
-                          <form id="email-form" name="email-form" data-name="Email Form"><label htmlFor="title-2">Title</label><input type="text" className="w-input" maxLength={256} name="title" data-name="Title" placeholder="Title" id="title" /><label htmlFor="description-2">Short description</label><input type="text" className="w-input" maxLength={256} name="description-2" data-name="Description 2" placeholder="Description" id="description-2" required /><label htmlFor="embed">Video Embed</label><input type="text" className="w-input" maxLength={256} name="embed" data-name="Embed" placeholder="Embed" id="embed" required /><label htmlFor="embed-2">Choose Preview Image</label>
-                            <div className="af-class-html-embed-3 w-embed"><input type="file" name="video-preview" placeholder="Choose Image" /></div><label htmlFor="Category">Category</label><input type="text" className="af-class-text-field-6 w-input" maxLength={256} name="Category" data-name="Category" placeholder="Description" id="Category" required /><input type="submit" defaultValue="Create" data-wait="Please wait..." id="create-tutorial" className="af-class-button af-class-red w-button" /></form>
+                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Tuto</span>rials</h3>
+                        {map(proxies['admin-tutorial'], props => <div {...{...props, className: `af-class-form-block-4 w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                          <AdminTutorialView.Controller />
                           <div className="w-form-done">
                             <div>Thank you! Your submission has been received!</div>
                           </div>
                           <div className="w-form-fail">
                             <div>Oops! Something went wrong while submitting the form.</div>
                           </div>
-                        </div>
+                        </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="New Material" className="w-tab-pane">
+                    <div data-w-tab="Materials" className="w-tab-pane">
                       <div className="af-class-tab-wrapper">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-16">New </span>Material</h3>
+                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-16">Mat</span>erials</h3>
                         <div className="w-container">
-                          <div className="w-form">
-                            <form id="wf-form-material-form" name="wf-form-material-form" data-name="material form" className="af-class-form-6"><label htmlFor="name-2">Material Name</label><input type="text" className="w-input" maxLength={256} name="name-2" data-name="Name 2" placeholder="Material name" id="name-2" required />
-                              <div className="af-class-div-block-28">
-                                <div><label htmlFor="email">Material Picture</label>
-                                  <div className="af-class-html-embed-3 w-embed"><input type="file" name="video-preview" placeholder="Choose Image" /></div>
-                                </div>
-                                <div><label htmlFor="email-2">Material file</label>
-                                  <div className="af-class-html-embed-3 w-embed"><input type="file" name="video-preview" placeholder="Choose Image" /></div>
-                                </div>
-                              </div><input type="submit" defaultValue="Create" data-wait="Please wait..." id="create-material" className="af-class-button af-class-red w-button" /></form>
+                          {map(proxies['admin-material'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                            <AdminMaterialView.Controller />
                             <div className="w-form-done">
                               <div>Thank you! Your submission has been received!</div>
                             </div>
                             <div className="w-form-fail">
                               <div>Oops! Something went wrong while submitting the form.</div>
                             </div>
-                          </div>
+                          </React.Fragment>}</div>)}
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="New Preset" className="w-tab-pane">
+                    <div data-w-tab="Presets" className="w-tab-pane">
                       <div className="af-class-tab-wrapper">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">New </span>preset</h3>
-                        <div className="w-form">
-                          <form id="email-form" name="email-form" data-name="Email Form" className="af-class-form-7"><label htmlFor="name-3">File name</label><input type="text" className="w-input" maxLength={256} name="name-3" data-name="Name 3" placeholder="Name" id="name-3" /><label htmlFor="description-3">Short description</label><input type="text" className="w-input" maxLength={256} name="description-3" data-name="Description 3" placeholder="Description" id="description-3" required />
-                            <div className="af-class-div-block-28">
-                              <div><label htmlFor="embed-2">Select preset file</label>
-                                <div className="af-class-html-embed-3 w-embed"><input type="file" name="video-preview" placeholder="Choose Image" /></div>
-                              </div>
-                              <div><label htmlFor="description-4">Select feature image</label>
-                                <div className="af-class-html-embed-3 w-embed"><input type="file" name="video-preview" placeholder="Choose Image" /></div>
-                              </div>
-                            </div><input type="submit" defaultValue="Create" data-wait="Please wait..." id="create-preset" className="af-class-button af-class-red w-button" /></form>
+                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Pre</span>sets</h3>
+                        {map(proxies['admin-presets'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                          <AdminPresetsView.Controller />
                           <div className="w-form-done">
                             <div>Thank you! Your submission has been received!</div>
                           </div>
                           <div className="w-form-fail">
                             <div>Oops! Something went wrong while submitting the form.</div>
                           </div>
-                        </div>
+                        </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="New Challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane">
+                    <div data-w-tab="Challenges" className="af-class-tab-pane-weekly-challenge w-tab-pane">
                       <div className="af-class-div-block-27">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">New</span> Challenge</h3>
+                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Chal</span>lenges</h3>
                       </div>
                       <div className="af-class-current-challenge">
                         <div id="course-portal" className="af-class-dropdown">
@@ -212,45 +212,19 @@ class AdminView extends React.Component {
                     </div>
                     <div data-w-tab="Coupons" className="w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Cou</span>pons</h3>
-                      <div className="w-form">
-                        <h3>Geberate Coupon</h3>
-                        <form id="email-form-3" name="email-form-3" data-name="Email Form 3"><label htmlFor="name-6">Name</label><input type="text" className="w-input" maxLength={256} name="name" data-name="name" placeholder id="name-6" required /><label htmlFor="discount">Discpont Percentage</label><input type="number" className="w-input" maxLength={256} name="discount" data-name="discount" placeholder id="discount" required /><label htmlFor="code">Code</label><input type="text" className="w-input" maxLength={256} name="code" data-name="code" placeholder id="code" required /><label htmlFor="product">Product</label><select id="product" name="product" data-name="product" required className="w-select"><option value>Select one...</option><option value="workshop">Workshops</option><option value="course">Courses</option></select><label className="w-checkbox"><input type="checkbox" id="shouldExpire" name="shouldExpire" data-name="shouldExpire" data-w-id="f4baec93-a8cf-c68d-339e-1efeaa7dd39d" className="w-checkbox-input" /><span htmlFor="shouldExpire" className="af-class-checkbox-label w-form-label">Expires?</span></label>
-                          <div style={{display: 'none'}} className="af-class-div-block-29"><label htmlFor="code-2">Expiration Date</label>
-                            <div className="w-embed"><input type="date" name="expires" in="expires" /></div>
-                          </div><label htmlFor="code-2">Usage</label>
-                          <div><label className="w-radio"><input type="radio" data-name="usage" id="onetime-2" name="usage" defaultValue="onetime" className="w-form-formradioinput w-radio-input" /><span htmlFor="onetime-2" className="w-form-label">One time only</span></label><label className="w-radio"><input type="radio" data-name="usage" id="unlimited" name="usage" defaultValue="unlimited" className="w-form-formradioinput w-radio-input" /><span htmlFor="unlimited" className="w-form-label">Unlimited</span></label></div><input type="submit" defaultValue="Submit" data-wait="Please wait..." id="create-coupon" className="af-class-button af-class-red w-button" /></form>
+                      <h3>Geberate Coupon</h3>
+                      {map(proxies['admin-coupons'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                        <AdminCouponsView.Controller />
                         <div className="w-form-done">
                           <div>Thank you! Your submission has been received!</div>
                         </div>
                         <div className="w-form-fail">
                           <div>Oops! Something went wrong while submitting the form.</div>
                         </div>
-                      </div>
-                      <div id="coupon-container" className="af-class-all-coupons">
-                        <div id="coupon" className="af-class-coupon">
-                          <h3 desc="name" className="af-class-cpn-heading">Coupon name</h3>
-                          <h4 desc="code">CPNCODE12</h4>
-                          <div className="af-class-cpn-splitter">
-                            <div>Valid for:</div>
-                            <div desc="product">product</div>
-                          </div>
-                          <div className="af-class-cpn-splitter">
-                            <div>Usage: </div>
-                            <div desc="usage">Unlimited</div>
-                          </div>
-                          <div className="af-class-cpn-splitter">
-                            <div>Expires: </div>
-                            <div desc="expires">Date</div>
-                          </div>
-                          <div className="af-class-cpn-splitter">
-                            <div>Discount:</div>
-                            <div desc="discount">0%</div>
-                          </div>
-                          <div className="af-class-cpn-splitter">
-                            <div>Was used:</div>
-                            <div desc="was-used">n times</div>
-                          </div><a href="#" className="af-class-button af-class-red w-button">Delete</a></div>
-                      </div>
+                      </React.Fragment>}</div>)}
+                      {map(proxies['coupons-container'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                        <CouponsContainerView.Controller />
+                      </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Emails" className="w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">E</span>mails</h3>
