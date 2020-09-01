@@ -55,6 +55,7 @@ class AdminWorkshopsView extends React.Component {
       'price': [],
       'seats': [],
       'file': [],
+      'submit': [],
     }
 
     return (
@@ -72,7 +73,7 @@ class AdminWorkshopsView extends React.Component {
             {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="image" placeholder="Choose Image" /></React.Fragment>}</div>)}<label>Course Description</label>
             <div id="wk-description" /><label>You will learn</label>
             <div id="wk-will-learn" /><label>Course timeline</label>
-            <div id="wk-timeline" /><input type="submit" defaultValue="Create" data-wait="Please wait..." id="submit" desc="create" className="af-class-button af-class-red w-button" /></form>
+            <div id="wk-timeline" />{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
         </span>
       </span>
     )

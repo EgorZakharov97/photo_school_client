@@ -7,6 +7,7 @@ import AdminWorkshopsView from './AdminWorkshopsView'
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
   fetch("js/webflow.js").then(body => body.text()),
+  Promise.resolve("$(\".tab-button\").click(function(t){t.preventDefault(),$(\".tab-button\").removeClass(\"tab-button-active\"),$(\".w-tab-link:contains(\"+t.target.innerText+\")\").click(),$(t.target).addClass(\"tab-button-active\")}),$(\".af-class-tab-button\").click(function(t){t.preventDefault(),$(\".tab-button\").removeClass(\"tab-button-active\"),$(\".w-tab-link:contains(\"+t.target.innerText+\")\").click(),$(t.target).addClass(\"tab-button-active\")});"),
 ]
 
 let Controller
@@ -79,7 +80,7 @@ class AdminView extends React.Component {
                   </div>
                   <nav role="navigation" className="af-class-nav-menu-2 w-nav-menu">
                     <h1 className="af-class-member-name-heading">Egor Zakharov</h1>
-                    <div className="af-class-portal-tab-links"><a data-w-id="9734b49c-9113-df65-b92b-5f501b1dbdb8" href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a data-w-id="9734b49c-9113-df65-b92b-5f501b1dbdba" href="#" className="af-class-tab-button w-button">New Tutorial</a><a data-w-id="9734b49c-9113-df65-b92b-5f501b1dbdbc" href="#" className="af-class-tab-button w-button">New Course</a><a data-w-id="9734b49c-9113-df65-b92b-5f501b1dbdbe" href="#" className="af-class-tab-button w-button">New Material</a><a data-w-id="9734b49c-9113-df65-b92b-5f501b1dbdc0" href="#" className="af-class-tab-button w-button">New Preset</a><a data-w-id="9734b49c-9113-df65-b92b-5f501b1dbdc3" href="#" className="af-class-tab-button w-button">New Challenge</a><a data-w-id="751e89c3-3b26-cb22-22c4-026f801c1d24" href="#" className="af-class-tab-button w-button">Coupons</a><a data-w-id="bf184a31-46f8-f2de-4757-01e0f4e9e6c9" href="#" className="af-class-tab-button w-button">Emails</a></div>
+                    <div className="af-class-portal-tab-links"><a href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a href="#" className="af-class-tab-button w-button">New Tutorial</a><a href="#" className="af-class-tab-button w-button">New Course</a><a href="#" className="af-class-tab-button w-button">New Material</a><a href="#" className="af-class-tab-button w-button">New Preset</a><a href="#" className="af-class-tab-button w-button">New Challenge</a><a href="#" className="af-class-tab-button w-button">Coupons</a><a href="#" className="af-class-tab-button w-button">Emails</a></div>
                   </nav>
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
