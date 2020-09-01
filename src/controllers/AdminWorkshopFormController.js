@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminWorkshopFormView from '../views/AdminWorkshopFormView';
+import AdminWorkshopFormView from '../views/Work';
 
 export default class AdminWorkshop extends React.Component {
 
