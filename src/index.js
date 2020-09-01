@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import loadingScripts from './scripts'
 import loadingSyles from './styles'
-import IndexController from "./controllers/IndexController";
+import Workshops from "./controllers/Workshops.comtroller";
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -18,9 +18,7 @@ Promise.all([
   loadingScripts,
 ]).then(() => {
   ReactDOM.render(
-    <React.StrictMode>
-    <IndexController/>
-  </React.StrictMode>,
+    <Workshops/>,
   document.getElementById('root'));
 });
 
