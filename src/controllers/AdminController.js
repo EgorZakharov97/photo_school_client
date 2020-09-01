@@ -12,14 +12,14 @@ export default class AdminController extends React.Component {
         var doc = document.getElementsByTagName("html")[0]
         doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID)
         doc.setAttribute('data-wf-site', WEBFLOW_SITE_ID)
-
-        // postscribe('#script', '<script src="/public/js/Webflow.js"></script>')
       };
 
 
     render() {
         return(
-            <AdminView/>
+            <AdminView>
+                <admin-workshops><AdminWorkshopsController/></admin-workshops>
+            </AdminView>
         )
     }
 }
