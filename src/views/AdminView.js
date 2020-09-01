@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import AdminWorkshopFormView from './AdminWorkshopFormView'
+import WorkshopsView from './WorkshopsView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -111,10 +111,18 @@ class AdminView extends React.Component {
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
                     <div data-w-tab="Workshops" className="w-tab-pane w--tab-active">
-                      {map(proxies['workshops'], props => <div {...{...props, className: `af-class-tab-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                      <div className="af-class-tab-wrapper">
                         <h3 className="af-class-section-heading af-class-left"><span className="af-class-text-span-10">Work</span>shops</h3>
-                        <AdminWorkshopFormView.Controller />
-                      </React.Fragment>}</div>)}
+                        {map(proxies['workshops'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                          <WorkshopsView.Controller />
+                          <div className="w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                          </div>
+                          <div className="w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                          </div>
+                        </React.Fragment>}</div>)}
+                      </div>
                     </div>
                     <div data-w-tab="New Course" className="af-class-tab-pane-courses w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">New </span>course</h3>
