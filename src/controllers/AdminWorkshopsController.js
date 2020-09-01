@@ -7,7 +7,7 @@ export default class AdminWorkshopsController extends React.Component {
     render() {
         return (
             <AdminWorkshopView>
-                <selector></selector>
+                {/* <selector></selector>
                 <name></name>
                 <starts></starts>
                 <ends></ends>
@@ -18,7 +18,7 @@ export default class AdminWorkshopsController extends React.Component {
                 <file></file>
                 <description></description>
                 <timeline></timeline>
-                <willLearn></willLearn>
+                <willLearn></willLearn> */}
             </AdminWorkshopView>
         )
     }

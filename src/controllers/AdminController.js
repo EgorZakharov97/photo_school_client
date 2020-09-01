@@ -17,7 +17,7 @@ export default class AdminController extends React.Component {
     render() {
         return(
             <AdminView>
-                <adminWorkshops><AdminWorkshopsController/></adminWorkshops>
+                <admin-workshops><AdminWorkshopsController/></admin-workshops>
             </AdminView>
         )
     }
