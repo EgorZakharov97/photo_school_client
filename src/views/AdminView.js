@@ -3,6 +3,7 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import AdminWorkshopsView from './AdminWorkshopsView'
+import AssetsView from './AssetsView'
 import AdminTutorialView from './AdminTutorialView'
 import AdminMaterialView from './AdminMaterialView'
 import AdminPresetsView from './AdminPresetsView'
@@ -55,6 +56,13 @@ class AdminView extends React.Component {
   render() {
     const proxies = Controller !== AdminView ? transformProxies(this.props.children) : {
       'admin-workshops': [],
+      'selector': [],
+      'name': [],
+      'description': [],
+      'access': [],
+      'submit': [],
+      'message': [],
+      'assets': [],
       'admin-tutorial': [],
       'admin-material': [],
       'admin-presets': [],
@@ -139,7 +147,15 @@ class AdminView extends React.Component {
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Cou</span>rses</h3>
                       <div className="af-class-create-course-wrapper">
                         <div className="w-form">
-                          <form id="email-form-2" name="email-form-2" data-name="Email Form 2" className="af-class-form-8"><label htmlFor="name-4">Name</label><input type="text" className="w-input" maxLength={256} name="name-4" data-name="Name 4" placeholder id="name-4" /><label htmlFor="email">Email Address</label><input type="email" className="w-input" maxLength={256} name="email" data-name="Email" placeholder id="email" required /><label className="w-checkbox"><input type="checkbox" id="public" name="public" data-name="public" className="w-checkbox-input" /><span htmlFor="public" className="w-form-label">Public</span></label><input type="submit" defaultValue="Create" data-wait="Please wait..." className="af-class-button af-class-red w-button" /></form>
+                          <form id="email-form-2" name="email-form-2" data-name="Email Form 2" className="af-class-form-8"><label htmlFor="selecrot">Select Course</label>{map(proxies['selector'], props => <select id="selecrot" name="selecrot" data-name="selecrot" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-7">Course name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Course name" id="name-7" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-4">Email Address</label>{map(proxies['description'], props => <input type="text" maxLength={256} name="description" data-name="description" placeholder="Showr Description" id="description-4" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-5">Publish</label><label className="w-checkbox">{map(proxies['access'], props => <input type="checkbox" id="public" name="public" data-name="public" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="public" className="w-form-label">This course can be accessed by users</span></label>
+                            <div>Users how bought this course will stil have access</div>
+                            <div className="af-class-submission">{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}
+                              {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-24 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
+                            </div>
+                            {map(proxies['assets'], props => <div {...{...props, className: `af-class-assets ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                              <AssetsView.Controller />
+                            </React.Fragment>}</div>)}
+                          </form>
                           <div className="w-form-done">
                             <div>Thank you! Your submission has been received!</div>
                           </div>

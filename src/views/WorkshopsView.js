@@ -110,8 +110,8 @@ class WorkshopsView extends React.Component {
               <div className="w-container">
                 <div className="w-layout-grid af-class-grid-11">
                   <div id="w-node-0e71b916cca4-b916cca1">
-                    <h3 className="af-class-sub-heading af-class-small">Work of our students</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                    <h3 className="af-class-sub-heading af-class-small">Student's Work</h3>
+                    <p className="af-class-paragraph-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
                   </div>
                   <div id="w-node-12470eb5d3dc-b916cca1" className="af-class-div-block-30" />
                   <div id="w-node-3ba1944598e3-b916cca1" className="af-class-div-block-31" />
