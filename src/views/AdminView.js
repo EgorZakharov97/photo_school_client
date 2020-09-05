@@ -8,7 +8,7 @@ import AdminTutorialView from './AdminTutorialView'
 import AdminMaterialView from './AdminMaterialView'
 import AdminPresetsView from './AdminPresetsView'
 import CouponsFormView from './CouponsFormView'
-import CouponView from './CouponView'
+import CouponsContainerView from './CouponsContainerView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -67,8 +67,7 @@ class AdminView extends React.Component {
       'admin-material': [],
       'admin-presets': [],
       'admin-coupons': [],
-      'coupons-list': [],
-      'coupon': [],
+      'coupons-container': [],
     }
 
     return (
@@ -223,14 +222,12 @@ class AdminView extends React.Component {
                     <div data-w-tab="Coupons" className="w-tab-pane w--tab-active">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Cou</span>pons</h3>
                       <h3>Generate Coupon</h3>
-                      {map(proxies['admin-coupons'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                      {map(proxies['admin-coupons'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <CouponsFormView.Controller />
-                        {map(proxies['coupons-list'], props => <div id="coupon-container" {...{...props, className: `af-class-all-coupons ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                          {map(proxies['coupon'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
-                            <CouponView.Controller />
-                          </React.Fragment>}</div>)}
-                        </React.Fragment>)}</div>)}
-                      </React.Fragment>)}</div>)}
+                      </React.Fragment>}</div>)}
+                      {map(proxies['coupons-container'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                        <CouponsContainerView.Controller />
+                      </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Emails" className="w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">E</span>mails</h3>
