@@ -1,181 +1,116 @@
 import React from 'react'
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill'
+import axios from 'axios'
+import 'react-quill/dist/quill.snow.css'
 import AdminWorkshopView from '../views/AdminWorkshopsView'
+import AdminFormController from './AdminFormController'
+import {URL_GET_WORKSHOP_NAMES, URL_POST_WORKSHOP, URL_GET_WORKSHOP_DATA} from '../constants'
 
-export default class AdminWorkshopsController extends React.Component {
+export default class AdminWorkshopsController extends AdminFormController {
 
-    state = {
-        displayFile: true,
-        quill: false,
-        workshopList: [],
-        workshop: {}
+    constructor(props) {
+        super(props)
+        this.URL_GET_LIST = URL_GET_WORKSHOP_NAMES;
+        this.URL_POST_OBJECT = URL_POST_WORKSHOP;
+        this.URL_GET_OBJECT_DATA = URL_GET_WORKSHOP_DATA;
     }
 
-    componentDidMount(){
-        fetch('/api/v1/workshops/head')
-        .then(res => {
-            return res.json()
-        })
-        .then(data => {
-            if(data.success){
-                this.setState(state => {
-                    state.workshopList = data.data
-                })
-            } else {
-                console.log(data.error)
-            }
+    componentWillUnmount(){
+        this.props.saveState({
+            name: "workshop",
+            value: this.state.data
         })
     }
 
     render() {
         return (
             <AdminWorkshopView>
-                <selector onChange={this.selectorChange.bind(this)}>
+                <selector onChange={e => this.onSelectorChange(e)}>
                     <option value="new">New</option>
-                    { this.state.workshopList.map(workshop => {
-                        return <option value={workshop.name}>{workshop.name}</option>
+                    { this.state.itemList.map((workshop, i) => {
+                        return <option key={i} value={workshop.name}>{workshop.name}</option>
                     }) }
                 </selector>
-                <name value={this.state.workshop.name} onChange={this.setName.bind(this)}/>
-                <starts value={this.state.workshop.starts} onChange={this.setStarts.bind(this)}/>
-                <ends value={this.state.workshop.ends} onChange={this.setEnds.bind(this)} />
-                <deadline value={this.state.workshop.deadline} onChange={this.setDeadline.bind(this)} />
-                <duration value={this.state.workshop.duration} onChange={this.setDuration.bind(this)} />
-                <price value={this.state.workshop.price} onChange={this.setPrice.bind(this)} />
-                <seats value={this.state.workshop.seats} onChange={this.setSeats.bind(this)} />
-                { this.state.displayFile && <file/> }
+                <name value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
+                <starts value={this.state.data.starts  || ""} onChange={e => this.dateChangeHandler(e)}/>
+                <ends value={this.state.data.ends  || ""} onChange={e => this.dateChangeHandler(e)} />
+                <deadline value={this.state.data.deadline  || ""} onChange={e => this.dateChangeHandler(e)} />
+                <duration value={this.state.data.duration  || ""} onChange={e => this.changeHandler(e)} />
+                <price value={this.state.data.price  || ""} onChange={e => this.changeHandler(e)} />
+                <seats value={this.state.data.seats || ""} onChange={e => this.integerChangeHandler(e)} />
+                <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
                 <description>
-                    {/* <ReactQuill theme="snow" value={this.state.workshop.description} onChange={this.setDescription.bind(this)}/> */}
+                    <ReactQuill theme="snow" value={this.state.data.description || ""} onChange={this.setDescription.bind(this)}/>
                 </description>
                 <timeline>
-                    {/* <ReactQuill theme="snow" value={this.state.workshop.timeline} onChange={this.setTimeline.bind(this)}/> */}
+                    <ReactQuill theme="snow" value={this.state.data.timeline || ""} onChange={this.setTimeline.bind(this)}/>
                 </timeline>
                 <will-learn>
-                    <ReactQuill theme="snow" value={this.state.workshop.willLearn} onChange={this.setWillLearn.bind(this)}/>
+                    <ReactQuill theme="snow" value={this.state.data.willLearn || ""} onChange={this.setWillLearn.bind(this)}/>
                 </will-learn>
-                <submit value={this.state.workshopList.lenath > 0 ? "Update" : "Create"} onClick={this.submitForm.bind(this)}></submit>
+                {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
+                {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
             </AdminWorkshopView>
         )
     }
 
     setDescription(val) {
-        console.log(val)
-        // this.setState(state => {
-        //     state.workshop.description = val;
-        // })
+        this.setState(state => {
+            state.data.description = val;
+        })
     }
 
     setTimeline(val) {
-        console.log(val)
         this.setState(state => {
-            state.workshop.Timeline = val;
+            state.data.timeline = val;
         })
     }
 
     setWillLearn(val) {
-        console.log(val)
         this.setState(state => {
-            state.workshop.willLearn = val;
+            state.data.willLearn = val;
         })
     }
 
-    submitForm(){
-        fetch('/api/v1/admin/workshop', {
-            method: 'post',
-            body: JSON.stringify(this.state.workshop)
-        })
-        .then(res => {
-            return res.json()
-        })
-        .then(data => {
-            console.log(data)
-        })
-        console.log(this.state)
-    }
-
-    selectorChange(name) {
-        fetch('/api/v1/workshop/' + name)
-        .then(res => {
-            JSON.parse(res).then(data => {
-                if(data.success) this.setWorkshop(data.data)
-            })
-        })
-
-    }
-
-    setWorkshop(workshop) {
-        if(workshop === "new"){
+    onSelectorChange(e) {
+        if(e.target.value === 'new') {
             this.setState(state => {
-                state.workshop = {}
-                state.displayFile = true
+                state.data = {};
+                state.message = {};
+                return state;
             })
         } else {
-            this.setState(state => {
-                state.workshop.name = workshop.name;
-                state.workshop.starts = workshop.importantDates.courseStarts;
-                state.workshop.ends = workshop.importantDates.courseEnds
-                state.workshop.deadline = workshop.importantDates.registrationDeadline
-                state.workshop.duration = workshop.duration
-                state.workshop.price = workshop.pricing.finalPrice
-                state.workshop.seats = workshop.seats.total
+            const name = escape(e.target.value);
+            axios.get(this.URL_GET_OBJECT_DATA + name)
+            .then(res => {
+                const data = res.data;
+                if(data.success){
+                    this.setObject(data.body)
+                } else {
+                    this.setMessage(data.message, false)
+                }
             })
+            .catch(e => alert(e))
         }
     }
 
-    setName(e) {
-        let name = e.target.value
+    setObject(workshop) {
         this.setState(state => {
-            state.workshop.name = name
-        })
-    }
-
-    setStarts(e) {
-        let date = new Date(e.target.value)
-        this.setState(state => {
-            state.workshop.starts = date
-        })
-    }
-
-    setEnds(e) {
-        let date = new Date(e.target.value)
-        this.setState(state => {
-            state.workshop.ends = date
-        })
-    }
-
-    setDeadline(e) {
-        let date = new Date(e.target.value)
-        this.setState(state => {
-            state.workshop.deadline = date
-        })
-    }
-
-    setDuration(e) {
-        let duration = e.target.value
-        this.setState(state => {
-            state.workshop.duration = duration
-        })
-    }
-
-    setPrice(e) {
-        let price = e.target.value
-        this.setState(state => {
-            state.workshop.price = price
-        })
-    }
-
-    setSeats(e) {
-        let seats = e.target.value
-        this.setState(state => {
-            state.workshop.seats = seats
-        })
-    }
-
-    setFile(e) {
-        let file = e.target.value
-        this.setState(state => {
-            state.workshop.file = file
+            state.data._id = workshop._id
+            state.data.name = workshop.name
+            state.data.starts = new Date(workshop.importantDates.courseStarts).toISOString().substr(0, 10)
+            state.data.ends = new Date(workshop.importantDates.courseEnds).toISOString().substr(0, 10)
+            state.data.deadline = new Date(workshop.importantDates.registrationDeadline).toISOString().substr(0, 10)
+            state.data.duration = parseInt(workshop.duration)
+            state.data.price = workshop.pricing.finalPrice
+            state.data.seats = parseInt(workshop.seats.total)
+            state.data.description = workshop.richText.description
+            state.data.timeline = workshop.richText.timeline
+            state.data.willLearn = workshop.richText.willLearn
+            state.data.image = undefined
+            state.message = {}
+            state.files = []
+            return state
         })
     }
 }
