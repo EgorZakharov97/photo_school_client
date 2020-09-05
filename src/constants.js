@@ -9,5 +9,13 @@ export const URL_POST_TUTORIAL = '/api/v1/admin/tutorial';
 export const URL_GET_CATEGORY_NAMES = '/api/v1/tutorials/categories/head';
 
 export const URL_GET_MATERIAL_NAMES = '/api/v1/materials/head';
-export const URL_POST_MATERIAL = '/api/v1/material/'; // + material.name
-export const URL_GET_MATERIAL_DATA = '/api/v1/admin/material';
+export const URL_GET_MATERIAL_DATA = '/api/v1/material/'; // + material.name
+export const URL_POST_MATERIAL = '/api/v1/admin/material';
+
+export const URL_GET_PRESET_NAMES = '/api/v1/presets/head';
+export const URL_GET_PRESET_DATA = '/api/v1/preset/'; // + preset.name
+export const URL_POST_PRESET = '/api/v1/admin/preset';
+
+export const URL_GET_COUPONS = '/api/v1/admin/coupons';
+export const URL_POST_COUPON = '/api/v1/admin/coupon';
+export const URL_GET_COUPON_DATA = '/api/v1/admin/coupon/'; // + coupon.name

@@ -3,6 +3,8 @@ import AdminView from '../views/AdminView'
 import AdminWorkshopsController from './AdminWorkshopsController'
 import AdminTutorialsController from './AdminTutorialsController'
 import AdminMaterialsController from './AdminMaterialsController'
+import AdminPresetsController from './AdminPresetsController'
+import AdminCouponsController from './AdminCouponController'
 
 export default class AdminController extends React.Component {
 
@@ -38,6 +40,14 @@ export default class AdminController extends React.Component {
                 <admin-material>
                     <AdminMaterialsController/>
                 </admin-material>
+
+                <admin-presets>
+                    <AdminPresetsController/>
+                </admin-presets>
+
+                <admin-coupons>
+                    <AdminCouponsController/>
+                </admin-coupons>
             </AdminView>
         )
     }
