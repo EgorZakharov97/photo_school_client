@@ -81,7 +81,7 @@ class AdminView extends React.Component {
           <div>
             <div className="af-class-section-portal">
               <div className="af-class-portal-container">
-                <div data-collapse="medium" data-animation="over-left" data-duration={400} role="banner" className="af-class-portal-nav w-nav">
+                <div data-collapse="medium" data-animation="over-left" data-duration={400} role="banner" className="af-class-portal-nav af-class-admin w-nav">
                   <div>
                     <h2 className="af-class-heading-18">Admin <span className="af-class-text-span-42">Panel</span></h2>
                     <div className="af-class-window-nav">
@@ -109,10 +109,10 @@ class AdminView extends React.Component {
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
                       <div>Courses</div>
                     </a>
-                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
                       <div>Tutorials</div>
                     </a>
-                    <a data-w-tab="Materials" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Materials" className="w-inline-block w-tab-link w--current">
                       <div>Materials</div>
                     </a>
                     <a data-w-tab="Presets" className="w-inline-block w-tab-link">
@@ -165,7 +165,7 @@ class AdminView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Tutorials" className="w-tab-pane w--tab-active">
+                    <div data-w-tab="Tutorials" className="w-tab-pane">
                       <div className="af-class-tab-wrapper">
                         <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Tuto</span>rials</h3>
                         {map(proxies['admin-tutorial'], props => <div {...{...props, className: `af-class-form-block-4 w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
@@ -179,7 +179,7 @@ class AdminView extends React.Component {
                         </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="Materials" className="w-tab-pane">
+                    <div data-w-tab="Materials" className="w-tab-pane w--tab-active">
                       <div className="af-class-tab-wrapper">
                         <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-16">Mat</span>erials</h3>
                         <div className="w-container">

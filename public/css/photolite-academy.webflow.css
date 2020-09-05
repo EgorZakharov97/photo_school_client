@@ -2670,6 +2670,10 @@
   background-image: radial-gradient(circle farthest-corner at -300% -300%, #fadda6, transparent 82%), linear-gradient(180deg, #090600, #090600);
 }
 
+.af-view .af-class-portal-nav.af-class-admin {
+  padding-top: 20px;
+}
+
 .af-view .af-class-member-name-heading {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -4537,8 +4541,9 @@
 
 .af-view .af-class-heading-18 {
   margin-top: 0px;
+  padding-left: 20px;
   color: #e74c32;
-  text-align: center;
+  text-align: left;
 }
 
 .af-view .af-class-text-span-42 {
@@ -4568,6 +4573,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 10px;
   margin-bottom: 20px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
