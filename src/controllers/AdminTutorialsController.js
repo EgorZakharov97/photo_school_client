@@ -23,6 +23,9 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                     { this.state.itemList.map((tutorial, i) => {
                         return <option key={i} value={tutorial.name}>{tutorial.name}</option>
                     }) }
+                    <title/>
+                    <description/>
+                    
                 </selector>
             </AdminTutorialView>
         )
