@@ -53,7 +53,7 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                 </category>
                 {this.state.showNewCategory && <category-name onChange={e => this.changeHandler(e)}/>}
                 <link value={this.state.data.link || ""} onChange={e => this.changeHandler(e)} />
-                <subscription checked={this.state.data.subscription} checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
+                <accessBySubscription checked={this.state.data.subscription} checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
                 <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
                 {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
                 {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
