@@ -4,7 +4,7 @@ import AdminWorkshopsController from './AdminWorkshopsController'
 import AdminTutorialsController from './AdminTutorialsController'
 import AdminMaterialsController from './AdminMaterialsController'
 import AdminPresetsController from './AdminPresetsController'
-import AdminCouponsController from './AdminCouponController'
+import AdminCouponsController from './AdminCouponsController'
 
 export default class AdminController extends React.Component {
 

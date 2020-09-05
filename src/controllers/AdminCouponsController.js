@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import AdmiCouponsView from '../views/AdminCouponsView'
 import AdminFormController from './AdminFormController'
-import CouponsContainerView from '../views/CouponsContainerView'
 import CouponView from '../views/CouponView'
 import {URL_GET_COUPONS, URL_POST_COUPON, URL_GET_COUPON_DATA} from '../constants'
 
@@ -30,7 +29,6 @@ export default class AdminCouponController extends AdminFormController {
                 <message/> */}
 
                 <coupons-container>
-                    <CouponsContainerView>
                         <coupon>
                             <CouponView>
                                 <name/>
@@ -41,7 +39,6 @@ export default class AdminCouponController extends AdminFormController {
                                 <used/>
                             </CouponView>
                         </coupon>
-                    </CouponsContainerView>
                 </coupons-container>
             </AdmiCouponsView>
         )
