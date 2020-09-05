@@ -57,7 +57,7 @@ export default class AdminFormController extends React.Component {
             .then(res => {
                 const data = res.data;
                 if(data.success){
-                    this.setObject(data.data)
+                    this.setObject(data.body)
                 } else {
                     this.setMessage(data.message, false)
                 }
@@ -70,7 +70,7 @@ export default class AdminFormController extends React.Component {
         this.setState(state => {
             for(let key in dataObject){
                 let value = dataObject[key]
-                state.data.key = value
+                state.data[key] = value
             }
             return state
         })
