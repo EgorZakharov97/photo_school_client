@@ -7,7 +7,7 @@ import AssetsView from './AssetsView'
 import AdminTutorialView from './AdminTutorialView'
 import AdminMaterialView from './AdminMaterialView'
 import AdminPresetsView from './AdminPresetsView'
-import AdminCouponsView from './AdminCouponsView'
+import CouponsFormView from './CouponsFormView'
 import CouponView from './CouponView'
 
 const scripts = [
@@ -67,7 +67,7 @@ class AdminView extends React.Component {
       'admin-material': [],
       'admin-presets': [],
       'admin-coupons': [],
-      'coupons-container': [],
+      'coupons-list': [],
       'coupon': [],
     }
 
@@ -223,19 +223,13 @@ class AdminView extends React.Component {
                     <div data-w-tab="Coupons" className="w-tab-pane w--tab-active">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Cou</span>pons</h3>
                       <h3>Generate Coupon</h3>
-                      {map(proxies['admin-coupons'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                        <AdminCouponsView.Controller />
-                        <div className="w-form-done">
-                          <div>Thank you! Your submission has been received!</div>
-                        </div>
-                        <div className="w-form-fail">
-                          <div>Oops! Something went wrong while submitting the form.</div>
-                        </div>
-                      </React.Fragment>}</div>)}
-                      {map(proxies['coupons-container'], props => <div id="coupon-container" {...{...props, className: `af-class-all-coupons ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                        {map(proxies['coupon'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
-                          <CouponView.Controller />
-                        </React.Fragment>}</div>)}
+                      {map(proxies['admin-coupons'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                        <CouponsFormView.Controller />
+                        {map(proxies['coupons-list'], props => <div id="coupon-container" {...{...props, className: `af-class-all-coupons ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                          {map(proxies['coupon'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                            <CouponView.Controller />
+                          </React.Fragment>}</div>)}
+                        </React.Fragment>)}</div>)}
                       </React.Fragment>)}</div>)}
                     </div>
                     <div data-w-tab="Emails" className="w-tab-pane">
