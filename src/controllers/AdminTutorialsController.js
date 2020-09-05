@@ -14,6 +14,11 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
         this.URL_GET_OBJECT_DATA = URL_GET_TUTORIAL_DATA;
     }
 
+    componentDidMount(){
+        super.componentDidMount();
+        
+    }
+
     render(){
         console.log(this.state)
         return(
@@ -23,8 +28,8 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                     { this.state.itemList.map((tutorial, i) => {
                         return <option key={i} value={tutorial.name}>{tutorial.name}</option>
                     }) }
-                    <title/>
-                    <description/>
+                    <title value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
+                    <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
                     
                 </selector>
             </AdminTutorialView>
