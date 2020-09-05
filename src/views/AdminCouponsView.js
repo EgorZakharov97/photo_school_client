@@ -56,6 +56,7 @@ class AdminCouponsView extends React.Component {
       'once': [],
       'unlimited': [],
       'submit': [],
+      'message': [],
     }
 
     return (
@@ -70,7 +71,11 @@ class AdminCouponsView extends React.Component {
             {map(proxies['expieryblock'], props => <div style={{display: 'none'}} {...{...props, className: `af-class-div-block-29 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="code-2">Expiration Date</label>
               {map(proxies['expires'], props => <div {...{...props, className: `w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="date" name="expires" in="expires" /></React.Fragment>}</div>)}
             </React.Fragment>)}</div>)}<label htmlFor="code-2">Usage</label>
-            <div><label className="w-radio">{map(proxies['once'], props => <input type="radio" data-name="usage" id="onetime-2" name="usage" value="onetime" {...{...props, className: `w-form-formradioinput w-radio-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="onetime-2" className="w-form-label">One time only</span></label><label className="w-radio">{map(proxies['unlimited'], props => <input type="radio" data-name="usage" id="unlimited" name="usage" value="unlimited" {...{...props, className: `w-form-formradioinput w-radio-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="unlimited" className="w-form-label">Unlimited</span></label></div>{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." id="create-coupon" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
+            <div><label className="w-radio">{map(proxies['once'], props => <input type="radio" data-name="usage" id="onetime-2" name="usage" value="onetime" {...{...props, className: `w-form-formradioinput w-radio-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="onetime-2" className="w-form-label">One time only</span></label><label className="w-radio">{map(proxies['unlimited'], props => <input type="radio" data-name="usage" id="unlimited" name="usage" value="unlimited" {...{...props, className: `w-form-formradioinput w-radio-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="unlimited" className="w-form-label">Unlimited</span></label></div>
+            <div className="af-class-submission">{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}
+              {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-24 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
+            </div>
+          </form>
         </span>
       </span>
     )
