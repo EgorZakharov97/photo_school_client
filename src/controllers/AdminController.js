@@ -2,6 +2,7 @@ import React from 'react'
 import AdminView from '../views/AdminView'
 import AdminWorkshopsController from './AdminWorkshopsController'
 import AdminTutorialsController from './AdminTutorialsController'
+import AdminMaterialsController from './AdminMaterialsController'
 
 export default class AdminController extends React.Component {
 
@@ -33,6 +34,10 @@ export default class AdminController extends React.Component {
                 <admin-tutorial>
                     <AdminTutorialsController/>
                 </admin-tutorial>
+
+                <admin-material>
+                    <AdminMaterialsController/>
+                </admin-material>
             </AdminView>
         )
     }

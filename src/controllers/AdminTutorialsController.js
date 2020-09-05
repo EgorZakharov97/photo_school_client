@@ -37,7 +37,7 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
         console.log(this.state)
         return(
             <AdminTutorialView>
-                <selector onChange={e => this.onSelectorChange(e)}>
+                <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>
                     <option value="new">New</option>
                     { this.state.itemList.map((tutorial, i) => {
                         return <option key={i} value={tutorial.name}>{tutorial.name}</option>
@@ -45,7 +45,7 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                 </selector>
                 <title value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
                 <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
-                <category value={this.state.data.category} onChange={e => this.onCategorySelect(e)}>
+                <category value={this.state.data.category || 'new'} onChange={e => this.onCategorySelect(e)}>
                     <option value="new">New</option>
                     { this.state.categories.map((category, i) => {
                             return <option key={i} value={category.name}>{category.name}</option>
@@ -53,8 +53,8 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                 </category>
                 {this.state.showNewCategory && <category-name onChange={e => this.changeHandler(e)}/>}
                 <link value={this.state.data.link || ""} onChange={e => this.changeHandler(e)} />
-                <subscription checked={this.state.data.subscription} checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
-                <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
+                <subscription value={this.state.data.subscription} checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
+                <file value={this.state.files.image  || ""} onChange={e => this.onFileSelect(e)} />
                 {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
                 {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
             </AdminTutorialView>
@@ -70,12 +70,12 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
         })
     }
 
-    onSelectorChange(e) {
-        super.onSelectorChange(e);
-        this.setState(state => {
-            return state.data.subscription = true
-        })
-    }
+    // onSelectorChange(e) {
+    //     super.onSelectorChange(e);
+    //     this.setState(state => {
+    //         return state.data.subscription = true
+    //     })
+    // }
 
     setObject(data) {
         super.setObject(data)

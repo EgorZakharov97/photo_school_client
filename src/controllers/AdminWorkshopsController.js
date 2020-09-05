@@ -25,7 +25,7 @@ export default class AdminWorkshopsController extends AdminFormController {
     render() {
         return (
             <AdminWorkshopView>
-                <selector onChange={e => this.onSelectorChange(e)}>
+                <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>
                     <option value="new">New</option>
                     { this.state.itemList.map((workshop, i) => {
                         return <option key={i} value={workshop.name}>{workshop.name}</option>
@@ -38,7 +38,7 @@ export default class AdminWorkshopsController extends AdminFormController {
                 <duration value={this.state.data.duration  || ""} onChange={e => this.changeHandler(e)} />
                 <price value={this.state.data.price  || ""} onChange={e => this.changeHandler(e)} />
                 <seats value={this.state.data.seats || ""} onChange={e => this.integerChangeHandler(e)} />
-                <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
+                <file value={this.state.files.image  || ""} onChange={e => this.onFileSelect(e)} />
                 <description>
                     <ReactQuill theme="snow" value={this.state.data.description || ""} onChange={this.setDescription.bind(this)}/>
                 </description>

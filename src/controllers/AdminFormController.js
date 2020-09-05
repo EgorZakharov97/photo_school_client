@@ -1,8 +1,6 @@
 import React from 'react'
-import ReactQuill from 'react-quill'
 import axios from 'axios'
 import 'react-quill/dist/quill.snow.css'
-import AdminWorkshopView from '../views/AdminWorkshopsView'
 
 export default class AdminFormController extends React.Component {
 
@@ -19,7 +17,7 @@ export default class AdminFormController extends React.Component {
         itemList: [],
         data: {},
         message: {},
-        files: []
+        files: {}
     }
 
     render() {
@@ -56,6 +54,7 @@ export default class AdminFormController extends React.Component {
             axios.get(this.URL_GET_OBJECT_DATA + name)
             .then(res => {
                 const data = res.data;
+                console.log(data)
                 if(data.success){
                     this.setObject(data.body)
                 } else {
@@ -115,8 +114,9 @@ export default class AdminFormController extends React.Component {
 
     onFileSelect(e) {
         const file = e.target.files[0]
+        const fieldName = e.target.name
         this.setState(state => {
-            return state.files.push(file)
+            return state.files[fieldName] = file
         })
     }
 
@@ -133,12 +133,14 @@ export default class AdminFormController extends React.Component {
         e.preventDefault()
         this.setState({busy: true})
         let data = this.state.data
-        if(this.state.files.length > 0){
+        let files = this.state.files
+        if(this.state.files !== {}){
             const files = this.state.files
             let formData = new FormData()
 
-            for(let i = 0; i < files.length; i++){
-                formData.append('assets', files[i], files[i].name)
+            for(let filename in files){
+                let file = files[filename]
+                formData.append('assets', file, filename)
             }
             
             for(let key in data){
