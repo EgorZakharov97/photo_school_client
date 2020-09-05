@@ -84,6 +84,7 @@ export default class AdminFormController extends React.Component {
     changeHandler(e) {
         const name = e.target.name;
         const value = e.target.value;
+        console.log(name + ": " + value)
         this.setState(state => {
             return state.data[name] = value;
         })
@@ -94,6 +95,13 @@ export default class AdminFormController extends React.Component {
         const value = new Date(e.target.value);
         this.setState(state => {
             return state.data[name] = value;
+        })
+    }
+
+    booleanChangeHandler(e) {
+        const name = e.target.name;
+        this.setState(state => {
+            return state.data[name] = !state.data[name]
         })
     }
 
@@ -162,8 +170,9 @@ export default class AdminFormController extends React.Component {
             })
         })
         .catch(e => {
-            console.log(e)
+            console.log(e.data || e)
             this.setMessage(e.message || "500 Internal Server Error", false)
+            this.setState({busy: false})
         })
     }
 }

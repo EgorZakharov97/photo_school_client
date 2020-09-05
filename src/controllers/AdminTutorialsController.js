@@ -10,6 +10,7 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
     constructor(props){
         super(props)
         this.state.categories = [];
+        this.state.data.subscription = true;
         this.state.showNewCategory = true;
         this.URL_GET_LIST = URL_GET_TUTORIAL_NAMES;
         this.URL_POST_OBJECT = URL_POST_TUTORIAL;
@@ -50,19 +51,21 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                         return <option key={i} value={category.name}>{category.name}</option>
                     }) }
                 </category>
-                {this.state.showNewCategory && <category-name onChange={e => this.onCategorySelect(e)}/>}
+                {this.state.showNewCategory && <category-name onChange={e => this.changeHandler(e)}/>}
                 <link value={this.state.data.link || ""} onChange={e => this.changeHandler(e)} />
-                <subscription value={this.state.data.subscription || ""} onChange={e => this.changeHandler(e)} />
+                <subscription checked={this.state.data.subscription} checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
                 <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
+                {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
+                {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
             </AdminTutorialView>
         )
     }
 
-    onCategorySelect(e){
+    onCategorySelect(e, selector=true){
         const value = e.target.value
         this.setState(state => {
             state.data.category = value
-            state.showNewCategory = value === 'new'
+            if (selector) state.showNewCategory = value === 'new'
             return state
         })
     }
