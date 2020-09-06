@@ -10,7 +10,7 @@ export default class AdminCouponController extends React.Component {
 
     state = {
         data: {
-            shouldExpire: false,
+            limit: false,
         },
         coupons: [],
         message: {},
@@ -40,7 +40,7 @@ export default class AdminCouponController extends React.Component {
                     <discount value={this.state.data.discount || ""} onChange={e => this.onChange(e)}/>
                     <code value={this.state.data.code || ""} onChange={e => this.onChange(e)}/>
                     <product value={this.state.data.product || ""} onChange={e => this.onChange(e)}/>
-                    <shouldExpire checked={this.state.data.shouldExpire} value={this.state.data.shouldExpire} onChange={this.onShouldExpire.bind(this)} />
+                    <limit checked={this.state.data.limit} value={this.state.data.limit} onChange={this.onLimitChanges.bind(this)} />
                     <expieryBlock>
                         <expires value={this.state.data.expires} onChange={e => this.onExpiryDateChange(e)} />
                     </expieryBlock>
@@ -101,9 +101,9 @@ export default class AdminCouponController extends React.Component {
         })
     }
 
-    onShouldExpire(){
+    onLimitChanges(){
         this.setState(state => {
-            return state.data.ifExpires = !state.data.ifExpires
+            return state.data.limit = !state.data.limit
         })
     }
 
