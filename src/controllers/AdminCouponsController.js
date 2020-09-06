@@ -21,7 +21,6 @@ export default class AdminCouponController extends React.Component {
     }
 
     render(){
-        console.log(this.state)
         return (
             <div>
                 <CouponsFormView>

@@ -83,7 +83,6 @@ export default class AdminFormController extends React.Component {
     changeHandler(e) {
         const name = e.target.name;
         const value = e.target.value;
-        console.log(name + ": " + value)
         this.setState(state => {
             return state.data[name] = value;
         })

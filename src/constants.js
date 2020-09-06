@@ -1,4 +1,3 @@
-
 export const URL_GET_WORKSHOP_NAMES = "/api/v1/workshops/head";
 export const URL_GET_WORKSHOP_DATA = "/api/v1/workshop/"; // + workshop.name
 export const URL_POST_WORKSHOP = "/api/v1/admin/workshop";
@@ -22,4 +21,4 @@ export const URL_DELETE_COUPON = '/api/v1/admin/coupon/'; // + coupon._id
 
 export const URL_GET_CHALLENGE_NAMES = '/api/v1/challenges/head';
 export const URL_GET_CHALLENGE_DATA = '/api/v1/challenges/'; // + challenge.name
-export const URL_POST_CHALLENGE = '/api/v1/admin/challenge';
+export const URL_POST_CHALLENGE = '/api/v1/admin/challenge/';

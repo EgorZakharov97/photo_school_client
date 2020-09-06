@@ -14,7 +14,6 @@ export default class AdminPresetsController extends AdminFormController {
     }
 
     render() {
-        console.log(this.state)
         return(
             <AdmiPresetsView>
                 <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>

@@ -5,6 +5,7 @@ import AdminTutorialsController from './AdminTutorialsController'
 import AdminMaterialsController from './AdminMaterialsController'
 import AdminPresetsController from './AdminPresetsController'
 import AdminCouponsController from './AdminCouponsController'
+import AdminChallengesController from './AdminChallengesController'
 
 export default class AdminController extends React.Component {
 
@@ -48,6 +49,10 @@ export default class AdminController extends React.Component {
                 <admin-coupons>
                     <AdminCouponsController/>
                 </admin-coupons>
+
+                <admin-challenges>
+                    <AdminChallengesController/>
+                </admin-challenges>
             </AdminView>
         )
     }
