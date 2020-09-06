@@ -62,7 +62,7 @@ class FileView extends React.Component {
         <span className="af-view">
           <div className="af-class-div-block-39">
             <div className="af-class-div-block-40">{map(proxies['update'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Update</React.Fragment>}</a>)}{map(proxies['delete'], props => <a href="#" {...{...props, className: `af-class-button af-class-delete w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Delete</React.Fragment>}</a>)}</div>{map(proxies['name'], props => <input type="text" maxLength={256} name="fTitle" data-name="fTitle" placeholder="File Name" id="fTitle" required {...{...props, className: `af-class-video-title-input af-class-files w-input ${props.className || ''}`}}>{props.children}</input>)}
-            {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="image" placeholder="Choose Image" /></React.Fragment>}</div>)}
+            {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" placeholder="Choose Image" /></React.Fragment>}</div>)}
           </div>
         </span>
       </span>

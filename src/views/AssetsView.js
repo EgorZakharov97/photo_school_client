@@ -5,7 +5,6 @@ import { createScope, map, transformProxies } from './helpers'
 import VideoView from './VideoView'
 import FileView from './FileView'
 import ExampleView from './ExampleView'
-import NewExamplesView from './NewExamplesView'
 
 const scripts = [
 
@@ -59,6 +58,8 @@ class AssetsView extends React.Component {
       'example-container': [],
       'example': [],
       'new-examples': [],
+      'submit': [],
+      'files': [],
     }
 
     return (
@@ -95,9 +96,12 @@ class AssetsView extends React.Component {
                   <ExampleView.Controller />
                 </React.Fragment>}</div>)}
               </React.Fragment>)}</div>)}<label htmlFor="description-5" className="af-class-field-label-7">Add examples</label>
-              {map(proxies['new-examples'], props => <div {...{...props, className: `af-class-course-video-title-wrapper af-class-files ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                <NewExamplesView.Controller />
-              </React.Fragment>}</div>)}
+              {map(proxies['new-examples'], props => <div {...{...props, className: `af-class-course-video-title-wrapper af-class-files ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                <div className="af-class-div-block-39 af-class-files">
+                  <div className="af-class-div-block-40">{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Add</React.Fragment>}</a>)}</div>
+                  {map(proxies['files'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="examples" multifile placeholder="Choose Image" /></React.Fragment>}</div>)}
+                </div>
+              </React.Fragment>)}</div>)}
             </div>
           </div>
         </span>
