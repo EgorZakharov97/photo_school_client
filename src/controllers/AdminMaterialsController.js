@@ -14,7 +14,6 @@ export default class AdminMaterialsController extends AdminFormController {
     }
 
     render() {
-        console.log(this.state)
         return(
             <AdmiMaterialsView>
                 <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>
