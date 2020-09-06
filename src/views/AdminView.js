@@ -7,7 +7,7 @@ import AssetsView from './AssetsView'
 import AdminTutorialView from './AdminTutorialView'
 import AdminMaterialView from './AdminMaterialView'
 import AdminPresetsView from './AdminPresetsView'
-import AdminWorkshopsView from './AdminWorkshopsView'
+import AdminChallengesView from './AdminChallengesView'
 import CouponsFormView from './CouponsFormView'
 import CouponsContainerView from './CouponsContainerView'
 
@@ -225,7 +225,7 @@ class AdminView extends React.Component {
                       </div>
                       <h3>New Challenge</h3>
                       {map(proxies['admin-challenges'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                        <AdminWorkshopsView.Controller />
+                        <AdminChallengesView.Controller />
                         <div className="w-form-done">
                           <div>Thank you! Your submission has been received!</div>
                         </div>
