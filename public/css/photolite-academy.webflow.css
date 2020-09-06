@@ -5462,6 +5462,10 @@
   .af-view .af-class-course-title {
     margin-bottom: 10px;
   }
+  .af-view .af-class-all-coupons {
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   .af-view .af-class-div-block-30 {
     position: relative;
     left: 9px;

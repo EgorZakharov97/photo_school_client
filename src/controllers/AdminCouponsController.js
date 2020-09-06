@@ -32,15 +32,15 @@ export default class AdminCouponController extends React.Component {
     }
 
     render(){
-        console.log(this.state.coupons)
+        console.log(this.state)
         return (
             <div>
                 <CouponsFormView>
                     <name value={this.state.data.name || ""} onChange={e => this.onChange(e)}/>
-                    <discount value={this.state.discount || ""} onChange={e => this.onChange(e)}/>
-                    <code value={this.state.code || ""} onChange={e => this.onChange(e)}/>
-                    <product value={this.state.product || ""} onChange={e => this.onChange(e)}/>
-                    <shouldExpire checked={this.state.data.ifExpires} value={this.state.data.ifExpires} onChange={this.onShouldExpire.bind(this)} />
+                    <discount value={this.state.data.discount || ""} onChange={e => this.onChange(e)}/>
+                    <code value={this.state.data.code || ""} onChange={e => this.onChange(e)}/>
+                    <product value={this.state.data.product || ""} onChange={e => this.onChange(e)}/>
+                    <shouldExpire checked={this.state.data.shouldExpire} value={this.state.data.ifExpires} onChange={this.onShouldExpire.bind(this)} />
                     {this.state.data.ifExpires && <expieryBlock/>}
                     <expires value={this.state.data.expires} onChange={e => this.onExpiryDateChange(e)} />
                     <once value={this.state.data.usage} onChange={e => this.onUsageChange(e)} />
@@ -106,7 +106,7 @@ export default class AdminCouponController extends React.Component {
         })
     }
 
-    changeHandler(e){
+    onChange(e){
         let name = e.target.name
         let value = e.target.value
         this.setState(state => {
