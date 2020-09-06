@@ -4,7 +4,7 @@ import AdminFormController from './AdminFormController'
 import CouponsFormView from '../views/CouponsFormView'
 import CouponsContainerView from '../views/CouponsContainerView'
 import CouponView from '../views/CouponView'
-import {URL_GET_COUPONS, URL_POST_COUPON} from '../constants'
+import {URL_DELETE_COUPON, URL_GET_COUPONS, URL_POST_COUPON} from '../constants'
 
 export default class AdminCouponController extends React.Component {
 
@@ -17,6 +17,67 @@ export default class AdminCouponController extends React.Component {
     }
 
     componentDidMount(){
+        this.fetchCoupons()
+    }
+
+    render(){
+        console.log(this.state)
+        return (
+            <div>
+                <CouponsFormView>
+                    <name value={this.state.data.name || ""} onChange={e => this.onChange(e)}/>
+                    <discount value={this.state.data.discount || ""} onChange={e => this.onChange(e)}/>
+                    <code value={this.state.data.code || ""} onChange={e => this.onChange(e)}/>
+                    <product value={this.state.data.product || ""} onChange={e => this.onChange(e)}/>
+                    <expires value={this.state.data.expires} onChange={e => this.onExpiryDateChange(e)} />
+                    <once checked={this.state.data.usage === 'onetime'} onChange={e => this.onUsageChange(e)} />
+                    <unlimited checked={this.state.data.usage === 'unlimited'} onChange={e => this.onUsageChange(e)} />
+                    <submit onClick={e => this.onFormSubmit(e)} />
+                    {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
+                </CouponsFormView>
+                
+                <coupons-container>
+                    <CouponsContainerView>
+                        {this.state.coupons.map((coupon, i) => {
+                            return (
+                                <coupon key={i}>
+                                    <CouponView key={i}>
+                                        <name>{coupon.name}</name>
+                                        <code>{coupon.code}</code>
+                                        <product>{coupon.product}s</product>
+                                        <usage>{coupon.singleUse ? "One time" : "Unlimited"}</usage>
+                                        {coupon.expieryDate && <expires>{new Date(coupon.expiryDate).toISOString()}</expires>}
+                                        <discount>{coupon.discount}%</discount>
+                                        <used>{coupon.wasUsed} times</used>
+                                        <delete id={coupon._id} onClick={e => this.onCouponDelete(e)} />
+                                    </CouponView>
+                                </coupon>
+                            )
+                        })}
+                    </CouponsContainerView>
+                </coupons-container>
+            </div>      
+        )
+    }
+
+    onCouponDelete(e){
+        axios.delete(URL_DELETE_COUPON + e.target.id)
+        .then(res => {
+            const data = res.data
+            console.log(data)
+            if(data.success){
+                this.fetchCoupons()
+                this.setMessage(data.message, true)
+            } else {
+                this.setMessage(data.message, false)
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    }
+
+    fetchCoupons(){
         axios.get(URL_GET_COUPONS)
         .then(res => {
             let data = res.data;
@@ -31,51 +92,24 @@ export default class AdminCouponController extends React.Component {
         })
     }
 
-    render(){
-        console.log(this.state)
-        return (
-            <div>
-                <CouponsFormView>
-                    <name value={this.state.data.name || ""} onChange={e => this.onChange(e)}/>
-                    <discount value={this.state.data.discount || ""} onChange={e => this.onChange(e)}/>
-                    <code value={this.state.data.code || ""} onChange={e => this.onChange(e)}/>
-                    <product value={this.state.data.product || ""} onChange={e => this.onChange(e)}/>
-                    <limit checked={this.state.data.limit} value={this.state.data.limit} onChange={this.onLimitChanges.bind(this)} />
-                    <expieryBlock>
-                        <expires value={this.state.data.expires} onChange={e => this.onExpiryDateChange(e)} />
-                    </expieryBlock>
-                    <once checked={this.state.data.usage === 'onetime'} onChange={e => this.onUsageChange(e)} />
-                    <unlimited checked={this.state.data.usage === 'unlimited'} onChange={e => this.onUsageChange(e)} />
-                    <submit onClick={this.submit()} />
-                    {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
-                </CouponsFormView>
-                
-                <coupons-container>
-                    <CouponsContainerView>
-                        {this.state.coupons.map((coupon, i) => {
-                            return (
-                                <coupon key={i}>
-                                    <CouponView key={i}>
-                                        <name>{coupon.name}</name>
-                                        <code>{coupon.code}</code>
-                                        <product>{}</product>
-                                        <usage>{}</usage>
-                                        {/* <expires>{new Date(coupon.expiryDate).toISOString()}</expires> */}
-                                        <discount>{coupon.discount}%</discount>
-                                        <used>{coupon.wasUsed}</used>
-                                        <delete>{}</delete>
-                                    </CouponView>
-                                </coupon>
-                            )
-                        })}
-                    </CouponsContainerView>
-                </coupons-container>
-            </div>      
-        )
-    }
-
-    submit(){
-
+    onFormSubmit(e){
+        e.preventDefault();
+        axios.post(URL_POST_COUPON, this.state.data)
+        .then(res => {
+            const data = res.data
+            if(data.success) {
+                this.setMessage(data.message, true)
+                this.setState(state => {
+                    return state.data = {}
+                })
+                this.fetchCoupons()
+            } else {
+                this.setMessage(data.message, false)
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
     }
 
     setMessage(message, positive=true){
@@ -98,12 +132,6 @@ export default class AdminCouponController extends React.Component {
         const date = e.target.value;
         this.setState(state => {
             return state.data.expires = date
-        })
-    }
-
-    onLimitChanges(){
-        this.setState(state => {
-            return state.data.limit = !state.data.limit
         })
     }
 

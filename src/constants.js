@@ -17,5 +17,5 @@ export const URL_GET_PRESET_DATA = '/api/v1/preset/'; // + preset.name
 export const URL_POST_PRESET = '/api/v1/admin/preset';
 
 export const URL_GET_COUPONS = '/api/v1/admin/coupons';
-export const URL_POST_COUPON = '/api/v1/admin/coupon';
+export const URL_POST_COUPON = '/api/v1/admin/coupons';
 export const URL_DELETE_COUPON = '/api/v1/admin/coupon/'; // + coupon._id
