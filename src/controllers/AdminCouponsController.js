@@ -4,13 +4,13 @@ import AdminFormController from './AdminFormController'
 import CouponsFormView from '../views/CouponsFormView'
 import CouponsContainerView from '../views/CouponsContainerView'
 import CouponView from '../views/CouponView'
-import {URL_GET_COUPONS, URL_POST_COUPON, URL_GET_COUPON_DATA} from '../constants'
+import {URL_GET_COUPONS, URL_POST_COUPON} from '../constants'
 
 export default class AdminCouponController extends React.Component {
 
     state = {
         data: {
-            shouldExpire: true,
+            shouldExpire: false,
         },
         coupons: [],
         message: {},
