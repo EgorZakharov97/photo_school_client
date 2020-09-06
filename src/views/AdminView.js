@@ -60,6 +60,7 @@ class AdminView extends React.Component {
       'info': [],
       'selector': [],
       'name': [],
+      'price': [],
       'description': [],
       'access': [],
       'submit': [],
@@ -109,7 +110,7 @@ class AdminView extends React.Component {
                     <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
                       <div>Workshops</div>
                     </a>
-                    <a data-w-tab="Courses" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Courses" className="w-inline-block w-tab-link w--current">
                       <div>Courses</div>
                     </a>
                     <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
@@ -121,7 +122,7 @@ class AdminView extends React.Component {
                     <a data-w-tab="Presets" className="w-inline-block w-tab-link">
                       <div>Presets</div>
                     </a>
-                    <a data-w-tab="Challenges" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Challenges" className="w-inline-block w-tab-link">
                       <div>Challenges</div>
                     </a>
                     <a data-w-tab="Coupons" className="w-inline-block w-tab-link">
@@ -146,12 +147,12 @@ class AdminView extends React.Component {
                         </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
+                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane w--tab-active">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Cou</span>rses</h3>
                       <div className="af-class-create-course-wrapper">
                         <div className="w-form">
                           <form id="email-form-2" name="email-form-2" data-name="Email Form 2" className="af-class-form-8">
-                            {map(proxies['info'], props => <div {...{...props, className: `af-class-info ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="selecrot">Select Course</label>{map(proxies['selector'], props => <select id="selecrot" name="selecrot" data-name="selecrot" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-7">Course name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Course name" id="name-7" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-4">Email Address</label>{map(proxies['description'], props => <input type="text" maxLength={256} name="description" data-name="description" placeholder="Short Description" id="description-4" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-5">Publish</label><label className="w-checkbox">{map(proxies['access'], props => <input type="checkbox" id="public" name="public" data-name="public" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="public" className="w-form-label">This course can be accessed by users</span></label>
+                            {map(proxies['info'], props => <div {...{...props, className: `af-class-info ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="selecrot">Select Course</label>{map(proxies['selector'], props => <select id="selecrot" name="selecrot" data-name="selecrot" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-7">Course name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Course name" id="name-7" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="price-3">Price</label>{map(proxies['price'], props => <input type="number" maxLength={256} name="price" data-name="price" placeholder="Short Description" id="price-3" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-6">Short Description</label>{map(proxies['description'], props => <input type="text" maxLength={256} name="description-6" data-name="Description 6" placeholder="Short Description" id="description-6" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-5">Publish</label><label className="w-checkbox">{map(proxies['access'], props => <input type="checkbox" id="public" name="public" data-name="public" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="public" className="w-form-label">This course can be accessed by users</span></label>
                               <div>Users how bought this course will stil have access</div>
                               <div className="af-class-submission">{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}
                                 {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-24 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
@@ -214,7 +215,7 @@ class AdminView extends React.Component {
                         </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="Challenges" className="af-class-tab-pane-weekly-challenge w-tab-pane w--tab-active">
+                    <div data-w-tab="Challenges" className="af-class-tab-pane-weekly-challenge w-tab-pane">
                       <div className="af-class-div-block-27">
                         <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Chal</span>lenges</h3>
                       </div>
