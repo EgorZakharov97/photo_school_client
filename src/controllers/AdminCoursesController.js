@@ -2,9 +2,9 @@ import React from 'react'
 import {URL_GET_COURSES_NAMES, URL_GET_COURSE_DATA, URL_POST_COURSE} from '../constants'
 import AdminFormController from './AdminFormController'
 import AdminCoursesView from '../views/AdminCoursesView'
-import AssetsView from '../views/AssetsView'
-import VideoTableView from '../views/VideoTableView'
-import AdminAssetsController from './AdminAssetsController'
+import TableVideoView from '../views/TableVideoView'
+import TableFileView from '../views/TableFileView'
+import TableExampleView from '../views/TableExampleView'
 
 export default class AdminCoursesController extends AdminFormController {
     constructor(props) {
@@ -35,25 +35,52 @@ export default class AdminCoursesController extends AdminFormController {
                 </info>
                 {/* {this.state.data._id &&  */}
                     <assets>
-                        <AssetsView>
-                            <videos-container>
-                                <video-table>
-                                    <VideoTableView>
-                                        <index/>
-                                        <name/>
-                                        <link/>
-                                        <update/>
-                                        <delete/>
-                                    </VideoTableView>
-                                </video-table>
-                            </videos-container>
-                            <files-container>
+                        <videos-container>
 
-                            </files-container>
-                            <examples-container>
-                                
-                            </examples-container>
-                        </AssetsView>
+                            <video-table>
+                                <TableVideoView>
+                                    <index/>
+                                    <name/>
+                                    <input/>
+                                    <update/>
+                                    <delete/>
+                                </TableVideoView>
+                            </video-table>
+
+                            <vi-name/>
+                            <link/>
+                            <create/>
+
+                        </videos-container>
+                        <files-container>
+
+                            <video-table>
+                                <TableFileView>
+                                    <index/>
+                                    <name/>
+                                    <file/>
+                                    <update/>
+                                    <delete/>
+                                </TableFileView>
+                            </video-table>
+
+                            <fl-name/>
+                            <files/>
+                            <create/>
+
+                        </files-container>
+                        <examples-container>
+
+                            <table-example>
+                                <TableExampleView>
+                                    <img/>
+                                    <delete/>
+                                </TableExampleView>
+                            </table-example>
+
+                            <images/>
+                            <update/>
+                        </examples-container>
                     </assets>
                 {/* } */}
             </AdminCoursesView>
