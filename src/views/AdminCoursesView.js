@@ -66,12 +66,12 @@ class AdminCoursesView extends React.Component {
       'files-container': [],
       'video-table': [],
       'fl-name': [],
-      'files': [],
+      'file': [],
       'create': [],
       'examples-container': [],
       'table-example': [],
       'submit': [],
-      'update': [],
+      'upload': [],
       'images': [],
     }
 
@@ -110,8 +110,8 @@ class AdminCoursesView extends React.Component {
                     <TableFileView.Controller />
                   </React.Fragment>}</div>)}
                   <div className="af-class-table-element">
-                    <div className="af-class-table-index">New</div>{map(proxies['fl-name'], props => <input type="text" maxLength={256} name="name-16" data-name="Name 16" placeholder="File name" id="name-16" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}
-                    {map(proxies['files'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" /></React.Fragment>}</div>)}
+                    <div className="af-class-table-index">New</div>{map(proxies['fl-name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="File name" id="name-20" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}
+                    {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" /></React.Fragment>}</div>)}
                     <div className="af-class-table-buttons">{map(proxies['create'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Create</React.Fragment>}</a>)}</div>
                   </div>
                 </React.Fragment>)}</div>)}
@@ -124,8 +124,8 @@ class AdminCoursesView extends React.Component {
                       <TableExampleView.Controller />
                     </React.Fragment>}</div>)}
                     <div className="af-class-table-element-image af-class-new">
-                      {map(proxies['submit'], props => <div {...{...props, className: `af-class-div-block-40 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>{map(proxies['update'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Save</React.Fragment>}</a>)}</React.Fragment>)}</div>)}
-                      {map(proxies['images'], props => <div {...{...props, className: `af-class-html-embed-8 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" multifile /></React.Fragment>}</div>)}
+                      {map(proxies['submit'], props => <div {...{...props, className: `af-class-div-block-40 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>{map(proxies['upload'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Save</React.Fragment>}</a>)}</React.Fragment>)}</div>)}
+                      {map(proxies['images'], props => <div {...{...props, className: `af-class-html-embed-8 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="images" multiple /></React.Fragment>}</div>)}
                     </div>
                   </React.Fragment>)}</div>)}
                 </div>
