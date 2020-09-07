@@ -20,5 +20,18 @@ export const URL_POST_COUPON = '/api/v1/admin/coupons';
 export const URL_DELETE_COUPON = '/api/v1/admin/coupon/'; // + coupon._id
 
 export const URL_GET_CHALLENGE_NAMES = '/api/v1/challenges/head';
-export const URL_GET_CHALLENGE_DATA = '/api/v1/challenges/'; // + challenge.name
+export const URL_GET_CHALLENGE_DATA = '/api/v1/challenge/'; // + challenge.name
 export const URL_POST_CHALLENGE = '/api/v1/admin/challenge/';
+
+export const URL_GET_COURSES_NAMES = '/api/v1/courses/head';
+export const URL_GET_COURSE_DATA = '/api/v1/course/'; // + course.name
+export const URL_POST_COURSE = '/api/v1/admin/course';
+
+export const URL_GET_ALL_COURSE_VIDEOS = '/api/v1/course/videos';
+export const URL_POST_COURSE_VIDEO = '/api/v1/admin/course/video';
+
+export const URL_GET_ALL_COURSE_FILES = '/api/v1/course/videos';
+export const URL_POST_COURSE_FILE = '/api/v1/admin/course/file';
+
+export const URL_GET_ALL_COURSE_EXAMPLES = '/api/v1/course/examples';
+export const URL_POST_COURSE_EXAMPLE = '/api/v1/admin/course/examples';
