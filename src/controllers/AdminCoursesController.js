@@ -3,7 +3,7 @@ import {URL_GET_COURSES_NAMES, URL_GET_COURSE_DATA, URL_POST_COURSE} from '../co
 import AdminFormController from './AdminFormController'
 import AdminCoursesView from '../views/AdminCoursesView'
 import AssetsView from '../views/AssetsView'
-import VideoView from '../views/VideoView'
+import VideoTableView from '../views/VideoTableView'
 import AdminAssetsController from './AdminAssetsController'
 
 export default class AdminCoursesController extends AdminFormController {
@@ -37,41 +37,20 @@ export default class AdminCoursesController extends AdminFormController {
                     <assets>
                         <AssetsView>
                             <videos-container>
-                                <video>
-                                    <VideoView>
-                                        <title/>
-                                        <link/>
-                                        <update/>
-                                        <delete/>
-                                    </VideoView>
-                                </video>
-                                <video>
-                                    <VideoView>
-                                        <title/>
-                                        <link/>
-                                        <update/>
-                                        <delete/>
-                                    </VideoView>
-                                </video>
-                                <video>
-                                    <VideoView>
-                                        <title/>
-                                        <link/>
-                                        <update/>
-                                        <delete/>
-                                    </VideoView>
-                                </video>
+                                <VideoTableView>
+                                    <index/>
+                                    <name/>
+                                    <link/>
+                                    <update/>
+                                    <delete/>
+                                </VideoTableView>
                             </videos-container>
-                            <new-video>
-                                <video>
-                                    <VideoView>
-                                        <title/>
-                                        <link/>
-                                        <update/>
-                                        <delete/>
-                                    </VideoView>
-                                </video>
-                            </new-video>
+                            <files-container>
+
+                            </files-container>
+                            <examples-container>
+                                
+                            </examples-container>
                         </AssetsView>
                     </assets>
                 {/* } */}
