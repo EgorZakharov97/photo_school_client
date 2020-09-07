@@ -37,13 +37,15 @@ export default class AdminCoursesController extends AdminFormController {
                     <assets>
                         <AssetsView>
                             <videos-container>
-                                <VideoTableView>
-                                    <index/>
-                                    <name/>
-                                    <link/>
-                                    <update/>
-                                    <delete/>
-                                </VideoTableView>
+                                <video-table>
+                                    <VideoTableView>
+                                        <index/>
+                                        <name/>
+                                        <link/>
+                                        <update/>
+                                        <delete/>
+                                    </VideoTableView>
+                                </video-table>
                             </videos-container>
                             <files-container>
 
