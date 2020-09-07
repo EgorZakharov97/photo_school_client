@@ -2,7 +2,8 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import AssetsView from './AssetsView'
+import VideoTableView from './VideoTableView'
+import ExampleView from './ExampleView'
 
 const scripts = [
 
@@ -56,6 +57,22 @@ class AdminCoursesView extends React.Component {
       'submit': [],
       'message': [],
       'assets': [],
+      'videos-container': [],
+      'vi-name': [],
+      'link': [],
+      'create': [],
+      'files-container': [],
+      'name': [],
+      'file': [],
+      'update': [],
+      'delete': [],
+      'fl-name': [],
+      'files': [],
+      'create': [],
+      'examples-container': [],
+      'submit': [],
+      'update': [],
+      'images': [],
     }
 
     return (
@@ -67,15 +84,51 @@ class AdminCoursesView extends React.Component {
         ` }} />
         <span className="af-view">
           <form id="email-form-2" name="email-form-2" data-name="Email Form 2" className="af-class-form-8">
-            {map(proxies['info'], props => <div {...{...props, className: `af-class-info ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="selecrot">Select Course</label>{map(proxies['selector'], props => <select id="selecrot" name="selecrot" data-name="selecrot" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-7">Course name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Course name" id="name-7" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="price-3">Price</label>{map(proxies['price'], props => <input type="number" maxLength={256} name="price" data-name="price" placeholder="Short Description" id="price-3" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-6">Short Description</label>{map(proxies['description'], props => <input type="text" maxLength={256} name="description" data-name="Description 6" placeholder="Short Description" id="description-6" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-5">Publish</label><label className="w-checkbox">{map(proxies['access'], props => <input type="checkbox" id="public" name="access" data-name="public" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="public" className="w-form-label">This course can be accessed by users</span></label>
+            {map(proxies['info'], props => <div {...{...props, className: `af-class-info ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="selecrot">Select Course</label>{map(proxies['selector'], props => <select id="selecrot" name="selecrot" data-name="selecrot" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-7">Course name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Course name" id="name-7" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="price-3">Price</label>{map(proxies['price'], props => <input type="number" maxLength={256} name="price" data-name="price" placeholder="Price" id="price-3" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-7">Short Description</label>{map(proxies['description'], props => <input type="text" maxLength={256} name="description" data-name="description" placeholder="Short Description" id="description-7" required {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="description-5">Publish</label><label className="w-checkbox">{map(proxies['access'], props => <input type="checkbox" id="access" name="access" data-name="access" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="access" className="w-form-label">This course can be accessed by users</span></label>
               <div>Users how bought this course will stil have access</div>
               <div className="af-class-submission">{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}
                 {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-24 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
               </div>
             </React.Fragment>)}</div>)}
-            {map(proxies['assets'], props => <div {...{...props, className: `af-class-assets ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <AssetsView.Controller />
-            </React.Fragment>}</div>)}
+            {map(proxies['assets'], props => <div {...{...props, className: `af-class-assets ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+              <div className="af-class-videos">
+                {map(proxies['videos-container'], props => <div {...{...props, className: `af-class-table-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  <h2 className="af-class-table-heading">Videos</h2>
+                  <VideoTableView.Controller />
+                  <div className="af-class-table-element">
+                    <div className="af-class-table-index">New</div>{map(proxies['vi-name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Video Name" id="name-17" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['link'], props => <input type="text" maxLength={256} name="link" data-name="link" placeholder="Link" id="link-4" required {...{...props, className: `af-class-table-input w-input ${props.className || ''}`}}>{props.children}</input>)}
+                    <div className="af-class-table-buttons">{map(proxies['create'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Create</React.Fragment>}</a>)}</div>
+                  </div>
+                </React.Fragment>)}</div>)}
+              </div>
+              <div className="af-class-files">
+                {map(proxies['files-container'], props => <div {...{...props, className: `af-class-table-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  <h2 className="af-class-table-heading">Files</h2>
+                  <div className="af-class-table-element">
+                    <div className="af-class-table-index">1.</div>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="File name" id="name-14" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}
+                    {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" /></React.Fragment>}</div>)}
+                    <div className="af-class-table-buttons">{map(proxies['update'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Update</React.Fragment>}</a>)}{map(proxies['delete'], props => <a href="#" {...{...props, className: `af-class-button af-class-delete w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Delete</React.Fragment>}</a>)}</div>
+                  </div>
+                  <div className="af-class-table-element">
+                    <div className="af-class-table-index">New</div>{map(proxies['fl-name'], props => <input type="text" maxLength={256} name="name-16" data-name="Name 16" placeholder="File name" id="name-16" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}
+                    {map(proxies['files'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" /></React.Fragment>}</div>)}
+                    <div className="af-class-table-buttons">{map(proxies['create'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Create</React.Fragment>}</a>)}</div>
+                  </div>
+                </React.Fragment>)}</div>)}
+              </div>
+              <div className="af-class-examples">
+                <div className="af-class-table-container">
+                  <h2 className="af-class-table-heading">Examples</h2>
+                  {map(proxies['examples-container'], props => <div {...{...props, className: `af-class-table-element af-class-image ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                    <ExampleView.Controller />
+                    <div className="af-class-table-element-image af-class-new">
+                      {map(proxies['submit'], props => <div {...{...props, className: `af-class-div-block-40 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>{map(proxies['update'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Save</React.Fragment>}</a>)}</React.Fragment>)}</div>)}
+                      {map(proxies['images'], props => <div {...{...props, className: `af-class-html-embed-8 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" multifile /></React.Fragment>}</div>)}
+                    </div>
+                  </React.Fragment>)}</div>)}
+                </div>
+              </div>
+            </React.Fragment>)}</div>)}
           </form>
         </span>
       </span>

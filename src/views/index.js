@@ -1,9 +1,7 @@
 /* eslint-disable */
 
-export { default as VideoView } from './VideoView'
-export { default as FileView } from './FileView'
+export { default as VideoTableView } from './VideoTableView'
 export { default as ExampleView } from './ExampleView'
-export { default as AssetsView } from './AssetsView'
 export { default as CouponView } from './CouponView'
 export { default as AdminWorkshopsView } from './AdminWorkshopsView'
 export { default as AdminCoursesView } from './AdminCoursesView'

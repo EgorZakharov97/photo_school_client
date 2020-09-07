@@ -58,7 +58,7 @@ class ExampleView extends React.Component {
           @import url(/css/photolite-academy.webflow.css);
         ` }} />
         <span className="af-view">
-          <div className="af-class-div-block-39">
+          <div className="af-class-table-element-image">
             <div className="af-class-div-block-40">{map(proxies['delete'], props => <a href="#" {...{...props, className: `af-class-button af-class-delete w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Delete</React.Fragment>}</a>)}</div>{map(proxies['img'], props => <img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" height width={150} alt {...props}>{props.children}</img>)}</div>
         </span>
       </span>
