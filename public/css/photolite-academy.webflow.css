@@ -4919,6 +4919,10 @@
   background-color: transparent;
 }
 
+.af-view .af-class-table-element.af-class-wrapper {
+  display: block;
+}
+
 .af-view .af-class-table-input {
   width: 40%;
   height: 100%;

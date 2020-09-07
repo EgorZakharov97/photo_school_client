@@ -9,19 +9,19 @@ const scripts = [
 
 let Controller
 
-class VideoTableView extends React.Component {
+class TableVideoView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/VideoTableController')
+      Controller = require('../controllers/TableVideoController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = VideoTableView
+        Controller = TableVideoView
 
         return Controller
       }
@@ -45,7 +45,7 @@ class VideoTableView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== VideoTableView ? transformProxies(this.props.children) : {
+    const proxies = Controller !== TableVideoView ? transformProxies(this.props.children) : {
       'index': [],
       'name': [],
       'input': [],
@@ -71,6 +71,6 @@ class VideoTableView extends React.Component {
   }
 }
 
-export default VideoTableView
+export default TableVideoView
 
 /* eslint-enable */

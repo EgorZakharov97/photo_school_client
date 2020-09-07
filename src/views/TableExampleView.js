@@ -9,19 +9,19 @@ const scripts = [
 
 let Controller
 
-class ExampleView extends React.Component {
+class TableExampleView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/ExampleController')
+      Controller = require('../controllers/TableExampleController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = ExampleView
+        Controller = TableExampleView
 
         return Controller
       }
@@ -45,7 +45,7 @@ class ExampleView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== ExampleView ? transformProxies(this.props.children) : {
+    const proxies = Controller !== TableExampleView ? transformProxies(this.props.children) : {
       'delete': [],
       'img': [],
     }
@@ -66,6 +66,6 @@ class ExampleView extends React.Component {
   }
 }
 
-export default ExampleView
+export default TableExampleView
 
 /* eslint-enable */

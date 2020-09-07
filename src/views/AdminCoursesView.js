@@ -2,8 +2,9 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import VideoTableView from './VideoTableView'
-import ExampleView from './ExampleView'
+import TableVideoView from './TableVideoView'
+import TableFileView from './TableFileView'
+import TableExampleView from './TableExampleView'
 
 const scripts = [
 
@@ -58,18 +59,17 @@ class AdminCoursesView extends React.Component {
       'message': [],
       'assets': [],
       'videos-container': [],
+      'video-table': [],
       'vi-name': [],
       'link': [],
       'create': [],
       'files-container': [],
-      'name': [],
-      'file': [],
-      'update': [],
-      'delete': [],
+      'video-table': [],
       'fl-name': [],
       'files': [],
       'create': [],
       'examples-container': [],
+      'table-example': [],
       'submit': [],
       'update': [],
       'images': [],
@@ -94,7 +94,9 @@ class AdminCoursesView extends React.Component {
               <div className="af-class-videos">
                 {map(proxies['videos-container'], props => <div {...{...props, className: `af-class-table-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                   <h2 className="af-class-table-heading">Videos</h2>
-                  <VideoTableView.Controller />
+                  {map(proxies['video-table'], props => <div {...{...props, className: `af-class-table-element af-class-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                    <TableVideoView.Controller />
+                  </React.Fragment>}</div>)}
                   <div className="af-class-table-element">
                     <div className="af-class-table-index">New</div>{map(proxies['vi-name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Video Name" id="name-17" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['link'], props => <input type="text" maxLength={256} name="link" data-name="link" placeholder="Link" id="link-4" required {...{...props, className: `af-class-table-input w-input ${props.className || ''}`}}>{props.children}</input>)}
                     <div className="af-class-table-buttons">{map(proxies['create'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Create</React.Fragment>}</a>)}</div>
@@ -104,11 +106,9 @@ class AdminCoursesView extends React.Component {
               <div className="af-class-files">
                 {map(proxies['files-container'], props => <div {...{...props, className: `af-class-table-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                   <h2 className="af-class-table-heading">Files</h2>
-                  <div className="af-class-table-element">
-                    <div className="af-class-table-index">1.</div>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="File name" id="name-14" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}
-                    {map(proxies['file'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" /></React.Fragment>}</div>)}
-                    <div className="af-class-table-buttons">{map(proxies['update'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Update</React.Fragment>}</a>)}{map(proxies['delete'], props => <a href="#" {...{...props, className: `af-class-button af-class-delete w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Delete</React.Fragment>}</a>)}</div>
-                  </div>
+                  {map(proxies['video-table'], props => <div {...{...props, className: `af-class-table-element af-class-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                    <TableFileView.Controller />
+                  </React.Fragment>}</div>)}
                   <div className="af-class-table-element">
                     <div className="af-class-table-index">New</div>{map(proxies['fl-name'], props => <input type="text" maxLength={256} name="name-16" data-name="Name 16" placeholder="File name" id="name-16" required {...{...props, className: `af-class-table-input af-class-title w-input ${props.className || ''}`}}>{props.children}</input>)}
                     {map(proxies['files'], props => <div {...{...props, className: `af-class-html-embed-2 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" /></React.Fragment>}</div>)}
@@ -120,7 +120,9 @@ class AdminCoursesView extends React.Component {
                 <div className="af-class-table-container">
                   <h2 className="af-class-table-heading">Examples</h2>
                   {map(proxies['examples-container'], props => <div {...{...props, className: `af-class-table-element af-class-image ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                    <ExampleView.Controller />
+                    {map(proxies['table-example'], props => <div {...{...props, className: `af-class-table-element-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                      <TableExampleView.Controller />
+                    </React.Fragment>}</div>)}
                     <div className="af-class-table-element-image af-class-new">
                       {map(proxies['submit'], props => <div {...{...props, className: `af-class-div-block-40 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>{map(proxies['update'], props => <a href="#" {...{...props, className: `af-class-button af-class-update w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Save</React.Fragment>}</a>)}</React.Fragment>)}</div>)}
                       {map(proxies['images'], props => <div {...{...props, className: `af-class-html-embed-8 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="file" multifile /></React.Fragment>}</div>)}
