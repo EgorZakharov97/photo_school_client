@@ -33,36 +33,34 @@ export default class AdminFormController extends React.Component {
                 this.setState({itemList: data.body || []})
             } else {
                 console.log(data.message)
-                alert(data.message)
             }
         })
         .catch(e => {
             console.log(e.message || e)
-            alert(e.message || e)
         })
     }
 
     onSelectorChange(e) {
         if(this.constructor.name === 'AdminFormController') return
         if(e.target.value === 'new') {
-            this.setState(state => {
+            return this.setState(state => {
                 state.data = {};
                 state.message = {};
                 return state;
             })
         } else {
             const name = escape(e.target.value);
-            axios.get(this.URL_GET_OBJECT_DATA + name)
+            return axios.get(this.URL_GET_OBJECT_DATA + name)
             .then(res => {
                 const data = res.data;
                 console.log(data)
                 if(data.success){
-                    this.setObject(data.body)
+                    return this.setObject(data.body)
                 } else {
-                    this.setMessage(data.message, false)
+                    return this.setMessage(data.message, false)
                 }
             })
-            .catch(e => alert(e.message || e))
+            .catch(e => console.log(e.message || e))
         }
     }
 
@@ -160,14 +158,12 @@ export default class AdminFormController extends React.Component {
             if(data.success){
                 this.setMessage(data.message, true)
                 this.loadItems();
-                this.setState({workshop: {}})
             } else {
                 console.log(data)
                 this.setMessage(data.message, false)
             }
             this.setState(state => {
                 state.busy = false;
-                state.data = {}
                 return state
             })
         })

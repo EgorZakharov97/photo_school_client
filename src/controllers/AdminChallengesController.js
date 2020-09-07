@@ -14,7 +14,6 @@ export default class AdminChallengesController extends AdminFormController {
     }
 
     render() {
-        console.log(this.state)
         return(
             <AdminChallengesView>
                 <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>

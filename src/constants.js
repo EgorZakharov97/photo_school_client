@@ -29,9 +29,8 @@ export const URL_POST_COURSE = '/api/v1/admin/course';
 
 export const URL_GET_ALL_COURSE_VIDEOS = '/api/v1/course/videos';
 export const URL_POST_COURSE_VIDEO = '/api/v1/admin/course/video';
+export const URL_DELETE_COURSE_VIDEO = '/api/v1/admin/course/video/'; // + video._id
 
-export const URL_GET_ALL_COURSE_FILES = '/api/v1/course/videos';
+export const URL_GET_ALL_COURSE_FILES = '/api/v1/course/files';
 export const URL_POST_COURSE_FILE = '/api/v1/admin/course/file';
-
-export const URL_GET_ALL_COURSE_EXAMPLES = '/api/v1/course/examples';
-export const URL_POST_COURSE_EXAMPLE = '/api/v1/admin/course/examples';
+export const URL_DELETE_COURSE_FILE = '/api/v1/admin/course/file/'; // + file._id
