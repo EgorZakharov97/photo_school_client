@@ -5015,6 +5015,10 @@
   font-weight: 700;
 }
 
+.af-view .af-class-div-block-41 {
+  display: none;
+}
+
 @media screen and (min-width: 1280px) {
   .af-view .af-class-section-welcome {
     min-height: 80vh;
