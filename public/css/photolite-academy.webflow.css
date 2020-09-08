@@ -3160,10 +3160,10 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/dsc02732_1.jpg');
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .af-view .af-class-popup-window.af-class-portal {
@@ -5007,6 +5007,14 @@
   background-color: #e0e0e0;
 }
 
+.af-view .af-class-text-block-25 {
+  display: block;
+  padding-top: 10px;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 @media screen and (min-width: 1280px) {
   .af-view .af-class-section-welcome {
     min-height: 80vh;
@@ -5833,6 +5841,9 @@
   .af-view .af-class-login-col-right {
     display: none;
   }
+  .af-view .af-class-login-wrapper {
+    width: 90%;
+  }
   .af-view .af-class-cors-register-now-2.af-class-courses {
     margin-top: 20px;
   }
@@ -5901,8 +5912,6 @@
     grid-template-areas: "description description description description" "willlearn willlearn willlearn willlearn" "timeline timeline timeline timeline" "date date date date" "button button button button";
   }
   .af-view .af-class-close {
-    top: 10px;
-    right: 10px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -6110,6 +6119,19 @@
   .af-view .af-class-text-block-5 {
     font-size: 1.1rem;
   }
+  .af-view .af-class-window-contetn {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .af-view .af-class-login-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .af-view .af-class-heading-9 {
+    text-align: center;
+  }
   .af-view .af-class-section-portal {
     width: auto;
     height: auto;
@@ -6225,6 +6247,10 @@
   .af-view .af-class-dateblock.af-class-checkout {
     margin-top: 20px;
   }
+  .af-view .af-class-close {
+    top: 0px;
+    right: 0px;
+  }
   .af-view .af-class-section-how-work-2 {
     padding-top: 3vh;
     padding-bottom: 5vh;
@@ -6236,7 +6262,10 @@
     padding-left: 0px;
   }
   .af-view .af-class-popup-window {
-    display: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
   }
   .af-view .af-class-welcome-down {
     display: -webkit-box;
