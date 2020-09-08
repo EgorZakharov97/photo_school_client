@@ -1,27 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 import loadingScripts from './scripts'
 import loadingSyles from './styles'
 
-// import WorkshopsController from "./controllers/WorkshopsController"
-import AdminController from "./controllers/AdminController"
+import App from './App'
 
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <IndexController/>
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
 
 Promise.all([
   loadingSyles,
   loadingScripts,
 ]).then(() => {
   ReactDOM.render(
-    <AdminController/>,
+    <App/>,
   document.getElementById('root'));
 });
 

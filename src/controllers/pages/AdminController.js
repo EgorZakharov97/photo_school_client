@@ -1,17 +1,14 @@
 import React from 'react'
-import AdminView from '../views/AdminView'
-import AdminWorkshopsController from './AdminWorkshopsController'
-import AdminTutorialsController from './AdminTutorialsController'
-import AdminMaterialsController from './AdminMaterialsController'
-import AdminPresetsController from './AdminPresetsController'
-import AdminCouponsController from './AdminCouponsController'
-import AdminChallengesController from './AdminChallengesController'
-import AdminCoursesController from './AdminCoursesController'
+import AdminView from '../../views/AdminView'
+import AdminWorkshopsController from '../AdminWorkshopsController'
+import AdminTutorialsController from '../AdminTutorialsController'
+import AdminMaterialsController from '../AdminMaterialsController'
+import AdminPresetsController from '../AdminPresetsController'
+import AdminCouponsController from '../AdminCouponsController'
+import AdminChallengesController from '../AdminChallengesController'
+import AdminCoursesController from '../AdminCoursesController'
 
 export default class AdminController extends React.Component {
-
-    state = {
-    }
 
     stateChangeHandler(dataObject) {
         const key = dataObject.name;
@@ -32,7 +29,7 @@ export default class AdminController extends React.Component {
         return(
             <AdminView>
                 <admin-workshops>
-                    <AdminWorkshopsController oldState={this.state.workshop} saveState={this.stateChangeHandler.bind(this)}/>
+                    <AdminWorkshopsController/>
                 </admin-workshops>
 
                 <admin-tutorial>
