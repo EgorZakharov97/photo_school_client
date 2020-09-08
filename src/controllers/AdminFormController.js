@@ -53,7 +53,6 @@ export default class AdminFormController extends React.Component {
             return axios.get(this.URL_GET_OBJECT_DATA + name)
             .then(res => {
                 const data = res.data;
-                console.log(data)
                 if(data.success){
                     return this.setObject(data.body)
                 } else {
@@ -158,6 +157,7 @@ export default class AdminFormController extends React.Component {
             if(data.success){
                 this.setMessage(data.message, true)
                 this.loadItems();
+                this.setObject(data.body)
             } else {
                 console.log(data)
                 this.setMessage(data.message, false)

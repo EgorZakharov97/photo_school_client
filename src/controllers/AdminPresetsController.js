@@ -35,8 +35,7 @@ export default class AdminPresetsController extends AdminFormController {
     setObject(data) {
         super.setObject(data)
         this.setState(state => {
-            state.data.subscription = data.accessBySubscription
-            return state
+            return state.data.subscription = data.accessBySubscription
         })
     }
 }

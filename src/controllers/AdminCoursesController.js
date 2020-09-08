@@ -24,6 +24,7 @@ export default class AdminCoursesController extends AdminFormController {
     }
 
     render(){
+        console.log(this.state)
         return (
             <AdminCoursesView>
                 <info>
@@ -109,9 +110,20 @@ export default class AdminCoursesController extends AdminFormController {
         )
     }
 
-    uploadExamples(e){
-        e.preventDefault();
-        console.log(this.state.newExamples)
+    deleteExample(i){
+        axios.delete('/api/v1/admin/course/' + this.state.data._id + '/example/' + i)
+        .then(res => {
+            const data = res.data
+            if(data.success){
+                this.setMessage(data.message, true)
+                this.getCourseData()
+            } else {
+                this.setMessage(data.message, false)
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
     }
 
     onNewFileChange(e){
@@ -150,6 +162,46 @@ export default class AdminCoursesController extends AdminFormController {
         })
     }
 
+    uploadExamples(e){
+        e.preventDefault();
+        const files = this.state.newExamples
+        let formData = new FormData()
+
+        for(let filename in files){
+            let file = files[filename]
+            if(file.constructor.name === "File") formData.append('assets', file, 'image')
+        }
+
+        axios.post('/api/v1/admin/course/' + this.state.data._id + '/examples', formData)
+        .then(res => {
+            const data = res.data;
+            if(data.success){
+                this.setMessage(data.message, true)
+                this.getCourseData()
+            } else {
+                this.setMessage(data.message, false)
+            }
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    }
+
+    getCourseData(){
+        const name = this.state.data.name
+        axios.get(this.URL_GET_OBJECT_DATA + name)
+            .then(res => {
+                const data = res.data;
+                console.log(data)
+                if(data.success){
+                    return this.setObject(data.body)
+                } else {
+                    return this.setMessage(data.message, false)
+                }
+            })
+            .catch(e => console.log(e.message || e))
+    }
+
     submitFile(data){
             console.log(data)
             let formData = new FormData()
@@ -165,6 +217,9 @@ export default class AdminCoursesController extends AdminFormController {
             if(data.success){
                 this.setMessage(data.message, true)
                 this.loadFiles()
+                this.setState(state => {
+                    return state.newFile = {}
+                })
             } else {
                 this.setMessage(data.message, false)
                 console.log(data)
@@ -182,6 +237,9 @@ export default class AdminCoursesController extends AdminFormController {
             if(data.success){
                 this.setMessage(data.message, true)
                 this.loadVideos()
+                this.setState(state => {
+                    return state.newVideo = {}
+                })
             } else {
                 this.setMessage(data.message, false)
                 console.log(data)
