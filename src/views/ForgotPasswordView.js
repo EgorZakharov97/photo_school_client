@@ -2,11 +2,9 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import ForgotPasswordView from './ForgotPasswordView'
 
 const scripts = [
-  fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
-  fetch("js/webflow.js").then(body => body.text()),
+
 ]
 
 let Controller
@@ -48,7 +46,9 @@ class ForgotPasswordView extends React.Component {
 
   render() {
     const proxies = Controller !== ForgotPasswordView ? transformProxies(this.props.children) : {
-      'forgot-password': [],
+      'email': [],
+      'submit': [],
+      'message': [],
     }
 
     return (
@@ -59,21 +59,17 @@ class ForgotPasswordView extends React.Component {
           @import url(/css/photolite-academy.webflow.css);
         ` }} />
         <span className="af-view">
-          <div>
-            {map(proxies['forgot-password'], props => <div id="forgot-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <ForgotPasswordView.Controller />
-            </React.Fragment>}</div>)}
-            {/* [if lte IE 9]><![endif] */}
-          </div>
-        </span>
-      </span>
-    )
-  }
-}
-
-export default ForgotPasswordView
-
-/* eslint-enable */me="wf-form-forgot-email" data-name="forgot-email" action="/auth/local/reset" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="Email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}
+          <div className="af-class-section-register">
+            <div className="af-class-login-wrapper">
+              <div className="af-class-window-contetn">
+                <div className="af-class-window-body">
+                  <div className="af-class-window-nav"><img src="images/Webp.net-resizeimage-8.png" width={100} alt className="af-class-image-2" /></div>
+                  <div className="af-class-login-heading">
+                    <h2 className="af-class-heading-9">Forgot Password</h2>
+                  </div>
+                  <div className="af-class-login-form">
+                    <div className="w-form">
+                      <form id="wf-form-forgot-email" name="wf-form-forgot-email" data-name="forgot-email" action="/auth/local/reset" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email-6" data-name="Email 6" placeholder="Email" id="email-6" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}
                         {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}
                       </form>
                       <div className="w-form-done">

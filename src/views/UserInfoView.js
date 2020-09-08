@@ -95,4 +95,6 @@ class UserInfoView extends React.Component {
 
 export default UserInfoView
 
+/* eslint-enable */View
+
 /* eslint-enable */
