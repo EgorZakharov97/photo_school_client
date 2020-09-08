@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import AuthenticationView from '../views/Re'
+import AuthenticationView from '../views/AuthenticationView'
 import RegisterView from '../views/RegisterView'
 import LoginView from '../views/LoginView'
 import NewPasswordView from '../views/NewPasswordView'
