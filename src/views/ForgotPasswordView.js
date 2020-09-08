@@ -72,35 +72,3 @@ class ForgotPasswordView extends React.Component {
 }
 
 export default ForgotPasswordView
-
-/* eslint-enable */me="wf-form-forgot-email" data-name="forgot-email" action="/auth/local/reset" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="Email" placeholder="Email" id="email" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}
-                        {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}
-                      </form>
-                      <div className="w-form-done">
-                        <div>Thank you! Your submission has been received!</div>
-                      </div>
-                      <div className="w-form-fail">
-                        <div>Oops! Something went wrong while submitting the form.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="af-class-login-footer">
-                  <div className="af-class-text-block-7">Rember your pasword?</div>
-                  <a desc="login" href="/auth/" className="af-class-dark-button w-inline-block">
-                    <div className="af-class-text-block-6">Login</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="af-class-close">X</div>
-          </div>
-        </span>
-      </span>
-    )
-  }
-}
-
-export default ForgotPasswordView
-
-/* eslint-enable */ble */
