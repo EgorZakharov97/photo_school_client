@@ -15,6 +15,7 @@ import SubscriptionView from './views/SubscriptionView'
 export default function App(){
 
     const [user, setUser] = useState({})
+    const [shouldLogin, setShouldLogin] = useState(true)
 
     return(
         <Router>
@@ -23,7 +24,7 @@ export default function App(){
             </Route>
             <Route path='/'>
                 <IndexView/>
-                <AuthController user={user} setUser={this.setUser} />
+                <AuthController shouldLogin={shouldLogin} setShouldLogin={setShouldLogin} user={user} setUser={this.setUser} />
             </Route>
         </Router>
     )

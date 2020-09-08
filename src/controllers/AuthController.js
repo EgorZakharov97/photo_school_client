@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import AuthenticationView from '../views/Re'
 import RegisterView from '../views/RegisterView'
 import LoginView from '../views/LoginView'
 import NewPasswordView from '../views/NewPasswordView'
@@ -10,7 +11,7 @@ import UserConfirmationView from '../views/UserConfirmationView'
 export default function AuthController(props) {
     const user = props.user;
     const setUser = props.setUser;
-    const [shouldLogin, setShouldLogin] = useState(true)
+    
     const [shouldRegister, setShouldRegister] = useState(false)
     const [shouldResetPassword, setShouldResetPassword] = useState(false)
     const [shouldForgotPassword, setShouldForgotPassword] = useState(false)
