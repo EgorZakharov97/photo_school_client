@@ -3178,6 +3178,10 @@
   display: none;
 }
 
+.af-view .af-class-popup-window.af-class-hidden {
+  display: none;
+}
+
 .af-view .af-class-success-message {
   background-color: transparent;
   color: #000;
@@ -5023,8 +5027,34 @@
   background-color: transparent;
 }
 
+.af-view .af-class-register.af-class-hidden {
+  display: none;
+}
+
 .af-view .af-class-div-block-42 {
   display: none;
+}
+
+.af-view .af-class-login.af-class-hidden {
+  display: none;
+}
+
+.af-view .af-class-update-user-info.af-class-hidden {
+  display: none;
+}
+
+.af-view .af-class-forgot-password {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.af-view .af-class-new-password {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media screen and (min-width: 1280px) {

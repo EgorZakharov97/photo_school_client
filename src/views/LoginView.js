@@ -46,10 +46,13 @@ class LoginView extends React.Component {
 
   render() {
     const proxies = Controller !== LoginView ? transformProxies(this.props.children) : {
+      'close': [],
       'email': [],
       'password': [],
-      'login': [],
+      'submit': [],
+      'login-google': [],
       'message': [],
+      'link-register': [],
     }
 
     return (
@@ -62,7 +65,7 @@ class LoginView extends React.Component {
         <span className="af-view">
           <div id="login-form" className="af-class-popup-window">
             <div className="af-class-login-wrapper">
-              <div className="af-class-close">X</div>
+              {map(proxies['close'], props => <div {...{...props, className: `af-class-close ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>X</React.Fragment>}</div>)}
               <div className="af-class-window-contetn">
                 <div className="af-class-window-body">
                   <div className="af-class-window-nav"><img src="images/Webp.net-resizeimage-8.png" width={100} alt className="af-class-image-2" /></div>
@@ -71,7 +74,7 @@ class LoginView extends React.Component {
                   </div>
                   <div className="af-class-login-form">
                     <div className="w-form">
-                      <form id="wf-form-login" name="wf-form-login" data-name="login" action="/auth/local" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email-5" data-name="Email 5" placeholder="Email" id="email-5" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['password'], props => <input type="password" maxLength={256} name="password-6" data-name="Password 6" placeholder="Password" id="password-6" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['login'], props => <input type="submit" value="Login" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}<a desc="login-google" href="/auth/google" className="af-class-link-block-2 w-inline-block"><img src="images/1200px-Google__G__Logo.svg.png" width={25} srcSet="images/1200px-Google__G__Logo.svg-p-500.png 500w, images/1200px-Google__G__Logo.svg-p-800.png 800w, images/1200px-Google__G__Logo.svg-p-1080.png 1080w, images/1200px-Google__G__Logo.svg.png 1200w" sizes="(max-width: 767px) 25px, (max-width: 991px) 3vw, 25px" alt /></a>
+                      <form id="wf-form-login" name="wf-form-login" data-name="login" action="/auth/local" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email-5" data-name="Email 5" placeholder="Email" id="email-5" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['password'], props => <input type="password" maxLength={256} name="password-6" data-name="Password 6" placeholder="Password" id="password-6" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Login" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['login-google'], props => <a href="/auth/google" {...{...props, className: `af-class-link-block-2 w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/1200px-Google__G__Logo.svg.png" width={25} srcSet="images/1200px-Google__G__Logo.svg-p-500.png 500w, images/1200px-Google__G__Logo.svg-p-800.png 800w, images/1200px-Google__G__Logo.svg-p-1080.png 1080w, images/1200px-Google__G__Logo.svg.png 1200w" sizes="(max-width: 767px) 25px, (max-width: 991px) 3vw, 25px" alt /></React.Fragment>}</a>)}
                         {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}
                       </form>
                       <div className="af-class-success-message-2 w-form-done">
@@ -85,9 +88,9 @@ class LoginView extends React.Component {
                 </div>
                 <div className="af-class-login-footer">
                   <div className="af-class-text-block-7">Don't have an account?</div>
-                  <a desc="register" href="/auth/local/register" className="af-class-dark-button w-inline-block">
+                  {map(proxies['link-register'], props => <a href="/auth/local/register" {...{...props, className: `af-class-dark-button w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                     <div className="af-class-text-block-6">Register</div>
-                  </a>
+                  </React.Fragment>}</a>)}
                 </div>
               </div>
               <div className="af-class-login-col-right af-class-register" />
