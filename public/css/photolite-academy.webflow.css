@@ -5027,6 +5027,10 @@
   background-color: transparent;
 }
 
+.af-view .af-class-register {
+  display: block;
+}
+
 .af-view .af-class-register.af-class-hidden {
   display: none;
 }
@@ -5035,8 +5039,16 @@
   display: none;
 }
 
+.af-view .af-class-login {
+  display: block;
+}
+
 .af-view .af-class-login.af-class-hidden {
   display: none;
+}
+
+.af-view .af-class-update-user-info {
+  display: block;
 }
 
 .af-view .af-class-update-user-info.af-class-hidden {
@@ -5044,17 +5056,15 @@
 }
 
 .af-view .af-class-forgot-password {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
 }
 
 .af-view .af-class-new-password {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
+}
+
+.af-view .af-class-user-confirmation {
+  display: block;
 }
 
 @media screen and (min-width: 1280px) {

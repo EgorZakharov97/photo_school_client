@@ -70,7 +70,7 @@ class UserConfirmationView extends React.Component {
                 </div>
                 <div className="af-class-login-footer">
                   <div className="af-class-text-block-7">Have another account?</div>
-                  {map(proxies['link-login'], props => <a href="/auth" {...{...props, className: `af-class-dark-button w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                  {map(proxies['link-login'], props => <a href="#" {...{...props, className: `af-class-dark-button w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                     <div className="af-class-text-block-6">Login</div>
                   </React.Fragment>}</a>)}
                 </div>
