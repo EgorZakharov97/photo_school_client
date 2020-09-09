@@ -72,7 +72,7 @@ class ForgotPasswordView extends React.Component {
                     </div>
                     <div className="af-class-login-form">
                       <div className="w-form">
-                        <form id="wf-form-forgot-email" name="wf-form-forgot-email" data-name="forgot-email" action="/auth/local/reset" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email-6" data-name="Email 6" placeholder="Email" id="email-6" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}
+                        <form id="wf-form-forgot-email" name="wf-form-forgot-email" data-name="forgot-email" action="/auth/local/reset" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email" data-name="email" placeholder="Email" id="email-7" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['submit'], props => <input type="submit" value="Submit" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}
                           {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}
                         </form>
                         <div className="w-form-done">
