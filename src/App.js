@@ -9,7 +9,7 @@ import {
 
 import AuthController from './controllers/AuthController'
 import AdminController from './controllers/pages/AdminController'
-import IndexView from './views/IndexView'
+import IndexController from './controllers/pages/IndexController'
 import SubscriptionView from './views/SubscriptionView'
 
 export default function App(){
@@ -23,8 +23,8 @@ export default function App(){
                 <AdminController user={user} />
             </Route>
             <Route path='/'>
-                <IndexView/>
-                <AuthController shouldLogin={shouldLogin} setShouldLogin={setShouldLogin} user={user} setUser={this.setUser} />
+                <IndexController/>
+                <AuthController shouldLogin={shouldLogin} setShouldLogin={setShouldLogin} user={user} setUser={setUser} />
             </Route>
         </Router>
     )
