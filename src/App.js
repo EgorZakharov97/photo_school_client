@@ -17,9 +17,9 @@ export default function App(){
     const [user, setUser] = useState({})
     const [shouldLogin, setShouldLogin] = useState(true)
 
-    useEffect(() => {
-        getUserFromStorage()
-    })
+    // useEffect(() => {
+    //     getUserFromStorage()
+    // })
 
     return(
         <Router>

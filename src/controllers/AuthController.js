@@ -73,6 +73,7 @@ export default class AuthController extends React.Component {
             this.responseHandler(res)
             this.props.setUser(res.data.body)
             console.log(res.data)
+            console.log(this.state)
         })
         .catch(this.errorHandler)
     }
@@ -108,8 +109,8 @@ export default class AuthController extends React.Component {
 
     onClose(e) {
         setTimeout(() => {
+            this.props.setShowLogin(false)
             this.setState({
-                showLogin: false,
                 showRegister: false,
             })
         }, 600)
@@ -121,5 +122,6 @@ export default class AuthController extends React.Component {
         this.setState(state => {
             return state.authentication[key] = value;
         })
+        console.log(this.state.authentication)
     }
 }
