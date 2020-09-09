@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useHistory} from 'react'
 import axios from 'axios'
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {URL_REGISTER, URL_LOGIN} from '../constants'
 import AuthenticationView from '../views/AuthenticationView'
 import RegisterView from '../views/RegisterView'
@@ -14,8 +14,6 @@ import UserConfirmationView from '../views/UserConfirmationView'
 export default class AuthController extends React.Component {
 
     state = {
-        showLogin: false,
-        showRegister: true,
         authentication: {},
         message: {}
     }
@@ -30,22 +28,42 @@ export default class AuthController extends React.Component {
                 <phoneNumber value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <experience value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <sex value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
-                <submit/>
-                <google/>
-                <submit/>
+                <submit onClick={e => this.registerNewUser(e)} />
+                <register-google onClock={e => this.registerGoogle()} />
+                <link-login onClick={this.toLogin.bind(this)} />
                 <close/>
             </RegisterView>
         </register>
 
-        if(this.state.showLogin) return <login>
+        if(this.props.showLogin) return <login>
             <LoginView>
-                <email/>
-                <password/>
-                <submit/>
+                <email value={this.state.authentication.email || ""} onChange={e => this.onChangeHandler(e)} />
+                <password value={this.state.authentication.password || ""} onChange={e => this.onChangeHandler(e)} />
+                <submit onClick={this.login.bind(this)} />
+                <link-register onClick={this.toRegister.bind(this)} />
                 <google/>
                 <close/>
             </LoginView>
         </login>
+    }
+
+    toRegister() {
+        this.props.setShowLogin(false)
+        this.setState(state => {
+            state.showRegister = true
+            return state
+        })
+    }
+
+    toLogin() {
+        this.setState(state => {
+            state.showRegister = false
+            return state
+        })
+    }
+
+    registerGoogle() {
+
     }
 
     login() {

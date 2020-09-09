@@ -30,7 +30,7 @@ export default function App(){
                 <IndexController/>
             </Route>
             <Router path='/'>
-                <AuthController shouldLogin={shouldLogin} setShouldLogin={setShouldLogin} user={user} setUser={saveUser} />
+                <AuthController showLogin={shouldLogin} setShowLogin={setShouldLogin} user={user} setUser={saveUser} />
             </Router>
         </Router>
     )
