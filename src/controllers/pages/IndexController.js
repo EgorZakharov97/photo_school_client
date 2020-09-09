@@ -13,10 +13,6 @@ export default function IndexController(){
     })
 
     return(
-        <div>
-            <IndexView/>
-            
-        </div>
-        
+        <IndexView/>
     )
 }
