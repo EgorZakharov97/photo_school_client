@@ -98,16 +98,3 @@ class LoginView extends React.Component {
 }
 
 export default LoginView
-
-/* eslint-enable */f-class-register" />
-            </div>
-          </div>
-        </span>
-      </span>
-    )
-  }
-}
-
-export default LoginView
-
-/* eslint-enable */
