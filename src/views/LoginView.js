@@ -46,7 +46,7 @@ class LoginView extends React.Component {
 
   render() {
     const proxies = Controller !== LoginView ? transformProxies(this.props.children) : {
-      'name': [],
+      'email': [],
       'password': [],
       'login': [],
       'message': [],
@@ -71,7 +71,7 @@ class LoginView extends React.Component {
                   </div>
                   <div className="af-class-login-form">
                     <div className="w-form">
-                      <form id="wf-form-login" name="wf-form-login" data-name="login" action="/auth/local" method="post">{map(proxies['name'], props => <input type="email" maxLength={256} name="email-5" data-name="Email 5" placeholder="Email" id="email-5" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['password'], props => <input type="password" maxLength={256} name="password-6" data-name="Password 6" placeholder="Password" id="password-6" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['login'], props => <input type="submit" value="Login" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}<a desc="login-google" href="/auth/google" className="af-class-link-block-2 w-inline-block"><img src="images/1200px-Google__G__Logo.svg.png" width={25} srcSet="images/1200px-Google__G__Logo.svg-p-500.png 500w, images/1200px-Google__G__Logo.svg-p-800.png 800w, images/1200px-Google__G__Logo.svg-p-1080.png 1080w, images/1200px-Google__G__Logo.svg.png 1200w" sizes="(max-width: 767px) 25px, (max-width: 991px) 3vw, 25px" alt /></a>
+                      <form id="wf-form-login" name="wf-form-login" data-name="login" action="/auth/local" method="post">{map(proxies['email'], props => <input type="email" maxLength={256} name="email-5" data-name="Email 5" placeholder="Email" id="email-5" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['password'], props => <input type="password" maxLength={256} name="password-6" data-name="Password 6" placeholder="Password" id="password-6" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['login'], props => <input type="submit" value="Login" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}<a desc="login-google" href="/auth/google" className="af-class-link-block-2 w-inline-block"><img src="images/1200px-Google__G__Logo.svg.png" width={25} srcSet="images/1200px-Google__G__Logo.svg-p-500.png 500w, images/1200px-Google__G__Logo.svg-p-800.png 800w, images/1200px-Google__G__Logo.svg-p-1080.png 1080w, images/1200px-Google__G__Logo.svg.png 1200w" sizes="(max-width: 767px) 25px, (max-width: 991px) 3vw, 25px" alt /></a>
                         {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}
                       </form>
                       <div className="af-class-success-message-2 w-form-done">

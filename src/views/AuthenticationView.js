@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import LoginView from './LoginView'
 import RegisterView from './RegisterView'
+import LoginView from './LoginView'
 import UserInfoView from './UserInfoView'
 import ForgotPasswordView from './ForgotPasswordView'
 import NewPasswordView from './NewPasswordView'
@@ -53,8 +53,8 @@ class AuthenticationView extends React.Component {
 
   render() {
     const proxies = Controller !== AuthenticationView ? transformProxies(this.props.children) : {
-      'login': [],
       'register': [],
+      'login': [],
       'user-info': [],
       'forgot-password': [],
       'new-password': [],
@@ -70,26 +70,24 @@ class AuthenticationView extends React.Component {
         ` }} />
         <span className="af-view">
           <div className="af-class-body-3">
+            {map(proxies['register'], props => <div id="register-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+              <RegisterView.Controller />
+            </React.Fragment>}</div>)}
             {map(proxies['login'], props => <div {...{...props, className: `af-class-popup-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
               <LoginView.Controller />
             </React.Fragment>}</div>)}
-            <div className="af-class-div-block-42">
-              {map(proxies['register'], props => <div id="register-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                <RegisterView.Controller />
-              </React.Fragment>}</div>)}
-              {map(proxies['user-info'], props => <div {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                <UserInfoView.Controller />
-              </React.Fragment>}</div>)}
-              {map(proxies['forgot-password'], props => <div id="forgot-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                <ForgotPasswordView.Controller />
-              </React.Fragment>}</div>)}
-              {map(proxies['new-password'], props => <div id="new-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                <NewPasswordView.Controller />
-              </React.Fragment>}</div>)}
-              {map(proxies['user-confirmation'], props => <div id="user-confirmation-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                <UserConfirmationView.Controller />
-              </React.Fragment>}</div>)}
-            </div>
+            {map(proxies['user-info'], props => <div {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+              <UserInfoView.Controller />
+            </React.Fragment>}</div>)}
+            {map(proxies['forgot-password'], props => <div id="forgot-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+              <ForgotPasswordView.Controller />
+            </React.Fragment>}</div>)}
+            {map(proxies['new-password'], props => <div id="new-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+              <NewPasswordView.Controller />
+            </React.Fragment>}</div>)}
+            {map(proxies['user-confirmation'], props => <div id="user-confirmation-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+              <UserConfirmationView.Controller />
+            </React.Fragment>}</div>)}
             {/* [if lte IE 9]><![endif] */}
           </div>
         </span>
