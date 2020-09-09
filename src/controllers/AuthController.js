@@ -21,9 +21,7 @@ export default function AuthController(props) {
     const [shouldUpdateUserInfo, setShouldUpdateUserInfo] = useState(false)
     const [shouldUserConfirmation, setShouldUserConfirmation] = useState(false)
 
-    if (shouldLogin) return <AuthenticationView><LoginView>
-
-        </LoginView></AuthenticationView>
+    if (shouldLogin) return <AuthenticationView><login><LoginView/></login></AuthenticationView>
 
     // if (shouldRegister) return <RegisterView>
     //     <name/>

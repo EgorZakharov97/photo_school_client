@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import IndexView from '../../views/IndexView'
+import LoginView from '../../views/LoginView'
 
 export default function IndexController(){
     useEffect(() => {
@@ -12,6 +13,10 @@ export default function IndexController(){
     })
 
     return(
-        <IndexView/>
+        <div>
+            <IndexView/>
+            <login><LoginView/></login>
+        </div>
+        
     )
 }

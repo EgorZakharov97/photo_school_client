@@ -24,7 +24,7 @@ export default function App(){
             </Route>
             <Route path='/'>
                 <IndexController/>
-                <AuthController shouldLogin={shouldLogin} setShouldLogin={setShouldLogin} user={user} setUser={setUser} />
+                {/* <AuthController shouldLogin={shouldLogin} setShouldLogin={setShouldLogin} user={user} setUser={setUser} /> */}
             </Route>
         </Router>
     )
