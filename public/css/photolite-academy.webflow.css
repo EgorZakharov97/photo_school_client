@@ -5023,6 +5023,10 @@
   background-color: transparent;
 }
 
+.af-view .af-class-div-block-42 {
+  display: none;
+}
+
 @media screen and (min-width: 1280px) {
   .af-view .af-class-section-welcome {
     min-height: 80vh;

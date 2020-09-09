@@ -2,10 +2,9 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
+import LoginView from './LoginView'
 import RegisterView from './RegisterView'
 import UserInfoView from './UserInfoView'
-import LoginView from './LoginView'
-import LoginView from './LoginView'
 import ForgotPasswordView from './ForgotPasswordView'
 import NewPasswordView from './NewPasswordView'
 import UserConfirmationView from './UserConfirmationView'
@@ -54,10 +53,9 @@ class AuthenticationView extends React.Component {
 
   render() {
     const proxies = Controller !== AuthenticationView ? transformProxies(this.props.children) : {
+      'login': [],
       'register': [],
       'user-info': [],
-      'login': [],
-      'login': [],
       'forgot-password': [],
       'new-password': [],
       'user-confirmation': [],
@@ -72,28 +70,26 @@ class AuthenticationView extends React.Component {
         ` }} />
         <span className="af-view">
           <div className="af-class-body-3">
-            {map(proxies['register'], props => <div id="register-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <RegisterView.Controller />
-            </React.Fragment>}</div>)}
-            {map(proxies['user-info'], props => <div {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <UserInfoView.Controller />
-            </React.Fragment>}</div>)}
-            {map(proxies['login'], props => <div {...{...props, className: `af-class-popup-wrapper ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+            {map(proxies['login'], props => <div {...{...props, className: `af-class-popup-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
               <LoginView.Controller />
-            </div-af-sock-login>
-            <div-af-sock-login id="login-form" className="af-class-popup-window">
-              <LoginView.Controller />
-            </React.Fragment>)}</div>)}
-            {map(proxies['forgot-password'], props => <div id="forgot-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <ForgotPasswordView.Controller />
             </React.Fragment>}</div>)}
-            {map(proxies['new-password'], props => <div id="new-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <NewPasswordView.Controller />
-            </React.Fragment>}</div>)}
-            {map(proxies['user-confirmation'], props => <div id="user-confirmation-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              <UserConfirmationView.Controller />
-            </React.Fragment>}</div>)}
-            <div />
+            <div className="af-class-div-block-42">
+              {map(proxies['register'], props => <div id="register-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                <RegisterView.Controller />
+              </React.Fragment>}</div>)}
+              {map(proxies['user-info'], props => <div {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                <UserInfoView.Controller />
+              </React.Fragment>}</div>)}
+              {map(proxies['forgot-password'], props => <div id="forgot-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                <ForgotPasswordView.Controller />
+              </React.Fragment>}</div>)}
+              {map(proxies['new-password'], props => <div id="new-password-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                <NewPasswordView.Controller />
+              </React.Fragment>}</div>)}
+              {map(proxies['user-confirmation'], props => <div id="user-confirmation-form" {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                <UserConfirmationView.Controller />
+              </React.Fragment>}</div>)}
+            </div>
             {/* [if lte IE 9]><![endif] */}
           </div>
         </span>
