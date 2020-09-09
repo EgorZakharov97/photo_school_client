@@ -42,6 +42,7 @@ export default function App(){
 
     function saveUser(newUser){
         if(newUser) setUser(newUser)
+        axios.defaults.headers.common['Authentication'] = user.token;
         window.localStorage.setItem('user', JSON.stringify(user))
     }
 }

@@ -72,6 +72,7 @@ export default class AuthController extends React.Component {
         .then(res => {
             this.responseHandler(res)
             this.props.setUser(res.data.body)
+            console.log(res.data)
         })
         .catch(this.errorHandler)
     }
