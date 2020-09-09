@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import axios from 'axios'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
+import {URL_REGISTER, URL_LOGIN} from '../constants'
 import AuthenticationView from '../views/AuthenticationView'
 import RegisterView from '../views/RegisterView'
 import LoginView from '../views/LoginView'
@@ -8,53 +11,96 @@ import UpdateUserInfoView from '../views/UpdateUserInfoView'
 import UserConfirmationView from '../views/UserConfirmationView'
 
 
-export default function AuthController(props) {
-    const user = props.user;
-    const setUser = props.setUser;
-    
-    const shouldLogin = props.shouldLogin
-    const setShouldLogin = props.setShouldLogin
+export default class AuthController extends React.Component {
 
-    const [shouldRegister, setShouldRegister] = useState(false)
-    const [shouldResetPassword, setShouldResetPassword] = useState(false)
-    const [shouldForgotPassword, setShouldForgotPassword] = useState(false)
-    const [shouldUpdateUserInfo, setShouldUpdateUserInfo] = useState(false)
-    const [shouldUserConfirmation, setShouldUserConfirmation] = useState(false)
+    state = {
+        showLogin: false,
+        showRegister: true,
+        authentication: {},
+        message: {}
+    }
 
-    if (shouldLogin) return (
-        <login>
+    render() {
+        if (this.state.showRegister) return <register>
+            <RegisterView>
+                <username value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <email value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <password value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <password_2 value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <phoneNumber value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <experience value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <sex value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
+                <submit/>
+                <google/>
+                <submit/>
+                <close/>
+            </RegisterView>
+        </register>
+
+        if(this.state.showLogin) return <login>
             <LoginView>
                 <email/>
                 <password/>
                 <submit/>
+                <google/>
+                <close/>
             </LoginView>
         </login>
-    )
+    }
 
-    if (shouldRegister) return <RegisterView>
-        <name/>
-        <email/>
-        <password/>
-        <password_2/>
-        <phoneNumber/>
-        <experience/>
-        <sex/>
-        <submit/>
-    </RegisterView>
+    login() {
+        const data = this.state.authentication
+        axios.post(URL_LOGIN, data)
+        .then(res => {
+            this.responseHandler(res)
+            this.props.setUser(res.data.body)
+        })
+        .catch(this.errorHandler)
+    }
 
-    if (shouldResetPassword) return <NewPasswordView>
+    registerNewUser() {
+        const data = this.state.authentication
+        axios.post(URL_REGISTER, data)
+        .then(res => {
+            this.responseHandler(res)
+            this.props.setUser(res.data.body)
+        })
+        .catch(this.errorHandler)
+    }
 
-    </NewPasswordView>
+    errorHandler(e){
+        console.log(e)
+    }
 
-    if (shouldForgotPassword) return <ForgotPasswordView>
+    responseHandler(res){
+        const data = res.data;
+        if (data.success) return this.setMessage(data.message)
+        return this.setMessage(data.message, false)
+    }
 
-    </ForgotPasswordView>
+    setMessage(message, positive=true){
+        this.setState(state => {
+            return state.message = {
+                positive: positive,
+                body: message || "Unknown event occured"
+            }
+        })
+    }
 
-    if (shouldUpdateUserInfo) return <UpdateUserInfoView>
+    onClose(e) {
+        setTimeout(() => {
+            this.setState({
+                showLogin: false,
+                showRegister: false,
+            })
+        }, 600)
+    }
 
-    </UpdateUserInfoView>
-
-    if (shouldUserConfirmation) return <UserConfirmationView>
-
-    </UserConfirmationView>
+    onChangeHandler(e){
+        const key = e.target.name;
+        const value = e.target.value;
+        this.setState(state => {
+            return state.authentication[key] = value;
+        })
+    }
 }

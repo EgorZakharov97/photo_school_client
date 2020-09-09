@@ -34,3 +34,6 @@ export const URL_DELETE_COURSE_VIDEO = '/api/v1/admin/course/video/'; // + video
 export const URL_GET_ALL_COURSE_FILES = '/api/v1/course/files';
 export const URL_POST_COURSE_FILE = '/api/v1/admin/course/file';
 export const URL_DELETE_COURSE_FILE = '/api/v1/admin/course/file/'; // + file._id
+
+export const URL_REGISTER = '/api/v1/auth/register';
+export const URL_LOGIN = '/api/v1/auth/login';
