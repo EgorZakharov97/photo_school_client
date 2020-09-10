@@ -1,48 +1,50 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
+import auth from './Auth'
 
 import AuthController from './controllers/AuthController'
 import AdminController from './controllers/pages/AdminController'
 import IndexController from './controllers/pages/IndexController'
 import SubscriptionView from './views/SubscriptionView'
+import PortalController from './controllers/pages/PortalController';
 
-export default function App(){
-
-    const [user, setUser] = useState({})
-    const [shouldLogin, setShouldLogin] = useState(true)
-
-    // useEffect(() => {
-    //     getUserFromStorage()
-    // })
+export default function App(props){
 
     return(
         <Router>
-            <Route exact path='/admin'>
-                <AdminController user={user} />
-            </Route>
+            <Route
+                exact path="/admin"
+                render={(props) => {
+                    return <AdminController {...props} />
+                }}
+            />
+
+            <Route
+                exact path='/portal'
+                render={(props) => {
+                    return <PortalController {...props} />
+                }}
+            />
+
+            <Route path='/'
+                // {...props}
+                // showLogin={shouldAuthenticate}
+                // setShowLogin={setShouldAuthenticate}
+                render={(props) => <AuthController {...props} />}         
+            />
+                
             <Route exact path='/'>
-                <IndexController/>
+                <IndexController {...props} />
             </Route>
-            <Router path='/'>
-                <AuthController showLogin={shouldLogin} setShowLogin={setShouldLogin} user={user} setUser={saveUser} />
-            </Router>
         </Router>
     )
 
-    function getUserFromStorage() {
-        const LSUser = JSON.parse(window.localStorage.getItem('user'))
-        if (LSUser && LSUser != {}) setUser(LSUser)
-    }
 
-    function saveUser(newUser){
-        if(newUser) setUser(newUser)
-        axios.defaults.headers.common['Authentication'] = user.token;
-        window.localStorage.setItem('user', JSON.stringify(user))
-    }
 }

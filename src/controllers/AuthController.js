@@ -1,7 +1,8 @@
 import React, {useHistory} from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import {URL_REGISTER, URL_LOGIN} from '../constants'
+import auth from '../Auth'
+import {URL_AUTH_GOOGLE} from '../constants'
+
 import AuthenticationView from '../views/AuthenticationView'
 import RegisterView from '../views/RegisterView'
 import LoginView from '../views/LoginView'
@@ -15,12 +16,21 @@ export default class AuthController extends React.Component {
 
     state = {
         authentication: {},
-        message: {}
+        message: {},
+        showRegister: false,
+        showLogin: false
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if(props.location.state){
+            state.showLogin =  props.location.state.shouldAuthenticate
+            window.history.replaceState(null, '')
+        } 
+        return state
     }
 
     render() {
-        if (this.state.showRegister) return <register>
-            <RegisterView>
+        if (this.state.showRegister) return <RegisterView key="regView">
                 <username value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <email value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <password value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
@@ -29,73 +39,82 @@ export default class AuthController extends React.Component {
                 <experience value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <sex value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <submit onClick={e => this.registerNewUser(e)} />
-                <register-google onClock={e => this.registerGoogle()} />
+                <register-google onClick={e => this.toGoogleAuth()} />
                 <link-login onClick={this.toLogin.bind(this)} />
-                <close/>
+                {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
+                <close onClick={ e => this.close(e)} />
             </RegisterView>
-        </register>
+        
 
-        if(this.props.showLogin) return <login>
-            <LoginView>
+        if(this.state.showLogin) return <login key="login">
+            <LoginView key="logView" >
                 <email value={this.state.authentication.email || ""} onChange={e => this.onChangeHandler(e)} />
                 <password value={this.state.authentication.password || ""} onChange={e => this.onChangeHandler(e)} />
-                <submit onClick={this.login.bind(this)} />
+                <submit onClick={e => this.onLogin(e)} />
                 <link-register onClick={this.toRegister.bind(this)} />
-                <google/>
-                <close/>
+                <login-google onClick={this.toGoogleAuth.bind(this)} />
+                {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
+                <close onClick={ e => this.close(e)} />
             </LoginView>
         </login>
+
+        if(auth.isAuthenticated() && !auth.getUser().verified) return <user-confirmation>
+            <UserConfirmationView>
+                <link-login onClick/>
+            </UserConfirmationView>
+        </user-confirmation>
+
+        return <></>
     }
 
-    toRegister() {
-        this.props.setShowLogin(false)
-        this.setState(state => {
-            state.showRegister = true
-            return state
+    logout(){
+        this.close()
+        auth.logout()
+    }
+
+    onLogin(e){
+        e.preventDefault()
+        auth.login(this.state.authentication)
+        .then(res => {
+            auth.saveUser(res.data.body)
+            this.handleSuccess(res)
         })
+        .catch(e => this.errorHandler(e))
+    }
+
+    onRegister(e) {
+        e.preventDefault()
+        auth.register(this.state.authentication)
+        .then(res => {
+            auth.saveUser(res.data.body)
+            this.handleSuccess(res)
+        })
+        .catch(e => this.errorHandler(e))
     }
 
     toLogin() {
-        this.setState(state => {
-            state.showRegister = false
-            return state
-        })
+        this.close()
+        this.props.setShowLogin(true)
     }
 
-    registerGoogle() {
-
+    toRegister() {
+        this.close()
+        this.setState({showRegister: true})
     }
 
-    login() {
-        const data = this.state.authentication
-        axios.post(URL_LOGIN, data)
+    toGoogleAuth() {
+        axios.get(URL_AUTH_GOOGLE)
         .then(res => {
-            this.responseHandler(res)
-            this.props.setUser(res.data.body)
-            console.log(res.data)
-            console.log(this.state)
+            const data = res.data;
+            if(data.success){
+                return window.location.href = data.body.redirect
+            } else {
+                this.setMessage("Unfortunatelly, Google authentication does not work at the moment", false)
+            }
         })
-        .catch(this.errorHandler)
-    }
-
-    registerNewUser() {
-        const data = this.state.authentication
-        axios.post(URL_REGISTER, data)
-        .then(res => {
-            this.responseHandler(res)
-            this.props.setUser(res.data.body)
+        .catch(e => {
+            this.setMessage("Unfortunatelly, Google authentication does not work at the moment", false)
         })
-        .catch(this.errorHandler)
-    }
-
-    errorHandler(e){
-        console.log(e)
-    }
-
-    responseHandler(res){
-        const data = res.data;
-        if (data.success) return this.setMessage(data.message)
-        return this.setMessage(data.message, false)
     }
 
     setMessage(message, positive=true){
@@ -107,11 +126,11 @@ export default class AuthController extends React.Component {
         })
     }
 
-    onClose(e) {
+    close() {
         setTimeout(() => {
-            this.props.setShowLogin(false)
             this.setState({
                 showRegister: false,
+                showLogin: false
             })
         }, 600)
     }
@@ -122,6 +141,15 @@ export default class AuthController extends React.Component {
         this.setState(state => {
             return state.authentication[key] = value;
         })
-        console.log(this.state.authentication)
+    }
+
+    handleSuccess(res){
+        if(res.data.success) return this.close()
+        this.setMessage(res.data.message, false)
+    }
+
+    errorHandler(e){
+        this.setMessage("There was a problem on out server...\n Sorry", false)
+        console.log(e)
     }
 }

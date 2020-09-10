@@ -37,3 +37,6 @@ export const URL_DELETE_COURSE_FILE = '/api/v1/admin/course/file/'; // + file._i
 
 export const URL_REGISTER = '/api/v1/auth/register';
 export const URL_LOGIN = '/api/v1/auth/login';
+export const URL_AUTH_GOOGLE = '/api/v1/auth/google';
+export const URL_UPDATE_USER_INFO = '/api/v1/auth/update';
+export const URL_GET_USER_INFO = '/api/v1/auth/user';
