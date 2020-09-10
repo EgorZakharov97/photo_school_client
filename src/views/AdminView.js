@@ -56,6 +56,8 @@ class AdminView extends React.Component {
 
   render() {
     const proxies = Controller !== AdminView ? transformProxies(this.props.children) : {
+      'logout': [],
+      'username': [],
       'admin-workshops': [],
       'admin-courses': [],
       'admin-tutorial': [],
@@ -87,13 +89,13 @@ class AdminView extends React.Component {
                       <a href="/portal" className="af-class-login-nav-link af-class-portal w-inline-block">
                         <h3 className="af-class-heading-13">Portal</h3>
                       </a><a href="#" className="w-nav-brand"><img src="images/Masterwhite.png" width={60} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 13vw, 60px" alt className="af-class-image-4" /></a>
-                      <a href="/auth/logout" className="af-class-login-nav-link w-inline-block">
+                      {map(proxies['logout'], props => <a href="#" {...{...props, className: `af-class-login-nav-link w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                         <h3 className="af-class-heading-13">Exit</h3>
-                      </a>
+                      </React.Fragment>}</a>)}
                     </div>
                   </div>
                   <nav role="navigation" className="af-class-nav-menu-2 w-nav-menu">
-                    <h1 className="af-class-member-name-heading">Egor Zakharov</h1>
+                    {map(proxies['username'], props => <h1 {...{...props, className: `af-class-member-name-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Egor Zakharov</React.Fragment>}</h1>)}
                     <div className="af-class-portal-tab-links"><a href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a href="#" className="af-class-tab-button w-button">Tutorials</a><a href="#" className="af-class-tab-button w-button">Courses</a><a href="#" className="af-class-tab-button w-button">Materials</a><a href="#" className="af-class-tab-button w-button">Presets</a><a href="#" className="af-class-tab-button w-button">Challenges</a><a href="#" className="af-class-tab-button w-button">Coupons</a><a href="#" className="af-class-tab-button w-button">Emails</a></div>
                   </nav>
                 </div>

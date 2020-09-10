@@ -2398,9 +2398,8 @@
 }
 
 .af-view .af-class-window-contetn {
-  max-width: 600px;
+  width: 100%;
   min-height: 600px;
-  min-width: 450px;
 }
 
 .af-view .af-class-login-col-right {
@@ -2422,6 +2421,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 450px;
   background-color: #fff;
 }
 
@@ -2537,6 +2537,7 @@
 }
 
 .af-view .af-class-window-body {
+  width: 450px;
   height: 80%;
   padding: 40px;
 }
@@ -5013,6 +5014,7 @@
 
 .af-view .af-class-text-block-25 {
   display: block;
+  min-width: 300px;
   padding-top: 10px;
   font-family: Lato, sans-serif;
   font-size: 14px;
@@ -5048,7 +5050,7 @@
 }
 
 .af-view .af-class-update-user-info {
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-update-user-info.af-class-hidden {
@@ -5056,15 +5058,15 @@
 }
 
 .af-view .af-class-forgot-password {
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-new-password {
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-user-confirmation {
-  display: block;
+  display: none;
 }
 
 @media screen and (min-width: 1280px) {
