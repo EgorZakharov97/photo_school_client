@@ -5069,6 +5069,14 @@
   display: none;
 }
 
+.af-view .af-class-link-2 {
+  border-bottom: 2px dashed #000;
+  font-family: Lato, sans-serif;
+  color: #333;
+  font-size: 16px;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 1280px) {
   .af-view .af-class-section-welcome {
     min-height: 80vh;
