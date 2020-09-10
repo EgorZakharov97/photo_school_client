@@ -67,17 +67,13 @@ export default class AuthController extends React.Component {
         return <></>
     }
 
-    logout(){
-        this.close()
-        auth.logout()
-    }
-
     onLogin(e){
         e.preventDefault()
         auth.login(this.state.authentication)
         .then(res => {
-            auth.saveUser(res.data.body)
-            this.handleSuccess(res)
+            if(res.data.success) auth.saveUser(res.data.body)
+            this.handleResponse(res)
+            this.props.history.go(-2)
         })
         .catch(e => this.errorHandler(e))
     }
@@ -143,9 +139,13 @@ export default class AuthController extends React.Component {
         })
     }
 
-    handleSuccess(res){
-        if(res.data.success) return this.close()
-        this.setMessage(res.data.message, false)
+    handleResponse(res){
+        console.log(res.data.success)
+        if(res.data.success){
+            this.close()
+        } else {
+            this.setMessage(res.data.message, false)
+        }
     }
 
     errorHandler(e){

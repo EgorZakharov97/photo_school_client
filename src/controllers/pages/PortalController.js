@@ -21,14 +21,19 @@ export default class PortalController extends React.Component {
 
     render() {
         return(
-            auth.isAuthenticated ? 
+            auth.isAuthenticated() ? 
             (
                 <MembersPortalView>
-
+                    <logout onClick={e => this.logout(e)} />
                 </MembersPortalView>
             ) : (
-                <Redirect to={{path: '/', state:{from: this.props.location, shouldAuthenticate: true} }} />
+                <Redirect to={{path: '/', state: {from: this.props.location, shouldAuthenticate: true} }} />
             )
         )
+    }
+
+    logout(e){
+        e.preventDefault()
+        auth.logout(this.props)
     }
 }

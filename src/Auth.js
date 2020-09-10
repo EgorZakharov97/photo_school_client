@@ -31,19 +31,22 @@ class Auth {
         return this.user !== null
     }
 
+    isAdmin() {
+        return this.user !== null && this.user.isAdmin
+    }
+
     getUser(){
         return this.user
     }
 
     saveUser(user){
-        console.log('Saving user...')
-        console.log(user)
         this.user = user;
         axios.defaults.headers.common['Authentication'] = 'Bearer ' + user.token
         window.localStorage.setItem('user', JSON.stringify(user))
     }
 
-    logout(){
+    logout(props){
+        props.history.push('/')
         this.user = null;
         axios.defaults.headers.common['Authentication'] = ''
         window.localStorage.setItem('user', '')
@@ -61,5 +64,10 @@ function responseHandler(res) {
 }
 
 function getUserFromLS(){
-    return JSON.parse(window.localStorage.getItem('user'))
+    try{
+        return JSON.parse(window.localStorage.getItem('user'))
+    }
+    catch(e) {
+        return null
+    }
 }

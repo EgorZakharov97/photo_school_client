@@ -30,8 +30,10 @@ export default class AdminController extends React.Component {
 
     render() {
         return (
-            auth.isAuthenticated() ? (
+            auth.isAdmin() ? (
                 <AdminView>
+                    <username>{auth.getUser().username}</username>
+                    <logout onClick={e => this.logout(e)} />
                     <admin-workshops>
                         <AdminWorkshopsController/>
                     </admin-workshops>
@@ -64,5 +66,10 @@ export default class AdminController extends React.Component {
                 <Redirect to={{path: '/', state: {from: this.props.location, shouldAuthenticate: true} }} />
             )
         )
+    }
+
+    logout(e){
+        e.preventDefault()
+        auth.logout(this.props)
     }
 }
