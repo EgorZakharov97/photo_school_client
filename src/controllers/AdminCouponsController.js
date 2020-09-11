@@ -1,10 +1,12 @@
 import React from 'react'
-import axios from 'axios'
+import auth from '../Auth'
 import AdminFormController from './AdminFormController'
 import CouponsFormView from '../views/CouponsFormView'
 import CouponsContainerView from '../views/CouponsContainerView'
 import CouponView from '../views/CouponView'
 import {URL_DELETE_COUPON, URL_GET_COUPONS, URL_POST_COUPON} from '../constants'
+
+const axios = auth.getAPI()
 
 export default class AdminCouponController extends React.Component {
 

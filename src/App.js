@@ -43,6 +43,18 @@ export default function App(props){
             <Route exact path='/'>
                 <IndexController {...props} />
             </Route>
+
+            <Route exact path='/auth/reset/:secret'
+                render={(props) => {
+                    return <Redirect to={{path: '/', state:{secret: props.match.params.secret} }} />
+                }}        
+            />
+
+            <Route exact path='/auth/confirm/:link'
+                render={(props) => {
+                    return <Redirect to={{path: '/', state:{link: props.match.params.link} }} />
+                }}        
+            />
         </Router>
     )
 

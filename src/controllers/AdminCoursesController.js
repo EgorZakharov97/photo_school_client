@@ -1,11 +1,13 @@
 import React from 'react'
-import axios from 'axios'
+import auth from '../Auth'
 import {URL_GET_COURSES_NAMES, URL_GET_COURSE_DATA, URL_POST_COURSE, URL_POST_COURSE_VIDEO, URL_DELETE_COURSE_VIDEO, URL_DELETE_COURSE_FILE, URL_POST_COURSE_FILE} from '../constants'
 import AdminFormController from './AdminFormController'
 import AdminCoursesView from '../views/AdminCoursesView'
 import TableVideoView from '../views/TableVideoView'
 import TableFileView from '../views/TableFileView'
 import TableExampleView from '../views/TableExampleView'
+
+const axios = auth.getAPI()
 
 export default class AdminCoursesController extends AdminFormController {
     constructor(props) {
@@ -37,7 +39,7 @@ export default class AdminCoursesController extends AdminFormController {
                     <name value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
                     <price value={this.state.data.price || ""} onChange={e => this.changeHandler(e)}/>
                     <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
-                    <access value={this.state.data.access} onCHange={e => this.booleanChangeHandler(e)} />
+                    <access value={this.state.data.access} onChange={e => this.booleanChangeHandler(e)} />
                     {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
                     {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
                 </info>

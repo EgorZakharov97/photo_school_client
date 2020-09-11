@@ -1,6 +1,8 @@
 import React from 'react'
-import axios from 'axios'
+import auth from '../Auth'
 import 'react-quill/dist/quill.snow.css'
+
+const axios = auth.getAPI()
 
 export default class AdminFormController extends React.Component {
 

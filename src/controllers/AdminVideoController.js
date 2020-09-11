@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import axios from 'axios'
+import auth from '../Auth'
 import TableVideoView from '../views/TableVideoView'
 import {URL_POST_COURSE_VIDEO, URL_DELETE_COURSE_VIDEO} from '../constants'
+
+const axios = auth.getAPI()
 
 export default function AdminVideoController(props) {
 

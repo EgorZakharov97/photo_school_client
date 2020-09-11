@@ -7,8 +7,21 @@ class Auth {
 
         Auth.instance = this;
         this.user = getUserFromLS();
+        if(this.user !== null && this.user !== {}) {
+            this.API = axios.create({
+                headers: {
+                    'Authorization': 'Bearer ' + this.user.token
+                }
+            })
+        } else {
+            this.API = axios.create()
+        }
 
         return this
+    }
+
+    getAPI(){
+        return this.API
     }
 
     updateUser(data){
@@ -41,14 +54,18 @@ class Auth {
 
     saveUser(user){
         this.user = user;
-        axios.defaults.headers.common['Authentication'] = 'Bearer ' + user.token
+        this.API = axios.create({
+            headers: {
+                Authentication: 'Bearer ' + (user.token || "")
+            }
+        })
         window.localStorage.setItem('user', JSON.stringify(user))
     }
 
     logout(props){
         props.history.push('/')
         this.user = null;
-        axios.defaults.headers.common['Authentication'] = ''
+        this.API = axios.create()
         window.localStorage.setItem('user', '')
     }
 }

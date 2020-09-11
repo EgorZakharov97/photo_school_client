@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactQuill from 'react-quill'
-import axios from 'axios'
+import auth from '../Auth'
 import 'react-quill/dist/quill.snow.css'
 import AdminWorkshopView from '../views/AdminWorkshopsView'
 import AdminFormController from './AdminFormController'
 import {URL_GET_WORKSHOP_NAMES, URL_POST_WORKSHOP, URL_GET_WORKSHOP_DATA} from '../constants'
+
+const axios = auth.getAPI()
 
 export default class AdminWorkshopsController extends AdminFormController {
 
@@ -13,13 +15,6 @@ export default class AdminWorkshopsController extends AdminFormController {
         this.URL_GET_LIST = URL_GET_WORKSHOP_NAMES;
         this.URL_POST_OBJECT = URL_POST_WORKSHOP;
         this.URL_GET_OBJECT_DATA = URL_GET_WORKSHOP_DATA;
-    }
-
-    componentWillUnmount(){
-        this.props.saveState({
-            name: "workshop",
-            value: this.state.data
-        })
     }
 
     render() {
