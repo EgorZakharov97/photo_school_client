@@ -47,7 +47,9 @@ class SubscriptionView extends React.Component {
 
   render() {
     const proxies = Controller !== SubscriptionView ? transformProxies(this.props.children) : {
-
+      'subscribe-trial': [],
+      'subscribe': [],
+      'subscribe-coaching': [],
     }
 
     return (
@@ -74,16 +76,16 @@ class SubscriptionView extends React.Component {
                 </nav>
               </div>
             </div>
-            <div className="af-class-subscription-welcome">
+            <div className="af-class-subscription-content">
               <div className="af-class-container-9 w-container">
                 <div className="af-class-sebscription">Subscription Huila+</div>
                 <h1 className="af-class-heading-16">Practice photography<br />but don't shit your pants</h1>
-                <div className="af-class-btn-wrappr"><a href="#" className="af-class-button af-class-red w-button">Start triel for $1</a></div>
+                <div className="af-class-btn-wrappr"><a href="#subscriptions" className="af-class-button af-class-red w-button">Start trialfor $1</a></div>
               </div>
-            </div>
-            <div className="af-class-subscription-content"><img src="images/93289623-6d6c-49c3-8324-8ae0d61e9f01.JPG" loading="lazy" srcSet="images/93289623-6d6c-49c3-8324-8ae0d61e9f01-p-500.jpeg 500w, images/93289623-6d6c-49c3-8324-8ae0d61e9f01-p-1080.jpeg 1080w, images/93289623-6d6c-49c3-8324-8ae0d61e9f01.JPG 1600w" sizes="(max-width: 1600px) 100vw, 1600px" alt className="af-class-image-8" />
-              <div className="af-class-sub-text-left">
-                <p className="af-class-sub-text-box af-class-fat">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo.</p>
+              <div className="af-class-div-block-43"><img src="images/93289623-6d6c-49c3-8324-8ae0d61e9f01.JPG" loading="lazy" srcSet="images/93289623-6d6c-49c3-8324-8ae0d61e9f01-p-500.jpeg 500w, images/93289623-6d6c-49c3-8324-8ae0d61e9f01-p-1080.jpeg 1080w, images/93289623-6d6c-49c3-8324-8ae0d61e9f01.JPG 1600w" sizes="(max-width: 1600px) 100vw, 1600px" alt className="af-class-image-8" />
+                <div className="af-class-sub-text-left">
+                  <p className="af-class-sub-text-box af-class-fat">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo.</p>
+                </div>
               </div>
             </div>
             <div className="af-class-section">
@@ -242,7 +244,7 @@ class SubscriptionView extends React.Component {
                     <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
                     <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
                     <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-btn-wrapper af-class-sub"><a href="#" className="af-class-button af-class-red w-button">Button Text</a></div>
+                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe-trial'], props => <a href="#" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Button Text</React.Fragment>}</a>)}</div>
                     <p className="af-class-paragraph-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
                   </div>
                   <div className="af-class-subscription af-class-on-black">
@@ -254,7 +256,19 @@ class SubscriptionView extends React.Component {
                     <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
                     <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
                     <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-btn-wrapper af-class-sub"><a href="#" className="af-class-button af-class-on-black w-button">Button Text</a></div>
+                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe'], props => <a href="#" {...{...props, className: `af-class-button af-class-on-black w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Button Text</React.Fragment>}</a>)}</div>
+                  </div>
+                  <div className="af-class-subscription af-class-on-black">
+                    <h4 className="af-class-sub-heading af-class-small af-class-_3">specia <span className="af-class-text-span-45">coaching</span></h4>
+                    <div className="af-class-text-block-26">99 places left</div>
+                    <h4 className="af-class-sub-heading af-class-small af-class-on-black af-class-sm">$1200<br />per month</h4>
+                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe-coaching'], props => <a href="#" {...{...props, className: `af-class-button af-class-on-black w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Button Text</React.Fragment>}</a>)}</div>
                   </div>
                 </div>
               </div>

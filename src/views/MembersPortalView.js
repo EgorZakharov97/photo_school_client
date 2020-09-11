@@ -171,8 +171,8 @@ class MembersPortalView extends React.Component {
                       <div className="af-class-menu-button-2 w-nav-button">
                         <div className="af-class-icon w-icon-nav-menu" />
                       </div>
-                      <a href="https://wa.me/12048813113" target="_blank" className="af-class-login-nav-link af-class-portal w-inline-block">
-                        <h3 className="af-class-heading-13">Help</h3>
+                      <a href="index.html" target="_blank" className="af-class-login-nav-link af-class-portal w-inline-block">
+                        <h3 className="af-class-heading-13">HOME</h3>
                       </a><a href="#" className="w-nav-brand"><img src="images/Masterwhite.png" width={60} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 100vw, 60px" alt className="af-class-image-4" /></a>
                       {map(proxies['logout'], props => <a href="#" {...{...props, className: `af-class-login-nav-link w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                         <h3 className="af-class-heading-13">Exit</h3>

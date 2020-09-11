@@ -2480,6 +2480,7 @@
 }
 
 .af-view .af-class-login-input {
+  display: block;
   margin-top: 10px;
   padding-left: 5px;
   border-style: none none solid;
@@ -3490,10 +3491,7 @@
 }
 
 .af-view .af-class-subscription-welcome {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  z-index: -1;
+  z-index: 0;
   padding-top: 40px;
 }
 
@@ -3751,6 +3749,9 @@
 }
 
 .af-view .af-class-container-9 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3789,11 +3790,15 @@
 }
 
 .af-view .af-class-btn-wrappr {
+  position: relative;
+  z-index: 9999;
   margin-top: 20px;
   margin-bottom: 60px;
 }
 
 .af-view .af-class-subscription-content {
+  position: relative;
+  z-index: 2;
   background-color: #fff;
 }
 
@@ -3834,18 +3839,18 @@
 }
 
 .af-view .af-class-sub-text-left {
+  position: relative;
+  z-index: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 40px;
-  margin-right: 40px;
-  margin-left: 40px;
-  padding-bottom: 40px;
+  padding: 40px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  background-color: #fff;
 }
 
 .af-view .af-class-sub-light {
@@ -3925,6 +3930,10 @@
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.af-view .af-class-image-8 {
+  z-index: 1;
 }
 
 .af-view .af-class-sub-container {
@@ -4137,6 +4146,7 @@
 }
 
 .af-view .af-class-subscription.af-class-on-black {
+  position: relative;
   padding: 20px;
 }
 
@@ -5030,7 +5040,7 @@
 }
 
 .af-view .af-class-register {
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-register.af-class-hidden {
@@ -5042,7 +5052,7 @@
 }
 
 .af-view .af-class-login {
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-login.af-class-hidden {
@@ -5050,7 +5060,7 @@
 }
 
 .af-view .af-class-update-user-info {
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-update-user-info.af-class-hidden {
@@ -5075,6 +5085,25 @@
   color: #333;
   font-size: 16px;
   text-decoration: none;
+}
+
+.af-view .af-class-div-block-43 {
+  position: relative;
+  z-index: 1;
+}
+
+.af-view .af-class-text-span-45 {
+  color: #e74c32;
+}
+
+.af-view .af-class-text-block-26 {
+  position: absolute;
+  right: 50px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-family: Lato, sans-serif;
+  color: #fff;
+  font-weight: 700;
 }
 
 @media screen and (min-width: 1280px) {
