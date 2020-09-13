@@ -13,7 +13,8 @@ import AuthController from './controllers/AuthController'
 import AdminController from './controllers/pages/AdminController'
 import IndexController from './controllers/pages/IndexController'
 import SubscriptionView from './views/SubscriptionView'
-import PortalController from './controllers/pages/PortalController';
+import PortalController from './controllers/pages/PortalController'
+import SubscriptionsController from './controllers/pages/SubscriptionsController'
 
 export default function App(props){
 
@@ -23,6 +24,13 @@ export default function App(props){
                 exact path="/admin"
                 render={(props) => {
                     return <AdminController {...props} />
+                }}
+            />
+
+            <Route
+                exact path='/subscription'
+                render={(props) => {
+                    return <SubscriptionsController {...props} />
                 }}
             />
 

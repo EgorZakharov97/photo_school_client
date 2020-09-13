@@ -45,3 +45,5 @@ export const URL_POST_PASSWORD = '/api/v1/auth/reset/new';
 export const URL_POST_USER_INFO = '/api/v1/auth/update';
 export const URL_CONFIRM_USER = '/api/v1/auth/confirm/'; // + confirmation link
 export const GOOGLE_CLIENT = '329027502191-i98e1odi91fraohjilbc3ist7uu8tjoj.apps.googleusercontent.com';
+
+export const STRIPE_PK = 'pk_test_5LIx4WHIYVoVZnnenECqIjt500K30frsZH';
