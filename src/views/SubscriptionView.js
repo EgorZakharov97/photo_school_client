@@ -50,6 +50,10 @@ class SubscriptionView extends React.Component {
       'subscribe-trial': [],
       'subscribe': [],
       'subscribe-coaching': [],
+      'subscribe-form': [],
+      'close': [],
+      'heading': [],
+      'stripe-form': [],
     }
 
     return (
@@ -272,6 +276,13 @@ class SubscriptionView extends React.Component {
                   </div>
                 </div>
               </div>
+              {map(proxies['subscribe-form'], props => <div {...{...props, className: `af-class-form-subscribe ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                <div className="af-class-form-subscribe-content">
+                  {map(proxies['close'], props => <div {...{...props, className: `af-class-close ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>X</React.Fragment>}</div>)}
+                  {map(proxies['heading'], props => <h4 {...{...props, className: `af-class-sub-heading af-class-small ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><span className="af-class-text-span-46">taste </span><span className="af-class-text-span-39">the adventure</span></React.Fragment>}</h4>)}
+                  {map(proxies['stripe-form'], props => <div {...{...props, className: `af-class-subscribe-form ${props.className || ''}`}}>{props.children}</div>)}
+                </div>
+              </React.Fragment>)}</div>)}
             </div>
             <footer id="footer" className="af-class-footer">
               <div className="w-container">

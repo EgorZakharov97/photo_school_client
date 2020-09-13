@@ -5106,6 +5106,38 @@
   font-weight: 700;
 }
 
+.af-view .af-class-form-subscribe {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.af-view .af-class-form-subscribe-content {
+  position: relative;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 4px 4px 19px -11px #000;
+}
+
+.af-view .af-class-text-span-46 {
+  color: #000;
+}
+
 @media screen and (min-width: 1280px) {
   .af-view .af-class-section-welcome {
     min-height: 80vh;
