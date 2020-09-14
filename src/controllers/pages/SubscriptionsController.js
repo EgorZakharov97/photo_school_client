@@ -39,16 +39,20 @@ export default function SubscriptionController(props) {
       };
 
     return (
-        <>
         <SubscriptionView>
             <subscribe-trial/>
             <subscribe onClick={e => subscribe(e)} />
             <subscribe-coaching/>
+            <subscribe-form>
+                <close/>
+                <heading/>
+                <stripe-form>
+                    <Elements stripe={stripePromise} >
+                        <CardElement options={CARD_ELEMENT_OPTIONS} />
+                    </Elements>
+                </stripe-form>
+            </subscribe-form>
         </SubscriptionView>
-        <Elements stripe={stripePromise} >
-            <CardElement options={CARD_ELEMENT_OPTIONS} />
-        </Elements>
-        </>
     )
 
     function subscribe(e) {
