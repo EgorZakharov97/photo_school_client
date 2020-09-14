@@ -50,6 +50,7 @@ class SubscriptionView extends React.Component {
       'subscribe-trial': [],
       'subscribe': [],
       'subscribe-coaching': [],
+      'subscribe-form': [],
       'close': [],
       'heading': [],
       'price': [],
@@ -281,7 +282,7 @@ class SubscriptionView extends React.Component {
                   </div>
                 </div>
               </div>
-              <div style={{display: 'flex', opacity: 1}} className="af-class-popup-window">
+              {map(proxies['subscribe-form'], props => <div style={{display: 'flex', opacity: 1}} {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                 <div className="af-class-payment-container w-container">
                   <div className="af-class-payment-block">
                     {map(proxies['close'], props => <div data-w-id="928c79bd-cbe9-54f9-fbca-1b95e4ffce1b" {...{...props, className: `af-class-close-btn ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
@@ -311,7 +312,7 @@ class SubscriptionView extends React.Component {
                       </div>
                     </div>{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-buy-buy ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Pay now</React.Fragment>}</a>)}</div>
                 </div>
-              </div>
+              </React.Fragment>)}</div>)}
             </div>
             <footer id="footer" className="af-class-footer">
               <div className="w-container">
