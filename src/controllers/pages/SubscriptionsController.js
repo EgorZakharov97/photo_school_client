@@ -44,16 +44,28 @@ export default function SubscriptionController(props) {
             <subscribe onClick={e => subscribe(e)} />
             <subscribe-coaching/>
             <subscribe-form>
+                <price>$200</price>
                 <close/>
                 <heading>Some heading</heading>
-                <logged-in-as>
-                    <email>Someone@gmail.com</email>
-                </logged-in-as>
-                <stripe-form>
+
+                {auth.isAuthenticated() ? 
+                (
+                    <logged-in-as>
+                        <email>{auth.getUser().email}</email>
+                    </logged-in-as>
+                ) : (
+                    <>
+                        <email />
+                        <password/>
+                    </>
+                )}
+
+                <stripe-card>
                     <Elements stripe={stripePromise} >
                         <CardElement options={CARD_ELEMENT_OPTIONS} />
                     </Elements>
-                </stripe-form>
+                </stripe-card>
+                <submit />
             </subscribe-form>
         </SubscriptionView>
     )
