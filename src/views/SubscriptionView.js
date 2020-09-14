@@ -299,17 +299,16 @@ class SubscriptionView extends React.Component {
                       {map(proxies['email'], props => <div {...{...props, className: `af-class-buy-user-email ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>skymailsenter@gmail.com</React.Fragment>}</div>)}
                     </React.Fragment>)}</div>)}
                     <div className="af-class-form-block-3 w-form">
-                      <form id="email-form" name="email-form" data-name="Email Form"><label htmlFor="name" className="af-class-field-label-6">Email</label>{map(proxies['email'], props => <input type="text" maxLength={256} name="name" data-name="Name" placeholder id="name" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="email-4" className="af-class-field-label-6">Password</label>{map(proxies['password'], props => <input type="email" maxLength={256} name="email-2" data-name="Email 2" placeholder="Create new if not registered" id="email-2" required {...{...props, className: `af-class-text-field-4 w-input ${props.className || ''}`}}>{props.children}</input>)}
-                        <div>
-                          {map(proxies['stripe-card'], props => <div {...props}>{props.children}</div>)}
-                        </div>
-                      </form>
+                      <form id="email-form" name="email-form" data-name="Email Form"><label htmlFor="name" className="af-class-field-label-6">Email</label>{map(proxies['email'], props => <input type="text" maxLength={256} name="name" data-name="Name" placeholder id="name" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="email-4" className="af-class-field-label-6">Password</label>{map(proxies['password'], props => <input type="email" maxLength={256} name="email-2" data-name="Email 2" placeholder="Create new if not registered" id="email-2" required {...{...props, className: `af-class-text-field-4 w-input ${props.className || ''}`}}>{props.children}</input>)}</form>
                       <div className="w-form-done">
                         <div>Thank you! Your submission has been received!</div>
                       </div>
                       <div className="w-form-fail">
                         <div>Oops! Something went wrong while submitting the form.</div>
                       </div>
+                    </div>
+                    <div>
+                      {map(proxies['stripe-card'], props => <div {...{...props, className: `af-class-div-block-44 ${props.className || ''}`}}>{props.children}</div>)}
                     </div>{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-buy-buy ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Pay now</React.Fragment>}</a>)}</div>
                 </div>
               </React.Fragment>)}</div>)}
