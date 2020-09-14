@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
+import CheckoutFormView from './CheckoutFormView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -50,17 +51,7 @@ class SubscriptionView extends React.Component {
       'subscribe-trial': [],
       'subscribe': [],
       'subscribe-coaching': [],
-      'subscribe-form': [],
-      'close': [],
-      'heading': [],
-      'price': [],
-      'logged-in-as': [],
-      'email': [],
-      'auth-form': [],
-      'email': [],
-      'password': [],
-      'stripe-card': [],
-      'submit': [],
+      'checkout-form': [],
     }
 
     return (
@@ -283,36 +274,9 @@ class SubscriptionView extends React.Component {
                   </div>
                 </div>
               </div>
-              {map(proxies['subscribe-form'], props => <div style={{display: 'flex', opacity: 1}} {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                <div className="af-class-payment-container w-container">
-                  <div className="af-class-payment-block">
-                    {map(proxies['close'], props => <div data-w-id="928c79bd-cbe9-54f9-fbca-1b95e4ffce1b" {...{...props, className: `af-class-close-btn ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                      <div className="af-class-text-block-19">X</div>
-                    </React.Fragment>}</div>)}
-                    <div className="af-class-course-buy-pic" />
-                    {map(proxies['heading'], props => <h1 {...{...props, className: `af-class-buy-course-name ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscription name</React.Fragment>}</h1>)}
-                    <div className="af-class-dateblock af-class-checkout">
-                      <div className="af-class-date-phrase">Final Price</div>
-                      {map(proxies['price'], props => <div {...{...props, className: `af-class-date-duration ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>$200</React.Fragment>}</div>)}
-                    </div>
-                    {map(proxies['logged-in-as'], props => <div {...{...props, className: `af-class-buy-email ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                      <div className="af-class-buy-hint">You are logged in as:</div>
-                      {map(proxies['email'], props => <div {...{...props, className: `af-class-buy-user-email ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>skymailsenter@gmail.com</React.Fragment>}</div>)}
-                    </React.Fragment>)}</div>)}
-                    <div className="af-class-form-block-3 w-form">
-                      {map(proxies['auth-form'], props => <form id="email-form" name="email-form" data-name="Email Form" {...props}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="name" className="af-class-field-label-6">Email</label>{map(proxies['email'], props => <input type="text" maxLength={256} name="name" data-name="Name" placeholder id="name" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="email-4" className="af-class-field-label-6">Password</label>{map(proxies['password'], props => <input type="email" maxLength={256} name="email-2" data-name="Email 2" placeholder="Create new if not registered" id="email-2" required {...{...props, className: `af-class-text-field-4 w-input ${props.className || ''}`}}>{props.children}</input>)}</React.Fragment>)}</form>)}
-                      <div className="w-form-done">
-                        <div>Thank you! Your submission has been received!</div>
-                      </div>
-                      <div className="w-form-fail">
-                        <div>Oops! Something went wrong while submitting the form.</div>
-                      </div>
-                    </div>
-                    <div>
-                      {map(proxies['stripe-card'], props => <div {...{...props, className: `af-class-div-block-44 ${props.className || ''}`}}>{props.children}</div>)}
-                    </div>{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-buy-buy ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Pay now</React.Fragment>}</a>)}</div>
-                </div>
-              </React.Fragment>)}</div>)}
+              {map(proxies['checkout-form'], props => <div style={{display: 'flex', opacity: 1}} {...{...props, className: `af-class-popup-window ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                <CheckoutFormView.Controller />
+              </React.Fragment>}</div>)}
             </div>
             <footer id="footer" className="af-class-footer">
               <div className="w-container">
