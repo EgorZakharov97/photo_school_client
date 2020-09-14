@@ -47,3 +47,5 @@ export const URL_CONFIRM_USER = '/api/v1/auth/confirm/'; // + confirmation link
 export const GOOGLE_CLIENT = '329027502191-i98e1odi91fraohjilbc3ist7uu8tjoj.apps.googleusercontent.com';
 
 export const STRIPE_PK = 'pk_test_5LIx4WHIYVoVZnnenECqIjt500K30frsZH';
+export const STRIPE_PRICE_SUBSCRIPTION_2 = 'price_1HM4yaG6Hl2ceMlVRNe3z62p';
+export const URL_SUBSCRIBE = '/api/v1/payments/subsccribe';
