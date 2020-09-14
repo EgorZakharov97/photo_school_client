@@ -56,6 +56,7 @@ class SubscriptionView extends React.Component {
       'price': [],
       'logged-in-as': [],
       'email': [],
+      'auth-form': [],
       'email': [],
       'password': [],
       'stripe-card': [],
@@ -299,7 +300,7 @@ class SubscriptionView extends React.Component {
                       {map(proxies['email'], props => <div {...{...props, className: `af-class-buy-user-email ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>skymailsenter@gmail.com</React.Fragment>}</div>)}
                     </React.Fragment>)}</div>)}
                     <div className="af-class-form-block-3 w-form">
-                      <form id="email-form" name="email-form" data-name="Email Form"><label htmlFor="name" className="af-class-field-label-6">Email</label>{map(proxies['email'], props => <input type="text" maxLength={256} name="name" data-name="Name" placeholder id="name" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="email-4" className="af-class-field-label-6">Password</label>{map(proxies['password'], props => <input type="email" maxLength={256} name="email-2" data-name="Email 2" placeholder="Create new if not registered" id="email-2" required {...{...props, className: `af-class-text-field-4 w-input ${props.className || ''}`}}>{props.children}</input>)}</form>
+                      {map(proxies['auth-form'], props => <form id="email-form" name="email-form" data-name="Email Form" {...props}>{createScope(props.children, proxies => <React.Fragment><label htmlFor="name" className="af-class-field-label-6">Email</label>{map(proxies['email'], props => <input type="text" maxLength={256} name="name" data-name="Name" placeholder id="name" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="email-4" className="af-class-field-label-6">Password</label>{map(proxies['password'], props => <input type="email" maxLength={256} name="email-2" data-name="Email 2" placeholder="Create new if not registered" id="email-2" required {...{...props, className: `af-class-text-field-4 w-input ${props.className || ''}`}}>{props.children}</input>)}</React.Fragment>)}</form>)}
                       <div className="w-form-done">
                         <div>Thank you! Your submission has been received!</div>
                       </div>
