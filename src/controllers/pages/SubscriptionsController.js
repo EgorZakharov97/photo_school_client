@@ -45,7 +45,10 @@ export default function SubscriptionController(props) {
             <subscribe-coaching/>
             <subscribe-form>
                 <close/>
-                <heading/>
+                <heading>Some heading</heading>
+                <logged-in-as>
+                    <email>Someone@gmail.com</email>
+                </logged-in-as>
                 <stripe-form>
                     <Elements stripe={stripePromise} >
                         <CardElement options={CARD_ELEMENT_OPTIONS} />
