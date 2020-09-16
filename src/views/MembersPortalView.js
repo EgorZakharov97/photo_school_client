@@ -54,7 +54,7 @@ class MembersPortalView extends React.Component {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
       'logout': [],
       'workshops': [],
-      'materials': [],
+      'materials-portal': [],
       'presets': [],
       'portal-profile': [],
     }
@@ -282,7 +282,7 @@ class MembersPortalView extends React.Component {
                       </div>
                     </div>
                     <div data-w-tab="Materials" className="w-tab-pane w--tab-active">
-                      {map(proxies['materials'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                      {map(proxies['materials-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <MaterialsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
