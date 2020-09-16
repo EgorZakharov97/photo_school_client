@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
+import PortalProfileView from './PortalProfileView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -49,6 +50,7 @@ class MembersPortalView extends React.Component {
   render() {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
       'logout': [],
+      'portal-profile': [],
     }
 
     return (
@@ -182,7 +184,7 @@ class MembersPortalView extends React.Component {
                   <nav role="navigation" className="af-class-nav-menu-2 w-nav-menu">
                     <h1 id="username" className="af-class-member-name-heading" />
                     <div className="af-class-portal-tab-links"><a id="nav-workshops" data-w-id="35e95c24-2a78-7c37-9a14-36416311b6c5" href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a id="nav-tutorials" data-w-id="855b3228-1593-9d07-6d1c-8b8c19a15555" href="#" className="af-class-tab-button w-button">Tutorials</a><a id="nav-courses" data-w-id="fad969ac-8ee0-4af1-0d61-da2a77b820c8" href="#" className="af-class-tab-button w-button">Courses</a><a id="nav-materials" data-w-id="2fa5e394-bbd3-fb74-e84b-42e476298583" href="#" className="af-class-tab-button w-button">Materials</a><a id="nav-presets" data-w-id="97d85560-c95d-b340-727d-83b5ba47cfed" href="#" className="af-class-tab-button w-button">Presets</a><a id="nav-profile" data-w-id="f6e306c2-e50a-6d6d-a5d9-5e39c8ac9a10" href="#" className="af-class-tab-button w-button">Profile</a>
-                      <div className="af-class-slecial"><a id="nav-challenge" data-w-id="66cf1bc1-a188-62eb-a97b-bb330800f686" href="#" className="af-class-tab-button af-class-button af-class-on-black af-class-portal w-button">Weekly Challenge</a><a href="#" className="af-class-button af-class-red af-class-portal w-button">Join Chat</a><a desc="admin-btn" href="admin.html" className="af-class-button af-class-red af-class-portal w-button">Admin</a></div>
+                      <div className="af-class-slecial"><a id="nav-challenge" data-w-id="66cf1bc1-a188-62eb-a97b-bb330800f686" href="#" className="af-class-tab-button af-class-button af-class-on-black af-class-portal w-button">Weekly Challenge</a><a href="#" className="af-class-button af-class-red af-class-portal w-button">Join Chat</a><a href="admin.html" className="af-class-button af-class-red af-class-portal w-button">Admin</a></div>
                     </div>
                   </nav>
                 </div>
@@ -191,7 +193,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
                       <div>Workshops</div>
                     </a>
-                    <a data-w-tab="Courses" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Courses" className="w-inline-block w-tab-link">
                       <div>Courses</div>
                     </a>
                     <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
@@ -206,7 +208,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
                       <div>Weekly Challenge</div>
                     </a>
-                    <a data-w-tab="Profile" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Profile" className="w-inline-block w-tab-link w--current">
                       <div>Profile</div>
                     </a>
                   </div>
@@ -285,7 +287,7 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane w--tab-active">
+                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Co</span>urses</h3>
                       <div className="af-class-course-topic">
                         <h1 className="af-class-heading-20">Your courses</h1>
@@ -396,26 +398,9 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Profile" className="af-class-tab-pane-profile w-tab-pane">
-                      <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Pro</span>file</h3>
-                      <div className="af-class-window-body">
-                        <div className="af-class-login-heading">
-                          <h2 className="af-class-heading-9">Update user info</h2>
-                        </div>
-                        <div className="af-class-text-block-10">Your email:</div>
-                        <div className="af-class-login-form">
-                          <div className="w-form">
-                            <form id="update-profile" name="wf-form-Register" data-name="Register" action="/auth/update" method="post">
-                              <div desc="email" className="af-class-text-block-10">email@gmail.com</div><input type="text" className="af-class-login-input w-input" autofocus="true" maxLength={256} name="username" data-name="Username" desc="name" placeholder="Name" id="username" required /><input type="tel" className="af-class-login-input w-input" maxLength={256} name="phoneNumber" data-name="Phone Number" desc="phone" placeholder="Phone Number" id="phoneNumber" required /><input type="email" className="af-class-login-input af-class-invisible w-input" maxLength={256} name="email" data-name="Email" placeholder="email" id="email" required /><select id="Level" name="Level" required data-name="Level" desc="level" className="af-class-login-input w-select"><option value="beginner">Beginner</option><option value="advanced">Advanced</option><option value="intermediate">Intermediate</option><option value="professional">Professional</option></select><select id="sex" name="sex" required data-name="Sex" desc="sex" className="af-class-login-input w-select"><option value="Prefer not to say">Sex</option><option value="Male">Male</option><option value="Female">Female</option><option value="Hybrid">Hybrid</option></select><input type="submit" defaultValue="Update" data-wait="Please wait..." className="af-class-login-submit w-button" /></form>
-                            <div className="w-form-done">
-                              <div>Thank you! Your submission has been received!</div>
-                            </div>
-                            <div className="w-form-fail">
-                              <div>Oops! Something went wrong while submitting the form.</div>
-                            </div>
-                          </div>
-                        </div><a href="/auth/local/reset" className="af-class-login-submit w-button">Reset Password</a></div>
-                    </div>
+                    {map(proxies['portal-profile'], props => <div data-w-tab="Profile" {...{...props, className: `af-class-tab-pane-profile w-tab-pane w--tab-active ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                      <PortalProfileView.Controller />
+                    </React.Fragment>}</div>)}
                   </div>
                 </div>
               </div>

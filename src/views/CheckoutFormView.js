@@ -55,6 +55,7 @@ class CheckoutFormView extends React.Component {
       'email': [],
       'password': [],
       'stripe-card': [],
+      'message': [],
       'submit': [],
     }
 
@@ -92,7 +93,8 @@ class CheckoutFormView extends React.Component {
               </div>
               <div>
                 {map(proxies['stripe-card'], props => <div {...{...props, className: `af-class-div-block-44 ${props.className || ''}`}}>{props.children}</div>)}
-              </div>{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-buy-buy ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Pay now</React.Fragment>}</a>)}</div>
+              </div>
+              {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-buy-buy ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Pay now</React.Fragment>}</a>)}</div>
           </div>
         </span>
       </span>
