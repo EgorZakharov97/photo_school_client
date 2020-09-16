@@ -1,9 +1,8 @@
-import React, {useHistory} from 'react'
+import React from 'react'
 import auth from '../Auth'
-import {URL_AUTH_GOOGLE, URL_PASSWORD_RESET, URL_POST_PASSWORD, URL_POST_USER_INFO, URL_CONFIRM_USER, GOOGLE_CLIENT, URL_LOGIN_GOOGLE, URL_LOGIN} from '../constants'
+import {URL_AUTH_GOOGLE, URL_PASSWORD_RESET, URL_POST_PASSWORD, URL_POST_USER_INFO, URL_CONFIRM_USER, GOOGLE_CLIENT, URL_LOGIN_GOOGLE} from '../constants'
 import GoogleLogin from 'react-google-login'
 
-import AuthenticationView from '../views/AuthenticationView'
 import RegisterView from '../views/RegisterView'
 import LoginView from '../views/LoginView'
 import NewPasswordView from '../views/NewPasswordView'
@@ -24,7 +23,6 @@ export default class AuthController extends React.Component {
         showReset: false,
         showUpdateUser: false,
         showNewPassword: false,
-        showUpdate: false,
         showConfirmation: false,
     };
 
@@ -60,8 +58,9 @@ export default class AuthController extends React.Component {
                 }
             });
             delete props.location.state.secret
-        } else if(!!auth.getUser() && !auth.getUser().verified) {
-            state.showUpdate = true
+        } else if(auth.isAuthenticated() && !auth.getUser().complete) {
+            state.showUpdateUser = true;
+            state.authentication = auth.getUser()
         }
         return state
     }
@@ -114,10 +113,7 @@ export default class AuthController extends React.Component {
             </LoginView>
         </login>;
 
-        if(this.state.updateUser) {
-            this.setState(state => {
-                return state.authentication = auth.getUser()
-            });
+        if(this.state.showUpdateUser) {
             return <UpdateUserInfoView>
             <email>{this.state.authentication.email}</email>
             <username value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
@@ -299,7 +295,6 @@ export default class AuthController extends React.Component {
             showUpdateUser: false,
             showReset: false,
             showNewPassword: false,
-            showUpdate: false,
             showConfirmation: false,
             message: {}
         })

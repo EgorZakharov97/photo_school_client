@@ -56,7 +56,7 @@ class Auth {
         this.user = user;
         this.API = axios.create({
             headers: {
-                Authentication: 'Bearer ' + (user.token || "")
+                'Authorization': 'Bearer ' + (user.token || "")
             }
         });
         window.localStorage.setItem('user', JSON.stringify(user))

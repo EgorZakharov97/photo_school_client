@@ -9,6 +9,8 @@ import PortalWorkshopsController from "./PortalWorkshopsController";
 
 export default function PortalController(props) {
 
+    const history = useHistory();
+
     useEffect(() => {
         const WEBFLOW_PAGE_ID = '5f3ee1d6fc0f317030ba94ae';
         const WEBFLOW_SITE_ID = '5f1212b6860f150f9f0e6e14';
@@ -18,19 +20,16 @@ export default function PortalController(props) {
         doc.setAttribute('data-wf-site', WEBFLOW_SITE_ID);
     }, []);
 
-    const history = useHistory();
-
     return(
         <>
             <MembersPortalView>
-                    <logout onClick={e => logout(e)} />
-                    <workshops>
-                        <PortalWorkshopsController {...props} />
-                    </workshops>
-                    <portal-profile>
-                        <PortalProfileController/>
-                    </portal-profile>
-
+                <logout onClick={e => logout(e)} />
+                <workshops>
+                    {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}
+                </workshops>
+                <portal-profile>
+                    {auth.isAuthenticated() && <PortalProfileController/>}
+                </portal-profile>
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
         </>

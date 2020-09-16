@@ -53,3 +53,5 @@ export const URL_SUBSCRIBE = '/api/v1/payments/subscribe';
 
 export const URL_UPDATE_USER_PROFILE = '/api/v1/auth/update';
 export const URL_UPDATE_PAYMENT_METHOD = '/api/v1/auth/update/payment-method';
+
+export const URL_GET_MY_WORKSHOPS = '/api/v1/workshops';

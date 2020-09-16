@@ -19,7 +19,7 @@ export default function PortalProfileController(props) {
 	return (
 		<PortalProfileView>
 			<reset-password onClick={e => onResetPassword()} />
-			<message style={message.positive ? {color: "green"} : {color: "red"}} >{message.body}</message>
+			<message style={message.positive ? {color: "green"} : {color: "red"}} >{message.body || " "}</message>
 			<email>{user.email || ""}</email>
 			<name value={user.username || ""} onChange={e => changeHandler(e)} />
 			<phone-number value={user.phoneNumber || ""} onChange={e => changeHandler(e)} />
@@ -31,8 +31,6 @@ export default function PortalProfileController(props) {
 					<FormUpdatePayment setMessage={setMessage.bind(this)} />
 				</Elements>
 			</stripe-payment>
-			<update-payment onClick={e => updatePaymentMethod(e)} />
-
 		</PortalProfileView>
 	);
 

@@ -30,7 +30,6 @@ export default function FormUpdatePayment(props) {
 
 	return (
 		<label>
-			Card details
 			<CardElement options={CARD_ELEMENT_OPTIONS} />
 			<a onClick={updatePaymentMethod} href="#" className="af-class-login-submit w-button ">Update payment method</a>
 		</label>
