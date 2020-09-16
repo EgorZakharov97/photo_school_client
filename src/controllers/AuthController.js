@@ -1,6 +1,6 @@
 import React, {useHistory} from 'react'
 import auth from '../Auth'
-import {URL_AUTH_GOOGLE, URL_PASSWORD_RESET, URL_POST_PASSWORD, URL_POST_USER_INFO, URL_CONFIRM_USER, GOOGLE_CLIENT} from '../constants'
+import {URL_AUTH_GOOGLE, URL_PASSWORD_RESET, URL_POST_PASSWORD, URL_POST_USER_INFO, URL_CONFIRM_USER, GOOGLE_CLIENT, URL_LOGIN_GOOGLE, URL_LOGIN} from '../constants'
 import GoogleLogin from 'react-google-login'
 
 import AuthenticationView from '../views/AuthenticationView'
@@ -29,10 +29,8 @@ export default class AuthController extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        if(props.location.state && props.location.state.shouldAuthenticate){
-            state.showLogin =  props.location.state.shouldAuthenticate
-            window.history.replaceState(null, '')
-            delete props.location.state.shouldAuthenticate
+        if(props.shouldAuthenticate && !auth.isAuthenticated()){
+            state.showLogin =  true
         } else if(props.location.state && props.location.state.secret) {
             state.authentication.secret = props.location.state.secret
             state.showNewPassword = true
@@ -82,14 +80,14 @@ export default class AuthController extends React.Component {
                 {/* <register-google onClick={e => this.toGoogleAuth()} /> */}
                 <link-login onClick={this.toLogin.bind(this)} />
                 {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
-                <close onClick={ e => this.close(e)} />
+                <close onClick={ e => this.onClose(e)} />
             </RegisterView>
 
         if(this.state.showNewPassword) return <NewPasswordView>
             <password value={this.state.authentication.password || ""} onChange={e => this.onChangeHandler(e)} />
             <password_2 value={this.state.authentication.password_2 || ""} onChange={e => this.onChangeHandler(e)} />
             <submit onClick={e => this.onNewPassword(e)} />
-            <close onClick={e => this.close(e)} />
+            <close onClick={e => this.onClose(e)} />
             <link-login onClick={this.toLogin.bind(this)} />
             {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
         </NewPasswordView>
@@ -101,15 +99,18 @@ export default class AuthController extends React.Component {
                 <password value={this.state.authentication.password || ""} onChange={e => this.onChangeHandler(e)} />
                 <submit onClick={e => this.onLogin(e)} />
                 <link-register onClick={this.toRegister.bind(this)} />
-                {/* <login-google><GoogleLogin 
-                    clientId={GOOGLE_CLIENT}
-                    onSuccess={this.responseGoogle.bind(this)}
-                    onFailure={this.responseGoogle.bind(this)}
-                    cookiePolicy={'single_host_origin'} 
-                /></login-google> */}
+                <login-google>
+                    <GoogleLogin
+                        clientId={GOOGLE_CLIENT}
+                        buttonText="Login"
+                        onSuccess={this.onGoogleCallback.bind(this)}
+                        onFailure={this.onGoogleCallback.bind(this)}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                </login-google>
                 <forgot onClick={e => this.toResetPassword(e)} />
                 {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
-                <close onClick={ e => this.close(e)} />
+                <close onClick={ e => this.onClose(e)} />
             </LoginView>
         </login>
 
@@ -124,7 +125,7 @@ export default class AuthController extends React.Component {
             <experience value={this.state.authentication.experience || ""} onChange={e => this.onChangeHandler(e)} />
             <sex value={this.state.authentication.sex || ""} onChange={e => this.onChangeHandler(e)} />
             {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
-            <close onClick={ e => this.close(e)} />
+            <close onClick={ e => this.onClose(e)} />
             <submit onClick={e => this.updateProfile(e)} />
         </UpdateUserInfoView>
         }
@@ -132,7 +133,7 @@ export default class AuthController extends React.Component {
         if(this.state.showReset) return <ForgotPasswordView>
             <email value={this.state.authentication.email || ""} onChange={e => this.onChangeHandler(e)} />
             <submit onClick={e => this.onForgotPassword(e)} />
-            <close onClick={e => this.close(e)} />
+            <close onClick={e => this.onClose(e)} />
             <link-login onClick={this.toLogin.bind(this)} />
             {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
         </ForgotPasswordView>
@@ -144,8 +145,34 @@ export default class AuthController extends React.Component {
         return <></>
     }
 
-    responseGoogle(res) {
-        console.log(res)
+    onGoogleCallback(res){
+        const data = {
+            tokenId: res.tokenId,
+            googleId: res.googleId
+        }
+        console.log(data)
+        axios.post(URL_LOGIN_GOOGLE, data)
+        .then(res => {
+            const data = res.data
+            if(data.success){
+                this.setMessage(data.message, true)
+                auth.saveUser(data.body)
+                setTimeout(() => {
+                    this.close()
+                }, 300)
+            } else {
+                this.setMessage(data.message, false)
+            }
+        })
+    }
+
+    onClose(e){
+        e.preventDefault();
+        if(this.props.shouldAuthenticate && !auth.isAuthenticated()){
+            this.props.history.push('/')
+        } else {
+            this.close()
+        }
     }
 
     updateProfile(e) {
@@ -206,7 +233,9 @@ export default class AuthController extends React.Component {
             if(res.data.success){
                 auth.saveUser(res.data.body)
                 this.setMessage(res.data.message, true)
-                this.props.history.push(this.props.location.state.from)
+                setTimeout(() => {
+                    this.close()
+                }, 300)
             } else {
                 this.setMessage(res.data.message, false)
             }

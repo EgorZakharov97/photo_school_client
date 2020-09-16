@@ -62,8 +62,7 @@ class Auth {
         window.localStorage.setItem('user', JSON.stringify(user))
     }
 
-    logout(props){
-        props.history.push('/')
+    logout(){
         this.user = null;
         this.API = axios.create()
         window.localStorage.setItem('user', '')

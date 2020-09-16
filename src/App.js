@@ -40,17 +40,17 @@ export default function App(props){
                     return <PortalController {...props} />
                 }}
             />
-
-            <Route path='/'
-                // {...props}
-                // showLogin={shouldAuthenticate}
-                // setShowLogin={setShouldAuthenticate}
-                render={(props) => <AuthController {...props} />}         
-            />
                 
-            <Route exact path='/'>
-                <IndexController {...props} />
-            </Route>
+            <Route exact path='/'
+                render={props => {
+                    return (
+                        <>
+                            <IndexController {...props} />
+                            <AuthController {...props} />
+                        </>
+                    )
+                }}
+            />
 
             <Route exact path='/auth/reset/:secret'
                 render={(props) => {

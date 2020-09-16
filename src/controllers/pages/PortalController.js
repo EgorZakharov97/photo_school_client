@@ -3,6 +3,7 @@ import auth from '../../Auth'
 import {Redirect} from 'react-router-dom'
 
 import MembersPortalView from '../../views/MembersPortalView'
+import AuthController from '../AuthController'
 
 export default class PortalController extends React.Component {
 
@@ -21,19 +22,19 @@ export default class PortalController extends React.Component {
 
     render() {
         return(
-            auth.isAuthenticated() ? 
-            (
+            <>
                 <MembersPortalView>
-                    <logout onClick={e => this.logout(e)} />
+                        <logout onClick={e => this.logout(e)} />
                 </MembersPortalView>
-            ) : (
-                <Redirect to={{path: '/', state: {from: this.props.location, shouldAuthenticate: true} }} />
-            )
+                <AuthController {...this.props} shouldAuthenticate={true} />
+            </>
+            
         )
     }
 
     logout(e){
         e.preventDefault()
-        auth.logout(this.props)
+        auth.logout()
+        this.props.history.push('/')
     }
 }
