@@ -36,9 +36,6 @@ export default function PortalProfileController(props) {
 		</PortalProfileView>
 	);
 
-	function updatePaymentMethod() {
-	}
-
 	function updateUserProfile(e){
 		e.preventDefault();
 		axios.post(URL_UPDATE_USER_PROFILE, user)

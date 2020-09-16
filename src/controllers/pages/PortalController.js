@@ -5,6 +5,7 @@ import auth from '../../Auth'
 import MembersPortalView from '../../views/MembersPortalView'
 import AuthController from '../AuthController'
 import PortalProfileController from "../portal/PortalProfileController";
+import PortalWorkshopsController from "./PortalWorkshopsController";
 
 export default function PortalController(props) {
 
@@ -23,6 +24,9 @@ export default function PortalController(props) {
         <>
             <MembersPortalView>
                     <logout onClick={e => logout(e)} />
+                    <workshops>
+                        <PortalWorkshopsController {...props} />
+                    </workshops>
                     <portal-profile>
                         <PortalProfileController/>
                     </portal-profile>
