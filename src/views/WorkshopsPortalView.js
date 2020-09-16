@@ -49,7 +49,8 @@ class WorkshopsPortalView extends React.Component {
   render() {
     const proxies = Controller !== WorkshopsPortalView ? transformProxies(this.props.children) : {
       'discount-counter': [],
-      'workshop-dropdown': [],
+      'workshops-container': [],
+      'workshop-drowdown': [],
     }
 
     return (
@@ -166,11 +167,11 @@ class WorkshopsPortalView extends React.Component {
                 <div className="af-class-text-block-2">Browse courses</div>
               </a>
             </div>
-            <div id="workshops-container" className="w-layout-grid af-class-grid-6">
-              {map(proxies['workshop-dropdown'], props => <div {...{...props, className: `af-class-dropdown-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+            {map(proxies['workshops-container'], props => <div id="workshops-container" {...{...props, className: `w-layout-grid af-class-grid-6 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+              {map(proxies['workshop-drowdown'], props => <div {...{...props, className: `af-class-dropdown-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                 <WorkshopDropdownView.Controller />
               </React.Fragment>}</div>)}
-            </div>
+            </React.Fragment>)}</div>)}
           </div>
         </span>
       </span>
