@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactQuill from 'react-quill'
-import auth from '../Auth'
+import auth from '../../Auth'
 import 'react-quill/dist/quill.snow.css'
-import AdminWorkshopView from '../views/AdminWorkshopsView'
+import AdminWorkshopView from '../../views/AdminWorkshopsView'
 import AdminFormController from './AdminFormController'
-import {URL_GET_WORKSHOP_NAMES, URL_POST_WORKSHOP, URL_GET_WORKSHOP_DATA} from '../constants'
+import {URL_GET_WORKSHOP_NAMES, URL_POST_WORKSHOP, URL_GET_WORKSHOP_DATA} from '../../constants'
 
 const axios = auth.getAPI()
 

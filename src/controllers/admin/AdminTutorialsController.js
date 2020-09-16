@@ -1,9 +1,9 @@
 import React from 'react'
-import auth from '../Auth'
-import constants from '../constants'
-import { URL_GET_TUTORIAL_NAMES, URL_GET_TUTORIAL_DATA, URL_POST_TUTORIAL, URL_GET_CATEGORY_NAMES} from '../constants';
+import auth from '../../Auth'
+import constants from '../../constants'
+import { URL_GET_TUTORIAL_NAMES, URL_GET_TUTORIAL_DATA, URL_POST_TUTORIAL, URL_GET_CATEGORY_NAMES} from '../../constants';
 import AdminFormController from './AdminFormController'
-import AdminTutorialView from '../views/AdminTutorialView'
+import AdminTutorialView from '../../views/AdminTutorialView'
 
 const axios = auth.getAPI()
 

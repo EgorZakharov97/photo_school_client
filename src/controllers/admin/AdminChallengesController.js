@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactQuill from 'react-quill'
-import AdmiChallengesView from '../views/AdminChallengesView'
+import AdmiChallengesView from '../../views/AdminChallengesView'
 import AdminFormController from './AdminFormController'
-import {URL_GET_CHALLENGE_NAMES, URL_GET_CHALLENGE_DATA, URL_POST_CHALLENGE} from '../constants'
-import AdminChallengesView from '../views/AdminChallengesView'
+import {URL_GET_CHALLENGE_NAMES, URL_GET_CHALLENGE_DATA, URL_POST_CHALLENGE} from '../../constants'
+import AdminChallengesView from '../../views/AdminChallengesView'
 
 export default class AdminChallengesController extends AdminFormController {
     constructor(props) {

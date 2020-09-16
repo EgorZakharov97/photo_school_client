@@ -17,7 +17,7 @@ class AdminCoursesView extends React.Component {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/AdminCoursesController')
+      Controller = require('../controllers/admin/AdminCoursesController')
       Controller = Controller.default || Controller
 
       return Controller

@@ -1,5 +1,5 @@
 import React from 'react'
-import auth from '../Auth'
+import auth from '../../Auth'
 import 'react-quill/dist/quill.snow.css'
 
 const axios = auth.getAPI()

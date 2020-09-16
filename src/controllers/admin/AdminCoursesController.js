@@ -1,11 +1,11 @@
 import React from 'react'
-import auth from '../Auth'
-import {URL_GET_COURSES_NAMES, URL_GET_COURSE_DATA, URL_POST_COURSE, URL_POST_COURSE_VIDEO, URL_DELETE_COURSE_VIDEO, URL_DELETE_COURSE_FILE, URL_POST_COURSE_FILE} from '../constants'
+import auth from '../../Auth'
+import {URL_GET_COURSES_NAMES, URL_GET_COURSE_DATA, URL_POST_COURSE, URL_POST_COURSE_VIDEO, URL_DELETE_COURSE_VIDEO, URL_DELETE_COURSE_FILE, URL_POST_COURSE_FILE} from '../../constants'
 import AdminFormController from './AdminFormController'
-import AdminCoursesView from '../views/AdminCoursesView'
-import TableVideoView from '../views/TableVideoView'
-import TableFileView from '../views/TableFileView'
-import TableExampleView from '../views/TableExampleView'
+import AdminCoursesView from '../../views/AdminCoursesView'
+import TableVideoView from '../../views/TableVideoView'
+import TableFileView from '../../views/TableFileView'
+import TableExampleView from '../../views/TableExampleView'
 
 const axios = auth.getAPI()
 

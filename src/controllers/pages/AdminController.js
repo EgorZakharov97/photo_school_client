@@ -3,13 +3,13 @@ import auth from '../../Auth'
 import {Redirect} from 'react-router-dom'
 
 import AdminView from '../../views/AdminView'
-import AdminWorkshopsController from '../AdminWorkshopsController'
-import AdminTutorialsController from '../AdminTutorialsController'
-import AdminMaterialsController from '../AdminMaterialsController'
-import AdminPresetsController from '../AdminPresetsController'
-import AdminCouponsController from '../AdminCouponsController'
-import AdminChallengesController from '../AdminChallengesController'
-import AdminCoursesController from '../AdminCoursesController'
+import AdminWorkshopsController from '../admin/AdminWorkshopsController'
+import AdminTutorialsController from '../admin/AdminTutorialsController'
+import AdminMaterialsController from '../admin/AdminMaterialsController'
+import AdminPresetsController from '../admin/AdminPresetsController'
+import AdminCouponsController from '../admin/AdminCouponsController'
+import AdminChallengesController from '../admin/AdminChallengesController'
+import AdminCoursesController from '../admin/AdminCoursesController'
 
 export default class AdminController extends React.Component {
 

@@ -14,7 +14,7 @@ class PortalProfileView extends React.Component {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/PortalProfileController')
+      Controller = require('../controllers/portal/PortalProfileController')
       Controller = Controller.default || Controller
 
       return Controller

@@ -14,7 +14,7 @@ class AdminChallengesView extends React.Component {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/AdminChallengesController')
+      Controller = require('../controllers/admin/AdminChallengesController')
       Controller = Controller.default || Controller
 
       return Controller
