@@ -158,11 +158,11 @@ class WorkshopDropdownView extends React.Component {
         ` }} />
         <span className="af-view">
           <div id="workshop" className="af-class-dropdown">
-            {map(proxies['background'], props => <div data-w-id="96f267f8-825f-e856-30b6-9a5b1e1bca4a" {...{...props, className: `af-class-dropdown-trigger ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+            {map(proxies['background'], props => <div {...{...props, className: `af-class-dropdown-trigger ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
               {map(proxies['name'], props => <div {...{...props, className: `af-class-text-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Male Pornogtaphy</React.Fragment>}</div>)}
               {map(proxies['starts'], props => <div {...{...props, className: `af-class-date ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Aug 20</React.Fragment>}</div>)}
             </React.Fragment>)}</div>)}
-            <div style={{height: '0PX', display: 'block'}} className="af-class-dropdown-content">
+            <div className="af-class-dropdown-content">
               <div className="af-class-cladd-desc-wrapper">
                 <div className="w-layout-grid af-class-grid-5">
                   <div id="w-node-9a5b1e1bca52-30ba94ae" className="af-class-course-card">

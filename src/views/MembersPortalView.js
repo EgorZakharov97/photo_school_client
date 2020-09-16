@@ -192,7 +192,7 @@ class MembersPortalView extends React.Component {
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
                   <div className="af-class-tabs-menu-3 w-tab-menu">
-                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link w--current">
                       <div>Workshops</div>
                     </a>
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
@@ -210,12 +210,12 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
                       <div>Weekly Challenge</div>
                     </a>
-                    <a data-w-tab="Profile" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Profile" className="w-inline-block w-tab-link">
                       <div>Profile</div>
                     </a>
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
-                    <div data-w-tab="Workshops" className="w-tab-pane">
+                    <div data-w-tab="Workshops" className="w-tab-pane w--tab-active">
                       {map(proxies['workshops'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <WorkshopsPortalView.Controller />
                       </React.Fragment>}</div>)}
@@ -331,7 +331,7 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Profile" className="af-class-tab-pane-profile w-tab-pane w--tab-active">
+                    <div data-w-tab="Profile" className="af-class-tab-pane-profile w-tab-pane">
                       {map(proxies['portal-profile'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalProfileView.Controller />
                       </React.Fragment>}</div>)}

@@ -3155,10 +3155,7 @@
   right: 0%;
   bottom: 0%;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -3897,7 +3894,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   padding-bottom: 0px;
-  color: #fff;
+  color: #000;
 }
 
 .af-view .af-class-sub-heading.af-class-small.af-class-_3 {
@@ -5067,7 +5064,7 @@
 }
 
 .af-view .af-class-update-user-info {
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-update-user-info.af-class-hidden {
@@ -5079,7 +5076,7 @@
 }
 
 .af-view .af-class-new-password {
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-user-confirmation {
@@ -5198,6 +5195,11 @@
 
 .af-view .af-class-div-block-46 {
   margin-top: 60px;
+}
+
+.af-view .af-class-div-block-47 {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 @media screen and (min-width: 1280px) {

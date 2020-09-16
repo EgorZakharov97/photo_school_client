@@ -110,7 +110,7 @@ class SubscriptionView extends React.Component {
                 <h2 className="af-class-sub-heading">Everyone can create awesome photos</h2>
                 <div className="w-layout-grid af-class-grid-10">
                   <div id="w-node-a35a7a977d4f-6516bc65" className="af-class-sub-text-block">
-                    <h3 className="af-class-sub-heading af-class-small">This is some text inside of a div block.</h3>
+                    <h3 className="af-class-sub-heading af-class-small af-class-_2">This is some text inside of a div block.</h3>
                     <div className="af-class-sub-text-box"><span className="af-class-text-span-33">This is some text inside of a div block.This is some text inside of a div block.</span>This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block. This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.<br /><br />This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.</div>
                   </div>
                   <div id="w-node-08a979a5ab17-6516bc65">
