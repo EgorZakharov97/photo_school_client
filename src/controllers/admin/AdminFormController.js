@@ -2,16 +2,16 @@ import React from 'react'
 import auth from '../../Auth'
 import 'react-quill/dist/quill.snow.css'
 
-const axios = auth.getAPI()
+const axios = auth.getAPI();
 
 export default class AdminFormController extends React.Component {
 
     constructor(props) {
-        super(props)
-        if(this.constructor.name === 'AdminFormController') throw new Error("This is an abstract class")
-        this.URL_GET_LIST = ""
-        this.URL_POST_OBJECT = ""
-        this.URL_GET_OBJECT_DATA = ""
+        super(props);
+        if(this.constructor.name === 'AdminFormController') throw new Error("This is an abstract class");
+        this.URL_GET_LIST = "";
+        this.URL_POST_OBJECT = "";
+        this.URL_GET_OBJECT_DATA = "";
     }
     
     state = {
@@ -20,7 +20,7 @@ export default class AdminFormController extends React.Component {
         data: {},
         message: {},
         files: {}
-    }
+    };
 
     render() {
         throw new Error("This is an abstract class!");
@@ -30,7 +30,7 @@ export default class AdminFormController extends React.Component {
     loadItems(){
         axios.get(this.URL_GET_LIST)
         .then(res => {
-            const data = res.data
+            const data = res.data;
             if(data.success){
                 this.setState({itemList: data.body || []})
             } else {
@@ -43,7 +43,7 @@ export default class AdminFormController extends React.Component {
     }
 
     onSelectorChange(e) {
-        if(this.constructor.name === 'AdminFormController') return
+        if(this.constructor.name === 'AdminFormController') return;
         if(e.target.value === 'new') {
             return this.setState(state => {
                 state.data = {};
@@ -68,7 +68,7 @@ export default class AdminFormController extends React.Component {
     setObject(dataObject) {
         this.setState(state => {
             for(let key in dataObject){
-                let value = dataObject[key]
+                let value = dataObject[key];
                 state.data[key] = value
             }
             return state
@@ -76,7 +76,7 @@ export default class AdminFormController extends React.Component {
     }
 
     componentDidMount() {
-        this.loadItems()
+        this.loadItems();
         if(this.props.oldState) this.setObject(this.props.oldState)
     }
 
@@ -112,8 +112,8 @@ export default class AdminFormController extends React.Component {
     }
 
     onFileSelect(e) {
-        const file = e.target.files[0]
-        const fieldName = e.target.name
+        const file = e.target.files[0];
+        const fieldName = e.target.name;
         this.setState(state => {
             return state.files[fieldName] = file
         })
@@ -129,16 +129,16 @@ export default class AdminFormController extends React.Component {
     }
 
     formSubmitHandler(e) {
-        e.preventDefault()
-        this.setState({busy: true})
-        let data = this.state.data
-        let files = this.state.files
+        e.preventDefault();
+        this.setState({busy: true});
+        let data = this.state.data;
+        let files = this.state.files;
         if(this.state.files !== {}){
-            const files = this.state.files
-            let formData = new FormData()
+            const files = this.state.files;
+            let formData = new FormData();
 
             for(let filename in files){
-                let file = files[filename]
+                let file = files[filename];
                 formData.append('assets', file, filename)
             }
             
@@ -157,11 +157,11 @@ export default class AdminFormController extends React.Component {
         .then(res => {
             const data = res.data;
             if(data.success){
-                this.setMessage(data.message, true)
+                this.setMessage(data.message, true);
                 this.loadItems();
                 this.setObject(data.body)
             } else {
-                console.log(data)
+                console.log(data);
                 this.setMessage(data.message, false)
             }
             this.setState(state => {
@@ -170,8 +170,8 @@ export default class AdminFormController extends React.Component {
             })
         })
         .catch(e => {
-            console.log(e.data || e)
-            this.setMessage(e.message || "500 Internal Server Error", false)
+            console.log(e.data || e);
+            this.setMessage(e.message || "500 Internal Server Error", false);
             this.setState({busy: false})
         })
     }

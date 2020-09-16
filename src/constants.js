@@ -50,3 +50,6 @@ export const URL_LOGIN_GOOGLE = '/api/v1/auth/google';
 export const STRIPE_PK = 'pk_test_5LIx4WHIYVoVZnnenECqIjt500K30frsZH';
 export const STRIPE_PRICE_SUBSCRIPTION_2 = 'price_1HM4yaG6Hl2ceMlVRNe3z62p';
 export const URL_SUBSCRIBE = '/api/v1/payments/subscribe';
+
+export const URL_UPDATE_USER_PROFILE = '/api/v1/auth/update';
+export const URL_UPDATE_PAYMENT_METHOD = '/api/v1/auth/update/payment-method';

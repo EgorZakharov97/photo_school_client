@@ -11,7 +11,7 @@ import ForgotPasswordView from '../views/ForgotPasswordView'
 import UpdateUserInfoView from '../views/UpdateUserInfoView'
 import UserConfirmationView from '../views/UserConfirmationView'
 
-const axios = auth.getAPI()
+const axios = auth.getAPI();
 
 
 export default class AuthController extends React.Component {
@@ -26,18 +26,18 @@ export default class AuthController extends React.Component {
         showNewPassword: false,
         showUpdate: false,
         showConfirmation: false,
-    }
+    };
 
     static getDerivedStateFromProps(props, state) {
         if(props.shouldAuthenticate && !auth.isAuthenticated()){
             state.showLogin =  true
         } else if(props.location.state && props.location.state.secret) {
-            state.authentication.secret = props.location.state.secret
-            state.showNewPassword = true
-            window.history.replaceState(null, '')
+            state.authentication.secret = props.location.state.secret;
+            state.showNewPassword = true;
+            window.history.replaceState(null, '');
             delete props.location.state.secret
         } else if(props.location.state && props.location.state.link){
-            state.showLogin = true
+            state.showLogin = true;
             axios.get(URL_CONFIRM_USER + props.location.state.link)
             .then(res => {
                 if(res.data.success){
@@ -53,12 +53,12 @@ export default class AuthController extends React.Component {
                 }
             })
             .catch(e => {
-                console.log(e)
+                console.log(e);
                 state.message = {
                     positive: false,
                     body: "There was a problem to confirm your email. Try another email address"
                 }
-            })
+            });
             delete props.location.state.secret
         } else if(!!auth.getUser() && !auth.getUser().verified) {
             state.showUpdate = true
@@ -81,7 +81,7 @@ export default class AuthController extends React.Component {
                 <link-login onClick={this.toLogin.bind(this)} />
                 {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
                 <close onClick={ e => this.onClose(e)} />
-            </RegisterView>
+            </RegisterView>;
 
         if(this.state.showNewPassword) return <NewPasswordView>
             <password value={this.state.authentication.password || ""} onChange={e => this.onChangeHandler(e)} />
@@ -90,7 +90,7 @@ export default class AuthController extends React.Component {
             <close onClick={e => this.onClose(e)} />
             <link-login onClick={this.toLogin.bind(this)} />
             {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
-        </NewPasswordView>
+        </NewPasswordView>;
         
 
         if(this.state.showLogin) return <login key="login">
@@ -112,12 +112,12 @@ export default class AuthController extends React.Component {
                 {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
                 <close onClick={ e => this.onClose(e)} />
             </LoginView>
-        </login>
+        </login>;
 
         if(this.state.updateUser) {
             this.setState(state => {
                 return state.authentication = auth.getUser()
-            })
+            });
             return <UpdateUserInfoView>
             <email>{this.state.authentication.email}</email>
             <username value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
@@ -136,11 +136,11 @@ export default class AuthController extends React.Component {
             <close onClick={e => this.onClose(e)} />
             <link-login onClick={this.toLogin.bind(this)} />
             {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
-        </ForgotPasswordView>
+        </ForgotPasswordView>;
 
         if(this.state.showConfirmation) return <UserConfirmationView>
             <link-login onClick={e => this.toLogin(e)} />
-        </UserConfirmationView>
+        </UserConfirmationView>;
 
         return <></>
     }
@@ -149,14 +149,14 @@ export default class AuthController extends React.Component {
         const data = {
             tokenId: res.tokenId,
             googleId: res.googleId
-        }
-        console.log(data)
+        };
+        console.log(data);
         axios.post(URL_LOGIN_GOOGLE, data)
         .then(res => {
-            const data = res.data
+            const data = res.data;
             if(data.success){
-                this.setMessage(data.message, true)
-                auth.saveUser(data.body)
+                this.setMessage(data.message, true);
+                auth.saveUser(data.body);
                 setTimeout(() => {
                     this.close()
                 }, 300)
@@ -176,12 +176,12 @@ export default class AuthController extends React.Component {
     }
 
     updateProfile(e) {
-        e.preventDefault()
+        e.preventDefault();
         axios.post(URL_POST_USER_INFO, this.state.authentication)
         .then(res => {
-            const data = res.data
+            const data = res.data;
             if(data.success){
-                this.setMessage(data.message, true)
+                this.setMessage(data.message, true);
                 auth.saveUser(data.body)
             } else {
                 this.setMessage(data.message, false)
@@ -190,12 +190,12 @@ export default class AuthController extends React.Component {
     }
 
     onNewPassword(e) {
-        e.preventDefault()
+        e.preventDefault();
         axios.post(URL_POST_PASSWORD, this.state.authentication)
         .then(res => {
-            const data = res.data
+            const data = res.data;
             if(data.success){
-                auth.saveUser(data.body)
+                auth.saveUser(data.body);
                 this.setMessage(data.message,  true)
             } else {
                 this.setMessage(data.message, false)
@@ -205,7 +205,7 @@ export default class AuthController extends React.Component {
             })
         })
         .catch(e => {
-            console.log(e)
+            console.log(e);
             this.setMessage(e.message || e.msg || e.errmsg || "Unexpected error. Please try again later")
         })
     }
@@ -214,7 +214,7 @@ export default class AuthController extends React.Component {
         e.preventDefault();
         axios.post(URL_PASSWORD_RESET, {email: this.state.authentication.email})
         .then(res => {
-            const data = res.data
+            const data = res.data;
             if(data.success){
                 this.setMessage(data.message, true)
             } else {
@@ -227,12 +227,12 @@ export default class AuthController extends React.Component {
     }
 
     onLogin(e){
-        e.preventDefault()
+        e.preventDefault();
         auth.login(this.state.authentication)
         .then(res => {
             if(res.data.success){
-                auth.saveUser(res.data.body)
-                this.setMessage(res.data.message, true)
+                auth.saveUser(res.data.body);
+                this.setMessage(res.data.message, true);
                 setTimeout(() => {
                     this.close()
                 }, 300)
@@ -244,12 +244,12 @@ export default class AuthController extends React.Component {
     }
 
     onRegister(e) {
-        e.preventDefault()
+        e.preventDefault();
         auth.register(this.state.authentication)
         .then(res => {
             const data = res.data;
             if(data.success){
-                this.close()
+                this.close();
                 this.setState({showConfirmation: true})
             } else {
                 this.setMessage(data.message, false)
@@ -259,17 +259,17 @@ export default class AuthController extends React.Component {
     }
 
     toLogin() {
-        this.close()
+        this.close();
         this.setState({showLogin: true})
     }
 
     toRegister() {
-        this.close()
+        this.close();
         this.setState({showRegister: true})
     }
 
     toResetPassword() {
-        this.close()
+        this.close();
         this.setState({showReset: true})
     }
 
@@ -314,7 +314,7 @@ export default class AuthController extends React.Component {
     }
 
     handleResponse(res){
-        console.log(res.data.success)
+        console.log(res.data.success);
         if(res.data.success){
             this.close()
         } else {

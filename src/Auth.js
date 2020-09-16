@@ -58,13 +58,13 @@ class Auth {
             headers: {
                 Authentication: 'Bearer ' + (user.token || "")
             }
-        })
+        });
         window.localStorage.setItem('user', JSON.stringify(user))
     }
 
     logout(){
         this.user = null;
-        this.API = axios.create()
+        this.API = axios.create();
         window.localStorage.setItem('user', '')
     }
 }

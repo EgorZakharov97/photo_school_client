@@ -7,10 +7,10 @@ import AdminChallengesView from '../../views/AdminChallengesView'
 
 export default class AdminChallengesController extends AdminFormController {
     constructor(props) {
-        super(props)
-        this.URL_GET_LIST = URL_GET_CHALLENGE_NAMES
-        this.URL_POST_OBJECT = URL_POST_CHALLENGE
-        this.URL_GET_OBJECT_DATA = URL_GET_CHALLENGE_DATA
+        super(props);
+        this.URL_GET_LIST = URL_GET_CHALLENGE_NAMES;
+        this.URL_POST_OBJECT = URL_POST_CHALLENGE;
+        this.URL_GET_OBJECT_DATA = URL_GET_CHALLENGE_DATA;
     }
 
     render() {
