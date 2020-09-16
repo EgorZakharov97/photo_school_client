@@ -17,10 +17,10 @@ export default function	WorkshopDropdownController(props) {
 				<name></name>
 				<starts></starts>
 			</background>
-			{/*<description>{props.richText.description}</description>*/}
-			{/*<timeline>{props.richText.willLearn}</timeline>*/}
-			{/*<will-learn>{props.richText.timeline}</will-learn>*/}
-			{/*{props.chatLink && <chat-link href={props.chatLink} />}*/}
+			<description>{props.richText.description}</description>
+			<timeline>{props.richText.willLearn}</timeline>
+			<will-learn>{props.richText.timeline}</will-learn>
+			{props.chatLink && <chat-link href={props.chatLink} />}
 		</WorkshopDropdownView>
 	)
 }
