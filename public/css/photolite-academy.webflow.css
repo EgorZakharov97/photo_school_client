@@ -2517,7 +2517,7 @@
 }
 
 .af-view .af-class-login-input.af-class-invisible {
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-login-submit {

@@ -14,7 +14,7 @@ class AdminPresetsView extends React.Component {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/admin/AdminPresetsController')
+      Controller = require('../controllers/AdminPresetsController')
       Controller = Controller.default || Controller
 
       return Controller
