@@ -29,9 +29,9 @@ export default function PortalController(props) {
                 {/*<workshops>*/}
                 {/*    {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}*/}
                 {/*</workshops>*/}
-                <materials>
+                <materials-portal>
                     <PortalMaterialsController {...props} />
-                </materials>
+                </materials-portal>
                 <presets>
                     <PortalPresetsController {...props} />
                 </presets>
