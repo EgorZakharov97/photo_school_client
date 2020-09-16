@@ -79,7 +79,7 @@ class AdminWorkshopsView extends React.Component {
             {map(proxies['will-learn'], props => <div id="wk-willLearn" {...{...props, className: `af-class-editor ${props.className || ''}`}}>{props.children}</div>)}<label>Course timeline</label>
             {map(proxies['timeline'], props => <div id="wk-timeline" {...{...props, className: `af-class-editor ${props.className || ''}`}}>{props.children}</div>)}
             <div className="af-class-submission">{map(proxies['submit'], props => <input type="submit" value="Create" data-wait="Please wait..." id="submit" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children}</input>)}
-              {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-24 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
+              {map(proxies['message'], props => <div {...{...props, className: `af-class-user-message ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
             </div>
           </form>
         </span>

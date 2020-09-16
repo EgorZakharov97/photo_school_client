@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
+import WorkshopsPortalView from './WorkshopsPortalView'
 import PortalProfileView from './PortalProfileView'
 
 const scripts = [
@@ -50,6 +51,7 @@ class MembersPortalView extends React.Component {
   render() {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
       'logout': [],
+      'workshops': [],
       'portal-profile': [],
     }
 
@@ -173,7 +175,7 @@ class MembersPortalView extends React.Component {
                       <div className="af-class-menu-button-2 w-nav-button">
                         <div className="af-class-icon w-icon-nav-menu" />
                       </div>
-                      <a href="index.html" target="_blank" className="af-class-login-nav-link af-class-portal w-inline-block">
+                      <a href="index.html" className="af-class-login-nav-link af-class-portal w-inline-block">
                         <h3 className="af-class-heading-13">HOME</h3>
                       </a><a href="#" className="w-nav-brand"><img src="images/Masterwhite.png" width={60} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 100vw, 60px" alt className="af-class-image-4" /></a>
                       {map(proxies['logout'], props => <a href="#" {...{...props, className: `af-class-login-nav-link w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
@@ -190,7 +192,7 @@ class MembersPortalView extends React.Component {
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
                   <div className="af-class-tabs-menu-3 w-tab-menu">
-                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link w--current">
                       <div>Workshops</div>
                     </a>
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
@@ -208,85 +210,14 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
                       <div>Weekly Challenge</div>
                     </a>
-                    <a data-w-tab="Profile" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Profile" className="w-inline-block w-tab-link">
                       <div>Profile</div>
                     </a>
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
-                    <div data-w-tab="Workshops" className="w-tab-pane">
-                      <div className="af-class-tab-wrapper">
-                        <div className="af-class-splitter">
-                          <h3 className="af-class-section-heading"><span className="af-class-text-span-10">My </span>Workshops</h3>
-                          <div desc="progress" className="w-embed">
-                            <div className="af-class-progress-wrapper">
-                              <h3 desc="heading" className="af-class-progress-header">
-                                Sample heading
-                              </h3>
-                              <ul className="af-class-progressbar">
-                                <li desc="one" className="af-class-active">10% Discount</li>
-                                <li desc="two" className="af-class-half-complete">15% Discount</li>
-                                <li desc="three" className="af-class-half-complete">20% Discount</li>
-                                <li desc="four" className="af-class-half-complete">25% Discount</li>
-                                <li desc="five" className="af-class-complete">Free Course</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="af-class-class-wrapper-portal">
-                          <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-                            <div className="af-class-text-block-2">Browse courses</div>
-                          </a>
-                        </div>
-                        <div id="workshops-container" desc="workshopContainer" className="w-layout-grid af-class-grid-6">
-                          <div id="workshop" className="af-class-dropdown">
-                            <div desc="background" data-w-id="96f267f8-825f-e856-30b6-9a5b1e1bca4a" className="af-class-dropdown-trigger">
-                              <div desc="name" className="af-class-text-block">Male Pornogtaphy</div>
-                              <div desc="starts" className="af-class-date">Aug 20</div>
-                            </div>
-                            <div style={{height: '0PX', display: 'block'}} className="af-class-dropdown-content">
-                              <div className="af-class-cladd-desc-wrapper">
-                                <div className="w-layout-grid af-class-grid-5">
-                                  <div id="w-node-9a5b1e1bca52-30ba94ae" className="af-class-course-card">
-                                    <div desc="description" className="af-class-rich-text-block-7 w-richtext">
-                                      <h2>What’s a Rich Text element?</h2>
-                                      <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
-                                      <h4>Static and dynamic content editing</h4>
-                                      <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
-                                      <h4>How to customize formatting for each rich text</h4>
-                                      <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                                    </div>
-                                  </div>
-                                  <div id="w-node-9a5b1e1bca60-30ba94ae" className="af-class-course-card">
-                                    <div desc="willLearn" className="w-richtext">
-                                      <h2>What’s a Rich Text element?</h2>
-                                      <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
-                                      <h4>Static and dynamic content editing</h4>
-                                      <ul role="list">
-                                        <li>A rich text element can be used with static or dynamic content.</li>
-                                        <li>A rich text element can be used with static or dynamic content.</li>
-                                        <li>A rich text element can be used with static or dynamic content.</li>
-                                        <li>A rich text element can be used with static or dynamic content.</li>
-                                      </ul>
-                                      <h4>How to customize formatting for each rich text</h4>
-                                      <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                                    </div>
-                                  </div>
-                                  <div id="w-node-9a5b1e1bca75-30ba94ae" className="af-class-course-card">
-                                    <div desc="timeLine" className="w-richtext">
-                                      <h2>What’s a Rich Text element?</h2>
-                                      <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
-                                      <h4>Static and dynamic content editing</h4>
-                                      <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
-                                      <h4>How to customize formatting for each rich text</h4>
-                                      <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
-                                    </div>
-                                  </div><a desc="chatLink" id="w-node-5dabce7edb67-30ba94ae" href="#" className="af-class-cors-register-now-2 af-class-courses">Join workshop chat</a></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    {map(proxies['workshops'], props => <div data-w-tab="Workshops" {...{...props, className: `w-tab-pane w--tab-active ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                      <WorkshopsPortalView.Controller />
+                    </React.Fragment>}</div>)}
                     <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Co</span>urses</h3>
                       <div className="af-class-course-topic">
@@ -398,7 +329,7 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    {map(proxies['portal-profile'], props => <div data-w-tab="Profile" {...{...props, className: `af-class-tab-pane-profile w-tab-pane w--tab-active ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                    {map(proxies['portal-profile'], props => <div data-w-tab="Profile" {...{...props, className: `af-class-tab-pane-profile w-tab-pane ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                       <PortalProfileView.Controller />
                     </React.Fragment>}</div>)}
                   </div>
