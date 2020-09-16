@@ -3241,10 +3241,7 @@
   right: 0%;
   bottom: 0%;
   z-index: 997;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
