@@ -55,3 +55,5 @@ export const URL_UPDATE_USER_PROFILE = '/api/v1/auth/update';
 export const URL_UPDATE_PAYMENT_METHOD = '/api/v1/auth/update/payment-method';
 
 export const URL_GET_MY_WORKSHOPS = '/api/v1/workshops';
+export const URL_GET_MY_MATERIALS = '/api/v1/materials';
+export const URL_GET_MY_PRESETS = '/api/v1/presets';

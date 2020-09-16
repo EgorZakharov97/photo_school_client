@@ -6,6 +6,8 @@ import MembersPortalView from '../../views/MembersPortalView'
 import AuthController from '../AuthController'
 import PortalProfileController from "../portal/PortalProfileController";
 import PortalWorkshopsController from "./PortalWorkshopsController";
+import PortalMaterialsController from "../portal/PortalMaterialsController";
+import PortalPresetsController from "../portal/PortalPresetController";
 
 export default function PortalController(props) {
 
@@ -24,9 +26,15 @@ export default function PortalController(props) {
         <>
             <MembersPortalView>
                 <logout onClick={e => logout(e)} />
-                <workshops>
-                    {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}
-                </workshops>
+                {/*<workshops>*/}
+                {/*    {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}*/}
+                {/*</workshops>*/}
+                <materials>
+                    <PortalMaterialsController {...props} />
+                </materials>
+                <presets>
+                    <PortalPresetsController {...props} />
+                </presets>
                 <portal-profile>
                     {auth.isAuthenticated() && <PortalProfileController/>}
                 </portal-profile>
