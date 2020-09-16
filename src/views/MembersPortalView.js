@@ -55,7 +55,7 @@ class MembersPortalView extends React.Component {
       'logout': [],
       'workshops': [],
       'materials-portal': [],
-      'presets': [],
+      'presets-portal': [],
       'portal-profile': [],
     }
 
@@ -196,10 +196,10 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
                       <div>Tutorials</div>
                     </a>
-                    <a data-w-tab="Materials" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Materials" className="w-inline-block w-tab-link">
                       <div>Materials</div>
                     </a>
-                    <a data-w-tab="Presets" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Presets" className="w-inline-block w-tab-link w--current">
                       <div>Presets</div>
                     </a>
                     <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
@@ -281,13 +281,13 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Materials" className="w-tab-pane w--tab-active">
+                    <div data-w-tab="Materials" className="w-tab-pane">
                       {map(proxies['materials-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <MaterialsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Presets" className="w-tab-pane">
-                      {map(proxies['presets'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                    <div data-w-tab="Presets" className="w-tab-pane w--tab-active">
+                      {map(proxies['presets-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PresetsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>

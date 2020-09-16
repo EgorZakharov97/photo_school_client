@@ -48,7 +48,7 @@ class PresetsPortalView extends React.Component {
   render() {
     const proxies = Controller !== PresetsPortalView ? transformProxies(this.props.children) : {
       'presets-container': [],
-      'preset': [],
+      'preset-portal': [],
     }
 
     return (
@@ -160,7 +160,7 @@ class PresetsPortalView extends React.Component {
             </a>
             <div className="af-class-portal-files">
               {map(proxies['presets-container'], props => <div id="preset-container" {...{...props, className: `w-layout-grid af-class-grid-7 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                {map(proxies['preset'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                {map(proxies['preset-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                   <PresetPortalView.Controller />
                 </React.Fragment>}</div>)}
               </React.Fragment>)}</div>)}
