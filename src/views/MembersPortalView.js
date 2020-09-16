@@ -3,6 +3,8 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import WorkshopsPortalView from './WorkshopsPortalView'
+import MaterialsPortalView from './MaterialsPortalView'
+import PresetsPortalView from './PresetsPortalView'
 import PortalProfileView from './PortalProfileView'
 
 const scripts = [
@@ -52,6 +54,8 @@ class MembersPortalView extends React.Component {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
       'logout': [],
       'workshops': [],
+      'materials': [],
+      'presets': [],
       'portal-profile': [],
     }
 
@@ -158,15 +162,6 @@ class MembersPortalView extends React.Component {
         ` }} />
         <span className="af-view">
           <div>
-            <div className="af-class-play-video">
-              <div className="af-class-course-video">
-                <div className="af-class-back-wrapper"><a href="http://javascript:history.back()" className="af-class-back">⟵ Back</a></div>
-                <h2 className="af-class-table-heading">Course "course name"</h2>
-                <div className="af-class-text-block-21 af-class-video">Click to access</div>
-                <div className="af-class-video-2 w-video w-embed" />
-                <div className="af-class-divider af-class-fat" />
-              </div>
-            </div>
             <div className="af-class-section-portal">
               <div className="af-class-portal-container">
                 <div data-collapse="medium" data-animation="over-left" data-duration={400} role="banner" className="af-class-portal-nav w-nav">
@@ -192,7 +187,7 @@ class MembersPortalView extends React.Component {
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
                   <div className="af-class-tabs-menu-3 w-tab-menu">
-                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
                       <div>Workshops</div>
                     </a>
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
@@ -201,7 +196,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
                       <div>Tutorials</div>
                     </a>
-                    <a data-w-tab="Materials" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Materials" className="w-inline-block w-tab-link w--current">
                       <div>Materials</div>
                     </a>
                     <a data-w-tab="Presets" className="w-inline-block w-tab-link">
@@ -215,7 +210,7 @@ class MembersPortalView extends React.Component {
                     </a>
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
-                    <div data-w-tab="Workshops" className="w-tab-pane w--tab-active">
+                    <div data-w-tab="Workshops" className="w-tab-pane">
                       {map(proxies['workshops'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <WorkshopsPortalView.Controller />
                       </React.Fragment>}</div>)}
@@ -275,7 +270,7 @@ class MembersPortalView extends React.Component {
                                 <h3 desc="video-name" className="af-class-video-heading">Lecture 1</h3>
                                 <div desc="diver-desc" className="af-class-text-block-11"> - a short course on how to be a debil</div>
                                 <div className="af-class-course-overlay">
-                                  <div data-w-id="e62b7494-6153-08fa-7fe2-e6f9a4ce7a7a" className="af-class-tutorial-play"><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></div>
+                                  <div className="af-class-tutorial-play"><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></div>
                                   <div className="af-class-course-locked"><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
                                     <div className="af-class-text-block-22">Unlock with subscription</div>
                                   </div>
@@ -286,39 +281,15 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Materials" className="w-tab-pane">
-                      <div className="af-class-tab-wrapper">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-16">Mat</span>erials</h3>
-                        <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-                          <div className="af-class-text-block-2">Browse courses</div>
-                        </a>
-                        <div className="af-class-portal-files">
-                          <div id="material-container" className="w-layout-grid af-class-grid-7">
-                            <div className="af-class-reading-container">
-                              <div desc="img" className="af-class-reading-pic" />
-                              <div id="material" className="af-class-reading-content">
-                                <h1 desc="name" className="af-class-heading-14">Posing Guide by Olya Shendrik</h1>
-                                <h3 desc="link" className="af-class-heading-15">Read</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div data-w-tab="Materials" className="w-tab-pane w--tab-active">
+                      {map(proxies['materials'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                        <MaterialsPortalView.Controller />
+                      </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Presets" className="w-tab-pane">
-                      <div className="af-class-tab-wrapper">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Pre</span>sets</h3>
-                        <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-                          <div className="af-class-text-block-2">Browse courses</div>
-                        </a>
-                        <div className="af-class-portal-files">
-                          <div id="preset-container" className="w-layout-grid af-class-grid-7">
-                            <a id="preset" desc="link" href="#" className="af-class-preset w-inline-block">
-                              <h3 desc="name" className="af-class-preset-heading">Heading</h3>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                      {map(proxies['presets'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                        <PresetsPortalView.Controller />
+                      </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane">
                       <div className="af-class-div-block-27">
@@ -338,25 +309,6 @@ class MembersPortalView extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="af-class-popup-window af-class-portal af-class-hidden">
-              <div className="af-class-buy-popup">
-                <div data-w-id="e68580ff-afac-28b5-9c08-e8f295d81101" className="af-class-close">X</div>
-                <h1 className="af-class-puy-heading">Unlock <span desc="name" className="af-class-text-span-43">thing</span></h1>
-                <div className="af-class-item-container">
-                  <h4 className="af-class-heading-19">Thing</h4>
-                  <div className="af-class-text-block-23">$nn</div>
-                </div>
-                <div className="af-class-buy-option"><a href="#" className="af-class-button af-class-buy w-button">Get it with subscription</a></div>
-                <div className="af-class-buy-option"><a href="#" className="af-class-button af-class-red af-class-buy w-button">Get it forever for $nn</a></div>
-              </div>
-            </div>
-            <div style={{opacity: 0, display: 'none'}} className="af-class-vatch-video">
-              <div className="af-class-watch-popup">
-                <div data-w-id="0c62797a-747e-8f2a-0393-c2c3264de722" className="af-class-close">X</div>
-                <h1 className="af-class-puy-heading">Watch <span desc="name" className="af-class-text-span-44">Lecture 1</span></h1>
-                <div className="af-class-video-3 w-video w-embed" />
               </div>
             </div>
             {/* [if lte IE 9]><![endif] */}
