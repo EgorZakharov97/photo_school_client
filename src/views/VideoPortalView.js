@@ -9,19 +9,19 @@ const scripts = [
 
 let Controller
 
-class PortalMaterialView extends React.Component {
+class VideoPortalView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/PortalMaterialController')
+      Controller = require('../controllers/VideoPortalController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = PortalMaterialView
+        Controller = VideoPortalView
 
         return Controller
       }
@@ -45,10 +45,12 @@ class PortalMaterialView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== PortalMaterialView ? transformProxies(this.props.children) : {
+    const proxies = Controller !== VideoPortalView ? transformProxies(this.props.children) : {
       'background': [],
-      'name': [],
-      'link': [],
+      'heading': [],
+      'description': [],
+      'play': [],
+      'loched': [],
     }
 
     return (
@@ -153,10 +155,17 @@ class PortalMaterialView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div className="af-class-reading-container">
-            {map(proxies['background'], props => <div {...{...props, className: `af-class-reading-pic ${props.className || ''}`}}>{props.children}</div>)}
-            <div id="material" className="af-class-reading-content">
-              {map(proxies['name'], props => <h1 {...{...props, className: `af-class-heading-14 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Posing Guide by Olya Shendrik</React.Fragment>}</h1>)}{map(proxies['link'], props => <a href="#" {...{...props, className: `af-class-heading-15 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Read</React.Fragment>}</a>)}</div>
+          <div>
+            {map(proxies['background'], props => <a href="#" {...{...props, className: `af-class-video-wrapper w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+              {map(proxies['heading'], props => <h3 {...{...props, className: `af-class-video-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Lecture 1</React.Fragment>}</h3>)}
+              {map(proxies['description'], props => <div {...{...props, className: `af-class-text-block-11 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment> - a short course on how to be a debil</React.Fragment>}</div>)}
+              <div className="af-class-course-overlay">
+                {map(proxies['play'], props => <div {...{...props, className: `af-class-tutorial-play ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></React.Fragment>}</div>)}
+                {map(proxies['loched'], props => <div {...{...props, className: `af-class-course-locked ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
+                  <div className="af-class-text-block-22">Unlock with subscription</div>
+                </React.Fragment>}</div>)}
+              </div>
+            </React.Fragment>)}</a>)}
           </div>
         </span>
       </span>
@@ -164,6 +173,6 @@ class PortalMaterialView extends React.Component {
   }
 }
 
-export default PortalMaterialView
+export default VideoPortalView
 
 /* eslint-enable */

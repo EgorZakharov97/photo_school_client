@@ -3025,11 +3025,14 @@
 }
 
 .af-view .af-class-heading-15 {
+  display: block;
   margin-top: 0px;
   padding-left: 10px;
+  font-family: Exo, sans-serif;
   color: #7c6944;
   font-size: 18px;
   line-height: 18px;
+  font-weight: 700;
   text-decoration: underline;
 }
 
@@ -3172,6 +3175,10 @@
 
 .af-view .af-class-popup-window.af-class-portal {
   z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   -webkit-transition: opacity 200ms ease;
@@ -3179,7 +3186,7 @@
 }
 
 .af-view .af-class-popup-window.af-class-portal.af-class-hidden {
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-popup-window.af-class-hidden {
@@ -4364,6 +4371,7 @@
 }
 
 .af-view .af-class-text-block-21.af-class-video {
+  margin-top: 20px;
   color: #000;
 }
 
@@ -4406,7 +4414,10 @@
   right: 0%;
   bottom: 0%;
   z-index: 1000;
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -4420,7 +4431,6 @@
 }
 
 .af-view .af-class-course-video {
-  width: 700px;
   padding: 20px;
   border: 3px solid #000;
   background-color: #fff;
@@ -4707,7 +4717,10 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -5197,6 +5210,35 @@
 .af-view .af-class-div-block-47 {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.af-view .af-class-play-video-wrapper {
+  display: block;
+}
+
+.af-view .af-class-play-video-container {
+  margin-top: 40px;
+}
+
+.af-view .af-class-div-block-48 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.af-view .af-class-div-block-49 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+}
+
+.af-view .af-class-get-subscription-window {
+  display: none;
+}
+
+.af-view .af-class-lecture-video-wrapper {
+  display: none;
 }
 
 @media screen and (min-width: 1280px) {

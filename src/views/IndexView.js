@@ -172,7 +172,7 @@ class IndexView extends React.Component {
                 <h3 className="af-class-section-heading af-class-mid af-class-qs">Any questions <span className="af-class-text-span-8">left</span>?</h3>
                 <div className="af-class-div-block-9">
                   <a href="https://wa.me/12048813113" className="af-class-button af-class-red w-inline-block">
-                    <div className="af-class-text-block-5">Let's talk on WhatsApp</div>
+                    <div className="af-class-text-block-5">Let's talk</div>
                   </a>
                 </div>
               </div>

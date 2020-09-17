@@ -3,6 +3,7 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import WorkshopsPortalView from './WorkshopsPortalView'
+import PortalVideosView from './PortalVideosView'
 import MaterialsPortalView from './MaterialsPortalView'
 import PresetsPortalView from './PresetsPortalView'
 import PortalProfileView from './PortalProfileView'
@@ -54,6 +55,7 @@ class MembersPortalView extends React.Component {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
       'logout': [],
       'workshops': [],
+      'portal-videos': [],
       'materials-portal': [],
       'presets-portal': [],
       'portal-profile': [],
@@ -193,13 +195,13 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
                       <div>Courses</div>
                     </a>
-                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link w--current">
                       <div>Tutorials</div>
                     </a>
                     <a data-w-tab="Materials" className="w-inline-block w-tab-link">
                       <div>Materials</div>
                     </a>
-                    <a data-w-tab="Presets" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Presets" className="w-inline-block w-tab-link">
                       <div>Presets</div>
                     </a>
                     <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
@@ -256,37 +258,17 @@ class MembersPortalView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Tutorials" className="af-class-tab-pane-tutorials w-tab-pane">
-                      <div className="af-class-tab-wrapper">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Video </span>tutorials</h3>
-                        <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-                          <div className="af-class-text-block-2">Browse courses</div>
-                        </a>
-                        <div id="videos-container" className="af-class-all-videos">
-                          <div className="af-class-course-topic">
-                            <h1 className="af-class-heading-20">Topic</h1>
-                            <div id="courses-container" className="af-class-portal-courses">
-                              <a desc="video-link-background" href="#" className="af-class-video-wrapper w-inline-block">
-                                <h3 desc="video-name" className="af-class-video-heading">Lecture 1</h3>
-                                <div desc="diver-desc" className="af-class-text-block-11"> - a short course on how to be a debil</div>
-                                <div className="af-class-course-overlay">
-                                  <div className="af-class-tutorial-play"><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></div>
-                                  <div className="af-class-course-locked"><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
-                                    <div className="af-class-text-block-22">Unlock with subscription</div>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div data-w-tab="Tutorials" className="af-class-tab-pane-tutorials w-tab-pane w--tab-active">
+                      {map(proxies['portal-videos'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                        <PortalVideosView.Controller />
+                      </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Materials" className="w-tab-pane">
                       {map(proxies['materials-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <MaterialsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Presets" className="w-tab-pane w--tab-active">
+                    <div data-w-tab="Presets" className="w-tab-pane">
                       {map(proxies['presets-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PresetsPortalView.Controller />
                       </React.Fragment>}</div>)}

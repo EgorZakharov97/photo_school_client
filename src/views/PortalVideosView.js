@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
+import VideoPortalView from './VideoPortalView'
 
 const scripts = [
 
@@ -9,19 +10,19 @@ const scripts = [
 
 let Controller
 
-class PortalMaterialView extends React.Component {
+class PortalVideosView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/PortalMaterialController')
+      Controller = require('../controllers/PortalVideosController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = PortalMaterialView
+        Controller = PortalVideosView
 
         return Controller
       }
@@ -45,10 +46,9 @@ class PortalMaterialView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== PortalMaterialView ? transformProxies(this.props.children) : {
-      'background': [],
-      'name': [],
-      'link': [],
+    const proxies = Controller !== PortalVideosView ? transformProxies(this.props.children) : {
+      'videos-container': [],
+      'video-portal': [],
     }
 
     return (
@@ -153,10 +153,21 @@ class PortalMaterialView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div className="af-class-reading-container">
-            {map(proxies['background'], props => <div {...{...props, className: `af-class-reading-pic ${props.className || ''}`}}>{props.children}</div>)}
-            <div id="material" className="af-class-reading-content">
-              {map(proxies['name'], props => <h1 {...{...props, className: `af-class-heading-14 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Posing Guide by Olya Shendrik</React.Fragment>}</h1>)}{map(proxies['link'], props => <a href="#" {...{...props, className: `af-class-heading-15 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Read</React.Fragment>}</a>)}</div>
+          <div className="af-class-tab-wrapper">
+            <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Video </span>tutorials</h3>
+            <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
+              <div className="af-class-text-block-2">Browse courses</div>
+            </a>
+            <div id="videos-container" className="af-class-all-videos">
+              <div className="af-class-course-topic">
+                <h1 className="af-class-heading-20">Topic</h1>
+                {map(proxies['videos-container'], props => <div id="courses-container" {...{...props, className: `af-class-portal-courses ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  {map(proxies['video-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                    <VideoPortalView.Controller />
+                  </React.Fragment>}</div>)}
+                </React.Fragment>)}</div>)}
+              </div>
+            </div>
           </div>
         </span>
       </span>
@@ -164,6 +175,6 @@ class PortalMaterialView extends React.Component {
   }
 }
 
-export default PortalMaterialView
+export default PortalVideosView
 
 /* eslint-enable */
