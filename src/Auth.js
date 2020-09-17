@@ -59,7 +59,7 @@ class Auth {
                 'Authorization': 'Bearer ' + (user.token || "")
             }
         });
-        window.localStorage.setItem('user', JSON.stringify(user))
+        window.localStorage.setItem('user', JSON.stringify(user));
     }
 
     logout(){

@@ -7,7 +7,8 @@ import AuthController from '../AuthController'
 import PortalProfileController from "../portal/PortalProfileController";
 import PortalWorkshopsController from "./PortalWorkshopsController";
 import MaterialsPortalController from "../portal/MaterialsPortalController";
-import PortalPresetsController from "../portal/PortalPresetController";
+import PortalPresetsController from '../portal/PortalPresetsController'
+
 
 export default function PortalController(props) {
 
@@ -29,15 +30,19 @@ export default function PortalController(props) {
                 {/*<workshops>*/}
                 {/*    {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}*/}
                 {/*</workshops>*/}
+
                 <materials-portal>
-                    <MaterialsPortalController {...props} />
+                    {auth.isAuthenticated() && <MaterialsPortalController {...props} />}
                 </materials-portal>
-                <presets>
-                    <PortalPresetsController {...props} />
-                </presets>
+
+                <presets-portal>
+                    {auth.isAuthenticated() && <PortalPresetsController {...props} />}
+                </presets-portal>
+
                 <portal-profile>
                     {auth.isAuthenticated() && <PortalProfileController/>}
                 </portal-profile>
+
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
         </>

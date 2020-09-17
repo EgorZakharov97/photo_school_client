@@ -231,7 +231,8 @@ export default class AuthController extends React.Component {
                 this.setMessage(res.data.message, true);
                 setTimeout(() => {
                     this.close()
-                }, 300)
+                }, 300);
+                this.props.history.go(0);
             } else {
                 this.setMessage(res.data.message, false)
             }

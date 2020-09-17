@@ -1,3 +1,5 @@
+export const HOST = 'http://localhost:9000';
+
 export const URL_GET_WORKSHOP_NAMES = "/api/v1/workshops/head";
 export const URL_GET_WORKSHOP_DATA = "/api/v1/workshop/"; // + workshop.name
 export const URL_POST_WORKSHOP = "/api/v1/admin/workshop";
@@ -57,3 +59,4 @@ export const URL_UPDATE_PAYMENT_METHOD = '/api/v1/auth/update/payment-method';
 export const URL_GET_MY_WORKSHOPS = '/api/v1/workshops';
 export const URL_GET_MY_MATERIALS = '/api/v1/materials';
 export const URL_GET_MY_PRESETS = '/api/v1/presets';
+export const URL_GET_MY_FILE = HOST + '/api/v1/download/'; // + file._id

@@ -1,7 +1,8 @@
 import React from 'react'
-import PortalMaterialView from '../../views/PortalMaterialView'
-import {URL_GET_MY_FILE} from "../../constants";
-import auth from "../../Auth";
+import PresetPortalView from "../../views/PresetPortalView";
+import {URL_GET_MY_FILE} from '../../constants'
+import auth from '../../Auth'
+const axios = auth.getAPI();
 
 export default function PortalMaterialController(props) {
 
@@ -10,11 +11,11 @@ export default function PortalMaterialController(props) {
 	};
 
 	return (
-		<PortalMaterialView>
-			<background style={style} />
-			<name>{props.name}</name>
-			{props.file && <link href={getDownloadLink()} />}
-		</PortalMaterialView>
+		<PresetPortalView>
+			<background href={getDownloadLink()} style={style}>
+				<link>{props.name}</link>
+			</background>
+		</PresetPortalView>
 	);
 
 	function getDownloadLink(){
