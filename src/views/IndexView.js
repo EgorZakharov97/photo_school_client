@@ -65,18 +65,20 @@ class IndexView extends React.Component {
         ` }} />
         <span className="af-view">
           <div className="af-class-body">
-            <div data-collapse="small" data-animation="default" data-duration={400} role="banner" className="af-class-navbar-main w-nav">
-              <div className="af-class-nav-container">
-                <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 100px, 100vw" alt className="af-class-image-5" />
-                  <div className="af-class-nav-menu-icon">Menu</div>
-                </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
-              <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" aria-current="page" className="af-class-nav-link w-nav-link w--current">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="workshops.html" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
-                <div className="af-class-nav-divider" />
-                <h3 className="af-class-nav-help">Get Help</h3>
-                <a href="https://wa.me/12048813113" className="af-class-link-button w-inline-block">
-                  <h3 className="af-class-link-button-text">Talk to us</h3>
-                </a>
-              </nav>
+            <div className="af-class-section-2">
+              <div data-collapse="small" data-animation="default" data-duration={400} role="banner" className="af-class-navbar-main w-nav">
+                <div className="af-class-nav-container">
+                  <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 100px, 100vw" alt className="af-class-image-5" />
+                    <div className="af-class-nav-menu-icon">Menu</div>
+                  </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
+                <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" aria-current="page" className="af-class-nav-link w-nav-link w--current">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="workshops.html" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
+                  <div className="af-class-nav-divider" />
+                  <h3 className="af-class-nav-help">Get Help</h3>
+                  <a href="https://wa.me/12048813113" className="af-class-link-button w-inline-block">
+                    <h3 className="af-class-link-button-text">Talk to us</h3>
+                  </a>
+                </nav>
+              </div>
             </div>
             <div className="af-class-section-welcome">
               <div className="af-class-welcome-headers">
@@ -94,7 +96,7 @@ class IndexView extends React.Component {
                 <div data-poster-url="videos/Mockup_03-poster-00001.jpg" data-video-urls="videos/Mockup_03-transcode.mp4,videos/Mockup_03-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" className="af-class-background-video w-background-video w-background-video-atom"><video autoPlay loop style={{backgroundImage: 'url("videos/Mockup_03-poster-00001.jpg")'}} muted playsInline data-wf-ignore="true" data-object-fit="cover"><source src="videos/Mockup_03-transcode.mp4" data-wf-ignore="true" /><source src="videos/Mockup_03-transcode.webm" data-wf-ignore="true" /></video></div>
               </div>
             </div>
-            <div className="af-class-subscription-welcome af-class-nah">
+            <div data-w-id="c02f50b3-70d9-54e1-1dfb-eefe454ed46a" className="af-class-subscription-welcome af-class-nah">
               <div className="w-layout-grid af-class-grid-8">
                 <div id="w-node-59e5d36c871a-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Community</h1>
@@ -167,6 +169,19 @@ class IndexView extends React.Component {
                 </div>
               </div>
             </div>
+            <div className="af-class-section-3">
+              <div className="af-class-home-container">
+                <h3 className="af-class-section-heading af-class-on-black"><span className="af-class-text-span-2">What's </span> the deal:</h3>
+                <div className="w-layout-grid af-class-grid-101">
+                  <div id="w-node-e2ec500a1525-fbba94a3" className="af-class-div-block-52"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 78vw, 200px" alt className="af-class-image-9" />
+                    <div className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
+                  </div>
+                  <div id="w-node-a0ea1acadfc0-fbba94a3" className="af-class-text-block-27">This is some text inside of a div block</div>
+                  <div id="w-node-436237cabb97-fbba94a3" className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
+                  <div id="w-node-e85ceb0d09fb-fbba94a3" className="af-class-text-block-27">This is some text inside of a div block</div>
+                </div>
+              </div>
+            </div>
             <div id="contact" className="af-class-section-ask">
               <div className="w-container">
                 <h3 className="af-class-section-heading af-class-mid af-class-qs">Any questions <span className="af-class-text-span-8">left</span>?</h3>
@@ -208,6 +223,7 @@ class IndexView extends React.Component {
                 <div className="af-class-text-block-14">Copyright © 2020 Spark Photography. All rights reserved.</div>
               </div>
             </footer>
+            <div />
             {/* [if lte IE 9]><![endif] */}
           </div>
         </span>

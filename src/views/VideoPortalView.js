@@ -49,6 +49,7 @@ class VideoPortalView extends React.Component {
       'background': [],
       'heading': [],
       'description': [],
+      'overlay': [],
       'play': [],
       'loched': [],
     }
@@ -159,12 +160,12 @@ class VideoPortalView extends React.Component {
             {map(proxies['background'], props => <a href="#" {...{...props, className: `af-class-video-wrapper w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
               {map(proxies['heading'], props => <h3 {...{...props, className: `af-class-video-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Lecture 1</React.Fragment>}</h3>)}
               {map(proxies['description'], props => <div {...{...props, className: `af-class-text-block-11 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment> - a short course on how to be a debil</React.Fragment>}</div>)}
-              <div className="af-class-course-overlay">
+              {map(proxies['overlay'], props => <div {...{...props, className: `af-class-course-overlay ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                 {map(proxies['play'], props => <div {...{...props, className: `af-class-tutorial-play ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></React.Fragment>}</div>)}
                 {map(proxies['loched'], props => <div {...{...props, className: `af-class-course-locked ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
                   <div className="af-class-text-block-22">Unlock with subscription</div>
                 </React.Fragment>}</div>)}
-              </div>
+              </React.Fragment>)}</div>)}
             </React.Fragment>)}</a>)}
           </div>
         </span>
