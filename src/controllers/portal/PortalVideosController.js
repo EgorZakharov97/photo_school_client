@@ -1,15 +1,24 @@
 import React, {useState, useEffect} from 'react'
-import PortalVideosView from '../../views/PortalVideosView'
-import PortalVideoController from './PortalVideoController'
 import {URL_GET_MY_VIDEOS} from "../../constants"
 import shortid from 'shortid'
 import auth from "../../Auth";
+
+import PortalVideosView from '../../views/PortalVideosView'
+import PortalVideoController from './PortalVideoController'
+import PlayVideoWindowController from './PlayVideoWindowController'
+import GetSubscriptionController from "./GetSubscriptionController";
+
 const axios = auth.getAPI();
 
 export default function PortalVideosController(props) {
 
 	const [videos, setVideos] = useState([]);
 	const [previews, setPreviews] = useState([]);
+
+	const [showPlay, setShowPlay] = useState(false);
+	const [playWindowData, setPlayWindowData] = useState({});
+
+	const [showSubscribe, setShowSubscribe] = useState(false);
 
 	useEffect(() => {
 		axios.get(URL_GET_MY_VIDEOS)
@@ -29,23 +38,42 @@ export default function PortalVideosController(props) {
 
 
 	return (
-		<PortalVideosView>
-			<videos-container>
-				{videos.map(video => {
-					return (
-						<diveo-portal key={shortid.generate()}>
-							<PortalVideoController key={shortid.generate()} {...video} />
-						</diveo-portal>
-					)
-				})}
-				{previews.map(video => {
-					return (
-						<diveo-portal key={shortid.generate()}>
-							<PortalVideoController key={shortid.generate()} {...video} />
-						</diveo-portal>
-					)
-				})}
-			</videos-container>
-		</PortalVideosView>
+		<>
+			<PortalVideosView>
+				<videos-container>
+					<video-portal key={shortid.generate()}>
+						<PortalVideoController key={shortid.generate()} i={113} setShowSubscribe={setShowSubscribe} setPlayWindowData={setPlayWindowData} setShowPlay={setShowPlay}  {...{name: 'sample', description: 'descriptoip'}} />
+					</video-portal>
+					{videos.map((video, i) => {
+						return (
+							<video-portal key={shortid.generate()}>
+								<PortalVideoController key={shortid.generate()} i={i} setShowSubscribe={setShowSubscribe} setPlayWindowData={setPlayWindowData} setShowPlay={setShowPlay}  {...video} />
+							</video-portal>
+						)
+					})}
+					{previews.map(video => {
+						return (
+							<video-portal key={shortid.generate()}>
+								<PortalVideoController key={shortid.generate()} setShowSubscribe={setShowSubscribe}  {...video} />
+							</video-portal>
+						)
+					})}
+				</videos-container>
+			</PortalVideosView>
+			{showPlay && <PlayVideoWindowController setNextVideo={setNextVideo} setShowPlay={setShowPlay} {...playWindowData} />}
+			<GetSubscriptionController setShowSubscribe={setShowSubscribe} {...playWindowData} />
+		</>
 	);
+
+	function setNextVideo() {
+		let i = playWindowData.i;
+		if(videos.length > i){
+			i++;
+			setPlayWindowData({
+				name: videos[i].name,
+				link: videos[i].link,
+				i: i
+			})
+		}
+	}
 }

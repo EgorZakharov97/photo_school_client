@@ -8,6 +8,7 @@ import PortalProfileController from "../portal/PortalProfileController";
 import PortalWorkshopsController from "./PortalWorkshopsController";
 import MaterialsPortalController from "../portal/MaterialsPortalController";
 import PortalPresetsController from '../portal/PortalPresetsController'
+import PortalVideosController from "../portal/PortalVideosController";
 
 
 export default function PortalController(props) {
@@ -38,6 +39,10 @@ export default function PortalController(props) {
                 <presets-portal>
                     {auth.isAuthenticated() && <PortalPresetsController {...props} />}
                 </presets-portal>
+
+                <portal-videos>
+                    {auth.isAuthenticated() && <PortalVideosController {...props} />}
+                </portal-videos>
 
                 <portal-profile>
                     {auth.isAuthenticated() && <PortalProfileController/>}
