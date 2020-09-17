@@ -4199,6 +4199,7 @@
 }
 
 .af-view .af-class-course {
+  width: 100%;
   text-decoration: none;
 }
 
@@ -4314,8 +4315,16 @@
 }
 
 .af-view .af-class-back-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 10px;
   margin-bottom: 10px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .af-view .af-class-back {
@@ -4544,6 +4553,7 @@
 }
 
 .af-view .af-class-link-block-4 {
+  width: 100%;
   padding: 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -5213,7 +5223,12 @@
 }
 
 .af-view .af-class-play-video-wrapper {
-  display: block;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  display: none;
 }
 
 .af-view .af-class-play-video-container {
@@ -5234,10 +5249,20 @@
 }
 
 .af-view .af-class-get-subscription-window {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
   display: none;
 }
 
 .af-view .af-class-lecture-video-wrapper {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
   display: none;
 }
 

@@ -47,6 +47,7 @@ class PlayVideoVindowView extends React.Component {
   render() {
     const proxies = Controller !== PlayVideoVindowView ? transformProxies(this.props.children) : {
       'back': [],
+      'next': [],
       'name': [],
       'video': [],
     }
@@ -62,7 +63,7 @@ class PlayVideoVindowView extends React.Component {
           <div className="af-class-play-video-wrapper">
             <div className="af-class-play-video">
               <div className="af-class-course-video">
-                <div className="af-class-back-wrapper">{map(proxies['back'], props => <a href="#" {...{...props, className: `af-class-back ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>⟵ Back</React.Fragment>}</a>)}</div>
+                <div className="af-class-back-wrapper">{map(proxies['back'], props => <a href="#" {...{...props, className: `af-class-back ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>⟵ Back</React.Fragment>}</a>)}{map(proxies['next'], props => <a href="#" {...{...props, className: `af-class-back ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment> Next→</React.Fragment>}</a>)}</div>
                 {map(proxies['name'], props => <h2 {...{...props, className: `af-class-table-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course "course name"</React.Fragment>}</h2>)}
                 <div className="af-class-text-block-21 af-class-video">Click to access</div>
                 {map(proxies['video'], props => <div {...{...props, className: `af-class-play-video-container ${props.className || ''}`}}>{props.children}</div>)}
