@@ -8,16 +8,14 @@ export default function PortalMaterialController(props) {
 		backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('${props.image || ""}')`
 	};
 
-	console.log(props)
-
 	return (
 		<PortalCourseView>
 			<background style={style}>
 				<overlay>
-					{props.link ? (
+					{props.public ? (
 						<play onClick={onPlay}/>
 					) : (
-						<loched onClick={onLocked}/>
+						<locked onClick={onLocked}/>
 					)}
 				</overlay>
 			</background>
@@ -27,20 +25,10 @@ export default function PortalMaterialController(props) {
 	);
 
 	function onLocked() {
-		props.setPlayWindowData({
-			name: props.name,
-			link: props.link,
-			i: props.i
-		});
-		props.setShowSubscribe(true)
+
 	}
 
 	function onPlay() {
-		props.setPlayWindowData({
-			name: props.name,
-			link: props.link,
-			i: props.i
-		});
-		props.setShowPlay(true)
+
 	}
 }

@@ -40,6 +40,7 @@ export default class AdminCoursesController extends AdminFormController {
                     <price value={this.state.data.price || ""} onChange={e => this.changeHandler(e)}/>
                     <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
                     <access value={this.state.data.access || this.state.data.public || ""} onChange={e => this.booleanChangeHandler(e)} />
+                    <image value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)}/>
                     {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
                     {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
                 </info>
