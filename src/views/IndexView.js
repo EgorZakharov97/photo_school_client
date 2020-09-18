@@ -6,7 +6,9 @@ import { createScope, map, transformProxies } from './helpers'
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
   fetch("js/webflow.js").then(body => body.text()),
-  fetch("/public/js/jquery.instagramFeed.js").then(body => body.text()),
+  fetch("https://code.jquery.com/jquery-3.3.1.min.js").then(body => body.text()),
+  fetch("https://photolite.academy/public/js/jquery.instagramFeed.js").then(body => body.text()),
+  Promise.resolve("$(window).on(\"load\",function(){$.instagramFeed({username:\"shumov_danny\",container:\"#instagram-feed-dany\",display_profile:!0,display_biography:!0,display_igtv:!1,display_gallery:!0,items:16}),$.instagramFeed({username:\"olya_shendrik\",container:\"#instagram-feed-olya\",display_profile:!0,display_biography:!0,display_igtv:!1,display_gallery:!0,items:16})});"),
 ]
 
 let Controller
@@ -68,7 +70,7 @@ class IndexView extends React.Component {
             <div className="af-class-section-2">
               <div data-collapse="small" data-animation="default" data-duration={400} role="banner" className="af-class-navbar-main w-nav">
                 <div className="af-class-nav-container">
-                  <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 100px, 100vw" alt className="af-class-image-5" />
+                  <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 70px, 100vw" alt className="af-class-image-5" />
                     <div className="af-class-nav-menu-icon">Menu</div>
                   </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
                 <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" aria-current="page" className="af-class-nav-link w-nav-link w--current">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="workshops.html" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
@@ -105,12 +107,12 @@ class IndexView extends React.Component {
                 </div>
                 <div id="w-node-1a7a37f29d37-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Challenges</h1>
-                  <div className="af-class-text-block-20">Try to repeat references<br />and get professionals' feedback</div><a href="subscription.html" className="af-class-presentation-link">Read more</a>
+                  <div className="af-class-text-block-20">Try to repeat references<br />and get professionals' feedback</div><a href="subscription.html" className="af-class-presentation-link">Read more→</a>
                   <div className="af-class-div-block-19" />
                 </div>
                 <div id="w-node-3aaf28746a2f-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Online Lessons</h1>
-                  <div className="af-class-text-block-20">Try to repeat references<br />and get professionals' feedback</div><a href="subscription.html" className="af-class-presentation-link">Read more</a>
+                  <div className="af-class-text-block-20">Try to repeat references<br />and get professionals' feedback</div><a href="subscription.html" className="af-class-presentation-link">Read more→</a>
                   <div className="af-class-div-block-19" />
                 </div>
                 <div id="w-node-4ab3a8b17650-fbba94a3" className="af-class-presentation-card">
@@ -122,17 +124,56 @@ class IndexView extends React.Component {
             </div>
             <div className="af-class-section-work-studetns">
               <div className="w-container">
-                <div className="w-layout-grid af-class-grid-11">
-                  <div id="w-node-0e71b916cca4-b916cca1">
-                    <h3 className="af-class-sub-heading af-class-small">Student's Work</h3>
+                <div className="w-layout-grid af-class-grid-102">
+                  <div id="w-node-92c55c826c7f-b916cca1">
+                    <h3 className="af-class-sub-heading-2 af-class-small">Student's Work</h3>
                     <p className="af-class-paragraph-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
                   </div>
-                  <div id="w-node-12470eb5d3dc-b916cca1" className="af-class-div-block-30" />
-                  <div id="w-node-3ba1944598e3-b916cca1" className="af-class-div-block-31" />
-                  <div id="w-node-ffaf0c63bebc-b916cca1" className="af-class-div-block-32" />
-                  <div id="w-node-8299f943c090-b916cca1" className="af-class-div-block-33" />
-                  <div id="w-node-6e25bc863e5c-b916cca1" className="af-class-div-block-34" />
-                  <div id="w-node-5017b7a63705-b916cca1" className="af-class-div-block-35" />
+                  <div id="w-node-92c55c826c84-b916cca1" className="af-class-div-block-61" />
+                  <div id="w-node-92c55c826c85-b916cca1" className="af-class-div-block-60" />
+                  <div id="w-node-92c55c826c86-b916cca1" className="af-class-div-block-56" />
+                  <div id="w-node-92c55c826c87-b916cca1" className="af-class-div-block-57" />
+                  <div id="w-node-92c55c826c88-b916cca1" className="af-class-div-block-59" />
+                  <div id="w-node-92c55c826c89-b916cca1" className="af-class-div-block-58" />
+                  <div id="w-node-5d5764e061b4-b916cca1" className="af-class-div-block-62" />
+                </div>
+                <div className="af-class-div-block-64">
+                  <div className="af-class-div-block-65">
+                    <h3 className="af-class-sub-heading-2 af-class-small">Student's Work</h3>
+                    <p className="af-class-paragraph-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                  </div>
+                </div>
+                <div data-animation="slide" data-duration={500} data-infinite={1} className="af-class-slider w-slider">
+                  <div className="w-slider-mask">
+                    <div className="af-class-slide-2 w-slide">
+                      <div className="af-class-div-block-60 af-class-wwwwww" />
+                    </div>
+                    <div className="af-class-slide-3 w-slide">
+                      <div className="af-class-div-block-61" />
+                    </div>
+                    <div className="af-class-slide-4 w-slide">
+                      <div className="af-class-div-block-56" />
+                    </div>
+                    <div className="af-class-slide-5 w-slide">
+                      <div className="af-class-div-block-57" />
+                    </div>
+                    <div className="af-class-slide-6 w-slide">
+                      <div className="af-class-div-block-59" />
+                    </div>
+                    <div className="af-class-slide-7 w-slide">
+                      <div className="af-class-div-block-58" />
+                    </div>
+                    <div className="af-class-slide-8 w-slide">
+                      <div className="af-class-div-block-62" />
+                    </div>
+                  </div>
+                  <div className="w-slider-arrow-left">
+                    <div className="w-icon-slider-left" />
+                  </div>
+                  <div className="w-slider-arrow-right">
+                    <div className="w-icon-slider-right" />
+                  </div>
+                  <div className="w-slider-nav w-round" />
                 </div>
               </div>
             </div>
@@ -172,13 +213,25 @@ class IndexView extends React.Component {
             <div className="af-class-section-3">
               <div className="af-class-home-container">
                 <h3 className="af-class-section-heading af-class-on-black"><span className="af-class-text-span-2">What's </span> the deal:</h3>
-                <div className="w-layout-grid af-class-grid-101">
-                  <div id="w-node-e2ec500a1525-fbba94a3" className="af-class-div-block-52"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 78vw, 200px" alt className="af-class-image-9" />
-                    <div className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
+                <div className="w-container">
+                  <div className="w-layout-grid af-class-grid-101">
+                    <div id="w-node-d37d0b0bceee-fbba94a3" className="af-class-div-block-52-copy">
+                      <div className="af-class-div-block-55"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9" /></div>
+                      <div className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
+                    </div>
+                    <div id="w-node-e2ec500a1525-fbba94a3" className="af-class-div-block-52">
+                      <div className="af-class-div-block-54"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9 af-class-right" /></div>
+                      <div className="af-class-text-block-27">This is some text inside of a div block</div>
+                    </div>
+                    <div id="w-node-03a82a9d1e12-fbba94a3" className="af-class-awawdwa">
+                      <div className="af-class-div-block-55"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9" /></div>
+                      <div className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
+                    </div>
+                    <div id="w-node-6ca177d3e0c3-fbba94a3" className="af-class-wdawdad">
+                      <div className="af-class-div-block-54"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9 af-class-right" /></div>
+                      <div className="af-class-text-block-27">This is some text inside of a div block</div>
+                    </div>
                   </div>
-                  <div id="w-node-a0ea1acadfc0-fbba94a3" className="af-class-text-block-27">This is some text inside of a div block</div>
-                  <div id="w-node-436237cabb97-fbba94a3" className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
-                  <div id="w-node-e85ceb0d09fb-fbba94a3" className="af-class-text-block-27">This is some text inside of a div block</div>
                 </div>
               </div>
             </div>
@@ -223,7 +276,6 @@ class IndexView extends React.Component {
                 <div className="af-class-text-block-14">Copyright © 2020 Spark Photography. All rights reserved.</div>
               </div>
             </footer>
-            <div />
             {/* [if lte IE 9]><![endif] */}
           </div>
         </span>
