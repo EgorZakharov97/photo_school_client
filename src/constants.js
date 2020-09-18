@@ -61,3 +61,4 @@ export const URL_GET_MY_MATERIALS = '/api/v1/materials';
 export const URL_GET_MY_PRESETS = '/api/v1/presets';
 export const URL_GET_MY_FILE = HOST + '/api/v1/download/'; // + file._id
 export const URL_GET_MY_VIDEOS = '/api/v1/videos';
+export const URL_GET_MY_COURSES = '/api/v1/courses';

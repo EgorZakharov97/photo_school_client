@@ -45,7 +45,7 @@ export default class AdminFormController extends React.Component {
     onSelectorChange(e) {
         if(this.constructor.name === 'AdminFormController') return;
         if(e.target.value === 'new') {
-            return this.setState(state => {
+            this.setState(state => {
                 state.data = {};
                 state.message = {};
                 return state;

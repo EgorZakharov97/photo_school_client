@@ -9,6 +9,7 @@ import PortalWorkshopsController from "./PortalWorkshopsController";
 import MaterialsPortalController from "../portal/MaterialsPortalController";
 import PortalPresetsController from '../portal/PortalPresetsController'
 import PortalVideosController from "../portal/PortalVideosController";
+import PortalCoursesController from "../portal/PortalCoursesController";
 
 
 export default function PortalController(props) {
@@ -27,6 +28,7 @@ export default function PortalController(props) {
     return(
         <>
             <MembersPortalView>
+				{auth.isAdmin() && <admin onClick={e => {e.preventDefault(); props.history.push('/admin')}}/>}
                 <logout onClick={e => logout(e)} />
                 {/*<workshops>*/}
                 {/*    {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}*/}
@@ -35,6 +37,10 @@ export default function PortalController(props) {
                 <materials-portal>
                     {auth.isAuthenticated() && <MaterialsPortalController {...props} />}
                 </materials-portal>
+
+                <portal-courses>
+                    {auth.isAuthenticated() && <PortalCoursesController {...props} />}
+                </portal-courses>
 
                 <presets-portal>
                     {auth.isAuthenticated() && <PortalPresetsController {...props} />}

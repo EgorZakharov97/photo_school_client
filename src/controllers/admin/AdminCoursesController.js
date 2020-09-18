@@ -39,7 +39,7 @@ export default class AdminCoursesController extends AdminFormController {
                     <name value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
                     <price value={this.state.data.price || ""} onChange={e => this.changeHandler(e)}/>
                     <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
-                    <access value={this.state.data.access} onChange={e => this.booleanChangeHandler(e)} />
+                    <access value={this.state.data.access || this.state.data.public || ""} onChange={e => this.booleanChangeHandler(e)} />
                     {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
                     {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
                 </info>
@@ -305,8 +305,11 @@ export default class AdminCoursesController extends AdminFormController {
 
     async onSelectorChange(e) {
         const event = e;
+        console.log(this.state.data.name)
         await super.onSelectorChange(event)
-        if(this.state.data.name !== 'new'){
+        console.log(this.state.data.name)
+
+        if(this.state.data.name !== undefined){
             this.loadFiles();
             this.loadVideos();
         }
