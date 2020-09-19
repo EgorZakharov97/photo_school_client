@@ -73,7 +73,7 @@ class IndexView extends React.Component {
                   <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 70px, 100vw" alt className="af-class-image-5" />
                     <div className="af-class-nav-menu-icon">Menu</div>
                   </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
-                <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" aria-current="page" className="af-class-nav-link w-nav-link w--current">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="workshops.html" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
+                <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" aria-current="page" className="af-class-nav-link w-nav-link w--current">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="#" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
                   <div className="af-class-nav-divider" />
                   <h3 className="af-class-nav-help">Get Help</h3>
                   <a href="https://wa.me/12048813113" className="af-class-link-button w-inline-block">
@@ -103,12 +103,12 @@ class IndexView extends React.Component {
                 <div id="w-node-59e5d36c871a-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Community</h1>
                   <div className="af-class-text-block-20">Become a part of our community, ask questions,help others with answers</div><a href="#" className="af-class-presentation-link">Read more →</a>
-                  <div className="af-class-div-block-19" />
+                  <div className="af-class-community" />
                 </div>
                 <div id="w-node-1a7a37f29d37-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Challenges</h1>
                   <div className="af-class-text-block-20">Try to repeat references<br />and get professionals' feedback</div><a href="subscription.html" className="af-class-presentation-link">Read more→</a>
-                  <div className="af-class-div-block-19" />
+                  <div className="af-class-div-block-19-copy" />
                 </div>
                 <div id="w-node-3aaf28746a2f-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Online Lessons</h1>
@@ -117,8 +117,8 @@ class IndexView extends React.Component {
                 </div>
                 <div id="w-node-4ab3a8b17650-fbba94a3" className="af-class-presentation-card">
                   <h1 className="af-class-presentation-heading">Workshops</h1>
-                  <div className="af-class-text-block-20">Meet your coaches in Winnipeg, learn and apply your knowledge</div><a href="#" className="af-class-presentation-link">Read more →</a>
-                  <div className="af-class-div-block-19" />
+                  <div className="af-class-text-block-20">Meet your coaches in Winnipeg, learn and apply your knowledge</div><a href="workshops.html" className="af-class-presentation-link">Read more →</a>
+                  <div className="af-class-workshops" />
                 </div>
               </div>
             </div>
@@ -213,24 +213,22 @@ class IndexView extends React.Component {
             <div className="af-class-section-3">
               <div className="af-class-home-container">
                 <h3 className="af-class-section-heading af-class-on-black"><span className="af-class-text-span-2">What's </span> the deal:</h3>
-                <div className="w-container">
-                  <div className="w-layout-grid af-class-grid-101">
-                    <div id="w-node-d37d0b0bceee-fbba94a3" className="af-class-div-block-52-copy">
-                      <div className="af-class-div-block-55"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9" /></div>
-                      <div className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
-                    </div>
-                    <div id="w-node-e2ec500a1525-fbba94a3" className="af-class-div-block-52">
-                      <div className="af-class-div-block-54"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9 af-class-right" /></div>
-                      <div className="af-class-text-block-27">This is some text inside of a div block</div>
-                    </div>
-                    <div id="w-node-03a82a9d1e12-fbba94a3" className="af-class-awawdwa">
-                      <div className="af-class-div-block-55"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9" /></div>
-                      <div className="af-class-text-block-27 af-class-reverse">This is some text inside of a div block</div>
-                    </div>
-                    <div id="w-node-6ca177d3e0c3-fbba94a3" className="af-class-wdawdad">
-                      <div className="af-class-div-block-54"><img src="images/Masterwhite.png" loading="lazy" width={200} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 62vw, (max-width: 991px) 150px, 200px" alt className="af-class-image-9 af-class-right" /></div>
-                      <div className="af-class-text-block-27">This is some text inside of a div block</div>
-                    </div>
+                <div className="af-class-container-12 w-container">
+                  <div className="af-class-div-block-52-copy">
+                    <div className="af-class-div-block-55" />
+                    <div className="af-class-text-block-27 af-class-reverse"><br />• This is some text inside of a div block</div>
+                  </div>
+                  <div className="af-class-div-block-52-copy">
+                    <div className="af-class-div-block-55" />
+                    <div className="af-class-text-block-27 af-class-reverse">• This is some text inside of a div block</div>
+                  </div>
+                  <div className="af-class-div-block-52-copy">
+                    <div className="af-class-div-block-55" />
+                    <div className="af-class-text-block-27 af-class-reverse">• This is some text inside of a div block</div>
+                  </div>
+                  <div className="af-class-div-block-52-copy">
+                    <div className="af-class-div-block-55" />
+                    <div className="af-class-text-block-27 af-class-reverse">• This is some text inside of a div block</div>
                   </div>
                 </div>
               </div>

@@ -200,7 +200,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
                       <div>Workshops</div>
                     </a>
-                    <a data-w-tab="Courses" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Courses" className="w-inline-block w-tab-link w--current">
                       <div>Courses</div>
                     </a>
                     <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
@@ -212,7 +212,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Presets" className="w-inline-block w-tab-link">
                       <div>Presets</div>
                     </a>
-                    <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
                       <div>Weekly Challenge</div>
                     </a>
                     <a data-w-tab="Profile" className="w-inline-block w-tab-link">
@@ -225,7 +225,7 @@ class MembersPortalView extends React.Component {
                         <WorkshopsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
+                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane w--tab-active">
                       {map(proxies['portal-courses'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalCoursesView.Controller />
                       </React.Fragment>}</div>)}
@@ -245,7 +245,7 @@ class MembersPortalView extends React.Component {
                         <PresetsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane w--tab-active">
+                    <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane">
                       {map(proxies['portal-challenges'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalChallengesView.Controller />
                       </React.Fragment>}</div>)}

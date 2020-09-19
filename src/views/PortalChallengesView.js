@@ -46,6 +46,8 @@ class PortalChallengesView extends React.Component {
 
   render() {
     const proxies = Controller !== PortalChallengesView ? transformProxies(this.props.children) : {
+      'name': [],
+      'name': [],
       'image': [],
       'description': [],
     }
@@ -154,11 +156,11 @@ class PortalChallengesView extends React.Component {
         <span className="af-view">
           <div>
             <div className="af-class-div-block-27">
-              <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Weekly</span> Challenge</h3>
+              <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Challenge </span>Of the week</h3>
             </div>
             <div className="af-class-current-challenge">
-              <h1 className="af-class-heading-20">Current Challenge</h1>
               <div className="af-class-challenge">
+                {map(proxies['name'], props => <h1 id="w-node-491adb2d6056-30ba94ae" {...{...props, className: `af-class-heading-20 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>Name{map(proxies['name'], props => <span {...props}>{props.children}</span>)}</React.Fragment>)}</h1>)}
                 {map(proxies['image'], props => <div id="w-node-551d7c869d07-30ba94ae" {...{...props, className: `af-class-challenge-img ${props.className || ''}`}}>{props.children}</div>)}
                 <div id="w-node-07c58e7b94c1-30ba94ae" className="af-class-div-block-70">
                   {map(proxies['description'], props => <div {...{...props, className: `af-class-rich-text-block-8 w-richtext ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>

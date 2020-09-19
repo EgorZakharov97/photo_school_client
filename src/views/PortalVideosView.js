@@ -162,7 +162,7 @@ class PortalVideosView extends React.Component {
               <div className="af-class-course-topic">
                 <h1 className="af-class-heading-20">Topic</h1>
                 {map(proxies['videos-container'], props => <div id="courses-container" {...{...props, className: `af-class-portal-courses ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                  {map(proxies['video-portal'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                  {map(proxies['video-portal'], props => <div {...{...props, className: `af-class-div-block-72 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                     <VideoPortalView.Controller />
                   </React.Fragment>}</div>)}
                 </React.Fragment>)}</div>)}

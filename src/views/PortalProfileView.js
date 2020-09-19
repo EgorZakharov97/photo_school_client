@@ -161,7 +161,7 @@ class PortalProfileView extends React.Component {
         <span className="af-view">
           <div className="af-class-profile">
             <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Pro</span>file</h3>
-            <div className="af-class-container-11 w-container">
+            <div className="af-class-div-block-71">
               <div>
                 <div className="af-class-div-block-45">
                   <h2 className="af-class-heading-9">Update user info</h2>{map(proxies['reset-password'], props => <a href="#" {...{...props, className: `af-class-login-submit af-class-small w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Reset Password</React.Fragment>}</a>)}</div>

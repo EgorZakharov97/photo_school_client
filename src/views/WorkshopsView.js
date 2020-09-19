@@ -61,21 +61,19 @@ class WorkshopsView extends React.Component {
         ` }} />
         <span className="af-view">
           <div className="af-class-body-2">
-            <div className="af-class-section-nav">
-              <div className="w-container">
-                <div data-collapse="small" data-animation="default" data-duration={400} role="banner" className="af-class-navbar-main w-nav">
-                  <div className="af-class-nav-container">
-                    <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 70px, 100vw" alt className="af-class-image-5" />
-                      <div className="af-class-nav-menu-icon">Menu</div>
-                    </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
-                  <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" className="af-class-nav-link w-nav-link">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="workshops.html" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" aria-current="page" className="af-class-nav-link w-nav-link w--current">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" aria-current="page" className="af-class-nav-link w-nav-link w--current">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
-                    <div className="af-class-nav-divider" />
-                    <h3 className="af-class-nav-help">Get Help</h3>
-                    <a href="https://wa.me/12048813113" className="af-class-link-button w-inline-block">
-                      <h3 className="af-class-link-button-text">Talk to us</h3>
-                    </a>
-                  </nav>
-                </div>
+            <div className="af-class-section-4">
+              <div data-collapse="small" data-animation="default" data-duration={400} role="banner" className="af-class-navbar-main w-nav">
+                <div className="af-class-nav-container">
+                  <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 70px, 100vw" alt className="af-class-image-5" />
+                    <div className="af-class-nav-menu-icon">Menu</div>
+                  </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
+                <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" className="af-class-nav-link w-nav-link">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="#" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" aria-current="page" className="af-class-nav-link w-nav-link w--current">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
+                  <div className="af-class-nav-divider" />
+                  <h3 className="af-class-nav-help">Get Help</h3>
+                  <a href="https://wa.me/12048813113" className="af-class-link-button w-inline-block">
+                    <h3 className="af-class-link-button-text">Talk to us</h3>
+                  </a>
+                </nav>
               </div>
             </div>
             <div id="about" className="af-class-section-for-whom">
@@ -180,7 +178,7 @@ class WorkshopsView extends React.Component {
                 </React.Fragment>}</div>)}
               </div>
             </div>
-            <div id="courses" className="af-class-section-courses">
+            <div id="courses" className="af-class-section-courses af-class-past">
               <div className="af-class-container-courses w-container">
                 <h2 className="af-class-heading-on-black">Past <span className="af-class-text-span-2">Classes</span></h2>
               </div>
@@ -251,6 +249,37 @@ class WorkshopsView extends React.Component {
                   </div><a href="#" className="af-class-buy-buy">Proceed to Checkout</a></div>
               </div>
             </div>
+            <footer id="footer" className="af-class-footer">
+              <div className="w-container">
+                <div className="af-class-footer-flex-container"><a href="#" className="af-class-footer-logo-link w-inline-block"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 70px, (max-width: 767px) 13vw, 100px" alt className="af-class-image-6" /></a>
+                  <div>
+                    <h2 className="af-class-footer-heading">Our policies</h2>
+                    <ul role="list" className="w-list-unstyled">
+                      <li><a href="/disclaimer" className="af-class-footer-link">Disclaimer</a></li>
+                      <li><a href="/termsAndConditions" className="af-class-footer-link">Terms and conditions</a></li>
+                      <li><a href="http://returnPolicy" className="af-class-footer-link">Return policy</a></li>
+                      <li><a href="/privacyPolicy" className="af-class-footer-link">Privacy policy</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h2 className="af-class-footer-heading">Our instructors</h2>
+                    <ul role="list" className="w-list-unstyled">
+                      <li><a href="https://www.instagram.com/shumov_danny/" className="af-class-footer-link">@shumov_danny</a></li>
+                      <li><a href="https://www.instagram.com/olya_shendrik/" className="af-class-footer-link">@olya_shendrik</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h2 className="af-class-footer-heading">Our contacts</h2>
+                    <ul role="list" className="w-list-unstyled">
+                      <li><a href="mailto:help@photolite.academy" className="af-class-footer-link">help@photolite.academy</a></li>
+                      <li><a href="mailto:shumov@photolite.academy" className="af-class-footer-link">shumov@photolite.academy</a></li>
+                      <li><a href="mailto:shendrik@photolite.academy" className="af-class-footer-link">shendrik@photolite.academy</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="af-class-text-block-14">Copyright © 2020 Spark Photography. All rights reserved.</div>
+              </div>
+            </footer>
             {/* [if lte IE 9]><![endif] */}
           </div>
         </span>

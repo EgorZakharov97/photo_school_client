@@ -69,7 +69,7 @@ class SubscriptionView extends React.Component {
                   <div className="af-class-menu-button w-nav-button"><img src="images/Masterwhite.png" width={100} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 60px, (max-width: 767px) 70px, 100vw" alt className="af-class-image-5" />
                     <div className="af-class-nav-menu-icon">Menu</div>
                   </div><a href="#" className="af-class-brand w-nav-brand"><img src="images/Masterwhite.png" width={50} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 991px) 100vw, 50px" alt /></a></div>
-                <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" className="af-class-nav-link w-nav-link">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="workshops.html" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
+                <nav role="navigation" className="af-class-nav-menu w-nav-menu"><a href="index.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac6" className="af-class-nav-link w-nav-link">Home</a><a href="#" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ac8" className="af-class-nav-link w-nav-link">Lessons</a><a href="#" data-w-id="6c839d25-01c1-2534-9254-a6d36f0e57fb" className="af-class-nav-link w-nav-link">Challenges</a><a href="/portal" data-w-id="8b0eb6e1-9d29-4605-f18f-f09ff7606dfb" className="af-class-nav-link w-nav-link">Personal Coaching</a><a href="workshops.html" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8acc" className="af-class-nav-link w-nav-link">Workshops</a><a href="/portal" data-w-id="715499ef-3b9c-d96e-0b6f-2174ab9a8ace" className="af-class-nav-link w-nav-link">Portal</a>
                   <div className="af-class-nav-divider" />
                   <h3 className="af-class-nav-help">Get Help</h3>
                   <a href="https://wa.me/12048813113" className="af-class-link-button w-inline-block">
@@ -93,11 +93,11 @@ class SubscriptionView extends React.Component {
                 <h2 className="af-class-sub-heading">Everyone can create awesome photos</h2>
                 <div className="af-class-sub-splitter">
                   <div className="af-class-sub-text-box af-class-head">This is some text inside of a div block.This is some text inside.</div>
-                  <div className="af-class-sub-text-box">This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.</div>
+                  <div className="af-class-sub-text-box af-class-size">This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.</div>
                 </div>
                 <div className="af-class-sub-splitter">
                   <div className="af-class-sub-text-box af-class-head">This is some text inside of a div block.This is some text inside.</div>
-                  <div className="af-class-sub-text-box">This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.</div>
+                  <div className="af-class-sub-text-box af-class-size">This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.This is some text inside of a div block.</div>
                 </div>
               </div>
             </div>
@@ -248,35 +248,41 @@ class SubscriptionView extends React.Component {
                   <div className="af-class-subscription af-class-on-black">
                     <h4 className="af-class-sub-heading af-class-small af-class-_3">taste <span className="af-class-text-span-39">the adventure</span></h4>
                     <h4 className="af-class-sub-heading af-class-small af-class-on-black af-class-sm">free<br />for 7 days</h4>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe-trial'], props => <a href="#" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Button Text</React.Fragment>}</a>)}</div>
+                    <div className="af-class-features">
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    </div>
+                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe-trial'], props => <a href="#" {...{...props, className: `af-class-button af-class-red w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscribe</React.Fragment>}</a>)}</div>
                     <p className="af-class-paragraph-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. </p>
                   </div>
                   <div className="af-class-subscription af-class-on-black af-class-red">
                     <h4 className="af-class-sub-heading af-class-small af-class-_3">one month <span className="af-class-text-span-39">access</span></h4>
                     <h4 className="af-class-sub-heading af-class-small af-class-on-black af-class-sm">$99<br />per month</h4>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe'], props => <a href="#" {...{...props, className: `af-class-button af-class-on-black w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Button Text</React.Fragment>}</a>)}</div>
+                    <div className="af-class-features">
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    </div>
+                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe'], props => <a href="#" {...{...props, className: `af-class-button af-class-on-black w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscribe</React.Fragment>}</a>)}</div>
                   </div>
                   <div className="af-class-subscription af-class-on-black af-class-green">
                     <h4 className="af-class-sub-heading af-class-small af-class-_3">specia <span className="af-class-text-span-45">coaching</span></h4>
                     <div className="af-class-text-block-26">99 places left</div>
                     <h4 className="af-class-sub-heading af-class-small af-class-on-black af-class-sm">$1200<br />per month</h4>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
-                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe-coaching'], props => <a href="#" {...{...props, className: `af-class-button af-class-on-black w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Button Text</React.Fragment>}</a>)}</div>
+                    <div className="af-class-features">
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                      <div className="af-class-feature"><span className="af-class-text-span-37">This is some</span> inside of a div block.</div>
+                    </div>
+                    <div className="af-class-btn-wrapper af-class-sub">{map(proxies['subscribe-coaching'], props => <a href="#" {...{...props, className: `af-class-button af-class-on-black w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscribe</React.Fragment>}</a>)}</div>
                   </div>
                 </div>
               </div>
