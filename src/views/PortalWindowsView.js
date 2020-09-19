@@ -2,9 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
-import PlayVideoVindowView from './PlayVideoVindowView'
 import GetSubscriptionView from './GetSubscriptionView'
-import LectureVideoView from './LectureVideoView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -62,9 +60,7 @@ class PortalWindowsView extends React.Component {
         ` }} />
         <span className="af-view">
           <div>
-            <PlayVideoVindowView.Controller />
             <GetSubscriptionView.Controller />
-            <LectureVideoView.Controller />
             {/* [if lte IE 9]><![endif] */}
           </div>
         </span>

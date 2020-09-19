@@ -4727,6 +4727,7 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
+  z-index: 999;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4746,6 +4747,10 @@
   align-items: center;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.af-view .af-class-tab-pane-tutorials {
+  position: relative;
 }
 
 .af-view .af-class-watch-popup {
@@ -5178,7 +5183,7 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-play-video-container {
@@ -5200,7 +5205,7 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-section-2 {
@@ -5386,6 +5391,14 @@
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.af-view .af-class-div-block-67 {
+  display: none;
+}
+
+.af-view .af-class-div-block-68 {
+  display: none;
 }
 
 @media screen and (min-width: 1280px) {
