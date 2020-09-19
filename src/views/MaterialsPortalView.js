@@ -155,9 +155,6 @@ class MaterialsPortalView extends React.Component {
         <span className="af-view">
           <div className="af-class-tab-wrapper">
             <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-16">Mat</span>erials</h3>
-            <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-              <div className="af-class-text-block-2">Browse courses</div>
-            </a>
             <div className="af-class-portal-files">
               {map(proxies['meterials-container'], props => <div id="material-container" {...{...props, className: `w-layout-grid af-class-grid-7 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                 {map(proxies['portal-material'], props => <div {...props}>{props.children ? props.children : <React.Fragment>

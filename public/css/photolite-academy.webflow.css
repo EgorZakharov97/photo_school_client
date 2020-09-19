@@ -5233,6 +5233,7 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
+  z-index: 999;
   display: block;
 }
 
@@ -5459,7 +5460,8 @@
 }
 
 .af-view .af-class-div-block-68 {
-  display: none;
+  z-index: 999;
+  display: block;
 }
 
 .af-view .af-class-div-block-69 {
@@ -5468,7 +5470,7 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
-  z-index: 1200;
+  z-index: 1000;
   display: block;
   background-color: #fff;
 }
@@ -5521,6 +5523,12 @@
   padding: 10px;
   background-color: #f3f3f3;
   box-shadow: 1px 1px 7px -4px #000;
+}
+
+.af-view .af-class-div-block-73 {
+  position: relative;
+  z-index: 999;
+  display: none;
 }
 
 @media screen and (min-width: 1280px) {

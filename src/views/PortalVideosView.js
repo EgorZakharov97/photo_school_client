@@ -155,9 +155,6 @@ class PortalVideosView extends React.Component {
         <span className="af-view">
           <div className="af-class-tab-wrapper">
             <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Video </span>tutorials</h3>
-            <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-              <div className="af-class-text-block-2">Browse courses</div>
-            </a>
             <div id="videos-container" className="af-class-all-videos">
               <div className="af-class-course-topic">
                 <h1 className="af-class-heading-20">Topic</h1>

@@ -163,8 +163,8 @@ class WorkshopsPortalView extends React.Component {
               </React.Fragment>}</div>)}
             </div>
             <div className="af-class-class-wrapper-portal">
-              <a href="/home" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
-                <div className="af-class-text-block-2">Browse courses</div>
+              <a href="workshops.html" className="af-class-cors-register-now-2 af-class-courses w-inline-block">
+                <div className="af-class-text-block-2">Browse Workshops</div>
               </a>
             </div>
             {map(proxies['workshops-container'], props => <div id="workshops-container" {...{...props, className: `w-layout-grid af-class-grid-6 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>

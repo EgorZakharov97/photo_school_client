@@ -161,28 +161,30 @@ class PortalProfileView extends React.Component {
         <span className="af-view">
           <div className="af-class-profile">
             <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Pro</span>file</h3>
-            <div className="af-class-div-block-71">
-              <div>
-                <div className="af-class-div-block-45">
-                  <h2 className="af-class-heading-9">Update user info</h2>{map(proxies['reset-password'], props => <a href="#" {...{...props, className: `af-class-login-submit af-class-small w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Reset Password</React.Fragment>}</a>)}</div>
-                <div className="af-class-div-block-45">
-                  {map(proxies['email'], props => <div {...{...props, className: `af-class-text-block-10 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>email@gmail.com</React.Fragment>}</div>)}
-                  {map(proxies['message'], props => <div {...{...props, className: `af-class-user-message ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
-                </div>
-                <div className="af-class-form-block-5 w-form">
-                  <form id="wf-form-update-user" name="wf-form-update-user" data-name="update-user" method="post" className="af-class-form-9">{map(proxies['name'], props => <input type="text" autofocus="true" maxLength={256} name="username" data-name="username" placeholder="Name" id="username-3" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['phone-number'], props => <input type="tel" maxLength={256} name="phoneNumber" data-name="phoneNumber" placeholder="Phone Number" id="phoneNumber-3" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['experience'], props => <select id="experience" name="experience" required data-name="experience" {...{...props, className: `af-class-login-input w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="beginner">Beginner</option><option value="advanced">Advanced</option><option value="intermediate">Intermediate</option><option value="professional">Professional</option></React.Fragment>}</select>)}{map(proxies['sex'], props => <select id="sex-4" name="sex" required data-name="sex" {...{...props, className: `af-class-login-input w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="Prefer not to say">Sex</option><option value="Male">Male</option><option value="Female">Female</option><option value="Hybrid">Hybrid</option></React.Fragment>}</select>)}{map(proxies['update-user-info'], props => <input type="submit" value="Update" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
-                  <div className="w-form-done">
-                    <div>Thank you! Your submission has been received!</div>
+            <div className="w-container">
+              <div className="af-class-div-block-71">
+                <div>
+                  <div className="af-class-div-block-45">
+                    <h2 className="af-class-heading-9">Update user info</h2>{map(proxies['reset-password'], props => <a href="#" {...{...props, className: `af-class-login-submit af-class-small w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Reset Password</React.Fragment>}</a>)}</div>
+                  <div className="af-class-div-block-45">
+                    {map(proxies['email'], props => <div {...{...props, className: `af-class-text-block-10 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>email@gmail.com</React.Fragment>}</div>)}
+                    {map(proxies['message'], props => <div {...{...props, className: `af-class-user-message ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is some text inside of a div block.</React.Fragment>}</div>)}
                   </div>
-                  <div className="w-form-fail">
-                    <div>Oops! Something went wrong while submitting the form.</div>
+                  <div className="af-class-form-block-5 w-form">
+                    <form id="wf-form-update-user" name="wf-form-update-user" data-name="update-user" method="post" className="af-class-form-9">{map(proxies['name'], props => <input type="text" autofocus="true" maxLength={256} name="username" data-name="username" placeholder="Name" id="username-3" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['phone-number'], props => <input type="tel" maxLength={256} name="phoneNumber" data-name="phoneNumber" placeholder="Phone Number" id="phoneNumber-3" required {...{...props, className: `af-class-login-input w-input ${props.className || ''}`}}>{props.children}</input>)}{map(proxies['experience'], props => <select id="experience" name="experience" required data-name="experience" {...{...props, className: `af-class-login-input w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="beginner">Beginner</option><option value="advanced">Advanced</option><option value="intermediate">Intermediate</option><option value="professional">Professional</option></React.Fragment>}</select>)}{map(proxies['sex'], props => <select id="sex-4" name="sex" required data-name="sex" {...{...props, className: `af-class-login-input w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="Prefer not to say">Sex</option><option value="Male">Male</option><option value="Female">Female</option><option value="Hybrid">Hybrid</option></React.Fragment>}</select>)}{map(proxies['update-user-info'], props => <input type="submit" value="Update" data-wait="Please wait..." {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children}</input>)}</form>
+                    <div className="w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div className="w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="af-class-div-block-46">
-                <h2 className="af-class-heading-9">Update payment method</h2>
-                <div desc="email" className="af-class-text-block-10">Your card will not be charged</div>
-                {map(proxies['stripe-payment'], props => <div {...{...props, className: `af-class-div-block-47 ${props.className || ''}`}}>{props.children}</div>)}
+                <div className="af-class-div-block-46">
+                  <h2 className="af-class-heading-9">Update payment method</h2>
+                  <div desc="email" className="af-class-text-block-10">Your card will not be charged</div>
+                  {map(proxies['stripe-payment'], props => <div {...{...props, className: `af-class-div-block-47 ${props.className || ''}`}}>{props.children}</div>)}
+                </div>
               </div>
             </div>
           </div>
