@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import auth from '../../../Auth'
 import shortid from 'shortid'
 
-import CourseView from '../../../views/CourseView'
+import CourseMediaView from "../../../views/CourseMediaView";
 import VideoLinkController from '../elements/VideoLinkController'
 import CourseFileController from "../elements/CourseFIleController"
 import CourseVideoWindowController from "./CourseVideoWindowController";
 
 const axios = auth.getAPI();
 
-export default function CourseController(props) {
+export default function CourseMediaController(props) {
 
 	const style = {
 		backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('${props.image || ""}')`
@@ -20,12 +20,15 @@ export default function CourseController(props) {
 	// const [examples, setExamples] = useState([]);
 	const [showPlayWindow, setShowPlayWindow] = useState(false);
 	const [currentVideoIndex, setIndex] = useState(-1);
+	const [showVideo, setShowVideo] = useState(false);
 
 	useEffect(() => {
+		if(!props.show) return;
+
 		axios.get('/api/v1/course/' + props.id + '/videos')
 			.then(res => {
 				const data = res.data;
-				if(data.sucess){
+				if(data.success){
 					setVideos(data.body || [])
 				}
 			})
@@ -37,7 +40,7 @@ export default function CourseController(props) {
 			.then(res => {
 				const data = res.data;
 				if(data.success){
-					setFiles(data.doby || [])
+					setFiles(data.body || [])
 				}
 			});
 
@@ -51,14 +54,13 @@ export default function CourseController(props) {
 		// 	.catch(e => {
 		// 		console.log(e)
 		// 	})
-	}, []);
-
+	}, [props.show]);
 	if(props.show) return (
 		<>
-			<CourseView>
-				<portal onClick={e => {props.history.push('/portal')}} />
-				<exit onClock={e => {auth.logout(); props.history.push('/')}} />
-				<back onClick={e => {props.history.go(-1)}} />
+			<CourseMediaView>
+				<portal onClick={e => {e.preventDefault(); props.setShowWindow(false)}} />
+				<exit onClick={e => {e.preventDefault(); props.setShowWindow(false)}} />
+				<back onClick={e => {e.preventDefault(); props.setShowWindow(false)}} />
 				<background style={style} >
 					<name>{props.name}</name>
 				</background>
@@ -69,10 +71,11 @@ export default function CourseController(props) {
 							<video-link key={getShortId()} >
 								<VideoLinkController
 									key={getShortId()}
-									setShowWindow={setShowPlayWindow}
+									setShowVideo={setShowVideo}
 									setIndex={setIndex}
 									i={i}
 									{...video}
+									{...props}
 								/>
 							</video-link>
 						)
@@ -88,23 +91,20 @@ export default function CourseController(props) {
 						)
 					})}
 				</files-container>
-
-				<course-video-window>
-					<CourseVideoWindowController
-						show={showPlayWindow}
-						setShowWindow={setShowPlayWindow}
-						setIndex={setIndex}
-						length={videos.length}
-						{...videos[currentVideoIndex]}
-					/>
-				</course-video-window>
-			</CourseView>
-			{props.showWindow && <CourseVideoWindowController  />}
+			</CourseMediaView>
+			{showVideo && <CourseVideoWindowController
+				show={showPlayWindow}
+				setShowWindow={setShowVideo}
+				setIndex={setIndex}
+				length={videos.length}
+				i={currentVideoIndex}
+				{...videos[currentVideoIndex]}
+			/>}
 		</>
 	);
 	else return <></>;
 
 	function getShortId(){
-		shortid.generate()
+		return shortid.generate()
 	}
 }

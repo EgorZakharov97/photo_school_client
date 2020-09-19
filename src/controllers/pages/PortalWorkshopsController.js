@@ -32,14 +32,11 @@ export default function PortalWorkshopsController(props) {
 			<workshops-container>
 				{workshops.map((workshop) => {
 					return (
-						<workshop-drowdown>
+						<workshop-dropdown key={shortid.generate()} >
 							<WorkshopDropdownController key={shortid.generate()} {...workshop} />
-						</workshop-drowdown>
+						</workshop-dropdown>
 					)
 				})}
-				<workshop-drowdown>
-					{workshops.length > 0 && <WorkshopDropdownController key={shortid.generate()} {...workshops[0]} />}
-				</workshop-drowdown>
 			</workshops-container>
 
 		</WorkshopsPortalView>

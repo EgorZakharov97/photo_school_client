@@ -4,14 +4,13 @@ import PortalCoursesView from '../../views/PortalCoursesView'
 import {URL_GET_MY_COURSES} from "../../constants"
 import shortid from "shortid"
 import PortalCourseController from "./PortalCourseController";
-import CourseWindow from "./windows/CourseController";
+import CourseWindow from "./windows/CourseMediaController";
 
 const axios = auth.getAPI();
 
 export default function PortalCoursesController(props) {
 
 	const [courses, setCourses] = useState([]);
-	const [showCourse, setShowCourse] = useState(false);
 	const [indexToShow, setIndexToShow] = useState(-1);
 
 	useEffect(() => {
@@ -30,26 +29,22 @@ export default function PortalCoursesController(props) {
 	}, []);
 
 	return(
-		<>
-			<PortalCoursesView>
-				<courses-container>
-					{courses.map((course, i) => {
-						return (
-							<portal-course key={shortid.generate()}>
-								<PortalCourseController
-									i={i}
-									key={shortid.generate()}
-									setIndexToShow={setIndexToShow}
-									setShowCourse={setShowCourse}
-									{...course}
-									{...props}
-								/>
-							</portal-course>
-						)
-					})}
-				</courses-container>
-			</PortalCoursesView>
-			{showCourse && <CourseWindow/>}
-		</>
+		<PortalCoursesView>
+			<courses-container>
+				{courses.map((course, i) => {
+					return (
+						<portal-course key={shortid.generate()}>
+							<PortalCourseController
+								i={i}
+								key={shortid.generate()}
+								setIndexToShow={setIndexToShow}
+								{...course}
+								{...props}
+							/>
+						</portal-course>
+					)
+				})}
+			</courses-container>
+		</PortalCoursesView>
 	)
 }

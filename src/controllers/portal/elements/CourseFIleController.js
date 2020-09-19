@@ -5,7 +5,9 @@ export default function CourseFileController(props) {
 
 	return(
 		<CourseFileView>
-			<name>{props.name}</name>
+			<link>
+				<name>{props.name}</name>
+			</link>
 		</CourseFileView>
 	)
 }

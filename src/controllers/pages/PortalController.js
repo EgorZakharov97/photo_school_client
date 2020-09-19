@@ -12,14 +12,13 @@ import PortalVideosController from "../portal/PortalVideosController";
 import PortalCoursesController from "../portal/PortalCoursesController";
 import TutorialVideoWindowController from "../portal/windows/TutorialVideoWindowController";
 import GetSubscriptionController from "../portal/windows/GetSubscriptionController";
-import CourseWindow from "../portal/windows/CourseController";
+import CourseMediaController from "../portal/windows/CourseMediaController";
 
 
 export default function PortalController(props) {
 
     const history = useHistory();
     const [showTutorialVideo, setShowTutorialVideo] = useState(false);
-    const [showCourseVideo, setShowCourseVideo] = useState(false);
     const [showGetSubscription, setShowGetSubscription] = useState(false);
     const [videoData, setVideoData] = useState({});
     const [showCourse, setShowCourse] = useState(false);
@@ -81,11 +80,13 @@ export default function PortalController(props) {
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
             <GetSubscriptionController show={showGetSubscription} setShowWindow={setShowGetSubscription} {...videoData} {...props} />
-            <CourseWindow
+            <CourseMediaController
                 show={showCourse}
                 setShowWindow={setShowCourse}
                 {...course}
+                {...props}
             />
+
         </>
 
     );

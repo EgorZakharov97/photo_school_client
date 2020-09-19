@@ -34,7 +34,8 @@ export default function PortalMaterialController(props) {
 	function onPlay() {
 		props.setCourse({
 			name: props.name,
-			id: props._id
+			id: props._id,
+			image: props.image
 		});
 		props.setShowCourse(true)
 	}
