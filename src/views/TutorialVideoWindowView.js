@@ -9,19 +9,19 @@ const scripts = [
 
 let Controller
 
-class PlayVideoWindowView extends React.Component {
+class TutorialVideoWindowView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/PlayVideoWindowController')
+      Controller = require('../controllers/TutorialVideoWindowController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = PlayVideoWindowView
+        Controller = TutorialVideoWindowView
 
         return Controller
       }
@@ -45,9 +45,8 @@ class PlayVideoWindowView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== PlayVideoWindowView ? transformProxies(this.props.children) : {
-      'back': [],
-      'next': [],
+    const proxies = Controller !== TutorialVideoWindowView ? transformProxies(this.props.children) : {
+      'close': [],
       'name': [],
       'video': [],
     }
@@ -154,14 +153,12 @@ class PlayVideoWindowView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div className="af-class-play-video-wrapper">
-            <div className="af-class-play-video">
-              <div className="af-class-course-video">
-                <div className="af-class-back-wrapper">{map(proxies['back'], props => <a href="#" {...{...props, className: `af-class-back ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>⟵ Back</React.Fragment>}</a>)}{map(proxies['next'], props => <a href="#" {...{...props, className: `af-class-back ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment> Next→</React.Fragment>}</a>)}</div>
-                {map(proxies['name'], props => <h2 {...{...props, className: `af-class-table-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Course "course name"</React.Fragment>}</h2>)}
-                <div className="af-class-text-block-21 af-class-video">Click to access</div>
+          <div className="af-class-lecture-video-wrapper">
+            <div style={{opacity: 1, display: 'flex'}} className="af-class-vatch-video">
+              <div className="af-class-watch-popup">
+                {map(proxies['close'], props => <div data-w-id="24a6830c-d025-6bd5-bc50-0eb8ec35a283" {...{...props, className: `af-class-close ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>X</React.Fragment>}</div>)}
+                <h1 className="af-class-puy-heading">Watch {map(proxies['name'], props => <span {...{...props, className: `af-class-text-span-44 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Lecture 1</React.Fragment>}</span>)}</h1>
                 {map(proxies['video'], props => <div {...{...props, className: `af-class-play-video-container ${props.className || ''}`}}>{props.children}</div>)}
-                <div className="af-class-divider af-class-fat" />
               </div>
             </div>
           </div>
@@ -171,6 +168,6 @@ class PlayVideoWindowView extends React.Component {
   }
 }
 
-export default PlayVideoWindowView
+export default TutorialVideoWindowView
 
 /* eslint-enable */
