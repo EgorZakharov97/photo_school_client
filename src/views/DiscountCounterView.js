@@ -161,11 +161,11 @@ class DiscountCounterView extends React.Component {
               Sample heading
             </React.Fragment>}</h3>)}
             <ul className="af-class-progressbar">
-              {map(proxies['one'], props => <li {...{...props, className: `af-class-active ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>10% Discount</React.Fragment>}</li>)}
-              {map(proxies['two'], props => <li {...{...props, className: `af-class-half-complete ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>15% Discount</React.Fragment>}</li>)}
-              {map(proxies['three'], props => <li {...{...props, className: `af-class-half-complete ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>20% Discount</React.Fragment>}</li>)}
-              {map(proxies['four'], props => <li {...{...props, className: `af-class-half-complete ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>25% Discount</React.Fragment>}</li>)}
-              {map(proxies['five'], props => <li {...{...props, className: `af-class-complete ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Free Course</React.Fragment>}</li>)}
+              {map(proxies['one'], props => <li {...{...props, className: `${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>10% Discount</React.Fragment>}</li>)}
+              {map(proxies['two'], props => <li {...{...props, className: `${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>15% Discount</React.Fragment>}</li>)}
+              {map(proxies['three'], props => <li {...{...props, className: `${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>20% Discount</React.Fragment>}</li>)}
+              {map(proxies['four'], props => <li {...{...props, className: `${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>25% Discount</React.Fragment>}</li>)}
+              {map(proxies['five'], props => <li {...{...props, className: `${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Free Course</React.Fragment>}</li>)}
             </ul>
           </div>
         </span>
