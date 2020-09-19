@@ -13,8 +13,7 @@ import PortalCoursesController from "../portal/PortalCoursesController";
 import TutorialVideoWindowController from "../portal/windows/TutorialVideoWindowController";
 import GetSubscriptionController from "../portal/windows/GetSubscriptionController";
 import CourseMediaController from "../portal/windows/CourseMediaController";
-
-
+import PortalChallengesController from "../portal/PortalChallengesController";
 
 export default function PortalController(props) {
 
@@ -79,7 +78,7 @@ export default function PortalController(props) {
                 </tutorial-video-window>
 
                 <portal-challenges>
-                    {auth.isAuthenticated() && }
+                    {auth.isAuthenticated() && <PortalChallengesController {...props} />}
                 </portal-challenges>
 
             </MembersPortalView>

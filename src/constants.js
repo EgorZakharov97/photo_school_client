@@ -37,6 +37,8 @@ export const URL_GET_ALL_COURSE_FILES = '/api/v1/course/files';
 export const URL_POST_COURSE_FILE = '/api/v1/admin/course/file';
 export const URL_DELETE_COURSE_FILE = '/api/v1/admin/course/file/'; // + file._id
 
+export const URL_GET_CHALLENGES = '/api/v1/challenges';
+
 export const URL_REGISTER = '/api/v1/auth/register';
 export const URL_LOGIN = '/api/v1/auth/login';
 export const URL_AUTH_GOOGLE = '/api/v1/auth/google';
