@@ -15,6 +15,7 @@ import GetSubscriptionController from "../portal/windows/GetSubscriptionControll
 import CourseMediaController from "../portal/windows/CourseMediaController";
 
 
+
 export default function PortalController(props) {
 
     const history = useHistory();
@@ -74,8 +75,12 @@ export default function PortalController(props) {
                 </portal-profile>
 
                 <tutorial-video-window>
-                    <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...videoData} />
+                    {auth.isAuthenticated() && <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...videoData} />}
                 </tutorial-video-window>
+
+                <portal-challenges>
+                    {auth.isAuthenticated() && }
+                </portal-challenges>
 
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
