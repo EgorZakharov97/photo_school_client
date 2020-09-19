@@ -4354,6 +4354,10 @@
   font-weight: 700;
 }
 
+.af-view .af-class-table-heading.af-class-hidden {
+  display: none;
+}
+
 .af-view .af-class-course-video-title-wrapper {
   margin-bottom: 10px;
   background-color: #b38b6d;
@@ -4405,6 +4409,10 @@
   height: 3px;
   border-bottom-style: dashed;
   border-bottom-width: 4px;
+}
+
+.af-view .af-class-divider.af-class-hidden {
+  display: none;
 }
 
 .af-view .af-class-course-file {
@@ -4755,7 +4763,6 @@
 
 .af-view .af-class-watch-popup {
   position: relative;
-  width: 45vw;
   padding: 20px;
   background-color: #fff;
 }
@@ -5178,7 +5185,7 @@
 }
 
 .af-view .af-class-play-video-wrapper {
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0%;
   right: 0%;
@@ -5196,10 +5203,11 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
+  display: block;
 }
 
 .af-view .af-class-lecture-video-wrapper {
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0%;
   right: 0%;
@@ -5245,6 +5253,10 @@
 
 .af-view .af-class-div-block-52 {
   padding: 20px;
+}
+
+.af-view .af-class-course-exaples {
+  display: none;
 }
 
 .af-view .af-class-div-block-54 {
@@ -5398,6 +5410,14 @@
 
 .af-view .af-class-div-block-68 {
   display: block;
+}
+
+.af-view .af-class-div-block-69 {
+  display: block;
+}
+
+.af-view .af-class-image-11 {
+  width: 200px;
 }
 
 @media screen and (min-width: 1280px) {
