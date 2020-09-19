@@ -7,6 +7,7 @@ import PortalCoursesView from './PortalCoursesView'
 import PortalVideosView from './PortalVideosView'
 import MaterialsPortalView from './MaterialsPortalView'
 import PresetsPortalView from './PresetsPortalView'
+import PortalChallengesView from './PortalChallengesView'
 import PortalProfileView from './PortalProfileView'
 import TutorialVideoWindowView from './TutorialVideoWindowView'
 
@@ -56,12 +57,14 @@ class MembersPortalView extends React.Component {
   render() {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
       'logout': [],
+      'workshops-link': [],
       'admin': [],
       'workshops': [],
       'portal-courses': [],
       'portal-videos': [],
       'materials-portal': [],
       'presets-portal': [],
+      'portal-challenges': [],
       'portal-profile': [],
       'tutorial-video-window': [],
     }
@@ -187,7 +190,7 @@ class MembersPortalView extends React.Component {
                   </div>
                   <nav role="navigation" className="af-class-nav-menu-2 w-nav-menu">
                     <h1 id="username" className="af-class-member-name-heading" />
-                    <div className="af-class-portal-tab-links"><a id="nav-workshops" data-w-id="35e95c24-2a78-7c37-9a14-36416311b6c5" href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a id="nav-tutorials" data-w-id="855b3228-1593-9d07-6d1c-8b8c19a15555" href="#" className="af-class-tab-button w-button">Tutorials</a><a id="nav-courses" data-w-id="fad969ac-8ee0-4af1-0d61-da2a77b820c8" href="#" className="af-class-tab-button w-button">Courses</a><a id="nav-materials" data-w-id="2fa5e394-bbd3-fb74-e84b-42e476298583" href="#" className="af-class-tab-button w-button">Materials</a><a id="nav-presets" data-w-id="97d85560-c95d-b340-727d-83b5ba47cfed" href="#" className="af-class-tab-button w-button">Presets</a><a id="nav-profile" data-w-id="f6e306c2-e50a-6d6d-a5d9-5e39c8ac9a10" href="#" className="af-class-tab-button w-button">Profile</a>
+                    <div className="af-class-portal-tab-links">{map(proxies['workshops-link'], props => <a id="nav-workshops" data-w-id="35e95c24-2a78-7c37-9a14-36416311b6c5" href="#" {...{...props, className: `af-class-tab-button w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Workshops</React.Fragment>}</a>)}<a id="nav-tutorials" data-w-id="855b3228-1593-9d07-6d1c-8b8c19a15555" href="#" className="af-class-tab-button w-button">Tutorials</a><a id="nav-courses" data-w-id="fad969ac-8ee0-4af1-0d61-da2a77b820c8" href="#" className="af-class-tab-button w-button">Courses</a><a id="nav-materials" data-w-id="2fa5e394-bbd3-fb74-e84b-42e476298583" href="#" className="af-class-tab-button w-button">Materials</a><a id="nav-presets" data-w-id="97d85560-c95d-b340-727d-83b5ba47cfed" href="#" className="af-class-tab-button w-button">Presets</a><a id="nav-profile" data-w-id="f6e306c2-e50a-6d6d-a5d9-5e39c8ac9a10" href="#" className="af-class-tab-button w-button">Profile</a>
                       <div className="af-class-slecial"><a id="nav-challenge" data-w-id="66cf1bc1-a188-62eb-a97b-bb330800f686" href="#" className="af-class-tab-button af-class-button af-class-on-black af-class-portal w-button">Weekly Challenge</a><a href="#" className="af-class-button af-class-red af-class-portal w-button">Join Chat</a>{map(proxies['admin'], props => <a href="admin.html" {...{...props, className: `af-class-button af-class-red af-class-portal w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Admin</React.Fragment>}</a>)}</div>
                     </div>
                   </nav>
@@ -200,7 +203,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
                       <div>Courses</div>
                     </a>
-                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
                       <div>Tutorials</div>
                     </a>
                     <a data-w-tab="Materials" className="w-inline-block w-tab-link">
@@ -209,7 +212,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Presets" className="w-inline-block w-tab-link">
                       <div>Presets</div>
                     </a>
-                    <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link w--current">
                       <div>Weekly Challenge</div>
                     </a>
                     <a data-w-tab="Profile" className="w-inline-block w-tab-link">
@@ -227,7 +230,7 @@ class MembersPortalView extends React.Component {
                         <PortalCoursesView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Tutorials" className="af-class-tab-pane-tutorials w-tab-pane w--tab-active">
+                    <div data-w-tab="Tutorials" className="af-class-tab-pane-tutorials w-tab-pane">
                       {map(proxies['portal-videos'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalVideosView.Controller />
                       </React.Fragment>}</div>)}
@@ -242,16 +245,10 @@ class MembersPortalView extends React.Component {
                         <PresetsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane">
-                      <div className="af-class-div-block-27">
-                        <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Weekly</span> Challenge</h3>
-                      </div>
-                      <div className="af-class-current-challenge">
-                        <h1 className="af-class-heading-20">Current Challenge</h1>
-                        <div className="af-class-challenge">
-                          <div className="af-class-challenge-img" />
-                        </div>
-                      </div>
+                    <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane w--tab-active">
+                      {map(proxies['portal-challenges'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                        <PortalChallengesView.Controller />
+                      </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Profile" className="af-class-tab-pane-profile w-tab-pane">
                       {map(proxies['portal-profile'], props => <div {...props}>{props.children ? props.children : <React.Fragment>

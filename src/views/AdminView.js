@@ -101,10 +101,10 @@ class AdminView extends React.Component {
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
                   <div className="af-class-tabs-menu-3 w-tab-menu">
-                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link w--current">
                       <div>Workshops</div>
                     </a>
-                    <a data-w-tab="Courses" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Courses" className="w-inline-block w-tab-link">
                       <div>Courses</div>
                     </a>
                     <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
@@ -127,7 +127,7 @@ class AdminView extends React.Component {
                     </a>
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
-                    <div data-w-tab="Workshops" className="w-tab-pane">
+                    <div data-w-tab="Workshops" className="w-tab-pane w--tab-active">
                       <div className="af-class-tab-wrapper">
                         <h3 className="af-class-section-heading af-class-left"><span className="af-class-text-span-10">Work</span>shops</h3>
                         {map(proxies['admin-workshops'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
@@ -141,7 +141,7 @@ class AdminView extends React.Component {
                         </React.Fragment>}</div>)}
                       </div>
                     </div>
-                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane w--tab-active">
+                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
                       <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Cou</span>rses</h3>
                       <div className="af-class-create-course-wrapper">
                         {map(proxies['admin-courses'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>

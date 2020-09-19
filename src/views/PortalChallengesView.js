@@ -9,19 +9,19 @@ const scripts = [
 
 let Controller
 
-class DiscountCounterView extends React.Component {
+class PortalChallengesView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/DiscountCounterController')
+      Controller = require('../controllers/PortalChallengesController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = DiscountCounterView
+        Controller = PortalChallengesView
 
         return Controller
       }
@@ -45,13 +45,9 @@ class DiscountCounterView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== DiscountCounterView ? transformProxies(this.props.children) : {
-      'heading': [],
-      'one': [],
-      'two': [],
-      'three': [],
-      'four': [],
-      'five': [],
+    const proxies = Controller !== PortalChallengesView ? transformProxies(this.props.children) : {
+      'image': [],
+      'description': [],
     }
 
     return (
@@ -156,17 +152,25 @@ class DiscountCounterView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div className="af-class-progress-wrapper">
-            {map(proxies['heading'], props => <h3 desc="heading" {...{...props, className: `af-class-progress-header ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-              Sample heading
-            </React.Fragment>}</h3>)}
-            <ul className="af-class-progressbar">
-              {map(proxies['one'], props => <li {...props}>{props.children ? props.children : <React.Fragment>10% Discount</React.Fragment>}</li>)}
-              {map(proxies['two'], props => <li {...props}>{props.children ? props.children : <React.Fragment>15% Discount</React.Fragment>}</li>)}
-              {map(proxies['three'], props => <li {...props}>{props.children ? props.children : <React.Fragment>20% Discount</React.Fragment>}</li>)}
-              {map(proxies['four'], props => <li {...props}>{props.children ? props.children : <React.Fragment>25% Discount</React.Fragment>}</li>)}
-              {map(proxies['five'], props => <li {...props}>{props.children ? props.children : <React.Fragment>Free Workshop</React.Fragment>}</li>)}
-            </ul>
+          <div>
+            <div className="af-class-div-block-27">
+              <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Weekly</span> Challenge</h3>
+            </div>
+            <div className="af-class-current-challenge">
+              <h1 className="af-class-heading-20">Current Challenge</h1>
+              <div className="af-class-challenge">
+                {map(proxies['image'], props => <div id="w-node-551d7c869d07-30ba94ae" {...{...props, className: `af-class-challenge-img ${props.className || ''}`}}>{props.children}</div>)}
+                <div id="w-node-07c58e7b94c1-30ba94ae" className="af-class-div-block-70">
+                  {map(proxies['description'], props => <div {...{...props, className: `af-class-rich-text-block-8 w-richtext ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                    <h2>What’s a Rich Text element?</h2>
+                    <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
+                    <h4>Static and dynamic content editing</h4>
+                    <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
+                    <h4>How to customize formatting for each rich text</h4>
+                    <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
+                  </React.Fragment>}</div>)}<a href="#" className="af-class-button af-class-wide w-button">Join Chat</a></div>
+              </div>
+            </div>
           </div>
         </span>
       </span>
@@ -174,6 +178,6 @@ class DiscountCounterView extends React.Component {
   }
 }
 
-export default DiscountCounterView
+export default PortalChallengesView
 
 /* eslint-enable */
