@@ -1,6 +1,5 @@
 import React from 'react'
 import PortalCourseView from '../../views/PortalCourseView'
-import auth from "../../Auth";
 
 export default function PortalMaterialController(props) {
 
@@ -10,12 +9,12 @@ export default function PortalMaterialController(props) {
 
 	return (
 		<PortalCourseView>
-			<background style={style}>
+			<background style={style} onClick={e => {props.public ? onPlay() : onLocked()}}>
 				<overlay>
 					{props.public ? (
-						<play onClick={onPlay}/>
+						<play/>
 					) : (
-						<locked onClick={onLocked}/>
+						<locked/>
 					)}
 				</overlay>
 			</background>
@@ -33,7 +32,10 @@ export default function PortalMaterialController(props) {
 	}
 
 	function onPlay() {
-		props.setIndexToShow(props.i);
+		props.setCourse({
+			name: props.name,
+			id: props._id
+		});
 		props.setShowCourse(true)
 	}
 }

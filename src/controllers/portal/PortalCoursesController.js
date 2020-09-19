@@ -4,6 +4,7 @@ import PortalCoursesView from '../../views/PortalCoursesView'
 import {URL_GET_MY_COURSES} from "../../constants"
 import shortid from "shortid"
 import PortalCourseController from "./PortalCourseController";
+import CourseWindow from "./windows/CourseController";
 
 const axios = auth.getAPI();
 
@@ -41,12 +42,14 @@ export default function PortalCoursesController(props) {
 									setIndexToShow={setIndexToShow}
 									setShowCourse={setShowCourse}
 									{...course}
+									{...props}
 								/>
 							</portal-course>
 						)
 					})}
 				</courses-container>
 			</PortalCoursesView>
+			{showCourse && <CourseWindow/>}
 		</>
 	)
 }

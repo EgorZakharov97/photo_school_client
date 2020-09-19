@@ -10,6 +10,7 @@ export default function (props) {
 	);
 
 	function play() {
-
+		props.setIndex(props.i);
+		props.setShowWindow(true)
 	}
 }

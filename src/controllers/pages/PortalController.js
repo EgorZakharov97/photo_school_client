@@ -12,6 +12,7 @@ import PortalVideosController from "../portal/PortalVideosController";
 import PortalCoursesController from "../portal/PortalCoursesController";
 import TutorialVideoWindowController from "../portal/windows/TutorialVideoWindowController";
 import GetSubscriptionController from "../portal/windows/GetSubscriptionController";
+import CourseWindow from "../portal/windows/CourseController";
 
 
 export default function PortalController(props) {
@@ -21,6 +22,8 @@ export default function PortalController(props) {
     const [showCourseVideo, setShowCourseVideo] = useState(false);
     const [showGetSubscription, setShowGetSubscription] = useState(false);
     const [videoData, setVideoData] = useState({});
+    const [showCourse, setShowCourse] = useState(false);
+    const [course, setCourse] = useState({});
 
     useEffect(() => {
         const WEBFLOW_PAGE_ID = '5f3ee1d6fc0f317030ba94ae';
@@ -48,6 +51,8 @@ export default function PortalController(props) {
                     {auth.isAuthenticated() && <PortalCoursesController
                         setShowGetSubscription={setShowGetSubscription}
                         setVideoData={setVideoData}
+                        setShowCourse={setShowCourse}
+                        setCourse={setCourse}
                         {...props}
                     />}
                 </portal-courses>
@@ -76,6 +81,11 @@ export default function PortalController(props) {
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
             <GetSubscriptionController show={showGetSubscription} setShowWindow={setShowGetSubscription} {...videoData} {...props} />
+            <CourseWindow
+                show={showCourse}
+                setShowWindow={setShowCourse}
+                {...course}
+            />
         </>
 
     );

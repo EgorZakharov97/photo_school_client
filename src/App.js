@@ -15,6 +15,7 @@ import IndexController from './controllers/pages/IndexController'
 import SubscriptionView from './views/SubscriptionView'
 import PortalController from './controllers/pages/PortalController'
 import SubscriptionsController from './controllers/pages/SubscriptionsController'
+import CourseVideoWindowController from "./controllers/portal/windows/CourseVideoWindowController";
 
 export default function App(props){
 
@@ -38,6 +39,13 @@ export default function App(props){
                 exact path='/portal'
                 render={(props) => {
                     return <PortalController {...props} />
+                }}
+            />
+
+            <Route
+                exact path='/portal/course'
+                render={(props) => {
+                    return <CourseVideoWindowController {...props} />
                 }}
             />
                 
