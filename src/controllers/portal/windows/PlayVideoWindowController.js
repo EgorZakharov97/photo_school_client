@@ -1,5 +1,5 @@
 import React from 'react'
-import PlayVideoVindowView from '../../views/PlayVideoVindowView'
+import PlayVideoVindowView from '../../../views/PlayVideoVindowView'
 
 export default function PlayVideoWindowController(props) {
 

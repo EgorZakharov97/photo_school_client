@@ -1,5 +1,5 @@
 import React from 'react'
-import GetSubscriptionView from '../../views/GetSubscriptionView'
+import GetSubscriptionView from '../../../views/GetSubscriptionView'
 
 export default function GetSubscriptionController(props) {
 

@@ -10,11 +10,16 @@ import MaterialsPortalController from "../portal/MaterialsPortalController";
 import PortalPresetsController from '../portal/PortalPresetsController'
 import PortalVideosController from "../portal/PortalVideosController";
 import PortalCoursesController from "../portal/PortalCoursesController";
+import LectureVideoController from "../portal/LectureVideoController";
 
 
 export default function PortalController(props) {
 
     const history = useHistory();
+    const [showTutorialVideo, setShowTutorialVideo] = useState(false);
+    const [showCourseVideo, setShowCourseVideo] = useState(false);
+    const [showGetSubscription, setShowGetSubscription] = useState(false);
+    const [videoData, setVideoData] = useState({});
 
     useEffect(() => {
         const WEBFLOW_PAGE_ID = '5f3ee1d6fc0f317030ba94ae';
@@ -47,12 +52,18 @@ export default function PortalController(props) {
                 </presets-portal>
 
                 <portal-videos>
-                    {auth.isAuthenticated() && <PortalVideosController {...props} />}
+                    {auth.isAuthenticated() && <PortalVideosController setShowPlay={setShowTutorialVideo} setVideoData={setVideoData} {...props} />}
                 </portal-videos>
 
                 <portal-profile>
                     {auth.isAuthenticated() && <PortalProfileController/>}
                 </portal-profile>
+
+
+
+                <watch-video>
+                    <LectureVideoController setShowPlay={setShowTutorialVideo} {...videoData} />
+                </watch-video>
 
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />

@@ -37,10 +37,10 @@ export default function PortalMaterialController(props) {
 	}
 
 	function onPlay() {
-		props.setPlayWindowData({
+		props.setVideoData({
 			name: props.name,
 			link: props.link,
-			i: props.i
+			description: props.description
 		});
 		props.setShowPlay(true)
 	}
