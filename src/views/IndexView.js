@@ -7,7 +7,7 @@ const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
   fetch("js/webflow.js").then(body => body.text()),
   fetch("https://code.jquery.com/jquery-3.3.1.min.js").then(body => body.text()),
-  fetch("https://photolite.academy/public/js/jquery.instagramFeed.js").then(body => body.text()),
+  fetch("/public/js/jquery.instagramFeed.js").then(body => body.text()),
   Promise.resolve("$(window).on(\"load\",function(){$.instagramFeed({username:\"shumov_danny\",container:\"#instagram-feed-dany\",display_profile:!0,display_biography:!0,display_igtv:!1,display_gallery:!0,items:16}),$.instagramFeed({username:\"olya_shendrik\",container:\"#instagram-feed-olya\",display_profile:!0,display_biography:!0,display_igtv:!1,display_gallery:!0,items:16})});"),
 ]
 

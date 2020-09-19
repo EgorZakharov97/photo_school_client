@@ -4238,7 +4238,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 45vw;
+  height: 500px;
   padding-top: 40px;
   padding-left: 20px;
   -webkit-box-pack: start;
@@ -5190,6 +5190,7 @@
   top: 0%;
   right: 0%;
   bottom: 0%;
+  z-index: 1000;
   display: block;
 }
 
@@ -5413,6 +5414,11 @@
 }
 
 .af-view .af-class-div-block-69 {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
   display: block;
 }
 
