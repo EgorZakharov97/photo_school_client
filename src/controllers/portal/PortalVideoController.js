@@ -16,11 +16,11 @@ export default function PortalMaterialController(props) {
 			<background style={style}>
 				<heading>{props.name}</heading>
 				<description>{props.description}</description>
-				<overlay>
+				<overlay onClick={e => {props.link ? onPlay() : onLocked()}}>
 					{props.link ? (
-						<play onClick={onPlay}/>
+						<play/>
 					) : (
-						<loched onClick={onLocked}/>
+						<loched/>
 					)}
 				</overlay>
 			</background>
@@ -28,12 +28,10 @@ export default function PortalMaterialController(props) {
 	);
 
 	function onLocked() {
-		props.setPlayWindowData({
+		props.setVideoData({
 			name: props.name,
-			link: props.link,
-			i: props.i
 		});
-		props.setShowSubscribe(true)
+		props.setShowGetSubscription(true)
 	}
 
 	function onPlay() {

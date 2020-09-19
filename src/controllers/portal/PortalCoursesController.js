@@ -10,6 +10,8 @@ const axios = auth.getAPI();
 export default function PortalCoursesController(props) {
 
 	const [courses, setCourses] = useState([]);
+	const [showCourse, setShowCourse] = useState(false);
+	const [indexToShow, setIndexToShow] = useState(-1);
 
 	useEffect(() => {
 		axios.get(URL_GET_MY_COURSES)
@@ -30,10 +32,16 @@ export default function PortalCoursesController(props) {
 		<>
 			<PortalCoursesView>
 				<courses-container>
-					{courses.map(course => {
+					{courses.map((course, i) => {
 						return (
 							<portal-course key={shortid.generate()}>
-								<PortalCourseController key={shortid.generate()} {...course} />
+								<PortalCourseController
+									i={i}
+									key={shortid.generate()}
+									setIndexToShow={setIndexToShow}
+									setShowCourse={setShowCourse}
+									{...course}
+								/>
 							</portal-course>
 						)
 					})}

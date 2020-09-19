@@ -10,7 +10,8 @@ import MaterialsPortalController from "../portal/MaterialsPortalController";
 import PortalPresetsController from '../portal/PortalPresetsController'
 import PortalVideosController from "../portal/PortalVideosController";
 import PortalCoursesController from "../portal/PortalCoursesController";
-import LectureVideoController from "../portal/LectureVideoController";
+import TutorialVideoWindowController from "../portal/windows/TutorialVideoWindowController";
+import GetSubscriptionController from "../portal/windows/GetSubscriptionController";
 
 
 export default function PortalController(props) {
@@ -44,7 +45,11 @@ export default function PortalController(props) {
                 </materials-portal>
 
                 <portal-courses>
-                    {auth.isAuthenticated() && <PortalCoursesController {...props} />}
+                    {auth.isAuthenticated() && <PortalCoursesController
+                        setShowGetSubscription={setShowGetSubscription}
+                        setVideoData={setVideoData}
+                        {...props}
+                    />}
                 </portal-courses>
 
                 <presets-portal>
@@ -52,21 +57,25 @@ export default function PortalController(props) {
                 </presets-portal>
 
                 <portal-videos>
-                    {auth.isAuthenticated() && <PortalVideosController setShowPlay={setShowTutorialVideo} setVideoData={setVideoData} {...props} />}
+                    {auth.isAuthenticated() && <PortalVideosController
+                        setShowGetSubscription={setShowGetSubscription}
+                        setShowPlay={setShowTutorialVideo}
+                        setVideoData={setVideoData}
+                        {...props}
+                    />}
                 </portal-videos>
 
                 <portal-profile>
                     {auth.isAuthenticated() && <PortalProfileController/>}
                 </portal-profile>
 
-
-
-                <watch-video>
-                    <LectureVideoController setShowPlay={setShowTutorialVideo} {...videoData} />
-                </watch-video>
+                <tutorial-video-window>
+                    <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...videoData} />
+                </tutorial-video-window>
 
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
+            <GetSubscriptionController show={showGetSubscription} setShowWindow={setShowGetSubscription} {...videoData} {...props} />
         </>
 
     );

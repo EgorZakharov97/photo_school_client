@@ -5,8 +5,6 @@ import auth from "../../Auth";
 
 import PortalVideosView from '../../views/PortalVideosView'
 import PortalVideoController from './PortalVideoController'
-import LectureVideoController from "./LectureVideoController";
-import GetSubscriptionController from "./windows/GetSubscriptionController";
 
 const axios = auth.getAPI();
 
@@ -33,25 +31,26 @@ export default function PortalVideosController(props) {
 
 
 	return (
-		<>
-			<PortalVideosView>
-				<videos-container>
-					{videos.map((video, i) => {
-						return (
-							<video-portal key={shortid.generate()}>
-								<PortalVideoController key={shortid.generate()} i={i} {...video} {...props} />
-							</video-portal>
-						)
-					})}
-					{previews.map(video => {
-						return (
-							<video-portal key={shortid.generate()}>
-								<PortalVideoController key={shortid.generate()} {...video} {...props} />
-							</video-portal>
-						)
-					})}
-				</videos-container>
-			</PortalVideosView>
-		</>
+		<PortalVideosView>
+			<videos-container>
+				<video-portal key={shortid.generate()}>
+					<PortalVideoController key={shortid.generate()} i={13} {...{name: "ssfsfesf", description: "desc"}} {...props} />
+				</video-portal>
+				{videos.map((video, i) => {
+					return (
+						<video-portal key={shortid.generate()}>
+							<PortalVideoController key={shortid.generate()} i={i} {...video} {...props} />
+						</video-portal>
+					)
+				})}
+				{previews.map(video => {
+					return (
+						<video-portal key={shortid.generate()}>
+							<PortalVideoController key={shortid.generate()} {...video} {...props} />
+						</video-portal>
+					)
+				})}
+			</videos-container>
+		</PortalVideosView>
 	);
 }

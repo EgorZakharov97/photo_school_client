@@ -7,20 +7,23 @@ export default function GetSubscriptionController(props) {
 		backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('${props.image || ""}')`
 	};
 
-	return(
+	if(props.show) return (
 		<GetSubscriptionView>
 			<close onClick={onClose} />
 			<name>{props.name}</name>
 			<background style={style} />
 			<name2>{props.name}</name2>
-			<price>{props.price}</price>
+			{props.price && <price>{props.price}</price>}
 			<submit onClick={onSubmit} />
 		</GetSubscriptionView>
+	);
+	else return (
+		<></>
 	);
 
 	function onClose() {
 		setTimeout(() => {
-			props.setShowSubscribe(false)
+			props.setShowWindow(false)
 		}, 300)
 	}
 

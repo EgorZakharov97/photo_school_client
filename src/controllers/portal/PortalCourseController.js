@@ -25,10 +25,15 @@ export default function PortalMaterialController(props) {
 	);
 
 	function onLocked() {
-
+		props.setVideoData({
+			name: props.name,
+			price: props.pricing.finalPrice
+		});
+		props.setShowGetSubscription(true)
 	}
 
 	function onPlay() {
-
+		props.setIndexToShow(props.i);
+		props.setShowCourse(true)
 	}
 }
