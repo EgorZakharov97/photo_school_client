@@ -5,7 +5,7 @@ import auth from "../../Auth";
 
 import PortalVideosView from '../../views/PortalVideosView'
 import PortalVideoController from './PortalVideoController'
-import PlayVideoWindowController from './PlayVideoWindowController'
+import LectureVideoController from "./LectureVideoController";
 import GetSubscriptionController from "./GetSubscriptionController";
 
 const axios = auth.getAPI();
@@ -60,8 +60,8 @@ export default function PortalVideosController(props) {
 					})}
 				</videos-container>
 			</PortalVideosView>
-			{showPlay && <PlayVideoWindowController setNextVideo={setNextVideo} setShowPlay={setShowPlay} {...playWindowData} />}
-			<GetSubscriptionController setShowSubscribe={setShowSubscribe} {...playWindowData} />
+			{showPlay && <LectureVideoController setNextVideo={setNextVideo} setShowPlay={setShowPlay} {...playWindowData} />}
+			<GetSubscriptionController setShowWindow={setShowSubscribe} {...playWindowData} />
 		</>
 	);
 
