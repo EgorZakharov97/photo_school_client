@@ -4,7 +4,6 @@ import CourseVideoWindowView from "../../../views/CourseVideoWindowView";
 export default function CourseVideoWindowController(props) {
 
 	const last = props.i >= props.length-1;
-	console.log(props.i)
 	return(
 		<CourseVideoWindowView>
 			<back onClick={close} />

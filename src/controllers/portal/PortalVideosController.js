@@ -33,9 +33,6 @@ export default function PortalVideosController(props) {
 	return (
 		<PortalVideosView>
 			<videos-container>
-				<video-portal key={shortid.generate()}>
-					<PortalVideoController key={shortid.generate()} i={13} {...{name: "ssfsfesf", description: "desc"}} {...props} />
-				</video-portal>
 				{videos.map((video, i) => {
 					return (
 						<video-portal key={shortid.generate()}>

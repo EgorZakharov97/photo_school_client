@@ -73,10 +73,6 @@ export default function PortalController(props) {
                     {auth.isAuthenticated() && <PortalProfileController/>}
                 </portal-profile>
 
-                <tutorial-video-window>
-                    {auth.isAuthenticated() && <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...videoData} />}
-                </tutorial-video-window>
-
                 <portal-challenges>
                     {auth.isAuthenticated() && <PortalChallengesController {...props} />}
                 </portal-challenges>
@@ -90,6 +86,7 @@ export default function PortalController(props) {
                 {...course}
                 {...props}
             />
+            <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...videoData} />
 
         </>
 
