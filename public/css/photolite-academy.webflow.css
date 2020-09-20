@@ -5465,7 +5465,7 @@
 }
 
 .af-view .af-class-div-block-69 {
-  position: fixed;
+  position: absolute;
   left: 0%;
   top: 0%;
   right: 0%;
@@ -5529,7 +5529,7 @@
 .af-view .af-class-div-block-73 {
   position: relative;
   z-index: 999;
-  display: none;
+  display: block;
 }
 
 @media screen and (min-width: 1280px) {

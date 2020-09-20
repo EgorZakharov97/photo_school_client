@@ -50,7 +50,6 @@ class CourseMediaView extends React.Component {
     const proxies = Controller !== CourseMediaView ? transformProxies(this.props.children) : {
       'portal': [],
       'exit': [],
-      'exit': [],
       'back': [],
       'background': [],
       'name': [],
@@ -76,9 +75,9 @@ class CourseMediaView extends React.Component {
                 {map(proxies['portal'], props => <a href="/portal" {...{...props, className: `af-class-solo-nav-link w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                   <h6 className="af-class-heading-8">Portal</h6>
                 </React.Fragment>}</a>)}<a href="index.html" className="af-class-logo-wrapper w-inline-block"><img src="images/Webp.net-resizeimage-8.png" loading="lazy" width={70} alt /></a>
-                {map(proxies['exit'], props => <a href="/auth/logout" {...{...props, className: `af-class-solo-nav-link w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                  {map(proxies['exit'], props => <h6 {...{...props, className: `af-class-heading-8 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Exit</React.Fragment>}</h6>)}
-                </React.Fragment>)}</a>)}
+                {map(proxies['exit'], props => <a href="/auth/logout" {...{...props, className: `af-class-solo-nav-link w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                  <h6 className="af-class-heading-8">Exit</h6>
+                </React.Fragment>}</a>)}
               </div>
             </div>
             <div className="af-class-container-10 w-container">
