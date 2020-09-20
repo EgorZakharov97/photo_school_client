@@ -58,7 +58,7 @@ class CourseFileView extends React.Component {
           @import url(/css/photolite-academy.webflow.css);
         ` }} />
         <span className="af-view">
-          <div className="af-class-course-file">{map(proxies['link'], props => <a href="#" {...{...props, className: `af-class-link-block-3 w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><img src="images/file.png" loading="lazy" width={40} alt />{map(proxies['name'], props => <h3 {...{...props, className: `af-class-course-name af-class-file ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>File name</React.Fragment>}</h3>)}</React.Fragment>)}</a>)}</div>
+          <div className="af-class-course-file">{map(proxies['link'], props => <a href="#" {...{...props, className: `af-class-link-block-3 w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment><img src="images/file.png" loading="lazy" width={40} alt className="af-class-image-12" />{map(proxies['name'], props => <h3 {...{...props, className: `af-class-course-name af-class-file ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>File name</React.Fragment>}</h3>)}</React.Fragment>)}</a>)}</div>
         </span>
       </span>
     )

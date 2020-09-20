@@ -1981,7 +1981,7 @@
   margin-bottom: 20px;
   font-family: Exo, sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -2530,13 +2530,14 @@
   font-family: Exo, sans-serif;
   color: #fff;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
 }
 
 .af-view .af-class-login-submit.af-class-small {
   width: 20%;
   margin-bottom: 40px;
+  font-weight: 600;
 }
 
 .af-view .af-class-login-footer {
@@ -2750,7 +2751,7 @@
   margin-bottom: 20px;
   padding-right: 0px;
   font-family: Exo, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -3162,10 +3163,7 @@
   right: 0%;
   bottom: 0%;
   z-index: 999;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -4158,8 +4156,7 @@
 
 .af-view .af-class-subscription.af-class-on-black {
   position: relative;
-  width: 22vw;
-  height: 35vw;
+  width: 290px;
   padding: 20px;
   border-style: solid;
   border-width: 1px;
@@ -5461,7 +5458,7 @@
 
 .af-view .af-class-div-block-68 {
   z-index: 999;
-  display: block;
+  display: none;
 }
 
 .af-view .af-class-div-block-69 {
@@ -5520,6 +5517,7 @@
 }
 
 .af-view .af-class-div-block-71 {
+  margin-top: 100px;
   padding: 10px;
   background-color: #f3f3f3;
   box-shadow: 1px 1px 7px -4px #000;
@@ -6001,6 +5999,7 @@
   .af-view .af-class-btn-wrapper.af-class-sub {
     display: block;
     padding-top: 0px;
+    text-align: center;
   }
   .af-view .af-class-section-ask {
     margin-top: 0vh;
@@ -6330,6 +6329,9 @@
   }
   .af-view .af-class-div-block-62 {
     position: static;
+  }
+  .af-view .af-class-div-block-71 {
+    margin-top: 10px;
   }
   .af-view .af-class-section-4 {
     position: fixed;
@@ -6826,8 +6828,15 @@
   .af-view .af-class-course-img {
     height: 60vw;
   }
+  .af-view .af-class-course-img.af-class-course {
+    height: 300px;
+  }
   .af-view .af-class-course-hint {
     width: 10vw;
+  }
+  .af-view .af-class-divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .af-view .af-class-challenge {
     grid-template-areas: "Area-3 Area-3" "Area Area" "Area-2 Area-2";
@@ -7124,6 +7133,7 @@
   }
   .af-view .af-class-text-block-10 {
     padding-top: 10px;
+    padding-bottom: 10px;
   }
   .af-view .af-class-tabs-2 {
     width: 100%;
@@ -7397,15 +7407,55 @@
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
+  .af-view .af-class-course-img.af-class-course {
+    height: 250px;
+    padding-top: 10px;
+    padding-left: 5px;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
   .af-view .af-class-course-hint {
     width: 10vw;
   }
+  .af-view .af-class-table-heading {
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .af-view .af-class-course-name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .af-view .af-class-course-name.af-class-file {
+    font-size: 20px;
+    line-height: 20px;
+  }
   .af-view .af-class-course-name.af-class-course {
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .af-view .af-class-container-10 {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .af-view .af-class-divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .af-view .af-class-tab-pane-weekly-challenge {
     padding: 0px;
+  }
+  .af-view .af-class-link-block-4 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .af-view .af-class-tab-pane-profile {
+    padding-right: 0px;
+    padding-left: 0px;
   }
   .af-view .af-class-challenge {
     box-shadow: 0 0 7px -3px #000;
@@ -7506,6 +7556,9 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+  }
+  .af-view .af-class-image-12 {
+    width: 25px;
   }
 }
 
