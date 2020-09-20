@@ -37,11 +37,16 @@ class IndexView extends React.Component {
   componentDidMount() {
     scripts.concat(Promise.resolve()).reduce((loaded, loading) => {
       return loaded.then((script) => {
-        new Function(`
+        try{
+          new Function(`
           with (this) {
             eval(arguments[0])
           }
         `).call(window, script)
+        }
+        catch(e) {
+          console.log(e)
+        }
 
         return loading
       })
