@@ -3163,7 +3163,10 @@
   right: 0%;
   bottom: 0%;
   z-index: 999;
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -7485,16 +7488,16 @@
     width: 100%;
   }
   .af-view .af-class-register {
-    display: none;
+    display: block;
   }
   .af-view .af-class-login {
-    display: none;
+    display: block;
   }
   .af-view .af-class-update-user-info {
-    display: none;
+    display: block;
   }
   .af-view .af-class-user-confirmation {
-    display: none;
+    display: block;
   }
   .af-view .af-class-text-block-26 {
     top: 55px;
