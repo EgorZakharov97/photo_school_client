@@ -12,17 +12,17 @@ const axios = auth.getAPI()
 export default function SubscriptionController(props) {
 
     useEffect(() => {
-        const WEBFLOW_PAGE_ID = '5f48dc3d6aff25786516bc65'
-        const WEBFLOW_SITE_ID = '5f1212b6860f150f9f0e6e14'
+        const WEBFLOW_PAGE_ID = '5f48dc3d6aff25786516bc65';
+        const WEBFLOW_SITE_ID = '5f1212b6860f150f9f0e6e14';
     
-        var doc = document.getElementsByTagName("html")[0]
-        doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID)
+        var doc = document.getElementsByTagName("html")[0];
+        doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID);
         doc.setAttribute('data-wf-site', WEBFLOW_SITE_ID)
-    }, [])
+    }, []);
 
-    const stripePromise = loadStripe(STRIPE_PK)
-    const [showBuy, setShowBuy] = useState(false)
-    const [subsData, setSubsData] = useState({})
+    const stripePromise = loadStripe(STRIPE_PK);
+    const [showBuy, setShowBuy] = useState(false);
+    const [subsData, setSubsData] = useState({});
 
     return (
         <SubscriptionView>
@@ -37,10 +37,10 @@ export default function SubscriptionController(props) {
                 </checkout-form>
             }
         </SubscriptionView>
-    )
+    );
 
     function close(e) {
-        setShowBuy(false)
+        setShowBuy(false);
         setSubsData({
             heading: "",
             price: "",
@@ -49,8 +49,8 @@ export default function SubscriptionController(props) {
     }
 
     function onSub2Pressed(e) {
-        e.preventDefault()
-        setShowBuy(true)
+        e.preventDefault();
+        setShowBuy(true);
         setSubsData({
             heading: "Subscription 2",
             price: "$200",

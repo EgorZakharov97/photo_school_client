@@ -9,13 +9,13 @@ import {
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 import loadingScripts from './scripts'
-import loadingSyles from './styles'
+import loadingStyles from './styles'
 
 import App from './App'
 
 
 Promise.all([
-  loadingSyles,
+  loadingStyles,
   loadingScripts,
 ]).then(() => {
   ReactDOM.render(
