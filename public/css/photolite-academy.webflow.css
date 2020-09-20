@@ -4364,7 +4364,6 @@
 }
 
 .af-view .af-class-table-heading {
-  padding-left: 30px;
   font-family: Exo, sans-serif;
   font-weight: 700;
 }
@@ -4380,6 +4379,8 @@
 
 .af-view .af-class-course-name {
   color: #f8f8f8;
+  font-size: 18px;
+  line-height: 18px;
 }
 
 .af-view .af-class-course-name.af-class-file {
@@ -4388,8 +4389,8 @@
   margin-left: 10px;
   font-family: Lato, sans-serif;
   color: #000;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 700;
 }
 
@@ -4400,6 +4401,7 @@
 .af-view .af-class-text-block-21 {
   font-family: Exo, sans-serif;
   color: #f8f8f8;
+  line-height: 14px;
 }
 
 .af-view .af-class-text-block-21.af-class-video {
@@ -5461,17 +5463,18 @@
 
 .af-view .af-class-div-block-68 {
   z-index: 999;
-  display: none;
+  display: block;
 }
 
 .af-view .af-class-div-block-69 {
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0%;
   right: 0%;
   bottom: 0%;
   z-index: 1000;
   display: block;
+  overflow: scroll;
   background-color: #fff;
 }
 

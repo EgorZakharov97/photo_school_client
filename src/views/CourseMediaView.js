@@ -3,6 +3,15 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
+import VideoLinkView from './VideoLinkView'
 import CourseFileView from './CourseFileView'
 
 const scripts = [
@@ -55,6 +64,15 @@ class CourseMediaView extends React.Component {
       'name': [],
       'videos-container': [],
       'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
+      'video-link': [],
       'files-container': [],
       'course-file': [],
       'examples-container': [],
@@ -89,9 +107,36 @@ class CourseMediaView extends React.Component {
               </React.Fragment>)}</div>)}
               <h2 className="af-class-table-heading">Videos</h2>
               {map(proxies['videos-container'], props => <div {...{...props, className: `af-class-course-video-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                {map(proxies['video-link'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                {map(proxies['video-link'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
                   <VideoLinkView.Controller />
-                </React.Fragment>}</div>)}
+                </div-af-sock-video-link>
+                {map(proxies['video-link'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                  <VideoLinkView.Controller />
+                </div-af-sock-video-link>
+                {map(proxies['video-link'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                  <VideoLinkView.Controller />
+                </div-af-sock-video-link>
+                {map(proxies['video-link'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                  <VideoLinkView.Controller />
+                </div-af-sock-video-link>
+                {map(proxies['video-link'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                  <VideoLinkView.Controller />
+                </div-af-sock-video-link>
+                <div-af-sock-video-link>
+                  <VideoLinkView.Controller />
+                </React.Fragment>)}</div>)}
+                <div-af-sock-video-link>
+                  <VideoLinkView.Controller />
+                </React.Fragment>)}</div>)}
+                <div-af-sock-video-link>
+                  <VideoLinkView.Controller />
+                </React.Fragment>)}</div>)}
+                <div-af-sock-video-link>
+                  <VideoLinkView.Controller />
+                </React.Fragment>)}</div>)}
+                <div-af-sock-video-link>
+                  <VideoLinkView.Controller />
+                </React.Fragment>)}</div>)}
               </React.Fragment>)}</div>)}
               <div className="af-class-divider" />
               <h2 className="af-class-table-heading">Attached files</h2>
