@@ -29,7 +29,7 @@ export default function PortalVideosController(props) {
 			})
 	}, []);
 
-
+	console.log(previews)
 	return (
 		<PortalVideosView>
 			<videos-container>

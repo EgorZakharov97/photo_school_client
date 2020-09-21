@@ -38,6 +38,7 @@ export default function PortalController(props) {
             <MembersPortalView>
 				{auth.isAdmin() && <admin onClick={e => {e.preventDefault(); props.history.push('/admin')}}/>}
                 <logout onClick={e => logout(e)} />
+                {auth.isAuthenticated() && auth.getUser().workshops && auth.getUser().workshops.length > 0 && <workshops-link/>}
                 <workshops>
                     {auth.isAuthenticated() && <PortalWorkshopsController {...props} />}
                 </workshops>

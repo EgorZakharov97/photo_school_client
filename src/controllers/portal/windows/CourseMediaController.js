@@ -75,7 +75,6 @@ export default function CourseMediaController(props) {
 									setIndex={setIndex}
 									i={i}
 									{...video}
-									{...props}
 								/>
 							</video-link>
 						)
