@@ -49,6 +49,7 @@ class AdminPresetsView extends React.Component {
       'selector': [],
       'name': [],
       'subscription': [],
+      'dummy': [],
       'image': [],
       'file': [],
       'submit': [],
@@ -63,7 +64,7 @@ class AdminPresetsView extends React.Component {
           @import url(/css/photolite-academy.webflow.css);
         ` }} />
         <span className="af-view">
-          <form id="email-form" name="email-form" data-name="Email Form" encType="multipart/form-data" className="af-class-form-7"><label htmlFor="selector">Select preset</label>{map(proxies['selector'], props => <select id="selector" name="selector" data-name="selector" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-10">File name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Name" id="name-10" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="embed-3">Access only with subscription</label><label className="w-checkbox">{map(proxies['subscription'], props => <input type="checkbox" id="subscription" name="subscription" data-name="subscription" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="subscription" className="w-form-label">Requires to have subscription</span></label>
+          <form id="email-form" name="email-form" data-name="Email Form" encType="multipart/form-data" className="af-class-form-7"><label htmlFor="selector">Select preset</label>{map(proxies['selector'], props => <select id="selector" name="selector" data-name="selector" {...{...props, className: `w-select ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><option value="!new">New</option></React.Fragment>}</select>)}<label htmlFor="name-10">File name</label>{map(proxies['name'], props => <input type="text" maxLength={256} name="name" data-name="name" placeholder="Name" id="name-10" {...{...props, className: `w-input ${props.className || ''}`}}>{props.children}</input>)}<label htmlFor="embed-3">Access only with subscription</label><label className="w-checkbox">{map(proxies['subscription'], props => <input type="checkbox" id="subscription" name="subscription" data-name="subscription" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="subscription" className="w-form-label">Requires to have subscription</span></label><label htmlFor="embed">Dummy</label><label className="w-checkbox">{map(proxies['dummy'], props => <input type="checkbox" id="dummy" name="dummy" data-name="dummy" {...{...props, className: `w-checkbox-input ${props.className || ''}`}}>{props.children}</input>)}<span htmlFor="dummy" className="w-form-label">Coming soon</span></label>
             <div className="af-class-div-block-28">
               <div><label htmlFor="description-4">Select feature Image</label>
                 {map(proxies['image'], props => <div {...{...props, className: `af-class-html-embed-3 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="file" name="image" placeholder="Choose Image" /></React.Fragment>}</div>)}

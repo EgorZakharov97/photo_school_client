@@ -9,19 +9,19 @@ const scripts = [
 
 let Controller
 
-class VideoPortalView extends React.Component {
+class PastChallengeView extends React.Component {
   static get Controller() {
     if (Controller) return Controller
 
     try {
-      Controller = require('../controllers/VideoPortalController')
+      Controller = require('../controllers/PastChallengeController')
       Controller = Controller.default || Controller
 
       return Controller
     }
     catch (e) {
       if (e.code == 'MODULE_NOT_FOUND') {
-        Controller = VideoPortalView
+        Controller = PastChallengeView
 
         return Controller
       }
@@ -45,14 +45,11 @@ class VideoPortalView extends React.Component {
   }
 
   render() {
-    const proxies = Controller !== VideoPortalView ? transformProxies(this.props.children) : {
-      'background': [],
-      'heading': [],
+    const proxies = Controller !== PastChallengeView ? transformProxies(this.props.children) : {
+      'name': [],
+      'name': [],
+      'image': [],
       'description': [],
-      'overlay': [],
-      'play': [],
-      'loched': [],
-      'coming-soon': [],
     }
 
     return (
@@ -157,20 +154,21 @@ class VideoPortalView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div>
-            {map(proxies['background'], props => <a href="#" {...{...props, className: `af-class-video-wrapper w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-              {map(proxies['heading'], props => <h3 {...{...props, className: `af-class-video-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Lecture 1</React.Fragment>}</h3>)}
-              {map(proxies['description'], props => <div {...{...props, className: `af-class-text-block-11 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment> - a short course on how to be a debil</React.Fragment>}</div>)}
-              {map(proxies['overlay'], props => <div {...{...props, className: `af-class-course-overlay ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                {map(proxies['play'], props => <div {...{...props, className: `af-class-tutorial-play ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></React.Fragment>}</div>)}
-                {map(proxies['loched'], props => <div {...{...props, className: `af-class-course-locked ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
-                  <div className="af-class-text-block-22">Unlock with subscription</div>
+          <div className="af-class-current-challenge">
+            <div className="af-class-challenge">
+              {map(proxies['name'], props => <h1 id="w-node-98622409b3d9-30ba94ae" {...{...props, className: `af-class-heading-20 ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>Name{map(proxies['name'], props => <span {...props}>{props.children}</span>)}</React.Fragment>)}</h1>)}
+              {map(proxies['image'], props => <div id="w-node-98622409b3dd-30ba94ae" {...{...props, className: `af-class-challenge-img ${props.className || ''}`}}>{props.children}</div>)}
+              <div id="w-node-98622409b3de-30ba94ae" className="af-class-div-block-70">
+                {map(proxies['description'], props => <div {...{...props, className: `af-class-rich-text-block-8 w-richtext ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                  <h2>What’s a Rich Text element?</h2>
+                  <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.</p>
+                  <h4>Static and dynamic content editing</h4>
+                  <p>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</p>
+                  <h4>How to customize formatting for each rich text</h4>
+                  <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the "When inside of" nested selector system.</p>
                 </React.Fragment>}</div>)}
-                {map(proxies['coming-soon'], props => <div {...{...props, className: `af-class-course-locked ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
-                  <div className="af-class-text-block-22">Coming Soon</div>
-                </React.Fragment>}</div>)}
-              </React.Fragment>)}</div>)}
-            </React.Fragment>)}</a>)}
+              </div>
+            </div>
           </div>
         </span>
       </span>
@@ -178,6 +176,6 @@ class VideoPortalView extends React.Component {
   }
 }
 
-export default VideoPortalView
+export default PastChallengeView
 
 /* eslint-enable */

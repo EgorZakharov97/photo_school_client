@@ -50,6 +50,7 @@ class PortalCourseView extends React.Component {
       'overlay': [],
       'play': [],
       'locked': [],
+      'coming-soon': [],
       'name': [],
       'description': [],
     }
@@ -163,6 +164,9 @@ class PortalCourseView extends React.Component {
                   {map(proxies['play'], props => <div {...{...props, className: `af-class-course-play ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools.png" loading="lazy" width={70} alt className="af-class-course-hint" /></React.Fragment>}</div>)}
                   {map(proxies['locked'], props => <div {...{...props, className: `af-class-course-locked ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
                     <div className="af-class-text-block-22">Unlock with subscription / buy for $n</div>
+                  </React.Fragment>}</div>)}
+                  {map(proxies['coming-soon'], props => <div {...{...props, className: `af-class-course-locked ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><img src="images/output-onlinepngtools-1.png" loading="lazy" width={70} alt className="af-class-course-hint" />
+                    <div className="af-class-text-block-22">Coming Soon</div>
                   </React.Fragment>}</div>)}
                 </React.Fragment>)}</div>)}
               </React.Fragment>)}</div>)}

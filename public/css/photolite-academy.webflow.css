@@ -7819,6 +7819,47 @@
   -ms-grid-column-span: 1;
 }
 
+.af-view #w-node-98622409b3d9-30ba94ae {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 3;
+  grid-area: Area-3;
+}
+
+.af-view .af-class-challenge>#w-node-98622409b3d9-30ba94ae {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+}
+
+.af-view #w-node-98622409b3dd-30ba94ae {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: Area;
+}
+
+.af-view .af-class-challenge>#w-node-98622409b3dd-30ba94ae {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.af-view #w-node-98622409b3de-30ba94ae {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: Area-2;
+}
+
+.af-view .af-class-challenge>#w-node-98622409b3de-30ba94ae {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+}
+
 @media screen and (max-width: 767px) {
   .af-view #w-node-491adb2d6056-30ba94ae {
     -ms-grid-row: 2;
@@ -7852,6 +7893,38 @@
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
   }
+  .af-view #w-node-98622409b3d9-30ba94ae {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 3;
+  }
+  .af-view .af-class-challenge>#w-node-98622409b3d9-30ba94ae {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .af-view #w-node-98622409b3dd-30ba94ae {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+  .af-view .af-class-challenge>#w-node-98622409b3dd-30ba94ae {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+  .af-view #w-node-98622409b3de-30ba94ae {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 3;
+  }
+  .af-view .af-class-challenge>#w-node-98622409b3de-30ba94ae {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -7867,6 +7940,22 @@
     -ms-grid-column-span: 1;
   }
   .af-view #w-node-07c58e7b94c1-30ba94ae {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  .af-view #w-node-98622409b3d9-30ba94ae {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  .af-view #w-node-98622409b3dd-30ba94ae {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  .af-view #w-node-98622409b3de-30ba94ae {
     -ms-grid-row: 7;
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;

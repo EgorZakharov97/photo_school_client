@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
+import PastChallengeView from './PastChallengeView'
 
 const scripts = [
 
@@ -50,6 +51,8 @@ class PortalChallengesView extends React.Component {
       'name': [],
       'image': [],
       'description': [],
+      'challenges-controller': [],
+      'past-challenge': [],
     }
 
     return (
@@ -173,6 +176,14 @@ class PortalChallengesView extends React.Component {
                   </React.Fragment>}</div>)}<a href="#" className="af-class-button af-class-wide w-button">Join Chat</a></div>
               </div>
             </div>
+            <div className="af-class-div-block-27">
+              <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">Past </span>Challenges</h3>
+            </div>
+            {map(proxies['challenges-controller'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+              {map(proxies['past-challenge'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                <PastChallengeView.Controller />
+              </React.Fragment>}</div>)}
+            </React.Fragment>)}</div>)}
           </div>
         </span>
       </span>

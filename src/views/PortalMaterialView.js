@@ -49,6 +49,8 @@ class PortalMaterialView extends React.Component {
       'background': [],
       'name': [],
       'link': [],
+      'unlock': [],
+      'coming-soon': [],
     }
 
     return (
@@ -156,7 +158,7 @@ class PortalMaterialView extends React.Component {
           <div className="af-class-reading-container">
             {map(proxies['background'], props => <div {...{...props, className: `af-class-reading-pic ${props.className || ''}`}}>{props.children}</div>)}
             <div id="material" className="af-class-reading-content">
-              {map(proxies['name'], props => <h1 {...{...props, className: `af-class-heading-14 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Posing Guide by Olya Shendrik</React.Fragment>}</h1>)}{map(proxies['link'], props => <a href="#" {...{...props, className: `af-class-heading-15 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Read</React.Fragment>}</a>)}</div>
+              {map(proxies['name'], props => <h1 {...{...props, className: `af-class-heading-14 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Posing Guide by Olya Shendrik</React.Fragment>}</h1>)}{map(proxies['link'], props => <a href="#" {...{...props, className: `af-class-heading-15 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Read</React.Fragment>}</a>)}{map(proxies['unlock'], props => <a href="#" {...{...props, className: `af-class-heading-15 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Unlock</React.Fragment>}</a>)}{map(proxies['coming-soon'], props => <a href="#" {...{...props, className: `af-class-heading-15 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Coming Soon</React.Fragment>}</a>)}</div>
           </div>
         </span>
       </span>
