@@ -10,6 +10,7 @@ import AdminPresetsController from '../admin/AdminPresetsController'
 import AdminCouponsController from '../admin/AdminCouponsController'
 import AdminChallengesController from '../admin/AdminChallengesController'
 import AdminCoursesController from '../admin/AdminCoursesController'
+import AdminUsersController from "../admin/AdminUsersController";
 
 export default class AdminController extends React.Component {
 
@@ -61,6 +62,10 @@ export default class AdminController extends React.Component {
                     <admin-courses>
                         <AdminCoursesController/>
                     </admin-courses>
+
+                    <admin-users>
+                        <AdminUsersController/>
+                    </admin-users>
                 </AdminView>
             ) : (
                 <Redirect to={{path: '/', state: {from: this.props.location, shouldAuthenticate: true} }} />
