@@ -98,8 +98,9 @@ export default class AdminFormController extends React.Component {
 
     booleanChangeHandler(e) {
         const name = e.target.name;
+        const value = e.target.checked;
         this.setState(state => {
-            return state.data[name] = !state.data[name]
+            return state.data[name] = value;
         })
     }
 

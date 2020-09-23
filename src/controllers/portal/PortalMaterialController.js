@@ -13,11 +13,21 @@ export default function PortalMaterialController(props) {
 		<PortalMaterialView>
 			<background style={style} />
 			<name>{props.name}</name>
-			{props.file && <link href={getDownloadLink()} />}
+			{(props.file && !props.dummy) && <link href={getDownloadLink()} />}
+			{(!props.dummy && !props.file) && <unlock onClick={onUnlock} />}
+			{props.dummy && <coming-soon/>}
 		</PortalMaterialView>
 	);
 
 	function getDownloadLink(){
 		return URL_GET_MY_FILE + props.file + '/' + auth.getUser().token
+	}
+
+	function onUnlock(){
+		props.setObject({
+			name: props.name,
+			image: props.image
+		});
+		props.setWindow(true);
 	}
 }

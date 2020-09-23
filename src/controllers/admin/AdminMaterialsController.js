@@ -2,6 +2,8 @@ import React from 'react'
 import AdmiMaterialsView from '../../views/AdminMaterialView'
 import AdminFormController from './AdminFormController'
 import {URL_GET_MATERIAL_NAMES, URL_POST_MATERIAL, URL_GET_MATERIAL_DATA} from '../../constants'
+import AdminTutorialView from "../../views/AdminTutorialView";
+import AdmiPresetsView from "../../views/AdminPresetsView";
 
 export default class AdminMaterialsController extends AdminFormController {
 
@@ -24,6 +26,7 @@ export default class AdminMaterialsController extends AdminFormController {
                 </selector>
                 <name value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
                 <subscription value={this.state.data.subscription} checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
+                <dummy checked={this.state.data.dummy} onChange={e => this.booleanChangeHandler(e)}/>
                 <picture value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
                 <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
                 {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}

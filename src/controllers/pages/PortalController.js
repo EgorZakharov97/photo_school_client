@@ -20,7 +20,7 @@ export default function PortalController(props) {
     const history = useHistory();
     const [showTutorialVideo, setShowTutorialVideo] = useState(false);
     const [showGetSubscription, setShowGetSubscription] = useState(false);
-    const [videoData, setVideoData] = useState({});
+    const [objectData, setObjectData] = useState({});
     const [showCourse, setShowCourse] = useState(false);
     const [course, setCourse] = useState({});
 
@@ -44,13 +44,13 @@ export default function PortalController(props) {
                 </workshops>
 
                 <materials-portal>
-                    {auth.isAuthenticated() && <MaterialsPortalController {...props} />}
+                    {auth.isAuthenticated() && <MaterialsPortalController setWindow={setShowGetSubscription} setObject={setObjectData} set {...props} />}
                 </materials-portal>
 
                 <portal-courses>
                     {auth.isAuthenticated() && <PortalCoursesController
                         setShowGetSubscription={setShowGetSubscription}
-                        setVideoData={setVideoData}
+                        setVideoData={setObjectData}
                         setShowCourse={setShowCourse}
                         setCourse={setCourse}
                         {...props}
@@ -65,7 +65,7 @@ export default function PortalController(props) {
                     {auth.isAuthenticated() && <PortalVideosController
                         setShowGetSubscription={setShowGetSubscription}
                         setShowPlay={setShowTutorialVideo}
-                        setVideoData={setVideoData}
+                        setVideoData={setObjectData}
                         {...props}
                     />}
                 </portal-videos>
@@ -80,14 +80,14 @@ export default function PortalController(props) {
 
             </MembersPortalView>
             <AuthController {...props} shouldAuthenticate={true} />
-            <GetSubscriptionController show={showGetSubscription} setShowWindow={setShowGetSubscription} {...videoData} {...props} />
+            <GetSubscriptionController show={showGetSubscription} setShowWindow={setShowGetSubscription} {...objectData} {...props} />
             <CourseMediaController
                 show={showCourse}
                 setShowWindow={setShowCourse}
                 {...course}
                 {...props}
             />
-            <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...videoData} />
+            <TutorialVideoWindowController show={showTutorialVideo} setShowWindow={setShowTutorialVideo} {...objectData} />
 
         </>
 

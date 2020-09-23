@@ -9,16 +9,16 @@ export default function PortalMaterialController(props) {
 	const style = {
 		backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('${props.image || ""}')`
 	};
-
+	console.log(props)
 	return (
 		<PresetPortalView>
 			<background href={getDownloadLink()} style={style}>
-				<link>{props.name}</link>
+				<link>{props.dummy ? "Coming Soon" : props.name}</link>
 			</background>
 		</PresetPortalView>
 	);
 
 	function getDownloadLink(){
-		return URL_GET_MY_FILE + props.file + '/' + auth.getUser().token
+		return props.dummy ? '#' : URL_GET_MY_FILE + props.file + '/' + auth.getUser().token
 	}
 }

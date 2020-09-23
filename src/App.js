@@ -16,6 +16,7 @@ import SubscriptionView from './views/SubscriptionView'
 import PortalController from './controllers/pages/PortalController'
 import SubscriptionsController from './controllers/pages/SubscriptionsController'
 import CourseVideoWindowController from "./controllers/portal/windows/CourseVideoWindowController";
+import EmailEditorController from "./controllers/pages/EmailEditorController";
 
 export default function App(props){
 
@@ -70,6 +71,12 @@ export default function App(props){
                 render={(props) => {
                     return <Redirect to={{path: '/', state:{link: props.match.params.link} }} />
                 }}        
+            />
+
+            <Route ecact path='/emails'
+                   render={() => {
+                        return <EmailEditorController/>
+                   }}
             />
         </Router>
     )

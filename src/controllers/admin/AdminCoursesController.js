@@ -6,6 +6,7 @@ import AdminCoursesView from '../../views/AdminCoursesView'
 import TableVideoView from '../../views/TableVideoView'
 import TableFileView from '../../views/TableFileView'
 import TableExampleView from '../../views/TableExampleView'
+import AdminTutorialView from "../../views/AdminTutorialView";
 
 const axios = auth.getAPI()
 
@@ -25,6 +26,13 @@ export default class AdminCoursesController extends AdminFormController {
         this.URL_GET_OBJECT_DATA = URL_GET_COURSE_DATA
     }
 
+    setAccess(e) {
+        const value = e.target.checked;
+        this.setState(state => {
+            return state.data.public = value
+        })
+    }
+
     render(){
         console.log(this.state)
         return (
@@ -37,9 +45,10 @@ export default class AdminCoursesController extends AdminFormController {
                         }) }
                     </selector>
                     <name value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
+                    <dummy checked={this.state.data.dummy} onChange={e => this.booleanChangeHandler(e)}/>
                     <price value={this.state.data.price || ""} onChange={e => this.changeHandler(e)}/>
                     <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
-                    <access value={this.state.data.access || this.state.data.public || ""} onChange={e => this.booleanChangeHandler(e)} />
+                    <access checked={this.state.data.public} onChange={e => this.setAccess(e)} />
                     <image value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)}/>
                     {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}
                     {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}

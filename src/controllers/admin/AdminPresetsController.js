@@ -2,6 +2,7 @@ import React from 'react'
 import AdmiPresetsView from '../../views/AdminPresetsView'
 import AdminFormController from './AdminFormController'
 import {URL_GET_PRESET_NAMES, URL_POST_PRESET, URL_GET_PRESET_DATA} from '../../constants'
+import AdminTutorialView from "../../views/AdminTutorialView";
 
 export default class AdminPresetsController extends AdminFormController {
 
@@ -24,6 +25,7 @@ export default class AdminPresetsController extends AdminFormController {
                 </selector>
                 <name value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
                 <subscription checked={this.state.data.subscription} onChange={e => this.booleanChangeHandler(e)} />
+                <dummy checked={this.state.data.dummy} onChange={e => this.booleanChangeHandler(e)}/>
                 <image value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
                 <file value={this.state.files[0]  || ""} onChange={e => this.onFileSelect(e)} />
                 {!this.state.busy && <submit value={this.state.data._id ? "Update" : "Create"} onClick={e => this.formSubmitHandler(e)}/>}

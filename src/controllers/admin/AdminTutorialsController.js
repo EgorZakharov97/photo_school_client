@@ -4,6 +4,7 @@ import constants from '../../constants'
 import { URL_GET_TUTORIAL_NAMES, URL_GET_TUTORIAL_DATA, URL_POST_TUTORIAL, URL_GET_CATEGORY_NAMES} from '../../constants';
 import AdminFormController from './AdminFormController'
 import AdminTutorialView from '../../views/AdminTutorialView'
+import AdmiPresetsView from "../../views/AdminPresetsView";
 
 const axios = auth.getAPI()
 
@@ -36,6 +37,7 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
     }
 
     render(){
+        console.log(this.state.data.dummy)
         return(
             <AdminTutorialView>
                 <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>
@@ -46,6 +48,7 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
                 </selector>
                 <title value={this.state.data.name || ""} onChange={e => this.changeHandler(e)}/>
                 <description value={this.state.data.description || ""} onChange={e => this.changeHandler(e)}/>
+                <dummy checked={this.state.data.dummy} onChange={e => this.booleanChangeHandler(e)}/>
                 <category value={this.state.data.category || 'new'} onChange={e => this.onCategorySelect(e)}>
                     <option value="new">New</option>
                     { this.state.categories.map((category, i) => {

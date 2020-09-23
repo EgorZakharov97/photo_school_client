@@ -11,11 +11,15 @@ export default function PortalMaterialController(props) {
 		<PortalCourseView>
 			<background style={style} onClick={e => {props.public ? onPlay() : onLocked()}}>
 				<overlay>
-					{props.public ? (
-						<play/>
-					) : (
-						<locked/>
-					)}
+					{
+						(props.public && !props.dummy) && <play/>
+					}
+					{
+						(props.dummy) && <coming-soon/>
+					}
+					{
+						(!props.public && !props.dummy) && <locked/>
+					}
 				</overlay>
 			</background>
 			<name>{props.name}</name>
@@ -24,6 +28,7 @@ export default function PortalMaterialController(props) {
 	);
 
 	function onLocked() {
+		if(props.dummy) return;
 		props.setVideoData({
 			name: props.name,
 			price: props.pricing.finalPrice
@@ -32,6 +37,7 @@ export default function PortalMaterialController(props) {
 	}
 
 	function onPlay() {
+		if(props.dummy) return;
 		props.setCourse({
 			name: props.name,
 			id: props._id,

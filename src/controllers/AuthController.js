@@ -1,6 +1,15 @@
 import React from 'react'
 import auth from '../Auth'
-import {URL_AUTH_GOOGLE, URL_PASSWORD_RESET, URL_POST_PASSWORD, URL_POST_USER_INFO, URL_CONFIRM_USER, GOOGLE_CLIENT, URL_LOGIN_GOOGLE} from '../constants'
+import {
+    URL_AUTH_GOOGLE,
+    URL_PASSWORD_RESET,
+    URL_POST_PASSWORD,
+    URL_POST_USER_INFO,
+    URL_CONFIRM_USER,
+    GOOGLE_CLIENT,
+    URL_LOGIN_GOOGLE,
+    URL_ANOTHER_CONFIRMATION
+} from '../constants'
 import GoogleLogin from 'react-google-login'
 
 import RegisterView from '../views/RegisterView'
@@ -26,9 +35,13 @@ export default class AuthController extends React.Component {
         showConfirmation: false,
     };
 
+    componentDidMount() {
+        this.setState({authentication: auth.getUser() || {}})
+    }
+
     static getDerivedStateFromProps(props, state) {
         if(props.shouldAuthenticate && !auth.isAuthenticated()){
-            state.showLogin =  true
+            state.showLogin =  true;
         } else if(props.location.state && props.location.state.secret) {
             state.authentication.secret = props.location.state.secret;
             state.showNewPassword = true;
@@ -42,7 +55,9 @@ export default class AuthController extends React.Component {
                     state.message = {
                         positive: true,
                         body: res.data.message
-                    }
+                    };
+                    state.showConfirmation = false;
+                    auth.saveUser(res.data.body);
                 } else {
                     state.message = {
                         positive: false,
@@ -54,18 +69,27 @@ export default class AuthController extends React.Component {
                 console.log(e);
                 state.message = {
                     positive: false,
-                    body: "There was a problem to confirm your email. Try another email address"
+                    body: "There was a problem to confirm your email. Please, try another email address"
                 }
             });
-            delete props.location.state.secret
+            delete props.location.state.link
         } else if(auth.isAuthenticated() && !auth.getUser().complete) {
             state.showUpdateUser = true;
             state.authentication = auth.getUser()
+        } else if(auth.isAuthenticated() && !auth.getUser().verified) {
+            state.showConfirmation = true;
         }
         return state
     }
 
     render() {
+
+        if(this.state.showConfirmation) return <UserConfirmationView>
+            <link-login onClick={e => this.toLogin(e)} />
+            <submit onClick={e => this.onAnotherConfirmation(e)} />
+            {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
+        </UserConfirmationView>;
+
         if (this.state.showRegister) return <RegisterView key="regView">
                 <username value={this.state.authentication.username || ""} onChange={e => this.onChangeHandler(e)} />
                 <email value={this.state.authentication.email || ""} onChange={e => this.onChangeHandler(e)} />
@@ -94,7 +118,7 @@ export default class AuthController extends React.Component {
 
         if(this.state.showLogin) return <login key="login">
             <LoginView key="logView" >
-                <email value={this.state.authentication.email || (auth.getUser() && auth.getUser().email) || ""} onChange={e => this.onChangeHandler(e)} />
+                <email value={this.state.authentication.email || ""} onChange={e => this.onChangeHandler(e)} />
                 <password value={this.state.authentication.password || ""} onChange={e => this.onChangeHandler(e)} />
                 <submit onClick={e => this.onLogin(e)} />
                 <link-register onClick={this.toRegister.bind(this)} />
@@ -134,11 +158,24 @@ export default class AuthController extends React.Component {
             {this.state.message.body && <message style={this.state.message.positive ? {color: "green"} : {color: "red"}}>{this.state.message.body}</message>}
         </ForgotPasswordView>;
 
-        if(this.state.showConfirmation) return <UserConfirmationView>
-            <link-login onClick={e => this.toLogin(e)} />
-        </UserConfirmationView>;
-
         return <></>
+    }
+
+    onAnotherConfirmation(e){
+        e.preventDefault();
+        axios.get(URL_ANOTHER_CONFIRMATION)
+            .then(res => {
+                const data = res.data;
+                if(data.success){
+                    this.setMessage(res.message, true)
+                } else {
+                    this.setMessage(res.message, false)
+                }
+            })
+            .catch(e => {
+                console.log(e);
+                this.setMessage("Unfortunately we cannot send you another confirmation message. Please, try again later", false);
+            })
     }
 
     onGoogleCallback(res){
@@ -155,7 +192,7 @@ export default class AuthController extends React.Component {
                 auth.saveUser(data.body);
                 setTimeout(() => {
                     this.close()
-                }, 300)
+                }, 300);
                 this.props.history.go(0);
             } else {
                 this.setMessage(data.message, false)

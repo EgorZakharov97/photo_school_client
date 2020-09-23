@@ -9,7 +9,7 @@ export default function PortalMaterialController(props) {
 		backgroundImage: `-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('${props.image || ""}')`
 	};
 
-
+	console.log(props)
 
 	return (
 		<VideoPortalView>
@@ -17,17 +17,22 @@ export default function PortalMaterialController(props) {
 				<heading>{props.name}</heading>
 				<description>{props.description}</description>
 				<overlay onClick={e => {props.link ? onPlay() : onLocked()}}>
-					{props.link ? (
-						<play/>
-					) : (
-						<loched/>
-					)}
+					{
+						(props.link && !props.dummy) && <play/>
+					}
+					{
+						props.dummy && <coming-soon/>
+					}
+					{
+						(!props.link && !props.dummy) && <loched/>
+					}
 				</overlay>
 			</background>
 		</VideoPortalView>
 	);
 
 	function onLocked() {
+		if(props.dummy) return;
 		props.setVideoData({
 			name: props.name,
 		});
@@ -35,6 +40,7 @@ export default function PortalMaterialController(props) {
 	}
 
 	function onPlay() {
+		if(props.dummy) return;
 		props.setVideoData({
 			name: props.name,
 			link: props.link,

@@ -3,6 +3,7 @@ import shortid from 'shortid'
 import WorkshopDropdownView from "../../views/WorkshopDropdownView";
 
 export default function	WorkshopDropdownController(props) {
+	console.log(props)
 	const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 	const starts =  monthNames[(new Date(props.importantDates.courseStarts)).getUTCMonth()] + ' ' + (new Date(props.importantDates.courseStarts)).getUTCDate();
 	const STYLE = {

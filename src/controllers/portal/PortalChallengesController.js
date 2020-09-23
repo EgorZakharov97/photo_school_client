@@ -7,7 +7,7 @@ const axios = auth.getAPI();
 
 export default function PortalChallengesController(props) {
 
-	const [challenge, setChallenge] = useState([]);
+	const [past, setPast] = useState([]);
 	const [currentChallenge, setCurrentChallenge] = useState({});
 
 	useEffect(() => {
@@ -15,8 +15,8 @@ export default function PortalChallengesController(props) {
 			.then(res => {
 				const data = res.data;
 				if(data.success){
-					setChallenge(data.body || []);
-					setCurrentChallenge(data.body[data.body.length-1] || {})
+					setPast(data.body.past || []);
+					setCurrentChallenge(data.body.current || null)
 				}
 			})
 			.catch(e => {
@@ -24,7 +24,7 @@ export default function PortalChallengesController(props) {
 			})
 	}, []);
 
-	if(currentChallenge !== {}) return (
+	if(currentChallenge) return (
 		<PortalChallengesView>
 			<name>{currentChallenge.name}</name>
 			<image style={{
