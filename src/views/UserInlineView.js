@@ -63,7 +63,7 @@ class UserInlineView extends React.Component {
         <span className="af-view">
           <div className="af-class-user-inline">
             <div className="af-class-select">
-              {map(proxies['select'], props => <div {...{...props, className: `af-class-html-embed-9 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="checkbox" name="select" /></React.Fragment>}</div>)}
+              <div className="af-class-html-embed-9 w-embed">{map(proxies['select'], props => <input type="checkbox" name="select" {...props}>{props.children}</input>)}</div>
             </div>
             {map(proxies['name'], props => <div {...{...props, className: `af-class-user-inline-cell ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Peter Gramm</React.Fragment>}</div>)}
             {map(proxies['email'], props => <div {...{...props, className: `af-class-user-inline-cell ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Peter.Gramm@gmail.com</React.Fragment>}</div>)}
