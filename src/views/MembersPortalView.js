@@ -201,10 +201,10 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
                       <div>Workshops</div>
                     </a>
-                    <a data-w-tab="Courses" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Courses" className="w-inline-block w-tab-link">
                       <div>Courses</div>
                     </a>
-                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Tutorials" className="w-inline-block w-tab-link w--current">
                       <div>Tutorials</div>
                     </a>
                     <a data-w-tab="Materials" className="w-inline-block w-tab-link">
@@ -226,12 +226,12 @@ class MembersPortalView extends React.Component {
                         <WorkshopsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane w--tab-active">
+                    <div data-w-tab="Courses" className="af-class-tab-pane-courses w-tab-pane">
                       {map(proxies['portal-courses'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalCoursesView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Tutorials" className="af-class-tab-pane-tutorials w-tab-pane">
+                    <div data-w-tab="Tutorials" className="af-class-tab-pane-tutorials w-tab-pane w--tab-active">
                       {map(proxies['portal-videos'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalVideosView.Controller />
                       </React.Fragment>}</div>)}
