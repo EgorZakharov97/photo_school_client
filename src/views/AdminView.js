@@ -67,6 +67,7 @@ class AdminView extends React.Component {
       'admin-challenges': [],
       'admin-coupons': [],
       'coupons-container': [],
+      'admin-users': [],
       'user-count': [],
       'all-users': [],
       'subscribers': [],
@@ -239,27 +240,31 @@ class AdminView extends React.Component {
                       </React.Fragment>}</div>)}
                     </div>
                     <div data-w-tab="Users" className="af-class-tab-pane-users w-tab-pane w--tab-active">
-                      <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">U</span>sers</h3>
-                      <div className="af-class-text-block-28">Users count:&nbsp;{map(proxies['user-count'], props => <span {...props}>{props.children ? props.children : <React.Fragment>###</React.Fragment>}</span>)}</div>
-                      <div className="af-class-users-contents">
-                        <div className="af-class-selector">{map(proxies['all-users'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size af-class-selected w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>All users</React.Fragment>}</a>)}{map(proxies['subscribers'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscribers</React.Fragment>}</a>)}{map(proxies['not-users'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Not users</React.Fragment>}</a>)}</div>
-                        <div className="af-class-users-list">
-                          <div className="af-class-user-inline-heading">
-                            <div className="af-class-select">
-                              {map(proxies['select-all'], props => <div {...{...props, className: `af-class-html-embed-9 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="checkbox" name="select" /></React.Fragment>}</div>)}
+                      {map(proxies['admin-users'], props => <div {...props}>{createScope(props.children, proxies => <React.Fragment>
+                        <div>
+                          <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">U</span>sers</h3>
+                          <div className="af-class-text-block-28">Users count:&nbsp;{map(proxies['user-count'], props => <span {...props}>{props.children ? props.children : <React.Fragment>###</React.Fragment>}</span>)}</div>
+                          <div className="af-class-users-contents">
+                            <div className="af-class-selector">{map(proxies['all-users'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size af-class-selected w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>All users</React.Fragment>}</a>)}{map(proxies['subscribers'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscribers</React.Fragment>}</a>)}{map(proxies['not-users'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Not users</React.Fragment>}</a>)}</div>
+                            <div className="af-class-users-list">
+                              <div className="af-class-user-inline-heading">
+                                <div className="af-class-select">
+                                  {map(proxies['select-all'], props => <div {...{...props, className: `af-class-html-embed-9 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="checkbox" name="select" /></React.Fragment>}</div>)}
+                                </div>
+                                <div className="af-class-user-inline-heading2">Username</div>
+                                <div className="af-class-user-inline-heading2">Email</div>
+                                <div className="af-class-user-inline-heading2">Phone</div>
+                                <div className="af-class-inline-action af-class-heading">{map(proxies['to-emails'], props => <a href="#" {...{...props, className: `af-class-button-2 w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Send Email</React.Fragment>}</a>)}</div>
+                              </div>
+                              {map(proxies['users-container'], props => <div {...{...props, className: `af-class-users-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                                {map(proxies['user-inline'], props => <div {...{...props, className: `af-class-user-inline-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                                  <UserInlineView.Controller />
+                                </React.Fragment>}</div>)}
+                              </React.Fragment>)}</div>)}
                             </div>
-                            <div className="af-class-user-inline-heading2">Username</div>
-                            <div className="af-class-user-inline-heading2">Email</div>
-                            <div className="af-class-user-inline-heading2">Phone</div>
-                            <div className="af-class-inline-action af-class-heading">{map(proxies['to-emails'], props => <a href="#" {...{...props, className: `af-class-button-2 w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Send Email</React.Fragment>}</a>)}</div>
                           </div>
-                          {map(proxies['users-container'], props => <div {...{...props, className: `af-class-users-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                            {map(proxies['user-inline'], props => <div {...{...props, className: `af-class-user-inline-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
-                              <UserInlineView.Controller />
-                            </React.Fragment>}</div>)}
-                          </React.Fragment>)}</div>)}
                         </div>
-                      </div>
+                      </React.Fragment>)}</div>)}
                       <div className="af-class-add-subscription-window">
                         <div className="af-class-add-sub-contents">
                           <div className="af-class-close">X</div>
