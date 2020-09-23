@@ -157,7 +157,7 @@ class PortalCourseView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div>
+          <div className="af-class-div-block-75">
             <a id="course" href="#" className="af-class-course w-inline-block">
               {map(proxies['background'], props => <div {...{...props, className: `af-class-course-img ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                 {map(proxies['overlay'], props => <div {...{...props, className: `af-class-course-overlay ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>

@@ -10,6 +10,7 @@ import AdminPresetsView from './AdminPresetsView'
 import AdminChallengesView from './AdminChallengesView'
 import CouponsFormView from './CouponsFormView'
 import CouponsContainerView from './CouponsContainerView'
+import UserInlineView from './UserInlineView'
 
 const scripts = [
   fetch("https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f1212b6860f150f9f0e6e14").then(body => body.text()),
@@ -66,6 +67,14 @@ class AdminView extends React.Component {
       'admin-challenges': [],
       'admin-coupons': [],
       'coupons-container': [],
+      'user-count': [],
+      'all-users': [],
+      'subscribers': [],
+      'not-users': [],
+      'select-all': [],
+      'to-emails': [],
+      'users-container': [],
+      'user-inline': [],
     }
 
     return (
@@ -96,7 +105,7 @@ class AdminView extends React.Component {
                   </div>
                   <nav role="navigation" className="af-class-nav-menu-2 w-nav-menu">
                     {map(proxies['username'], props => <h1 {...{...props, className: `af-class-member-name-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Egor Zakharov</React.Fragment>}</h1>)}
-                    <div className="af-class-portal-tab-links"><a href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a href="#" className="af-class-tab-button w-button">Tutorials</a><a href="#" className="af-class-tab-button w-button">Courses</a><a href="#" className="af-class-tab-button w-button">Materials</a><a href="#" className="af-class-tab-button w-button">Presets</a><a href="#" className="af-class-tab-button w-button">Challenges</a><a href="#" className="af-class-tab-button w-button">Coupons</a><a href="#" className="af-class-tab-button w-button">Emails</a></div>
+                    <div className="af-class-portal-tab-links"><a href="#" className="af-class-tab-button af-class-tab-button-active w-button">Workshops</a><a href="#" className="af-class-tab-button w-button">Tutorials</a><a href="#" className="af-class-tab-button w-button">Courses</a><a href="#" className="af-class-tab-button w-button">Materials</a><a href="#" className="af-class-tab-button w-button">Presets</a><a href="#" className="af-class-tab-button w-button">Challenges</a><a href="#" className="af-class-tab-button w-button">Coupons</a><a href="#" className="af-class-tab-button w-button">Users</a></div>
                   </nav>
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
@@ -113,7 +122,7 @@ class AdminView extends React.Component {
                     <a data-w-tab="Materials" className="w-inline-block w-tab-link">
                       <div>Materials</div>
                     </a>
-                    <a data-w-tab="Presets" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Presets" className="w-inline-block w-tab-link">
                       <div>Presets</div>
                     </a>
                     <a data-w-tab="Challenges" className="w-inline-block w-tab-link">
@@ -122,8 +131,8 @@ class AdminView extends React.Component {
                     <a data-w-tab="Coupons" className="w-inline-block w-tab-link">
                       <div>Coupons</div>
                     </a>
-                    <a data-w-tab="Emails" className="w-inline-block w-tab-link">
-                      <div>Emails</div>
+                    <a data-w-tab="Users" className="w-inline-block w-tab-link w--current">
+                      <div>Users</div>
                     </a>
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
@@ -185,7 +194,7 @@ class AdminView extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div data-w-tab="Presets" className="w-tab-pane w--tab-active">
+                    <div data-w-tab="Presets" className="w-tab-pane">
                       <div className="af-class-tab-wrapper">
                         <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-10">Pre</span>sets</h3>
                         {map(proxies['admin-presets'], props => <div {...{...props, className: `w-form ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
@@ -229,8 +238,42 @@ class AdminView extends React.Component {
                         <CouponsContainerView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Emails" className="w-tab-pane">
-                      <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">E</span>mails</h3>
+                    <div data-w-tab="Users" className="af-class-tab-pane-users w-tab-pane w--tab-active">
+                      <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-41">U</span>sers</h3>
+                      <div className="af-class-text-block-28">Users count:&nbsp;{map(proxies['user-count'], props => <span {...props}>{props.children ? props.children : <React.Fragment>###</React.Fragment>}</span>)}</div>
+                      <div className="af-class-users-contents">
+                        <div className="af-class-selector">{map(proxies['all-users'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size af-class-selected w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>All users</React.Fragment>}</a>)}{map(proxies['subscribers'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Subscribers</React.Fragment>}</a>)}{map(proxies['not-users'], props => <a href="#" {...{...props, className: `af-class-button-dry af-class-size w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Not users</React.Fragment>}</a>)}</div>
+                        <div className="af-class-users-list">
+                          <div className="af-class-user-inline-heading">
+                            <div className="af-class-select">
+                              {map(proxies['select-all'], props => <div {...{...props, className: `af-class-html-embed-9 w-embed ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment><input type="checkbox" name="select" /></React.Fragment>}</div>)}
+                            </div>
+                            <div className="af-class-user-inline-heading2">Username</div>
+                            <div className="af-class-user-inline-heading2">Email</div>
+                            <div className="af-class-user-inline-heading2">Phone</div>
+                            <div className="af-class-inline-action af-class-heading">{map(proxies['to-emails'], props => <a href="#" {...{...props, className: `af-class-button-2 w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Send Email</React.Fragment>}</a>)}</div>
+                          </div>
+                          {map(proxies['users-container'], props => <div {...{...props, className: `af-class-users-container ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                            {map(proxies['user-inline'], props => <div {...{...props, className: `af-class-user-inline-wrapper ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                              <UserInlineView.Controller />
+                            </React.Fragment>}</div>)}
+                          </React.Fragment>)}</div>)}
+                        </div>
+                      </div>
+                      <div className="af-class-add-subscription-window">
+                        <div className="af-class-add-sub-contents">
+                          <div className="af-class-close">X</div>
+                          <div className="w-form">
+                            <form id="email-form-4" name="email-form-4" data-name="Email Form 4" className="af-class-form-10"><label htmlFor="days">Amount of days</label><input type="number" className="w-input" maxLength={256} name="days" data-name="days" placeholder id="days" /><input type="submit" defaultValue="Grant Subscription" data-wait="Please wait..." className="w-button" /></form>
+                            <div className="w-form-done">
+                              <div>Thank you! Your submission has been received!</div>
+                            </div>
+                            <div className="w-form-fail">
+                              <div>Oops! Something went wrong while submitting the form.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

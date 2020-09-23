@@ -3,6 +3,10 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import VideoPortalView from './VideoPortalView'
+import VideoPortalView from './VideoPortalView'
+import VideoPortalView from './VideoPortalView'
+import VideoPortalView from './VideoPortalView'
+import VideoPortalView from './VideoPortalView'
 
 const scripts = [
 
@@ -48,6 +52,10 @@ class PortalVideosView extends React.Component {
   render() {
     const proxies = Controller !== PortalVideosView ? transformProxies(this.props.children) : {
       'videos-container': [],
+      'video-portal': [],
+      'video-portal': [],
+      'video-portal': [],
+      'video-portal': [],
       'video-portal': [],
     }
 
@@ -159,9 +167,21 @@ class PortalVideosView extends React.Component {
               <div className="af-class-course-topic">
                 <h1 className="af-class-heading-20">Topic</h1>
                 {map(proxies['videos-container'], props => <div id="courses-container" {...{...props, className: `af-class-portal-courses ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                  {map(proxies['video-portal'], props => <div {...{...props, className: `af-class-div-block-72 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
+                  {map(proxies['video-portal'], props => <div {...{...props, className: `af-class-video-tutorial-itself ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                    <VideoPortalView.Controller />
+                  </div-af-sock-video-portal>
+                  {map(proxies['video-portal'], props => <div {...{...props, className: `af-class-video-tutorial-itself ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                    <VideoPortalView.Controller />
+                  </div-af-sock-video-portal>
+                  {map(proxies['video-portal'], props => <div {...{...props, className: `af-class-video-tutorial-itself ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                     <VideoPortalView.Controller />
                   </React.Fragment>}</div>)}
+                  <div-af-sock-video-portal className="af-class-video-tutorial-itself">
+                    <VideoPortalView.Controller />
+                  </React.Fragment>)}</div>)}
+                  <div-af-sock-video-portal className="af-class-video-tutorial-itself">
+                    <VideoPortalView.Controller />
+                  </React.Fragment>)}</div>)}
                 </React.Fragment>)}</div>)}
               </div>
             </div>

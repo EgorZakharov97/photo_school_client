@@ -56,6 +56,7 @@ class MembersPortalView extends React.Component {
 
   render() {
     const proxies = Controller !== MembersPortalView ? transformProxies(this.props.children) : {
+      'home': [],
       'logout': [],
       'workshops-link': [],
       'admin': [],
@@ -180,9 +181,9 @@ class MembersPortalView extends React.Component {
                       <div className="af-class-menu-button-2 w-nav-button">
                         <div className="af-class-icon w-icon-nav-menu" />
                       </div>
-                      <a href="index.html" className="af-class-login-nav-link af-class-portal w-inline-block">
+                      {map(proxies['home'], props => <a href="index.html" {...{...props, className: `af-class-login-nav-link af-class-portal w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                         <h3 className="af-class-heading-13">HOME</h3>
-                      </a><a href="#" className="w-nav-brand"><img src="images/Masterwhite.png" width={60} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 100vw, 60px" alt className="af-class-image-4" /></a>
+                      </React.Fragment>}</a>)}<a href="#" className="w-nav-brand"><img src="images/Masterwhite.png" width={60} srcSet="images/Masterwhite-p-500.png 500w, images/Masterwhite.png 766w" sizes="(max-width: 479px) 100vw, 60px" alt className="af-class-image-4" /></a>
                       {map(proxies['logout'], props => <a href="#" {...{...props, className: `af-class-login-nav-link w-inline-block ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>
                         <h3 className="af-class-heading-13">Exit</h3>
                       </React.Fragment>}</a>)}
@@ -197,7 +198,7 @@ class MembersPortalView extends React.Component {
                 </div>
                 <div data-duration-in={300} data-duration-out={100} className="af-class-tabs-2 w-tabs">
                   <div className="af-class-tabs-menu-3 w-tab-menu">
-                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link">
+                    <a data-w-tab="Workshops" className="w-inline-block w-tab-link w--current">
                       <div>Workshops</div>
                     </a>
                     <a data-w-tab="Courses" className="w-inline-block w-tab-link">
@@ -212,7 +213,7 @@ class MembersPortalView extends React.Component {
                     <a data-w-tab="Presets" className="w-inline-block w-tab-link">
                       <div>Presets</div>
                     </a>
-                    <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link w--current">
+                    <a data-w-tab="Weekly challenge" className="w-inline-block w-tab-link">
                       <div>Weekly Challenge</div>
                     </a>
                     <a data-w-tab="Profile" className="w-inline-block w-tab-link">
@@ -220,7 +221,7 @@ class MembersPortalView extends React.Component {
                     </a>
                   </div>
                   <div className="af-class-tabs-content w-tab-content">
-                    <div data-w-tab="Workshops" className="w-tab-pane">
+                    <div data-w-tab="Workshops" className="w-tab-pane w--tab-active">
                       {map(proxies['workshops'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <WorkshopsPortalView.Controller />
                       </React.Fragment>}</div>)}
@@ -245,7 +246,7 @@ class MembersPortalView extends React.Component {
                         <PresetsPortalView.Controller />
                       </React.Fragment>}</div>)}
                     </div>
-                    <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane w--tab-active">
+                    <div data-w-tab="Weekly challenge" className="af-class-tab-pane-weekly-challenge w-tab-pane">
                       {map(proxies['portal-challenges'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
                         <PortalChallengesView.Controller />
                       </React.Fragment>}</div>)}

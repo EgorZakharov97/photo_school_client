@@ -46,6 +46,8 @@ class UserConfirmationView extends React.Component {
 
   render() {
     const proxies = Controller !== UserConfirmationView ? transformProxies(this.props.children) : {
+      'submit': [],
+      'message': [],
       'link-login': [],
       'close': [],
     }
@@ -65,7 +67,8 @@ class UserConfirmationView extends React.Component {
                   <div className="af-class-window-nav"><img src="images/Webp.net-resizeimage-8.png" width={100} alt className="af-class-image-2" /></div>
                   <div className="af-class-login-heading">
                     <h2 className="af-class-heading-9">User Confirmation</h2>
-                    <div className="af-class-text-block-17">User confirmation Required.<br />Please, check your email</div>
+                    <div className="af-class-text-block-17">User confirmation Required.<br />Please, check your email</div>{map(proxies['submit'], props => <a href="#" {...{...props, className: `af-class-login-submit w-button ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Send Another Email</React.Fragment>}</a>)}
+                    {map(proxies['message'], props => <div {...{...props, className: `af-class-text-block-25 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>This is user message</React.Fragment>}</div>)}
                   </div>
                 </div>
                 <div className="af-class-login-footer">

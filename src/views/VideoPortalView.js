@@ -157,7 +157,7 @@ class VideoPortalView extends React.Component {
           }
         ` }} />
         <span className="af-view">
-          <div>
+          <div className="af-class-div-block-76">
             {map(proxies['background'], props => <a href="#" {...{...props, className: `af-class-video-wrapper w-inline-block ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
               {map(proxies['heading'], props => <h3 {...{...props, className: `af-class-video-heading ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment>Lecture 1</React.Fragment>}</h3>)}
               {map(proxies['description'], props => <div {...{...props, className: `af-class-text-block-11 ${props.className || ''}`}}>{props.children ? props.children : <React.Fragment> - a short course on how to be a debil</React.Fragment>}</div>)}

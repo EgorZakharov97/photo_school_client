@@ -3,6 +3,11 @@
 import React from 'react'
 import { createScope, map, transformProxies } from './helpers'
 import PortalCourseView from './PortalCourseView'
+import PortalCourseView from './PortalCourseView'
+import PortalCourseView from './PortalCourseView'
+import PortalCourseView from './PortalCourseView'
+import PortalCourseView from './PortalCourseView'
+import PortalCourseView from './PortalCourseView'
 
 const scripts = [
 
@@ -48,6 +53,11 @@ class PortalCoursesView extends React.Component {
   render() {
     const proxies = Controller !== PortalCoursesView ? transformProxies(this.props.children) : {
       'courses-container': [],
+      'portal-course': [],
+      'portal-course': [],
+      'portal-course': [],
+      'portal-course': [],
+      'portal-course': [],
       'portal-course': [],
     }
 
@@ -157,9 +167,24 @@ class PortalCoursesView extends React.Component {
             <h3 className="af-class-section-heading af-class-portal"><span className="af-class-text-span-40">Co</span>urses</h3>
             <div className="af-class-course-topic">
               {map(proxies['courses-container'], props => <div id="courses-container" {...{...props, className: `af-class-portal-courses ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
-                {map(proxies['portal-course'], props => <div {...props}>{props.children ? props.children : <React.Fragment>
+                {map(proxies['portal-course'], props => <div {...{...props, className: `af-class-course-itself ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
                   <PortalCourseView.Controller />
-                </React.Fragment>}</div>)}
+                </div-af-sock-portal-course>
+                {map(proxies['portal-course'], props => <div {...{...props, className: `af-class-course-itself ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  <PortalCourseView.Controller />
+                </div-af-sock-portal-course>
+                {map(proxies['portal-course'], props => <div {...{...props, className: `af-class-course-itself ${props.className || ''}`}}>{createScope(props.children, proxies => <React.Fragment>
+                  <PortalCourseView.Controller />
+                </div-af-sock-portal-course>
+                <div-af-sock-portal-course className="af-class-course-itself">
+                  <PortalCourseView.Controller />
+                </React.Fragment>)}</div>)}
+                <div-af-sock-portal-course className="af-class-course-itself">
+                  <PortalCourseView.Controller />
+                </React.Fragment>)}</div>)}
+                <div-af-sock-portal-course className="af-class-course-itself">
+                  <PortalCourseView.Controller />
+                </React.Fragment>)}</div>)}
               </React.Fragment>)}</div>)}
             </div>
           </div>

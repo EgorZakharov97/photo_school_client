@@ -3462,7 +3462,8 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 20vw;
+  width: 100%;
+  height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -3491,12 +3492,6 @@
   grid-template-areas: "Description Description";
   -ms-grid-rows: auto;
   grid-template-rows: auto;
-}
-
-.af-view .af-class-section-nav {
-  position: fixed;
-  padding-bottom: 20px;
-  background-color: #000;
 }
 
 .af-view .af-class-subscription-welcome {
@@ -3958,17 +3953,6 @@
   background-color: #000;
 }
 
-.af-view .af-class-grid-11 {
-  padding-bottom: 10vw;
-  grid-row-gap: 60px;
-  grid-template-areas: "Area Area Area . Area-2 Area-2 ." "Area Area Area . Area-3 Area-3 Area-3" "Area-4 Area-4 Area-4 . Area-5 Area-5 Area-5" "Area-6 Area-6 . . Area-7 Area-7 Area-7";
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: max-content 60px auto 60px max-content 60px 420px;
-  grid-template-rows: -webkit-max-content auto -webkit-max-content 420px;
-  grid-template-rows: max-content auto max-content 420px;
-}
-
 .af-view .af-class-image123 {
   width: 45%;
   max-height: 400px;
@@ -4213,26 +4197,37 @@
 }
 
 .af-view .af-class-portal-courses {
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 10px;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
   grid-auto-columns: 1fr;
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: auto auto;
   grid-template-rows: auto auto;
 }
 
 .af-view .af-class-course {
   width: 100%;
+  height: 100%;
   text-decoration: none;
 }
 
 .af-view .af-class-course-img {
   position: relative;
-  height: 35vw;
+  height: 80%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -4309,7 +4304,7 @@
 
 .af-view .af-class-course-hint {
   display: block;
-  width: 6vw;
+  width: 55px;
   color: #e74c32;
 }
 
@@ -4820,76 +4815,6 @@
   background-repeat: no-repeat;
 }
 
-.af-view .af-class-div-block-30 {
-  position: relative;
-  left: -72px;
-  top: 103px;
-  background-image: url('../images/aa1fd06d-ba59-434d-b62a-b11776b303d8.JPG');
-  background-position: 30% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.af-view .af-class-div-block-31 {
-  position: relative;
-  left: 32px;
-  top: 27px;
-  right: 11px;
-  bottom: 33px;
-  width: 300px;
-  height: 420px;
-  background-image: url('../images/af7b028a-1d55-4a57-8d75-37335032715f.JPG');
-  background-position: 50% 0%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.af-view .af-class-div-block-32 {
-  position: relative;
-  left: 51px;
-  width: 230px;
-  height: 350px;
-  background-image: url('../images/2.JPG');
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.af-view .af-class-div-block-33 {
-  position: relative;
-  left: 4px;
-  top: -2px;
-  right: -51px;
-  bottom: 38px;
-  width: 370px;
-  height: 500px;
-  background-image: url('../images/a1.JPG');
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.af-view .af-class-div-block-34 {
-  width: 400px;
-  height: 600px;
-  background-image: url('../images/74438c8f-5db4-4dc9-bec2-d49a72b75e18.JPG');
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.af-view .af-class-div-block-35 {
-  position: relative;
-  top: 8px;
-  right: 24px;
-  width: 300px;
-  height: 450px;
-  background-image: url('../images/1474c136-683a-40e8-8b76-457b33a3e631.JPG');
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .af-view .af-class-html-embed-4 {
   margin-bottom: 10px;
 }
@@ -5193,10 +5118,6 @@
   align-items: center;
 }
 
-.af-view .af-class-container-11 {
-  margin-top: 40px;
-}
-
 .af-view .af-class-div-block-46 {
   margin-top: 60px;
 }
@@ -5263,36 +5184,8 @@
   text-align: center;
 }
 
-.af-view .af-class-grid-101 {
-  padding: 40px 60px 20px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  grid-column-gap: 0px;
-  grid-template-areas: ".";
-  -ms-grid-rows: auto auto;
-  grid-template-rows: auto auto;
-}
-
-.af-view .af-class-div-block-52 {
-  padding: 20px;
-}
-
 .af-view .af-class-course-exaples {
   display: none;
-}
-
-.af-view .af-class-div-block-54 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding-right: 60px;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
 }
 
 .af-view .af-class-div-block-55 {
@@ -5306,15 +5199,7 @@
   text-align: left;
 }
 
-.af-view .af-class-wdawdad {
-  padding: 20px;
-}
-
 .af-view .af-class-div-block-52-copy {
-  padding: 20px;
-}
-
-.af-view .af-class-awawdwa {
   padding: 20px;
 }
 
@@ -5436,29 +5321,8 @@
   background-color: transparent;
 }
 
-.af-view .af-class-div-block-63 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
 .af-view .af-class-div-block-64 {
   display: none;
-}
-
-.af-view .af-class-div-block-67 {
-  position: fixed;
-  left: 0%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  z-index: 999;
-  display: block;
 }
 
 .af-view .af-class-div-block-68 {
@@ -5529,16 +5393,310 @@
   box-shadow: 1px 1px 7px -4px #000;
 }
 
+.af-view .af-class-video-tutorial-itself {
+  width: 32vw;
+  height: 20vw;
+  margin: 10px;
+}
+
 .af-view .af-class-div-block-73 {
   position: relative;
   z-index: 999;
+  display: none;
+}
+
+.af-view .af-class-course-itself {
   display: block;
+  margin-right: 10px;
+  margin-left: 10px;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+}
+
+.af-view .af-class-div-block-75 {
+  width: 33vw;
+  height: 30vw;
+  max-height: 430px;
+  max-width: 450px;
+}
+
+.af-view .af-class-div-block-76 {
+  width: 100%;
+  height: 100%;
+}
+
+.af-view .af-class-users-list {
+  padding: 0px;
+}
+
+.af-view .af-class-user-inline {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  background-color: #f5f5f5;
+}
+
+.af-view .af-class-user-inline-cell {
+  width: 25%;
+  padding: 5px;
+  border-right: 1px solid #d6d6d6;
+}
+
+.af-view .af-class-user-inline-cell.af-class-last {
+  border-right-style: none;
+}
+
+.af-view .af-class-user-inline-heading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  background-color: #dbdbdb;
+}
+
+.af-view .af-class-user-inline-heading2 {
+  width: 25%;
+  padding: 5px;
+  border-right: 1px solid #a3a3a3;
+}
+
+.af-view .af-class-user-inline-heading2.af-class-last {
+  border: 1px none #000;
+}
+
+.af-view .af-class-inline-action {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 25%;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.af-view .af-class-inline-action.af-class-heading {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.af-view .af-class-button-2 {
+  padding: 5px;
+  background-color: #8f8f8f;
+  font-size: 11px;
+  text-align: center;
+}
+
+.af-view .af-class-tab-link {
+  border-bottom: 1px solid #aaa;
+}
+
+.af-view .af-class-select {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+}
+
+.af-view .af-class-html-embed-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.af-view .af-class-text-block-28 {
+  margin-bottom: 10px;
+}
+
+.af-view .af-class-add-subscription-window {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.af-view .af-class-tab-pane-users {
+  min-height: 95vh;
+}
+
+.af-view .af-class-add-sub-contents {
+  position: relative;
+}
+
+.af-view .af-class-form-10 {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.af-view .af-class-email-menu {
+  padding: 20px;
+}
+
+.af-view .af-class-email-contents {
+  min-height: 95vh;
+}
+
+.af-view .af-class-emails {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bdbdbd;
+  background-color: #f3f3f3;
+}
+
+.af-view .af-class-email {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.af-view .af-class-heading-21 {
+  margin-bottom: 0px;
+}
+
+.af-view .af-class-remove {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: #ff8585;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+}
+
+.af-view .af-class-text-block-29 {
+  text-align: center;
+}
+
+.af-view .af-class-text-field-7 {
+  padding-right: 2px;
+  padding-bottom: 0px;
+  padding-left: 2px;
+  border-style: none none solid;
+  border-width: 1px;
+  border-color: #000 #000 #bebebe;
+  background-color: transparent;
+}
+
+.af-view .af-class-button-dry {
+  width: 100%;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bdbdbd;
+  background-color: #f3f3f3;
+  color: #000;
+  text-align: center;
+}
+
+.af-view .af-class-button-dry.af-class-red {
+  background-color: #ffe0e0;
+}
+
+.af-view .af-class-button-dry.af-class-size {
+  width: 150px;
+  margin-bottom: 0px;
+}
+
+.af-view .af-class-button-dry.af-class-size.af-class-selected {
+  background-color: #e7e7e7;
+}
+
+.af-view .af-class-text-editor {
+  margin-bottom: 10px;
+}
+
+.af-view .af-class-email-nav {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.af-view .af-class-select-field {
+  margin-top: 10px;
+}
+
+.af-view .af-class-div-block-77 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 1280px) {
-  .af-view .af-class-section-welcome {
-    min-height: 80vh;
-  }
   .af-view .af-class-navbar-main {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -5579,7 +5737,6 @@
     text-align: left;
   }
   .af-view .af-class-body {
-    background-color: #fff;
     font-family: 'Droid Serif', serif;
   }
   .af-view .af-class-heading-on-black {
@@ -6259,44 +6416,13 @@
     padding-right: 10px;
     padding-left: 10px;
   }
-  .af-view .af-class-div-block-30 {
-    left: -60px;
-    top: 106px;
-  }
-  .af-view .af-class-div-block-33 {
-    left: -8px;
-    width: 300px;
-  }
-  .af-view .af-class-div-block-35 {
-    top: -19px;
-    right: -17px;
-  }
   .af-view .af-class-paragraph-4 {
     font-size: 14px;
   }
   .af-view .af-class-text-block-27 {
     font-size: 20px;
   }
-  .af-view .af-class-grid-101 {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  .af-view .af-class-div-block-52 {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  .af-view .af-class-image-9 {
-    width: 150px;
-  }
-  .af-view .af-class-wdawdad {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
   .af-view .af-class-div-block-52-copy {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  .af-view .af-class-awawdwa {
     padding-right: 0px;
     padding-left: 0px;
   }
@@ -6341,6 +6467,10 @@
   }
   .af-view .af-class-section-4 {
     position: fixed;
+  }
+  .af-view .af-class-course-itself {
+    width: 300px;
+    height: 330px;
   }
 }
 
@@ -6766,13 +6896,6 @@
     padding-right: 10px;
     padding-left: 10px;
   }
-  .af-view .af-class-grid-11 {
-    overflow: hidden;
-    padding-bottom: 0vw;
-    grid-template-areas: "Area Area Area Area-2 Area-2 Area-2" "Area Area Area Area-3 Area-3 Area-3" "Area-4 Area-4 Area-4 Area-5 Area-5 Area-5" "Area-6 Area-6 . Area-7 Area-7 Area-7";
-    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  }
   .af-view .af-class-div-block-24 {
     width: 300px;
     padding-right: 10px;
@@ -6831,9 +6954,6 @@
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
-  .af-view .af-class-course-img {
-    height: 60vw;
-  }
   .af-view .af-class-course-img.af-class-course {
     height: 300px;
   }
@@ -6848,37 +6968,6 @@
     grid-template-areas: "Area-3 Area-3" "Area Area" "Area-2 Area-2";
     -ms-grid-rows: auto 300px auto;
     grid-template-rows: auto 300px auto;
-  }
-  .af-view .af-class-div-block-30 {
-    left: -41px;
-    top: -48px;
-    width: 110%;
-    height: 350px;
-  }
-  .af-view .af-class-div-block-31 {
-    left: 11px;
-    top: -174px;
-    width: 40vw;
-  }
-  .af-view .af-class-div-block-32 {
-    left: -42px;
-    top: 1px;
-    width: 110%;
-  }
-  .af-view .af-class-div-block-33 {
-    left: -42px;
-    width: 110%;
-  }
-  .af-view .af-class-div-block-34 {
-    position: relative;
-    left: 12px;
-    width: 40vw;
-    height: 450px;
-  }
-  .af-view .af-class-div-block-35 {
-    top: -299px;
-    right: -12px;
-    width: 40vw;
   }
   .af-view .af-class-paragraph-4 {
     text-align: left;
@@ -6902,28 +6991,8 @@
   .af-view .af-class-section-3 {
     padding-top: 20px;
   }
-  .af-view .af-class-grid-101 {
-    margin-bottom: 10vw;
-    grid-column-gap: 40px;
-  }
-  .af-view .af-class-div-block-52 {
-    position: relative;
-    top: 34px;
-  }
-  .af-view .af-class-div-block-53 {
-    position: relative;
-    left: -13px;
-  }
-  .af-view .af-class-wdawdad {
-    position: relative;
-    bottom: -100px;
-  }
   .af-view .af-class-div-block-52-copy {
     position: relative;
-  }
-  .af-view .af-class-awawdwa {
-    position: relative;
-    top: 15px;
   }
   .af-view .af-class-div-block-52-copy {
     position: relative;
@@ -6960,6 +7029,10 @@
   .af-view .af-class-workshops {
     width: 250px;
     height: 250px;
+  }
+  .af-view .af-class-course-itself {
+    width: 90%;
+    height: 400px;
   }
 }
 
@@ -7384,16 +7457,6 @@
     font-size: 3rem;
     line-height: 3rem;
   }
-  .af-view .af-class-grid-11 {
-    padding-right: 10px;
-    padding-left: 10px;
-    grid-template-areas: "Area" "Area-3" "Area-4" "Area-6" "Area-7" "Area-5" "Area-2";
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -ms-grid-rows: max-content auto max-content 420px auto auto auto;
-    grid-template-rows: -webkit-max-content auto -webkit-max-content 420px auto auto auto;
-    grid-template-rows: max-content auto max-content 420px auto auto auto;
-  }
   .af-view .af-class-subscription.af-class-on-black {
     display: -webkit-box;
     display: -webkit-flex;
@@ -7408,6 +7471,10 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
+  }
+  .af-view .af-class-tab-pane-courses {
+    padding-right: 0px;
+    padding-left: 0px;
   }
   .af-view .af-class-portal-courses {
     -ms-grid-columns: 1fr;
@@ -7466,30 +7533,6 @@
   .af-view .af-class-challenge {
     box-shadow: 0 0 7px -3px #000;
   }
-  .af-view .af-class-div-block-30 {
-    position: static;
-    width: 100%;
-  }
-  .af-view .af-class-div-block-31 {
-    position: static;
-    width: 100%;
-  }
-  .af-view .af-class-div-block-32 {
-    position: static;
-    width: 100%;
-  }
-  .af-view .af-class-div-block-33 {
-    position: static;
-    width: 100%;
-  }
-  .af-view .af-class-div-block-34 {
-    position: static;
-    width: 100%;
-  }
-  .af-view .af-class-div-block-35 {
-    position: static;
-    width: 100%;
-  }
   .af-view .af-class-register {
     display: block;
   }
@@ -7516,16 +7559,6 @@
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
-  }
-  .af-view .af-class-grid-101 {
-    grid-row-gap: 40px;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -ms-grid-rows: auto auto auto auto;
-    grid-template-rows: auto auto auto auto;
-  }
-  .af-view .af-class-div-block-53 {
-    position: static;
   }
   .af-view .af-class-div-block-56 {
     width: 100%;
@@ -7555,16 +7588,11 @@
   .af-view .af-class-slide-8 {
     overflow: hidden;
   }
-  .af-view .af-class-div-block-66 {
-    height: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
   .af-view .af-class-image-12 {
     width: 25px;
+  }
+  .af-view .af-class-course-itself {
+    width: 100%;
   }
 }
 
@@ -7779,186 +7807,73 @@
 }
 
 .af-view #w-node-491adb2d6056-30ba94ae {
-  -ms-grid-row: 3;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 3;
-  grid-area: Area-3;
-}
-
-.af-view .af-class-challenge>#w-node-491adb2d6056-30ba94ae {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
+  grid-area: Area-3;
 }
 
 .af-view #w-node-551d7c869d07-30ba94ae {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: Area;
 }
 
-.af-view .af-class-challenge>#w-node-551d7c869d07-30ba94ae {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-}
-
 .af-view #w-node-07c58e7b94c1-30ba94ae {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 2;
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
   grid-area: Area-2;
 }
 
-.af-view .af-class-challenge>#w-node-07c58e7b94c1-30ba94ae {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-}
-
 .af-view #w-node-98622409b3d9-30ba94ae {
-  -ms-grid-row: 3;
-  -ms-grid-column: 5;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: Area-3;
 }
 
-.af-view .af-class-challenge>#w-node-98622409b3d9-30ba94ae {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-}
-
 .af-view #w-node-98622409b3dd-30ba94ae {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: Area;
 }
 
-.af-view .af-class-challenge>#w-node-98622409b3dd-30ba94ae {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-}
-
 .af-view #w-node-98622409b3de-30ba94ae {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 2;
-  grid-area: Area-2;
-}
-
-.af-view .af-class-challenge>#w-node-98622409b3de-30ba94ae {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
+  grid-area: Area-2;
 }
 
 @media screen and (max-width: 767px) {
   .af-view #w-node-491adb2d6056-30ba94ae {
-    -ms-grid-row: 2;
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 3;
-  }
-  .af-view .af-class-challenge>#w-node-491adb2d6056-30ba94ae {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
   }
   .af-view #w-node-551d7c869d07-30ba94ae {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 3;
-  }
-  .af-view .af-class-challenge>#w-node-551d7c869d07-30ba94ae {
     -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
   }
   .af-view #w-node-07c58e7b94c1-30ba94ae {
-    -ms-grid-row: 1;
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 3;
-  }
-  .af-view .af-class-challenge>#w-node-07c58e7b94c1-30ba94ae {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
   }
   .af-view #w-node-98622409b3d9-30ba94ae {
-    -ms-grid-row: 2;
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 3;
-  }
-  .af-view .af-class-challenge>#w-node-98622409b3d9-30ba94ae {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
   }
   .af-view #w-node-98622409b3dd-30ba94ae {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 3;
-  }
-  .af-view .af-class-challenge>#w-node-98622409b3dd-30ba94ae {
     -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
   }
   .af-view #w-node-98622409b3de-30ba94ae {
-    -ms-grid-row: 1;
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 3;
-  }
-  .af-view .af-class-challenge>#w-node-98622409b3de-30ba94ae {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .af-view #w-node-491adb2d6056-30ba94ae {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  .af-view #w-node-551d7c869d07-30ba94ae {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  .af-view #w-node-07c58e7b94c1-30ba94ae {
-    -ms-grid-row: 7;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  .af-view #w-node-98622409b3d9-30ba94ae {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  .af-view #w-node-98622409b3dd-30ba94ae {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  .af-view #w-node-98622409b3de-30ba94ae {
-    -ms-grid-row: 7;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
   }
 }
 
