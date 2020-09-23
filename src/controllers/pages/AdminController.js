@@ -16,15 +16,15 @@ export default class AdminController extends React.Component {
     stateChangeHandler(dataObject) {
         const key = dataObject.name;
         const value = dataObject.value;
-        this.setState({key: value})
+        this.setState({[key]: value})
     }
 
     componentDidMount() {
-        const WEBFLOW_PAGE_ID = '5f49ff0402788436a1bafc64'
-        const WEBFLOW_SITE_ID = '5f1212b6860f150f9f0e6e14'
+        const WEBFLOW_PAGE_ID = '5f49ff0402788436a1bafc64';
+        const WEBFLOW_SITE_ID = '5f1212b6860f150f9f0e6e14';
 
-        var doc = document.getElementsByTagName("html")[0]
-        doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID)
+        var doc = document.getElementsByTagName("html")[0];
+        doc.setAttribute('data-wf-page', WEBFLOW_PAGE_ID);
         doc.setAttribute('data-wf-site', WEBFLOW_SITE_ID)
     };
 
@@ -69,7 +69,7 @@ export default class AdminController extends React.Component {
     }
 
     logout(e){
-        e.preventDefault()
+        e.preventDefault();
         auth.logout(this.props)
     }
 }
