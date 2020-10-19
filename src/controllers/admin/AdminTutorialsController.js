@@ -37,7 +37,6 @@ export default class AdminTutorialsWorkshop extends AdminFormController {
     }
 
     render(){
-        console.log(this.state.data.dummy)
         return(
             <AdminTutorialView>
                 <selector value={this.state.data.name || 'new'} onChange={e => this.onSelectorChange(e)}>

@@ -34,7 +34,6 @@ export default class AdminCoursesController extends AdminFormController {
     }
 
     render(){
-        console.log(this.state)
         return (
             <AdminCoursesView>
                 <info>

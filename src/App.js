@@ -17,6 +17,7 @@ import PortalController from './controllers/pages/PortalController'
 import SubscriptionsController from './controllers/pages/SubscriptionsController'
 import CourseVideoWindowController from "./controllers/portal/windows/CourseVideoWindowController";
 import EmailEditorController from "./controllers/pages/EmailEditorController";
+import EmailsController from "./controllers/pages/EmailsController";
 
 export default function App(props){
 
@@ -73,9 +74,15 @@ export default function App(props){
                 }}        
             />
 
-            <Route ecact path='/emails'
-                   render={() => {
-                        return <EmailEditorController/>
+            <Route exact path='/emails'
+                   render={(props) => {
+                       return <EmailsController {...props} />
+                   }}
+            />
+
+            <Route ecact path='/emails/editor'
+                   render={(props) => {
+                        return <EmailEditorController {...props} />
                    }}
             />
         </Router>
